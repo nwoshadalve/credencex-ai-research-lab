@@ -1,0 +1,186 @@
+@import "tailwindcss";
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Offset for fixed navbar */
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.5);
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(107, 114, 128, 0.7);
+}
+
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Typography */
+body {
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+:root {
+  /* Light Theme - Base Colors */
+  --background: #f8fafb;
+  --foreground: #0f172a;
+  
+  /* Primary Colors - SentinelX Blue */
+  --primary: #0066ff;
+  --primary-light: #4d9eff;
+  --primary-dark: #0052cc;
+  
+  /* Secondary Colors - SentinelX Green */
+  --secondary: #00c853;
+  --secondary-light: #69f0ae;
+  --secondary-dark: #00a844;
+  
+  /* Accent Colors */
+  --accent: #ff6b6b;
+  --success: #00c853;
+  --warning: #ffa500;
+  --error: #ff3333;
+  
+  /* Neutral Colors */
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  
+  /* Glass Morphism - Light Theme */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-bg-secondary: rgba(255, 255, 255, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Theme - Base Colors */
+    --background: #0f172a;
+    --foreground: #f1f5f9;
+    
+    /* Primary Colors - Bright Blue */
+    --primary: #4d9eff;
+    --primary-light: #7bb3ff;
+    --primary-dark: #0066ff;
+    
+    /* Secondary Colors - Bright Green */
+    --secondary: #69f0ae;
+    --secondary-light: #9dffce;
+    --secondary-dark: #00c853;
+    
+    /* Accent Colors */
+    --accent: #ff6b6b;
+    --success: #69f0ae;
+    --warning: #ffb84d;
+    --error: #ff5252;
+    
+    /* Neutral Colors */
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    
+    /* Glass Morphism - Dark Theme */
+    --glass-bg: rgba(15, 23, 42, 0.7);
+    --glass-bg-secondary: rgba(15, 23, 42, 0.5);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Global Styles */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Glass Morphism Utility Classes */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-secondary {
+  background: var(--glass-bg-secondary);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-border {
+  border: 1px solid var(--glass-border);
+}
+
+/* Smooth theme transitions - only for theme-related properties */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Apply theme transitions to specific elements without breaking other animations */
+nav,
+header,
+button,
+a {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+/* Note: Removed global transition rule that was overriding component transitions */
+/* Background Grid Pattern */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
+}
