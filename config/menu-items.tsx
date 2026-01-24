@@ -61,8 +61,8 @@ export const menuItems: MenuItem[] = [
     ],
   },
   {
-    label: 'Blogs',
-    href: '/blogs',
+    label: 'News',
+    href: '/news',
   },
   {
     label: 'Careers',

@@ -41,7 +41,7 @@ export default function HeroSection() {
             {/* Animated Background Elements */}
             <div className="absolute inset-0">
                 {/* Gradient Orbs */}
-                <motion.div 
+                {/* <motion.div 
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1.5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
@@ -58,10 +58,10 @@ export default function HeroSection() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1.5, delay: 1, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
                     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-gray-300/20 dark:bg-white/3 rounded-full blur-3xl"
-                />
+                /> */}
 
                 {/* Floating Data Particles */}
-                {particles && particles.map((p, i) => (
+                {/* {particles && particles.map((p, i) => (
                     <motion.div
                         key={i}
                         className="absolute w-1 h-1 bg-gray-400 dark:bg-gray-500 rounded-full opacity-30"
@@ -82,10 +82,10 @@ export default function HeroSection() {
                             delay: i * 0.5,
                         }}
                     />
-                ))}
+                ))} */}
 
                 {/* Neural Network Lines */}
-                <svg className="absolute inset-0 w-full h-full opacity-20 dark:opacity-10">
+                {/* <svg className="absolute inset-0 w-full h-full opacity-20 dark:opacity-10">
                     <motion.line
                         x1="10%"
                         y1="20%"
@@ -122,10 +122,10 @@ export default function HeroSection() {
                         animate={{ pathLength: 1, opacity: 0.5 }}
                         transition={{ duration: 3, delay: 1, repeat: Infinity, repeatType: "reverse" }}
                     />
-                </svg>
+                </svg> */}
 
                 {/* Binary Code Rain Effect */}
-                {binaryDurations && binaryDurations.map((duration, i) => (
+                {/* {binaryDurations && binaryDurations.map((duration, i) => (
                     <motion.div
                         key={`binary-${i}`}
                         className="absolute text-xs font-mono text-gray-400/20 dark:text-gray-400/30 select-none"
@@ -147,10 +147,10 @@ export default function HeroSection() {
                             <div key={idx} className="leading-6">{bit}</div>
                         ))}
                     </motion.div>
-                ))}
+                ))} */}
 
                 {/* Pulsing Nodes */}
-                {[ 
+                {/* {[ 
                     { top: '15%', left: '10%' },
                     { top: '25%', right: '15%' },
                     { bottom: '20%', left: '20%' },
@@ -172,7 +172,7 @@ export default function HeroSection() {
                             delay: i * 0.5,
                         }}
                     />
-                ))}
+                ))} */}
             </div>
 
             {/* Grid Pattern Overlay */}

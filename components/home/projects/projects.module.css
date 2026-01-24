@@ -1,0 +1,25 @@
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 200%;
+    }
+}
+
+.shimmerEffect {
+    animation: shimmer 2s ease-in-out;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.statusPulse {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
