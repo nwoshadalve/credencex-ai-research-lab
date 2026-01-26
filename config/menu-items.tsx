@@ -28,11 +28,6 @@ export const menuItems: MenuItem[] = [
   {
     label: 'About',
     href: '/about',
-    submenu: [
-      { label: 'Our Mission', href: '/about#mission', icon: <Target size={16} /> },
-      { label: 'Our Story', href: '/about#story', icon: <Info size={16} /> },
-      { label: 'Partners', href: '/about#partners', icon: <Handshake size={16} /> },
-    ],
   },
   {
     label: 'Publications',

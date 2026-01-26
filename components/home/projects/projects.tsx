@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { getFeaturedProjects, ProjectStatus } from '@/config/projects';
 import styles from './projects.module.css';
-import { CheckCircle2, Clock, Calendar, ArrowRight, ExternalLink } from 'lucide-react';
+import { CheckCircle2, Clock, Calendar, Play, ExternalLink } from 'lucide-react';
 import Button from '@/components/common/button';
 
 export default function ProjectsSection() {
@@ -64,9 +64,9 @@ export default function ProjectsSection() {
         <section className="relative py-32 px-6 overflow-hidden bg-linear-to-br from-white via-gray-50 to-slate-100 dark:from-black dark:via-gray-950 dark:to-slate-900">
             {/* Background Decorative Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-40 right-20 w-96 h-96 bg-purple-500/10 dark:bg-purple-500/5 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-40 left-20 w-80 h-80 bg-blue-500/10 dark:bg-blue-500/5 rounded-full blur-3xl"></div>
-                <div className="absolute top-1/3 left-1/3 w-125 h-125 bg-cyan-500/5 dark:bg-cyan-500/3 rounded-full blur-3xl"></div>
+                <div className="absolute top-40 right-20 w-96 h-96 bg-purple-500/10 dark:bg-purple-500/10 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-40 left-20 w-80 h-80 bg-blue-500/10 dark:bg-blue-500/10 rounded-full blur-3xl"></div>
+                <div className="absolute top-1/3 left-1/3 w-125 h-125 bg-cyan-500/5 dark:bg-cyan-500/8 rounded-full blur-3xl"></div>
             </div>
 
             {/* Grid Pattern Overlay */}
@@ -226,7 +226,7 @@ export default function ProjectsSection() {
                         href="/projects" 
                         variant="glass" 
                         size="lg"
-                        icon={ArrowRight}
+                        icon={Play}
                         iconPosition="right"
                     >
                         View All Projects
