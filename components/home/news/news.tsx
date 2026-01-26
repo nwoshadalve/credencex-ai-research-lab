@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Clock, ChevronDown, ChevronUp, Play } from 'lucide-react';
-import { getLatestNews, formatNewsDate, newsTypeConfig } from '@/config/news';
+import { getLatestNews, formatNewsDate, newsTypeConfig } from '@/config/home/news';
 import Button from '@/components/common/button';
 import styles from './news.module.css';
 

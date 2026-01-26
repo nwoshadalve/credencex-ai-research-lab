@@ -1,9 +1,10 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ExternalLink, Users, Play } from 'lucide-react';
-import { getFeaturedPublications, statusConfig, typeConfig, Publication } from '@/config/publications';
+import { getFeaturedPublications, statusConfig, typeConfig, Publication } from '@/config/home/publications';
 import Button from '@/components/common/button';
 import styles from './publications.module.css';
 
@@ -96,15 +97,16 @@ export default function Publications() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="flex justify-center mt-12"
         >
-          <Button
-            variant="glass"
-            size="lg"
-            icon={Play}
-            iconPosition="right"
-            onClick={() => window.open('/publications', '_self')}
-          >
-            View All Research
-          </Button>
+          <Link href="/publications?type=all">
+            <Button
+              variant="glass"
+              size="lg"
+              icon={Play}
+              iconPosition="right"
+            >
+              View All Research
+            </Button>
+          </Link>
         </motion.div>
       </div>
     </section>
@@ -130,7 +132,7 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ publication, index, c
       <div className="relative h-full bg-white/60 dark:bg-gray-900/60 backdrop-blur-xl rounded-2xl border border-gray-200/50 dark:border-gray-700/50 hover:border-gray-300/70 dark:hover:border-gray-600/70 p-6 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col">
         
         {/* Floating decorative element */}
-        <div className={`absolute -top-6 -right-6 w-32 h-32 bg-linear-to-br from-indigo-500/20 to-pink-500/20 dark:from-indigo-500/30 dark:to-pink-500/30 rounded-full blur-2xl ${styles.floatEffect}`} style={{ animationDelay: `${index * 0.5}s` }} />
+        <div className={`absolute -top-6 -right-6 w-32 h-32 bg-indigo-500/10 dark:bg-indigo-500/20 rounded-full blur-2xl ${styles.floatEffect}`} style={{ animationDelay: `${index * 0.5}s` }} />
 
         <div className="relative z-10 flex flex-col flex-1">
           {/* Top Row: Type and Status Badges */}
@@ -174,7 +176,7 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ publication, index, c
           </div>
 
           {/* Venue */}
-          <div className="mb-3 px-3 py-1.5 bg-linear-to-r from-indigo-100/90 to-pink-100/90 dark:from-indigo-900/40 dark:to-pink-900/40 rounded-lg border border-indigo-300/60 dark:border-indigo-700/60">
+          <div className="mb-3 px-3 py-1.5 bg-indigo-50 dark:bg-indigo-950/50 rounded-lg border border-indigo-200/60 dark:border-indigo-800/60">
             <p className="text-xs font-semibold text-indigo-900 dark:text-indigo-200 line-clamp-2">
               {publication.venue}
             </p>

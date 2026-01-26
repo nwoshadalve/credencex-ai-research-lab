@@ -12,7 +12,7 @@ import {
   Youtube,
   ChevronRight
 } from 'lucide-react';
-import { footerLinks } from '@/config/footer-links';
+import { footerLinks } from '@/config/common/footer-links';
 import { motion } from 'framer-motion';
 
 export default function Footer() {

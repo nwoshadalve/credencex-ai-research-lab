@@ -4,16 +4,15 @@ import { motion } from 'framer-motion';
 import { researchAreas } from '@/config/about/research-areas';
 import styles from './research-area.module.css';
 
-export default function ResearchAreaSection() {
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.1
-            }
-        }
+export default function ResearchArea() {
+    const fadeInUp = {
+        initial: { opacity: 0, y: 30 },
+        animate: { opacity: 1, y: 0 }
+    };
+
+    const staggerContainer = {
+        initial: {},
+        animate: { transition: { staggerChildren: 0.08 } }
     };
 
     const getCardVariants = {
@@ -42,45 +41,77 @@ export default function ResearchAreaSection() {
     };
 
     return (
-        <section className="relative py-32 px-6 overflow-hidden bg-linear-to-br from-gray-50 via-white to-slate-50 dark:from-gray-950 dark:via-black dark:to-slate-950">
-            {/* Background Decorative Elements */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 dark:bg-blue-500/5 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 dark:bg-purple-500/5 rounded-full blur-3xl"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-cyan-500/5 dark:bg-cyan-500/3 rounded-full blur-3xl"></div>
+        <section className="relative py-20 lg:py-28 overflow-hidden bg-linear-to-br from-slate-50 via-white to-gray-50 dark:from-slate-950 dark:via-black dark:to-gray-950">
+            {/* Background Elements */}
+            <div className="absolute inset-0 overflow-hidden">
+                {/* Gradient Orbs */}
+                <div className="absolute top-0 -left-40 w-96 h-96 bg-linear-to-br from-blue-100/30 via-cyan-100/20 to-transparent dark:from-blue-900/20 dark:via-cyan-900/10 rounded-full blur-3xl" />
+                <div className="absolute bottom-0 -right-40 w-96 h-96 bg-linear-to-bl from-purple-100/30 via-indigo-100/20 to-transparent dark:from-purple-900/20 dark:via-indigo-900/10 rounded-full blur-3xl" />
+                
+                {/* Dot Pattern */}
+                <div className="absolute inset-0 opacity-20 dark:opacity-10">
+                    <svg width="100%" height="100%">
+                        <defs>
+                            <pattern id="research-dots" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+                                <circle cx="2" cy="2" r="1" fill="currentColor" className="text-gray-400 dark:text-gray-600" />
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#research-dots)" />
+                    </svg>
+                </div>
             </div>
 
-            {/* Grid Pattern Overlay */}
-            <div className="absolute inset-0 bg-grid-pattern opacity-30"></div>
-
-            <div className="relative max-w-7xl mx-auto">
+            {/* Content */}
+            <div className="relative z-10 max-w-7xl mx-auto px-6">
                 {/* Section Header */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial="initial"
+                    whileInView="animate"
                     viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8 }}
+                    variants={staggerContainer}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-                        Core Research Areas at <span className="text-blue-600 dark:text-blue-400">SentinelX</span>
-                    </h2>
-                    
-                    <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                    {/* Badge */}
+                    <motion.div 
+                        variants={fadeInUp}
+                        className="flex justify-center mb-6"
+                    >
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 dark:bg-gray-900/60 backdrop-blur-2xl border border-gray-200/60 dark:border-white/20 shadow-lg">
+                            <div className="w-1.5 h-1.5 rounded-full bg-linear-to-r from-blue-500 to-cyan-500 shadow-sm shadow-blue-500/50" />
+                            <span className="text-sm font-medium text-gray-800 dark:text-gray-200">
+                                Research Areas
+                            </span>
+                        </div>
+                    </motion.div>
+
+                    {/* Title */}
+                    <motion.h2 
+                        variants={fadeInUp}
+                        className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900 dark:text-white"
+                    >
+                        Core Research Areas
+                    </motion.h2>
+
+                    {/* Description */}
+                    <motion.p 
+                        variants={fadeInUp}
+                        className="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto"
+                    >
                         Exploring cutting-edge technologies to build safer, smarter, and more trustworthy AI systems for tomorrow
-                    </p>
+                    </motion.p>
                 </motion.div>
 
-                {/* Research Cards Grid */}
+                {/* Research Grid */}
                 <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true, margin: "-50px" }}
+                    variants={staggerContainer}
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
                 >
                     {researchAreas.map((area, index) => {
                         const Icon = area.icon;
+                        
                         return (
                             <motion.div
                                 key={area.id}

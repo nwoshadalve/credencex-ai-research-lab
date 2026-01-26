@@ -1,7 +1,8 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { getFeaturedProjects, ProjectStatus } from '@/config/projects';
+import { getFeaturedProjects, ProjectStatus } from '@/config/home/projects';
 import styles from './projects.module.css';
 import { CheckCircle2, Clock, Calendar, Play, ExternalLink } from 'lucide-react';
 import Button from '@/components/common/button';
@@ -186,7 +187,9 @@ export default function ProjectsSection() {
                                             )}
                                             
                                             {/* View Project Button - Hero Style */}
-                                            <button className="group/btn relative inline-flex items-center justify-center gap-2 px-4 md:px-5 py-2 md:py-2.5 bg-white/70 dark:bg-black/70 backdrop-blur-2xl border border-gray-300/50 dark:border-white/30 hover:border-gray-400/70 dark:hover:border-white/50 active:border-gray-400/70 dark:active:border-white/50 text-gray-900 dark:text-white font-semibold rounded-xl shadow-lg shadow-gray-400/20 dark:shadow-black/40 hover:shadow-xl hover:shadow-gray-500/30 dark:hover:shadow-black/60 active:shadow-xl active:shadow-gray-500/30 dark:active:shadow-black/60 transition-all duration-300 overflow-hidden shrink-0 w-full sm:w-auto cursor-pointer">
+                                            <button 
+                                                onClick={() => project.projectLink && window.open(project.projectLink, '_blank')}
+                                                className="group/btn relative inline-flex items-center justify-center gap-2 px-4 md:px-5 py-2 md:py-2.5 bg-white/70 dark:bg-black/70 backdrop-blur-2xl border border-gray-300/50 dark:border-white/30 hover:border-gray-400/70 dark:hover:border-white/50 active:border-gray-400/70 dark:active:border-white/50 text-gray-900 dark:text-white font-semibold rounded-xl shadow-lg shadow-gray-400/20 dark:shadow-black/40 hover:shadow-xl hover:shadow-gray-500/30 dark:hover:shadow-black/60 active:shadow-xl active:shadow-gray-500/30 dark:active:shadow-black/60 transition-all duration-300 overflow-hidden shrink-0 w-full sm:w-auto cursor-pointer">
                                                 {/* Glass shimmer effect */}
                                                 <div className="absolute inset-0 bg-linear-to-r from-transparent via-gray-300/40 dark:via-white/10 to-transparent -translate-x-full group-hover/btn:translate-x-full group-active/btn:translate-x-full transition-transform duration-700"></div>
                                                 
@@ -222,15 +225,16 @@ export default function ProjectsSection() {
                     transition={{ duration: 0.8, delay: 0.3 }}
                     className="flex justify-center mt-16"
                 >
-                    <Button 
-                        href="/projects" 
-                        variant="glass" 
-                        size="lg"
-                        icon={Play}
-                        iconPosition="right"
-                    >
-                        View All Projects
-                    </Button>
+                    <Link href="/projects?type=all">
+                        <Button 
+                            variant="glass" 
+                            size="lg"
+                            icon={Play}
+                            iconPosition="right"
+                        >
+                            View All Projects
+                        </Button>
+                    </Link>
                 </motion.div>
             </div>
         </section>

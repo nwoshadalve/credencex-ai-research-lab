@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { Play } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { heroContent } from '@/config/hero-content';
+import { heroContent } from '@/config/home/hero-content';
 
 export default function HeroSection() {
     const fadeInUp = {

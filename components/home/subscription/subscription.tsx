@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Send, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
-import { subscriptionContent } from '@/config/subscription';
+import { subscriptionContent } from '@/config/home/subscription';
 import styles from './subscription.module.css';
 
 const Subscription = () => {

@@ -5,7 +5,7 @@ import { ThemeProvider } from "next-themes";
 import NavDesktop from "@/components/nav/nav-desktop";
 import NavMobile from "@/components/nav/nav-mobile";
 import Footer from "@/components/footer/footer";
-import { menuItems } from "@/config/menu-items";
+import { menuItems } from "@/config/common/menu-items";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-heading",
