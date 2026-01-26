@@ -7,10 +7,13 @@ import {
   FolderKanban,
   UserCircle,
   FolderOpen,
-  Calendar
+  Calendar,
+  Code2
 } from "lucide-react";
 import { publications } from "@/config/home/publications";
 import { projects } from "@/config/home/projects";
+import { researchTeam } from "@/config/teams/research-team";
+import { developmentTeam } from "@/config/teams/development-team";
 
 // Calculate publication counts
 const totalCount = publications.length;
@@ -22,6 +25,10 @@ const totalProjects = projects.length;
 const activeProjects = projects.filter(p => p.status === 'in-progress').length;
 const completedProjects = projects.filter(p => p.status === 'completed').length;
 const plannedProjects = projects.filter(p => p.status === 'planned').length;
+
+// Calculate team counts
+const researchTeamCount = researchTeam.length;
+const developmentTeamCount = developmentTeam.length;
 
 export interface MenuItem {
   label: string;
@@ -63,8 +70,8 @@ export const menuItems: MenuItem[] = [
     label: 'Teams',
     href: '/teams',
     submenu: [
-      { label: 'Research Team', href: '/teams#research', icon: <UserCircle size={16} /> },
-      { label: 'Development Team', href: '/teams#development', icon: <Users size={16} /> },
+      { label: `Research Team (${researchTeamCount})`, href: '/teams?type=research', icon: <UserCircle size={16} /> },
+      { label: `Development Team (${developmentTeamCount})`, href: '/teams?type=development', icon: <Code2 size={16} /> },
     ],
   },
   {

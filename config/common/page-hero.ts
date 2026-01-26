@@ -186,5 +186,44 @@ export const pageHeroContent: Record<string, PageHeroContent> = {
       via: "via-pink-50",
       to: "to-rose-50"
     }
+  },
+  researchTeam: {
+    badge: {
+      text: "Research Team"
+    },
+    title: "Meet Our World-Class Research Team",
+    subtitle: "Leading Experts Advancing AI Research",
+    description: "Our research team consists of distinguished scientists and researchers pushing the boundaries of artificial intelligence across multiple domains.",
+    backgroundGradient: {
+      from: "from-blue-50",
+      via: "via-cyan-50",
+      to: "to-teal-50"
+    }
+  },
+  developmentTeam: {
+    badge: {
+      text: "Development Team"
+    },
+    title: "Our Expert Development Team",
+    subtitle: "Building the Future of AI Applications",
+    description: "Our development team transforms cutting-edge research into production-ready AI systems that make a real-world impact.",
+    backgroundGradient: {
+      from: "from-cyan-50",
+      via: "via-teal-50",
+      to: "to-emerald-50"
+    }
+  },
+  news: {
+    badge: {
+      text: "Latest News"
+    },
+    title: "Stay Updated with SentinelX",
+    subtitle: "Latest News, Achievements & Announcements",
+    description: "Explore our latest achievements, research breakthroughs, partnerships, and announcements from the SentinelX AI Research Lab.",
+    backgroundGradient: {
+      from: "from-indigo-50",
+      via: "via-purple-50",
+      to: "to-pink-50"
+    }
   }
 };

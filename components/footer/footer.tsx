@@ -6,9 +6,9 @@ import {
   Mail, 
   MapPin, 
   Phone, 
-  Linkedin, 
-  Twitter, 
-  Github, 
+  Linkedin as LinkedinIcon, 
+  X, 
+  Github as GithubIcon, 
   Youtube,
   ChevronRight
 } from 'lucide-react';
@@ -19,9 +19,9 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: <Linkedin size={20} />, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: <Twitter size={20} />, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: <Github size={20} />, href: 'https://github.com', label: 'GitHub' },
+    { icon: <LinkedinIcon size={20} />, href: 'https://linkedin.com', label: 'LinkedIn' },
+    { icon: <X size={20} />, href: 'https://x.com', label: 'X' },
+    { icon: <GithubIcon size={20} />, href: 'https://github.com', label: 'GitHub' },
     { icon: <Youtube size={20} />, href: 'https://youtube.com', label: 'YouTube' },
   ];
 
@@ -58,57 +58,80 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-white/90 dark:bg-slate-900/80 backdrop-blur-xl border-t border-gray-200/70 dark:border-white/10">
-      <div className="max-w-7xl mx-auto px-6 py-12 lg:py-16">
-        {/* Top Section */}
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12 mb-12"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-        >
-          {/* Brand Section */}
-          <motion.div className="lg:col-span-2" variants={itemVariants}>
-            <Link href="/" className="inline-block mb-4">
-              <Image
-                src="/logo.png"
-                alt="SentinelX AI Research Lab"
-                width={160}
-                height={60}
-                className="h-12 w-auto"
-              />
-            </Link>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-              Pioneering research in high-stakes AI applications. Building intelligent systems that make a difference.
-            </p>
-            
-            {/* Contact Info */}
-            <div className="space-y-3">
-              <a 
-                href="mailto:info@sentinelx-ai.com" 
-                className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group"
-              >
-                <Mail size={16} className="text-gray-400 group-hover:text-blue-500" />
-                <span>info@sentinelx-ai.com</span>
-              </a>
-              <a 
-                href="tel:+1234567890" 
-                className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group"
-              >
-                <Phone size={16} className="text-gray-400 group-hover:text-blue-500" />
-                <span>+1 (234) 567-890</span>
-              </a>
-              <div className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
-                <MapPin size={16} className="text-gray-400 mt-0.5 shrink-0" />
-                <span>123 AI Research Blvd<br />Innovation District, CA 94000</span>
-              </div>
-            </div>
-          </motion.div>
+    <footer className="relative overflow-hidden bg-linear-to-br from-gray-50 via-white to-slate-50 dark:from-gray-950 dark:via-black dark:to-slate-950">
+      {/* Background Decorative Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-blue-500/10 dark:bg-blue-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute -top-20 -right-20 w-96 h-96 bg-purple-500/10 dark:bg-purple-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/2 left-1/2 w-96 h-96 bg-indigo-500/5 dark:bg-indigo-500/3 rounded-full blur-3xl"></div>
+      </div>
+
+      {/* Grid Pattern Overlay */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
+
+      <div className="relative w-full">
+        {/* Glass Container */}
+        <div className="relative bg-white/70 dark:bg-gray-900/70 backdrop-blur-2xl border-t border-b border-white/40 dark:border-gray-700/40 shadow-2xl shadow-black/5 dark:shadow-black/40 overflow-hidden">
+          {/* Subtle Inner Glow */}
+          <div className="absolute inset-0 bg-linear-to-br from-white/50 via-transparent to-transparent dark:from-white/5 pointer-events-none"></div>
+          
+          <div className="relative max-w-7xl mx-auto px-6 py-16 lg:py-20">
+            {/* Top Section */}
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12 mb-10"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              {/* Brand Section */}
+              <motion.div className="lg:col-span-2" variants={itemVariants}>
+                <Link href="/" className="inline-block mb-6 group">
+                  <Image
+                    src="/logo.png"
+                    alt="SentinelX AI Research Lab"
+                    width={160}
+                    height={60}
+                    className="h-12 w-auto transition-transform group-hover:scale-105"
+                  />
+                </Link>
+                <p className="text-sm text-gray-700 dark:text-gray-300 mb-6 leading-relaxed font-medium">
+                  Pioneering research in high-stakes AI applications. Building intelligent systems that make a difference.
+                </p>
+                
+                {/* Contact Info */}
+                <div className="space-y-3">
+                  <a 
+                    href="mailto:info@sentinelx-ai.com" 
+                    className="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 group"
+                  >
+                    <div className="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-500/10 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-500/20 transition-colors">
+                      <Mail size={16} className="text-indigo-600 dark:text-indigo-400" />
+                    </div>
+                    <span className="font-medium">info@sentinelx-ai.com</span>
+                  </a>
+                  <a 
+                    href="tel:+1234567890" 
+                    className="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 group"
+                  >
+                    <div className="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-500/10 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-500/20 transition-colors">
+                      <Phone size={16} className="text-indigo-600 dark:text-indigo-400" />
+                    </div>
+                    <span className="font-medium">+1 (234) 567-890</span>
+                  </a>
+                  <div className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
+                    <div className="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-500/10 shrink-0">
+                      <MapPin size={16} className="text-indigo-600 dark:text-indigo-400" />
+                    </div>
+                    <span className="font-medium leading-relaxed">123 AI Research Blvd<br />Innovation District, CA 94000</span>
+                  </div>
+                </div>
+              </motion.div>
 
           {/* Company Links */}
           <motion.div variants={itemVariants}>
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 uppercase tracking-wider">
+            <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-5 uppercase tracking-wider flex items-center gap-2">
+              <div className="w-1 h-4 bg-linear-to-b from-indigo-500 to-purple-500 rounded-full"></div>
               Company
             </h3>
             <ul className="space-y-3">
@@ -116,9 +139,9 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1 group"
+                    className="text-sm text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 flex items-center gap-2 group font-medium"
                   >
-                    <ChevronRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                    <ChevronRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all text-indigo-500" />
                     <span>{link.label}</span>
                   </Link>
                 </li>
@@ -128,7 +151,8 @@ export default function Footer() {
 
           {/* Research Links */}
           <motion.div variants={itemVariants}>
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 uppercase tracking-wider">
+            <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-5 uppercase tracking-wider flex items-center gap-2">
+              <div className="w-1 h-4 bg-linear-to-b from-indigo-500 to-purple-500 rounded-full"></div>
               Research
             </h3>
             <ul className="space-y-3">
@@ -136,9 +160,9 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1 group"
+                    className="text-sm text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 flex items-center gap-2 group font-medium"
                   >
-                    <ChevronRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                    <ChevronRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all text-indigo-500" />
                     <span>{link.label}</span>
                   </Link>
                 </li>
@@ -148,7 +172,8 @@ export default function Footer() {
 
           {/* Resources Links */}
           <motion.div variants={itemVariants}>
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 uppercase tracking-wider">
+            <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-5 uppercase tracking-wider flex items-center gap-2">
+              <div className="w-1 h-4 bg-linear-to-b from-indigo-500 to-purple-500 rounded-full"></div>
               Resources
             </h3>
             <ul className="space-y-3">
@@ -156,9 +181,9 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1 group"
+                    className="text-sm text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 flex items-center gap-2 group font-medium"
                   >
-                    <ChevronRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                    <ChevronRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all text-indigo-500" />
                     <span>{link.label}</span>
                   </Link>
                 </li>
@@ -168,7 +193,8 @@ export default function Footer() {
 
           {/* Legal Links */}
           <motion.div variants={itemVariants}>
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 uppercase tracking-wider">
+            <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-5 uppercase tracking-wider flex items-center gap-2">
+              <div className="w-1 h-4 bg-linear-to-b from-indigo-500 to-purple-500 rounded-full"></div>
               Legal
             </h3>
             <ul className="space-y-3">
@@ -176,9 +202,9 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1 group"
+                    className="text-sm text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 flex items-center gap-2 group font-medium"
                   >
-                    <ChevronRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                    <ChevronRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all text-indigo-500" />
                     <span>{link.label}</span>
                   </Link>
                 </li>
@@ -187,9 +213,9 @@ export default function Footer() {
           </motion.div>
         </motion.div>
 
-        {/* Divider */}
+        {/* Divider with Gradient */}
         <motion.div 
-          className="border-t border-gray-200/70 dark:border-white/10 pt-8"
+          className="border-t border-gray-200/50 dark:border-gray-700/50 pt-8"
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
@@ -204,13 +230,12 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl border border-gray-200/70 dark:border-white/10 bg-white/50 dark:bg-slate-800/50 hover:bg-blue-50 dark:hover:bg-blue-500/10 hover:border-blue-300 dark:hover:border-blue-500/50 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 group"
+                  className="p-3 rounded-xl bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-gray-200/50 dark:border-gray-600/50 hover:bg-linear-to-r hover:from-indigo-500/90 hover:to-purple-500/90 hover:border-indigo-500/50 text-gray-700 dark:text-gray-300 hover:text-white transition-all duration-300 group hover:scale-110 hover:shadow-lg hover:shadow-indigo-500/20"
                   aria-label={social.label}
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   {social.icon}
@@ -219,11 +244,16 @@ export default function Footer() {
             </div>
 
             {/* Copyright */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-gray-600 dark:text-gray-400">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-gray-700 dark:text-gray-300 font-medium">
               <p>© {currentYear} SentinelX AI Research Lab. All rights reserved.</p>
             </div>
           </div>
         </motion.div>
+          </div>
+
+          {/* Bottom Shine Effect */}
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-white/50 dark:via-white/10 to-transparent"></div>
+        </div>
       </div>
     </footer>
   );
