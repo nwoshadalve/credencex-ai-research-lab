@@ -34,7 +34,7 @@ export const researchTeam: TeamMember[] = [
     name: "Rezaul Haque",
     role: "Founder & Co-Founder",
     position: "Founder & Research Lead (Trustworthy Medical AI, Multimodal Fusion, XAI)",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "redzaulh603@gmail.com",
     avatar: "/team/rezaul-haque.jpg",
     socialLinks: {
@@ -51,7 +51,7 @@ export const researchTeam: TeamMember[] = [
     name: "Md. Redwan Ahmed",
     role: "Founder & Co-Founder",
     position: "Co-Founder & Research Lead (Multimodal Learning, Clinical AI, Deployment)",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "redrik278@gmail.com",
     avatar: "/teams/Redwan.jpg",
     socialLinks: {
@@ -72,7 +72,7 @@ export const researchTeam: TeamMember[] = [
     name: "Prof. Dr. Mohammad Ali Moni",
     role: "Supervisor",
     position: "Supervisor / Advisor",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "",
     avatar: "/team/placeholder.jpg",
     socialLinks: {
@@ -85,7 +85,7 @@ export const researchTeam: TeamMember[] = [
     name: "Prof. Dr. Nazmul Siddique",
     role: "Research Consultant",
     position: "Supervisor / Advisor",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "",
     avatar: "/teams/siddique.jpeg",
     socialLinks: {
@@ -98,7 +98,7 @@ export const researchTeam: TeamMember[] = [
     name: "Prof. Dr. Young-Im Cho",
     role: "Supervisor",
     position: "Supervisor / Advisor",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "",
     avatar: "/team/placeholder.jpg",
     socialLinks: {
@@ -112,7 +112,7 @@ export const researchTeam: TeamMember[] = [
     name: "Prof. Dr. M. Ali Akber Dewan",
     role: "Supervisor",
     position: "Supervisor / Advisor",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "",
     avatar: "/team/placeholder.jpg",
     socialLinks: {
@@ -126,7 +126,7 @@ export const researchTeam: TeamMember[] = [
     name: "Prof. Dr. Fakir Mashuque Alamgir",
     role: "Supervisor",
     position: "Supervisor / Advisor",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "fma@ewubd.edu",
     avatar: "/teams/mashuque.jpeg",
     socialLinks: {
@@ -139,7 +139,7 @@ export const researchTeam: TeamMember[] = [
     name: "Prof. Dr. Ahmed Wasif Reza",
     role: "Supervisor",
     position: "Supervisor / Advisor",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "wasif@ewubd.edu",
     avatar: "/teams/wasif.jpg",
     socialLinks: {
@@ -153,7 +153,7 @@ export const researchTeam: TeamMember[] = [
     name: "Prof. Dr. Abhishek Appaji",
     role: "Supervisor",
     position: "Supervisor / Advisor",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "",
     avatar: "/teams/appaji.jpeg",
     socialLinks: {
@@ -166,7 +166,7 @@ export const researchTeam: TeamMember[] = [
     name: "Prof. Dr. Md Junayed Hasan",
     role: "Supervisor",
     position: "Supervisor / Advisor",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "",
     avatar: "/teams/junayed.jpeg",
     socialLinks: {
@@ -180,7 +180,7 @@ export const researchTeam: TeamMember[] = [
     name: "Prof. Dr. Shamim Hasnat Ripon",
     role: "Supervisor",
     position: "Supervisor / Advisor",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "",
     avatar: "/team/placeholder.jpg",
     socialLinks: {
@@ -194,7 +194,7 @@ export const researchTeam: TeamMember[] = [
     name: "Prof. Dr. Mohamed S. Abdallah",
     role: "Supervisor",
     position: "Supervisor / Advisor",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "",
     avatar: "/team/placeholder.jpg",
     socialLinks: {
@@ -212,7 +212,7 @@ export const researchTeam: TeamMember[] = [
     name: "S M Masfequier Rahman Swapno",
     role: "Lead Researcher",
     position: "Lead Researcher (Explainable Transformers & Applied Vision)",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "",
     avatar: "/teams/mashfiq.jpeg",
     socialLinks: {
@@ -226,7 +226,7 @@ export const researchTeam: TeamMember[] = [
     name: "Ferdaus Ibne Aziz",
     role: "Lead Researcher",
     position: "Lead Researcher",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "",
     avatar: "/team/placeholder.jpg",
     socialLinks: {
@@ -240,7 +240,7 @@ export const researchTeam: TeamMember[] = [
     name: "Shafiur Rahman",
     role: "Lead Researcher",
     position: "Lead Researcher",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "",
     avatar: "/teams/shafiur.jpg",
     socialLinks: {
@@ -254,7 +254,7 @@ export const researchTeam: TeamMember[] = [
     name: "Md Ismail Hossain Siddiqui",
     role: "Lead Researcher",
     position: "Lead Researcher (Medical Image Intelligence & XAI)",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "",
     avatar: "/team/placeholder.jpg",
     socialLinks: {
@@ -268,7 +268,7 @@ export const researchTeam: TeamMember[] = [
     name: "Anamul Haque Sakib",
     role: "Lead Researcher",
     position: "Lead Researcher (Multimodal Fusion & Efficient Models)",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "",
     avatar: "/team/placeholder.jpg",
     socialLinks: {
@@ -286,7 +286,7 @@ export const researchTeam: TeamMember[] = [
     name: "Arafath Bin Mohiuddin",
     role: "Researcher",
     position: "Researcher",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "",
     avatar: "/team/placeholder.jpg",
     socialLinks: {
@@ -300,7 +300,7 @@ export const researchTeam: TeamMember[] = [
     name: "Hamdadur Rahman",
     role: "Researcher",
     position: "Researcher (Medical Imaging & Explainable AI)",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "",
     avatar: "/team/placeholder.jpg",
     socialLinks: {
@@ -314,7 +314,7 @@ export const researchTeam: TeamMember[] = [
     name: "Abdullah Al Noman",
     role: "Researcher",
     position: "Researcher",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "",
     avatar: "/team/placeholder.jpg",
     socialLinks: {
@@ -328,7 +328,7 @@ export const researchTeam: TeamMember[] = [
     name: "Hasib Fardin",
     role: "Researcher",
     position: "Researcher",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "",
     avatar: "/team/placeholder.jpg",
     socialLinks: {
@@ -346,7 +346,7 @@ export const researchTeam: TeamMember[] = [
     name: "Amira Hossain",
     role: "Research Assistant",
     position: "Research Assistant",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "",
     avatar: "/team/placeholder.jpg",
     socialLinks: {
@@ -360,7 +360,7 @@ export const researchTeam: TeamMember[] = [
     name: "Jesika Debnath",
     role: "Research Assistant",
     position: "Research Assistant",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "",
     avatar: "/team/placeholder.jpg",
     socialLinks: {
@@ -374,7 +374,7 @@ export const researchTeam: TeamMember[] = [
     name: "Zishad Hossain Limon",
     role: "Research Assistant",
     position: "Research Assistant",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "",
     avatar: "/team/placeholder.jpg",
     socialLinks: {
@@ -388,7 +388,7 @@ export const researchTeam: TeamMember[] = [
     name: "S M Arafat Rahman",
     role: "Research Assistant",
     position: "Research Assistant",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "smarafat233@gmail.com",
     avatar: "/teams/arafat.jpg",
     socialLinks: {
@@ -402,7 +402,7 @@ export const researchTeam: TeamMember[] = [
     name: "Sheikh Shemanto Afridi",
     role: "Research Assistant",
     position: "Research Assistant",
-    institute: "SentinelX AI Research Lab",
+    institute: "CredenceX AI Research Lab",
     email: "sheikhshemantoafridi@gmail.com",
     avatar: "/teams/afridi.jpg",
     socialLinks: {

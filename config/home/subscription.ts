@@ -19,7 +19,7 @@ export interface SubscriptionBenefit {
 }
 
 export const subscriptionContent: SubscriptionConfig = {
-  title: "Stay Updated with SentinelX",
+  title: "Stay Updated with CredenceX",
   subtitle: "Join Our Research Community",
   description: "Subscribe to receive the latest research updates, breakthrough discoveries, and exclusive insights from our AI research lab.",
   inputPlaceholder: "Enter your email address",

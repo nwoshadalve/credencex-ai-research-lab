@@ -18,7 +18,7 @@ export interface CoreValuesContent {
 export const coreValuesContent: CoreValuesContent = {
   badge: "Core Values",
   title: "The Values That Define Us",
-  description: "Our core values are the foundation of everything we do at SentinelX AI Research Lab. They guide our decisions, shape our culture, and define how we approach every challenge and opportunity.",
+  description: "Our core values are the foundation of everything we do at CredenceX AI Research Lab. They guide our decisions, shape our culture, and define how we approach every challenge and opportunity.",
   values: [
     {
       id: "integrity",

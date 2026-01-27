@@ -17,7 +17,7 @@ export const missionVisionContent: MissionVisionContent = {
   mission: {
     badge: "Our Mission",
     title: "Advancing AI for a Better Tomorrow",
-    description: "At SentinelX AI Research Lab, we are dedicated to pushing the boundaries of artificial intelligence while maintaining the highest standards of ethics, transparency, and social responsibility. Our mission is to create AI systems that are not only powerful and innovative but also safe, fair, and aligned with human values.",
+    description: "At CredenceX AI Research Lab, we are dedicated to pushing the boundaries of artificial intelligence while maintaining the highest standards of ethics, transparency, and social responsibility. Our mission is to create AI systems that are not only powerful and innovative but also safe, fair, and aligned with human values.",
     highlights: [
       "Pioneer groundbreaking AI technologies that solve complex real-world problems",
       "Develop robust, reliable, and secure AI systems with safety at the core",

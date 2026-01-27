@@ -19,13 +19,14 @@ export default function TeamMemberCard({ member, isResearch }: TeamMemberCardPro
       <div className="relative z-10 p-6 flex flex-col h-full">
         {/* Avatar */}
         <div className="mb-4 flex justify-center">
-          <div className="relative w-24 h-24 rounded-2xl overflow-hidden bg-linear-to-br from-blue-500/20 to-purple-500/20 group-hover:scale-105 group-active:scale-105 transition-transform duration-300 flex items-center justify-center">
+          <div className="relative w-24 h-24 aspect-square rounded-2xl overflow-hidden bg-linear-to-br from-blue-500/20 to-purple-500/20 group-hover:scale-105 group-active:scale-105 transition-transform duration-300 flex items-center justify-center">
             {!imageError ? (
               <Image
                 src={member.avatar}
                 alt={member.name}
-                fill
-                className="object-cover"
+                width={96}
+                height={96}
+                className="w-full h-full object-cover object-top scale-110"
                 onError={() => setImageError(true)}
               />
             ) : (
@@ -38,13 +39,6 @@ export default function TeamMemberCard({ member, isResearch }: TeamMemberCardPro
         <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 text-center mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-active:text-blue-600 dark:group-active:text-blue-400 transition-colors duration-300">
           {member.name}
         </h3>
-
-        {/* Role */}
-        <div className="mb-2 text-center">
-          <span className="inline-block px-3 py-1 rounded-lg bg-blue-500/10 dark:bg-blue-500/20 text-blue-700 dark:text-blue-300 text-xs font-semibold border border-blue-500/30">
-            {member.role}
-          </span>
-        </div>
 
         {/* Position */}
         <p className="text-sm text-gray-700 dark:text-gray-300 text-center mb-2 font-medium">

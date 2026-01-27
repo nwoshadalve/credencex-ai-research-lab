@@ -35,7 +35,7 @@ export const philosophyContent: PhilosophyContent = {
   philosophy: {
     title: "Our Philosophy",
     content: [
-      "At SentinelX AI Research Lab, we believe that artificial intelligence should be a force for good—developed with transparency, accountability, and a deep respect for human values. Our philosophy is rooted in the conviction that technology must serve humanity, not the other way around.",
+      "At CredenceX AI Research Lab, we believe that artificial intelligence should be a force for good—developed with transparency, accountability, and a deep respect for human values. Our philosophy is rooted in the conviction that technology must serve humanity, not the other way around.",
       "We are committed to creating AI systems that not only push technological boundaries but also uphold the highest ethical standards. Every line of code we write, every model we train, and every system we deploy is guided by our unwavering commitment to responsible innovation.",
       "Human-centered design is at the core of everything we do. We place people at the heart of our research, ensuring that AI systems enhance human capabilities rather than replace them. Our approach is collaborative, inclusive, and focused on building solutions that truly make a difference in people's lives.",
       "We believe in the power of open collaboration and knowledge sharing. By working with diverse communities, institutions, and researchers worldwide, we foster an environment where innovation thrives and breakthrough discoveries become possible. Our commitment to continuous learning ensures we stay at the forefront of AI research while remaining adaptable to the evolving needs of society."

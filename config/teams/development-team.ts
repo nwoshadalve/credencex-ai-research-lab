@@ -33,16 +33,16 @@ export const developmentTeam: DevelopmentTeamMember[] = [
   // Lead Developer (1) — provided by you
   {
     id: 1,
-    name: "MD Nwoshad Alve",
+    name: "MD Nwoshad Alam Chowdhury",
     role: "Lead Developer",
     position: "Engineering Lead (Web Platform & Product Delivery)",
     department: "Development Team",
     email: "nwoshadalve@gmail.com",
-    avatar: "/team/dev/nwoshad-alve.jpg",
+    avatar: "/teams/nowshad.jpg",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
-      googleScholar: "https://scholar.google.com/citations?user=_GI3BXMAAAAJ&hl=en",
-      github: "https://github.com/redrik278"
+      linkedin: "https://www.linkedin.com/in/nwoshadalve/",
+      googleScholar: "https://scholar.google.com/citations?user=K457W08AAAAJ&hl=en",
+      github: "https://github.com/nwoshadalve",
     }
   },
 
