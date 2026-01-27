@@ -63,7 +63,7 @@ export default function Publications() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-            Research Publications at <span className="text-indigo-600 dark:text-indigo-400">SentinelX</span>
+            Research Publications at <span className="text-indigo-600 dark:text-indigo-400">CredenceX</span>
           </h2>
           
           <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">

@@ -2,8 +2,11 @@
 
 import { motion } from 'framer-motion';
 import { coreValuesContent } from '@/config/about/values';
+import { useState } from 'react';
 
 export default function CoreValues() {
+    const [activeValue, setActiveValue] = useState<string | null>(null);
+
     const fadeInUp = {
         initial: { opacity: 0, y: 30 },
         animate: { opacity: 1, y: 0 }
@@ -11,7 +14,7 @@ export default function CoreValues() {
 
     const staggerContainer = {
         initial: {},
-        animate: { transition: { staggerChildren: 0.1 } }
+        animate: { transition: { staggerChildren: 0.15 } }
     };
 
     return (
@@ -44,7 +47,6 @@ export default function CoreValues() {
                     variants={staggerContainer}
                     className="text-center mb-16"
                 >
-                    {/* Badge */}
                     <motion.div 
                         variants={fadeInUp}
                         className="flex justify-center mb-6"
@@ -57,7 +59,6 @@ export default function CoreValues() {
                         </div>
                     </motion.div>
 
-                    {/* Title */}
                     <motion.h2 
                         variants={fadeInUp}
                         className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900 dark:text-white"
@@ -65,7 +66,6 @@ export default function CoreValues() {
                         {coreValuesContent.title}
                     </motion.h2>
 
-                    {/* Description */}
                     <motion.p 
                         variants={fadeInUp}
                         className="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto"
@@ -74,65 +74,115 @@ export default function CoreValues() {
                     </motion.p>
                 </motion.div>
 
-                {/* Values Cards Grid */}
+                {/* Interactive Timeline */}
                 <motion.div
                     initial="initial"
                     whileInView="animate"
                     viewport={{ once: true, margin: "-50px" }}
                     variants={staggerContainer}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+                    className="relative max-w-4xl mx-auto"
                 >
-                    {coreValuesContent.values.map((value) => {
-                        const Icon = value.icon;
-                        
-                        return (
-                            <motion.div
-                                key={value.id}
-                                variants={fadeInUp}
-                                whileHover={{ y: -4, scale: 1.01 }}
-                                transition={{ duration: 0.25, ease: "easeOut" }}
-                                className="group relative"
-                            >
-                                {/* Glass Card */}
-                                <div className="relative h-full p-8 rounded-3xl bg-linear-to-br from-white/70 via-white/50 to-white/30 dark:from-white/10 dark:via-white/5 dark:to-white/5 backdrop-blur-2xl border border-gray-200/60 dark:border-white/20 shadow-xl transition-all duration-300 overflow-hidden">
-                                    {/* Hover Gradient Overlay (less intense) */}
-                                    <div className={`absolute inset-0 bg-linear-to-br ${value.gradient} opacity-0 group-hover:opacity-60 transition-opacity duration-300`} />
-                                    
-                                    {/* Shine Effect (removed for subtlety) */}
-                                    {/* <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                        <div className="absolute top-0 -left-full h-full w-1/2 bg-linear-to-r from-transparent via-white/20 dark:via-white/10 to-transparent skew-x-12 group-hover:animate-[shine_1.5s_ease-in-out]" />
-                                    </div> */}
+                    {/* Vertical Timeline Line */}
+                    <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-linear-to-b from-purple-500 via-pink-500 to-rose-500 opacity-30" />
 
-                                    {/* Content */}
-                                    <div className="relative z-10">
-                                        {/* Icon Container */}
-                                        <div
-                                            className="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-2xl bg-linear-to-br from-purple-500/10 to-pink-500/10 dark:from-purple-400/20 dark:to-pink-400/20 border border-purple-200/50 dark:border-purple-400/30 shadow-lg transition-all duration-300"
+                    {/* Values List */}
+                    <div className="space-y-8">
+                        {coreValuesContent.values.map((value, index) => {
+                            const Icon = value.icon;
+                            const isActive = activeValue === value.id;
+                            
+                            return (
+                                <motion.div
+                                    key={value.id}
+                                    variants={fadeInUp}
+                                    onClick={() => setActiveValue(isActive ? null : value.id)}
+                                    className="relative cursor-pointer group"
+                                >
+                                    <div className="flex items-start gap-6">
+                                        {/* Icon Node */}
+                                        <motion.div
+                                            whileHover={{ scale: 1.1, rotate: 360 }}
+                                            transition={{ duration: 0.5 }}
+                                            className={`relative z-10 shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300 ${
+                                                isActive 
+                                                    ? 'bg-linear-to-br from-purple-500 to-pink-500 shadow-lg shadow-purple-500/50'
+                                                    : 'bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 group-hover:border-purple-400 dark:group-hover:border-purple-500'
+                                            }`}
                                         >
-                                            <Icon className="w-8 h-8 text-purple-600 dark:text-purple-400" strokeWidth={1.5} />
+                                            <Icon className={`w-7 h-7 transition-colors duration-300 ${
+                                                isActive ? 'text-white' : 'text-purple-600 dark:text-purple-400'
+                                            }`} strokeWidth={1.5} />
+                                        </motion.div>
+
+                                        {/* Content */}
+                                        <div className="flex-1 pb-8">
+                                            <div
+                                                className={`p-6 rounded-2xl backdrop-blur-xl bg-white/40 dark:bg-white/5 border transition-all duration-300 ${
+                                                    isActive 
+                                                        ? 'border-purple-300/60 dark:border-purple-500/30 shadow-lg shadow-purple-500/10' 
+                                                        : 'border-gray-200/60 dark:border-white/10 hover:border-purple-300/60 dark:hover:border-purple-500/30'
+                                                }`}
+                                            >
+                                                <div className="flex items-start justify-between gap-4 mb-3">
+                                                    <h3 className={`text-xl md:text-2xl font-bold transition-colors duration-300 ${
+                                                        isActive 
+                                                            ? 'text-purple-600 dark:text-purple-400'
+                                                            : 'text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400'
+                                                    }`}>
+                                                        {value.title}
+                                                    </h3>
+                                                    <div className={`shrink-0 text-4xl font-bold transition-all duration-300 ${
+                                                        isActive 
+                                                            ? 'text-purple-300 dark:text-purple-600 opacity-100'
+                                                            : 'text-gray-200 dark:text-gray-800 opacity-50 group-hover:opacity-100'
+                                                    }`}>
+                                                        {String(index + 1).padStart(2, '0')}
+                                                    </div>
+                                                </div>
+
+                                                <motion.div
+                                                    initial={false}
+                                                    animate={{ 
+                                                        height: isActive ? 'auto' : 0,
+                                                        opacity: isActive ? 1 : 0
+                                                    }}
+                                                    transition={{ duration: 0.3 }}
+                                                    className="overflow-hidden"
+                                                >
+                                                    <p className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+                                                        {value.description}
+                                                    </p>
+                                                </motion.div>
+
+                                                {/* Click Indicator */}
+                                                <div className="mt-3 flex items-center gap-2 text-sm font-medium text-purple-600 dark:text-purple-400">
+                                                    <span>{isActive ? 'Click to collapse' : 'Click to learn more'}</span>
+                                                    <motion.svg
+                                                        animate={{ rotate: isActive ? 180 : 0 }}
+                                                        transition={{ duration: 0.3 }}
+                                                        className="w-4 h-4"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                    >
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                                    </motion.svg>
+                                                </div>
+
+                                                {/* Progress Bar */}
+                                                <motion.div
+                                                    initial={{ scaleX: 0 }}
+                                                    animate={{ scaleX: isActive ? 1 : 0 }}
+                                                    transition={{ duration: 0.5 }}
+                                                    className="h-1 bg-linear-to-r from-purple-500 via-pink-500 to-rose-500 rounded-full mt-4 origin-left"
+                                                />
+                                            </div>
                                         </div>
-
-                                        {/* Title */}
-                                        <h3 className="text-xl md:text-2xl font-bold mb-4 text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
-                                            {value.title}
-                                        </h3>
-
-                                        {/* Description */}
-                                        <p className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
-                                            {value.description}
-                                        </p>
-
-                                        {/* Bottom Accent Line (less animation) */}
-                                        <div className="absolute bottom-0 left-0 h-1 w-0 bg-linear-to-r from-purple-500 via-pink-500 to-rose-500 group-hover:w-1/2 transition-all duration-300 rounded-b-3xl" />
                                     </div>
-
-                                    {/* Corner Decorations (less animation) */}
-                                    <div className="absolute top-4 right-4 w-16 h-16 border-t-2 border-r-2 border-purple-500/30 dark:border-purple-400/30 rounded-tr-2xl opacity-0 group-hover:opacity-60 transition-opacity duration-300" />
-                                    <div className="absolute bottom-4 left-4 w-16 h-16 border-b-2 border-l-2 border-pink-500/30 dark:border-pink-400/30 rounded-bl-2xl opacity-0 group-hover:opacity-60 transition-opacity duration-300" />
-                                </div>
-                            </motion.div>
-                        );
-                    })}
+                                </motion.div>
+                            );
+                        })}
+                    </div>
                 </motion.div>
             </div>
         </section>

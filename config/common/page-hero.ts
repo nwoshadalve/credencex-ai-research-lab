@@ -29,7 +29,7 @@ export const pageHeroContent: Record<string, PageHeroContent> = {
     },
     title: "Pioneering the Future of Artificial Intelligence",
     subtitle: "Where Innovation Meets Responsibility",
-    description: "SentinelX AI Research Lab is a leading research institution dedicated to advancing the frontiers of artificial intelligence. We focus on developing transparent, reliable, and ethical AI systems that address real-world challenges in security, healthcare, and decision support. Our multidisciplinary team combines cutting-edge research with practical applications to create AI technologies that benefit humanity.",
+    description: "CredenceX AI Research Lab is a leading research institution dedicated to advancing the frontiers of artificial intelligence. We focus on developing transparent, reliable, and ethical AI systems that address real-world challenges in security, healthcare, and decision support. Our multidisciplinary team combines cutting-edge research with practical applications to create AI technologies that benefit humanity.",
     backgroundGradient: {
       from: "from-blue-50",
       via: "via-indigo-50",
@@ -50,7 +50,7 @@ export const pageHeroContent: Record<string, PageHeroContent> = {
     badge: {
       text: "Our Team"
     },
-    title: "Meet the Minds Behind SentinelX",
+    title: "Meet the Minds Behind CredenceX",
     subtitle: "World-Class Researchers and Innovators",
     description: "Our team comprises leading experts in artificial intelligence, machine learning, computer vision, and data science. United by a passion for innovation and a commitment to ethical AI development, we collaborate to push the boundaries of what's possible in AI research and applications.",
     backgroundGradient: {
@@ -130,29 +130,6 @@ export const pageHeroContent: Record<string, PageHeroContent> = {
       }
     }
   },
-  careers: {
-    badge: {
-      text: "Careers"
-    },
-    title: "Join Us in Shaping the Future of AI",
-    subtitle: "Opportunities for Talented Researchers and Engineers",
-    description: "We're always looking for exceptional individuals who share our passion for advancing AI research and building ethical, impactful AI systems. Join our collaborative and innovative team where your work will contribute to solving some of the most challenging problems in artificial intelligence.",
-    backgroundGradient: {
-      from: "from-violet-50",
-      via: "via-purple-50",
-      to: "to-fuchsia-50"
-    },
-    cta: {
-      primary: {
-        text: "View Open Positions",
-        href: "#positions"
-      },
-      secondary: {
-        text: "Submit Application",
-        href: "/apply"
-      }
-    }
-  },
   researchPaper: {
     badge: {
       text: "Research Papers"
@@ -217,13 +194,49 @@ export const pageHeroContent: Record<string, PageHeroContent> = {
     badge: {
       text: "Latest News"
     },
-    title: "Stay Updated with SentinelX",
+    title: "Stay Updated with CredenceX",
     subtitle: "Latest News, Achievements & Announcements",
-    description: "Explore our latest achievements, research breakthroughs, partnerships, and announcements from the SentinelX AI Research Lab.",
+    description: "Explore our latest achievements, research breakthroughs, partnerships, and announcements from the CredenceX AI Research Lab.",
     backgroundGradient: {
       from: "from-indigo-50",
       via: "via-purple-50",
       to: "to-pink-50"
+    }
+  },
+  careers: {
+    badge: {
+      text: "Join Our Team"
+    },
+    title: "Shape the Future of AI with Us",
+    subtitle: "Careers at CredenceX AI Research Lab",
+    description: "Join a world-class team of researchers, engineers, and innovators working on cutting-edge AI technology. We offer challenging opportunities, competitive compensation, and a culture that values creativity, collaboration, and impact.",
+    backgroundGradient: {
+      from: "from-emerald-50",
+      via: "via-teal-50",
+      to: "to-cyan-50"
+    },
+    cta: {
+      primary: {
+        text: "View Open Positions",
+        href: "#positions"
+      },
+      secondary: {
+        text: "Learn About Our Culture",
+        href: "#culture"
+      }
+    }
+  },
+  contact: {
+    badge: {
+      text: "Get in Touch"
+    },
+    title: "Let's Start a Conversation",
+    subtitle: "Contact CredenceX AI Research Lab",
+    description: "Have questions about our research, collaboration opportunities, or career openings? We're here to help. Reach out to our team and let's explore how we can work together.",
+    backgroundGradient: {
+      from: "from-violet-50",
+      via: "via-purple-50",
+      to: "to-fuchsia-50"
     }
   }
 };

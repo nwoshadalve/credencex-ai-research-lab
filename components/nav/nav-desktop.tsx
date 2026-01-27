@@ -66,14 +66,16 @@ export default function NavDesktop({ menuItems }: NavDesktopProps) {
                 <div className="flex items-center justify-around gap-6 px-6 py-3">
                     {/* Logo */}
                     <Link href="/" className="flex items-center hover:opacity-80 transition-opacity cursor-pointer">
-                        <Image
-                            src="/logo.png"
-                            alt="SentinelX AI Research Lab"
-                            width={140}
-                            height={50}
-                            priority
-                            className="h-11 w-auto"
-                        />
+                        {mounted && (
+                            <Image
+                                src={theme === 'dark' ? '/logos/logo-dark.png' : '/logos/logo-light.png'}
+                                alt="CredenceX AI Research Lab"
+                                width={180}
+                                height={65}
+                                priority
+                                className="h-12 w-auto"
+                            />
+                        )}
                     </Link>
 
                     {/* Menu Items */}

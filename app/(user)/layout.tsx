@@ -20,8 +20,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SentinelX AI Research Lab",
-  description: "Explore cutting-edge AI research and innovations at SentinelX AI Research Lab.",
+  title: "CredenceX AI Research Lab",
+  description: "Explore cutting-edge AI research and innovations at CredenceX AI Research Lab.",
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",

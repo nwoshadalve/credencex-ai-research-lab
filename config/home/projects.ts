@@ -1,4 +1,4 @@
-import { LucideIcon, Bot, Shield, Brain, Database, Sparkles, Lock, Network, Cpu, Eye, Server, CheckCircle, Clock, Calendar } from 'lucide-react';
+import { LucideIcon, Bot, Shield, Brain, Database, Sparkles, Network, Eye, Server, CheckCircle, Clock, Calendar, Target } from 'lucide-react';
 
 export type ProjectStatus = 'completed' | 'in-progress' | 'planned';
 
@@ -66,265 +66,286 @@ export const areaConfig: Record<string, { color: string; bgColor: string }> = {
 export const projects: Project[] = [
   {
     id: 1,
-    title: "Sentinel AI Guardian",
-    description: "An advanced AI-powered threat detection system that monitors network traffic in real-time, identifying potential security breaches before they occur using deep learning algorithms.",
-    area: "Risk-Aware Security",
-    status: "completed",
-    icon: Shield,
-    gradient: "from-blue-500/20 to-cyan-500/20",
+    title: "DepTformer-XAI-SV",
+    description:
+      "A reproducible, explainable transformer pipeline for depression emotion/severity experiments, including ablations, XAI faithfulness checks, and a minimal Flask demo (research use only).",
+    area: "Trustworthy & Calibrated AI",
+    status: "in-progress",
+    icon: Brain,
+    gradient: "from-purple-500/20 to-pink-500/20",
     featured: true,
-    technologies: ["PyTorch", "TensorFlow", "Python", "Kubernetes"],
+    technologies: ["PyTorch", "Python", "Flask", "Docker"],
     year: "2025",
-    projectLink: "https://google.com"
+    projectLink: "https://github.com/rezaul-h/DepTformer-XAI-SV"
   },
   {
     id: 2,
-    title: "MultiModal Vision Pro",
-    description: "Next-generation multimodal AI system integrating vision, language, and audio processing for comprehensive content understanding and generation across multiple domains.",
-    area: "Multimodal Foundation Models",
-    status: "in-progress",
-    icon: Eye,
-    gradient: "from-purple-500/20 to-pink-500/20",
-    featured: true,
-    technologies: ["GPT-4", "CLIP", "Whisper", "React"],
-    year: "2025",
-    projectLink: "#"
-  },
-  {
-    id: 3,
-    title: "SafeGuard LLM Framework",
-    description: "A comprehensive safety-first framework for deploying large language models with built-in ethical guardrails, bias detection, and content filtering mechanisms.",
-    area: "Safety-First LLM Workflows",
-    status: "completed",
-    icon: Lock,
-    gradient: "from-green-500/20 to-emerald-500/20",
-    featured: true,
-    technologies: ["LangChain", "OpenAI", "FastAPI", "Redis"],
-    year: "2024",
-    projectLink: "#"
-  },
-  {
-    id: 4,
-    title: "Neural Decision Engine",
-    description: "Intelligent decision support system leveraging reinforcement learning and scenario analysis to provide data-driven insights for complex business decisions.",
-    area: "Decision Support Intelligence",
-    status: "in-progress",
-    icon: Brain,
-    gradient: "from-indigo-500/20 to-blue-500/20",
-    featured: true,
-    technologies: ["Ray", "PyTorch", "PostgreSQL", "Docker"],
-    year: "2025",
-    projectLink: "#"
-  },
-  {
-    id: 5,
-    title: "EarlyWarn Predictive Analytics",
-    description: "Machine learning platform for predictive maintenance and anomaly detection, providing early warning signals for critical infrastructure and systems.",
-    area: "Early Warning Systems",
-    status: "completed",
-    icon: Cpu,
-    gradient: "from-orange-500/20 to-red-500/20",
-    featured: true,
-    technologies: ["Scikit-learn", "Apache Kafka", "InfluxDB", "Grafana"],
-    year: "2024",
-    projectLink: "#"
-  },
-  {
-    id: 6,
-    title: "TrustChain Verification",
-    description: "Blockchain-based verification system ensuring transparency and accountability in AI decision-making processes with immutable audit trails.",
-    area: "Trustworthy AI Systems",
-    status: "completed",
-    icon: Network,
-    gradient: "from-teal-500/20 to-cyan-500/20",
-    featured: true,
-    technologies: ["Ethereum", "Solidity", "Web3.js", "IPFS"],
-    year: "2024",
-    projectLink: "#"
-  },
-  {
-    id: 7,
-    title: "Quantum Threat Analyzer",
-    description: "Advanced quantum-resistant cryptography analyzer preparing systems for post-quantum security challenges and identifying vulnerabilities.",
-    area: "Risk-Aware Security",
-    status: "planned",
-    icon: Server,
-    gradient: "from-violet-500/20 to-purple-500/20",
-    featured: false,
-    technologies: ["Qiskit", "Python", "C++"],
-    year: "2026",
-    projectLink: "#"
-  },
-  {
-    id: 8,
-    title: "Federated Learning Platform",
-    description: "Privacy-preserving machine learning platform enabling collaborative model training across distributed datasets without data sharing.",
-    area: "Trustworthy AI Systems",
-    status: "in-progress",
-    icon: Database,
-    gradient: "from-pink-500/20 to-rose-500/20",
-    featured: false,
-    technologies: ["TensorFlow Federated", "gRPC", "MongoDB"],
-    year: "2025",
-    projectLink: "#"
-  },
-  {
-    id: 9,
-    title: "AutoML Optimizer",
-    description: "Automated machine learning pipeline that optimizes model architecture, hyperparameters, and feature engineering for various use cases.",
-    area: "Decision Support Intelligence",
-    status: "planned",
-    icon: Sparkles,
-    gradient: "from-amber-500/20 to-orange-500/20",
-    featured: false,
-    technologies: ["AutoKeras", "Optuna", "MLflow"],
-    year: "2026",
-    projectLink: "#"
-  },
-  {
-    id: 10,
-    title: "Conversational AI Assistant",
-    description: "Context-aware conversational AI system with advanced natural language understanding and generation capabilities for enterprise applications.",
-    area: "Multimodal Foundation Models",
-    status: "in-progress",
-    icon: Bot,
-    gradient: "from-sky-500/20 to-blue-500/20",
-    featured: false,
-    technologies: ["Transformers", "Rasa", "FastAPI", "React"],
-    year: "2025",
-    projectLink: "#"
-  },
-  {
-    id: 11,
-    title: "Adaptive Learning Pathways",
-    description: "AI-driven personalized education system that adapts content delivery based on individual learning patterns and cognitive styles.",
-    area: "Multimodal Foundation Models",
-    status: "in-progress",
-    icon: Brain,
-    gradient: "from-cyan-500/20 to-teal-500/20",
-    featured: false,
-    technologies: ["TensorFlow", "Neo4j", "Vue.js", "Flask"],
-    year: "2025",
-    projectLink: "#"
-  },
-  {
-    id: 12,
-    title: "CyberWatch Pro",
-    description: "Real-time cybersecurity monitoring and incident response platform powered by AI to detect and neutralize threats automatically.",
-    area: "Risk-Aware Security",
-    status: "completed",
-    icon: Shield,
-    gradient: "from-red-500/20 to-pink-500/20",
-    featured: false,
-    technologies: ["Elastic Stack", "Python", "Splunk", "AWS"],
-    year: "2024",
-    projectLink: "#"
-  },
-  {
-    id: 13,
-    title: "Ethical AI Validator",
-    description: "Comprehensive testing and validation framework ensuring AI models meet ethical standards, fairness criteria, and regulatory compliance.",
-    area: "Safety-First LLM Workflows",
-    status: "in-progress",
-    icon: Lock,
-    gradient: "from-emerald-500/20 to-green-500/20",
-    featured: false,
-    technologies: ["Fairlearn", "AIF360", "Python", "Jupyter"],
-    year: "2025",
-    projectLink: "#"
-  },
-  {
-    id: 14,
-    title: "Climate Risk Forecaster",
-    description: "Advanced climate modeling and risk assessment platform using machine learning to predict environmental changes and their impact.",
-    area: "Early Warning Systems",
-    status: "in-progress",
-    icon: Cpu,
-    gradient: "from-lime-500/20 to-green-500/20",
-    featured: false,
-    technologies: ["XGBoost", "Pandas", "Matplotlib", "Azure"],
-    year: "2025",
-    projectLink: "#"
-  },
-  {
-    id: 15,
-    title: "Smart Contract Auditor",
-    description: "AI-powered smart contract analysis tool that identifies vulnerabilities, gas optimization opportunities, and security risks.",
-    area: "Trustworthy AI Systems",
-    status: "planned",
-    icon: Network,
-    gradient: "from-blue-500/20 to-indigo-500/20",
-    featured: false,
-    technologies: ["Solidity", "Mythril", "Slither", "Python"],
-    year: "2026",
-    projectLink: "#"
-  },
-  {
-    id: 16,
-    title: "Healthcare Diagnostic AI",
-    description: "Medical imaging analysis system using deep learning to assist healthcare professionals in early disease detection and diagnosis.",
-    area: "Multimodal Foundation Models",
+    title: "LMVT (Lung MobileViT) Explainable Lung Cancer Diagnosis",
+    description:
+      "Lightweight hybrid CNN–Transformer (MobileViT + attention + texture cues) for efficient and explainable lung cancer diagnosis on CT/histopathology with Grad-CAM and robust evaluation support.",
+    area: "Explainable Medical Image Intelligence",
     status: "completed",
     icon: Eye,
     gradient: "from-fuchsia-500/20 to-purple-500/20",
-    featured: false,
-    technologies: ["PyTorch", "MONAI", "DICOM", "FastAPI"],
+    featured: true,
+    technologies: ["PyTorch", "MobileViT", "CBAM", "Grad-CAM"],
+    year: "2025",
+    projectLink: "https://github.com/rezaul-h/LMVT"
+  },
+  {
+    id: 3,
+    title: "Multimodal Information Fusion (Audio–Visual Recognition)",
+    description:
+      "A modular pipeline for audio-visual object recognition using hybrid, tensor, and FiLM-style fusion with flexible feature extraction and noise-robust training options.",
+    area: "Multimodal Vision–Language Foundation Models",
+    status: "completed",
+    icon: Network,
+    gradient: "from-blue-500/20 to-cyan-500/20",
+    featured: true,
+    technologies: ["Python", "FiLM Fusion", "Xception", "xLSTM"],
+    year: "2025",
+    projectLink: "https://github.com/rezaul-h/multimodal-fusion"
+  },
+  {
+    id: 4,
+    title: "CottonVerse, Multi-Model XAI Web App",
+    description:
+      "Flask-based web application for cotton leaf disease, fabric stain defect detection, and fabric composition classification with probability charts and Grad-CAM explanations.",
+    area: "Efficient Hybrid Transformers for Edge Deployment",
+    status: "completed",
+    icon: Server,
+    gradient: "from-orange-500/20 to-red-500/20",
+    featured: true,
+    technologies: ["Flask", "PyTorch", "timm", "pytorch-grad-cam"],
+    year: "2025",
+    projectLink: "https://github.com/rezaul-h/CottonVerse"
+  },
+  {
+    id: 5,
+    title: "SoyScan, Interpretable Soybean Disease Classification",
+    description:
+      "MaxViT-based soybean leaf/seed disease classification web app with Grad-CAM heatmaps, probability visualization, and a clean UI for practical screening workflows.",
+    area: "Clinical Decision Support & Human-in-the-Loop AI",
+    status: "completed",
+    icon: Target,
+    gradient: "from-indigo-500/20 to-blue-500/20",
+    featured: true,
+    technologies: ["MaxViT", "Flask", "PyTorch", "Grad-CAM"],
+    year: "2025",
+    projectLink: "https://github.com/rezaul-h/SoybeanApp"
+  },
+  {
+    id: 6,
+    title: "Leather Defect Detection (YOLO + Flask)",
+    description:
+      "A deployment-oriented defect detection demo using Ultralytics YOLO weights with a Flask UI—built for fast visual inspection and practical usage.",
+    area: "Efficient Hybrid Transformers for Edge Deployment",
+    status: "completed",
+    icon: Eye,
+    gradient: "from-teal-500/20 to-cyan-500/20",
+    featured: true,
+    technologies: ["Ultralytics", "YOLO", "Flask", "OpenCV"],
     year: "2024",
-    projectLink: "#"
+    projectLink: "https://github.com/rezaul-h/Leather-Defect-Detection"
+  },
+  {
+    id: 7,
+    title: "Colonoscopy Polyps Detection (Notebook Pipeline)",
+    description:
+      "Notebook-based experimentation workflow for colonoscopy polyp detection with preprocessing and baseline modeling experiments.",
+    area: "Explainable Medical Image Intelligence",
+    status: "completed",
+    icon: Eye,
+    gradient: "from-green-500/20 to-emerald-500/20",
+    featured: false,
+    technologies: ["Python", "Jupyter", "OpenCV", "VGG16"],
+    year: "2022",
+    projectLink: "https://github.com/rezaul-h/Colonoscopy-Polyps-Detection"
+  },
+  {
+    id: 8,
+    title: "Oral Cancer Detection (Notebook Study)",
+    description:
+      "A compact notebook-based workflow for oral cancer detection experiments—useful for quick prototyping and baseline comparisons.",
+    area: "Explainable Medical Image Intelligence",
+    status: "completed",
+    icon: Eye,
+    gradient: "from-purple-500/20 to-pink-500/20",
+    featured: false,
+    technologies: ["Python", "Jupyter", "OpenCV"],
+    year: "2024",
+    projectLink: "https://github.com/redrik278/Oral-Cancer-detection"
+  },
+  {
+    id: 9,
+    title: "Tomato Leaf Disease Detection",
+    description:
+      "Plant disease classification experiments for tomato leaves—supporting agricultural screening and field-ready model exploration.",
+    area: "Robust Learning Under Domain Shift",
+    status: "completed",
+    icon: Eye,
+    gradient: "from-lime-500/20 to-green-500/20",
+    featured: false,
+    technologies: ["Python", "Jupyter", "Computer Vision"],
+    year: "2023",
+    projectLink: "https://github.com/redrik278/Tomato-Leaf-Disease-Detection"
+  },
+  {
+    id: 10,
+    title: "Alzheimer’s Disease Detection",
+    description:
+      "A notebook-based Alzheimer’s disease detection project for rapid experimentation and model benchmarking on medical imaging data.",
+    area: "Explainable Medical Image Intelligence",
+    status: "completed",
+    icon: Brain,
+    gradient: "from-violet-500/20 to-purple-500/20",
+    featured: false,
+    technologies: ["Python", "Jupyter", "Deep Learning"],
+    year: "2023",
+    projectLink: "https://github.com/redrik278/Alzheimer-s-Disease-Detection"
+  },
+  {
+    id: 11,
+    title: "Breast Cancer Detection",
+    description:
+      "Breast cancer detection experiments in a lightweight notebook workflow, designed for fast prototyping and baseline evaluation.",
+    area: "Explainable Medical Image Intelligence",
+    status: "completed",
+    icon: Eye,
+    gradient: "from-pink-500/20 to-rose-500/20",
+    featured: false,
+    technologies: ["Python", "Jupyter", "Deep Learning"],
+    year: "2023",
+    projectLink: "https://github.com/redrik278/Breast-Cancer-detection"
+  },
+  {
+    id: 12,
+    title: "Brain Tumor Classification",
+    description:
+      "Brain tumor classification baseline experiments, emphasizing preprocessing and model comparison in a reproducible notebook setup.",
+    area: "Explainable Medical Image Intelligence",
+    status: "completed",
+    icon: Eye,
+    gradient: "from-blue-500/20 to-cyan-500/20",
+    featured: false,
+    technologies: ["Python", "Jupyter", "Computer Vision"],
+    year: "2023",
+    projectLink: "https://github.com/rezaul-h/brain-tumor-classification"
+  },
+  {
+    id: 13,
+    title: "Suicide Ideation Detection with NLP",
+    description:
+      "NLP pipeline for suicide ideation detection including preprocessing, classical ML baselines, and deep learning notebooks with analysis/visualization support.",
+    area: "Trustworthy & Calibrated AI",
+    status: "completed",
+    icon: Shield,
+    gradient: "from-green-500/20 to-emerald-500/20",
+    featured: false,
+    technologies: ["Python", "Jupyter", "NLP", "Deep Learning"],
+    year: "2023",
+    projectLink: "https://github.com/rezaul-h/Suicide-Ideation-Detection-with-NLP"
+  },
+  {
+    id: 14,
+    title: "Bangla Multi-Class Sentiment Analysis",
+    description:
+      "Bangla sentiment classification notebooks with preprocessing, visualization, and multi-class modeling experiments.",
+    area: "Trustworthy & Calibrated AI",
+    status: "completed",
+    icon: Bot,
+    gradient: "from-sky-500/20 to-blue-500/20",
+    featured: false,
+    technologies: ["Python", "Jupyter", "NLP", "Scikit-learn"],
+    year: "2023",
+    projectLink: "https://github.com/rezaul-h/Multi-class-sentiment-analysis-on-bangali-language-"
+  },
+  {
+    id: 15,
+    title: "Fake News Classification",
+    description:
+      "A notebook-driven fake news classification project for experimenting with text features and learning-based classifiers.",
+    area: "Trustworthy & Calibrated AI",
+    status: "completed",
+    icon: Shield,
+    gradient: "from-amber-500/20 to-orange-500/20",
+    featured: false,
+    technologies: ["Python", "Jupyter", "NLP"],
+    year: "2023",
+    projectLink: "https://github.com/redrik278/Fake-News-Classify"
+  },
+  {
+    id: 16,
+    title: "Image Captioning on COCO",
+    description:
+      "Vision–language captioning notebooks exploring CNN backbones (e.g., Inception/ResNet/VGG) with LSTM/BiLSTM decoders on COCO-style workflows.",
+    area: "Multimodal Vision–Language Foundation Models",
+    status: "completed",
+    icon: Sparkles,
+    gradient: "from-cyan-500/20 to-teal-500/20",
+    featured: false,
+    technologies: ["Python", "Jupyter", "InceptionV3", "LSTM"],
+    year: "2023",
+    projectLink: "https://github.com/rezaul-h/Image-captioning-on-COCO-dataset"
   },
   {
     id: 17,
-    title: "Supply Chain Optimizer",
-    description: "AI-driven supply chain management system optimizing inventory, logistics, and demand forecasting across global operations.",
-    area: "Decision Support Intelligence",
+    title: "Hybrid Recommender System",
+    description:
+      "Hybrid recommendation experiments (including ALS + content/collaborative signals) with notebooks for preprocessing and multiple dataset scales.",
+    area: "Clinical Decision Support & Human-in-the-Loop AI",
+    status: "completed",
+    icon: Target,
+    gradient: "from-indigo-500/20 to-blue-500/20",
+    featured: false,
+    technologies: ["Python", "Jupyter", "Recommender Systems", "ALS"],
+    year: "2022",
+    projectLink: "https://github.com/rezaul-h/Hybrid-Reccomender-System"
+  },
+  {
+    id: 18,
+    title: "Skillomy E-learning Web App",
+    description:
+      "A Python-based e-learning web application project (full-stack structure) designed to support content delivery and interactive learning workflows.",
+    area: "Clinical Decision Support & Human-in-the-Loop AI",
     status: "completed",
     icon: Database,
     gradient: "from-violet-500/20 to-indigo-500/20",
     featured: false,
-    technologies: ["Prophet", "Scikit-learn", "PostgreSQL", "Tableau"],
-    year: "2024",
-    projectLink: "#"
-  },
-  {
-    id: 18,
-    title: "Voice Biometric Security",
-    description: "Advanced voice recognition and authentication system using neural networks for secure identity verification.",
-    area: "Risk-Aware Security",
-    status: "in-progress",
-    icon: Server,
-    gradient: "from-rose-500/20 to-red-500/20",
-    featured: false,
-    technologies: ["Kaldi", "PyTorch Audio", "WebRTC", "Redis"],
-    year: "2025",
-    projectLink: "#"
+    technologies: ["Python", "Web App", "HTML/CSS", "JavaScript"],
+    year: "2022",
+    projectLink: "https://github.com/rezaul-h/Skillomy_Elearning_Webapp"
   },
   {
     id: 19,
-    title: "Fraud Detection Engine",
-    description: "Real-time fraud detection system using ensemble machine learning models to identify suspicious transactions and patterns.",
-    area: "Early Warning Systems",
+    title: "OpenCV Lab Notebook Series",
+    description:
+      "Hands-on OpenCV notebooks covering geometric transforms, histograms/intensity transforms, and spatial filtering—useful for imaging pipeline foundations.",
+    area: "Efficient Hybrid Transformers for Edge Deployment",
     status: "completed",
-    icon: Shield,
-    gradient: "from-orange-500/20 to-amber-500/20",
+    icon: Eye,
+    gradient: "from-orange-500/20 to-red-500/20",
     featured: false,
-    technologies: ["LightGBM", "Apache Spark", "Kafka", "Cassandra"],
-    year: "2024",
-    projectLink: "#"
+    technologies: ["Python", "OpenCV", "Jupyter", "Image Processing"],
+    year: "2023",
+    projectLink: "https://github.com/redrik278/OpenCV"
   },
   {
     id: 20,
-    title: "Explainable AI Dashboard",
-    description: "Interactive visualization platform providing interpretable explanations for AI model decisions using SHAP and LIME techniques.",
-    area: "Trustworthy AI Systems",
-    status: "planned",
-    icon: Sparkles,
-    gradient: "from-yellow-500/20 to-orange-500/20",
+    title: "Transformers Playground (Hugging Face)",
+    description:
+      "A lightweight repo for experimenting with transformer-based NLP workflows (e.g., sentiment tasks) using Hugging Face-style setups.",
+    area: "Multimodal Vision–Language Foundation Models",
+    status: "in-progress",
+    icon: Bot,
+    gradient: "from-blue-500/20 to-cyan-500/20",
     featured: false,
-    technologies: ["SHAP", "LIME", "D3.js", "Flask"],
-    year: "2026",
-    projectLink: "#"
+    technologies: ["Transformers", "Hugging Face", "Python", "NLP"],
+    year: "2024",
+    projectLink: "https://github.com/redrik278/Transformers"
   }
 ];
+
 
 // Get only featured projects
 export const getFeaturedProjects = () => projects.filter(project => project.featured);

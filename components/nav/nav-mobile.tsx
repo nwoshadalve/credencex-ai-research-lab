@@ -94,14 +94,16 @@ export default function NavMobile({ menuItems }: NavMobileProps) {
                     <div className="flex items-center justify-between gap-4 px-4 py-3">
                         {/* Logo */}
                         <Link href="/" className="flex items-center hover:opacity-80 transition-opacity cursor-pointer">
-                            <Image
-                                src="/logo.png"
-                                alt="SentinelX AI Research Lab"
-                                width={140}
-                                height={50}
-                                priority
-                                className="h-11 w-auto"
-                            />
+                            {mounted && (
+                                <Image
+                                    src={theme === 'dark' ? '/logos/logo-dark.png' : '/logos/logo-light.png'}
+                                    alt="CredenceX AI Research Lab"
+                                    width={180}
+                                    height={65}
+                                    priority
+                                    className="h-12 w-auto"
+                                />
+                            )}
                         </Link>
 
                         <div className="flex items-center gap-3">
@@ -160,7 +162,7 @@ export default function NavMobile({ menuItems }: NavMobileProps) {
                                 <Link href="/" onClick={closeMenu} className="flex items-center">
                                     <Image
                                         src="/logo.png"
-                                        alt="SentinelX AI Research Lab"
+                                        alt="CredenceX AI Research Lab"
                                         width={140}
                                         height={50}
                                         priority
@@ -299,7 +301,7 @@ export default function NavMobile({ menuItems }: NavMobileProps) {
                             {/* Footer */}
                             <div className="p-4 border-t border-gray-200/50 dark:border-white/10">
                                 <p className="text-xs text-center text-gray-500 dark:text-gray-400">
-                                    © 2026 SentinelX AI Research Lab
+                                    © 2026 CredenceX AI Research Lab
                                 </p>
                             </div>
                         </div>

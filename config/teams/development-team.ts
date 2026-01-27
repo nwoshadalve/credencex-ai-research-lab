@@ -12,6 +12,10 @@ export interface DevelopmentTeamMember {
     github?: string;
     portfolio?: string;
     stackoverflow?: string;
+    googleScholar?: string;
+    researchGate?: string;
+    orcid?: string;
+    website?: string;
   };
 }
 
@@ -26,167 +30,127 @@ export type DevelopmentRole =
   | 'Frontend Developer';
 
 export const developmentTeam: DevelopmentTeamMember[] = [
-  // Lead Developer (1)
+  // Lead Developer (1) — provided by you
   {
     id: 1,
-    name: 'Alex Thompson',
-    role: 'Lead Developer',
-    position: 'Engineering Lead',
-    department: 'Development Team',
-    email: 'a.thompson@sentinelx-ai.org',
-    avatar: '/team/dev/alex-thompson.jpg',
+    name: "MD Nwoshad Alve",
+    role: "Lead Developer",
+    position: "Engineering Lead (Web Platform & Product Delivery)",
+    department: "Development Team",
+    email: "nwoshadalve@gmail.com",
+    avatar: "/team/dev/nwoshad-alve.jpg",
     socialLinks: {
-      linkedin: 'https://linkedin.com/in/alex-thompson-dev',
-      github: 'https://github.com/alexthompson',
-      twitter: 'https://twitter.com/alex_dev',
-      portfolio: 'https://alexthompson.dev'
+      linkedin: "https://www.linkedin.com/in/redrik278/",
+      googleScholar: "https://scholar.google.com/citations?user=_GI3BXMAAAAJ&hl=en",
+      github: "https://github.com/redrik278"
     }
   },
 
-  // Senior Full Stack Developer (2)
+  // Senior Full Stack Developer (2) — selected from non-researchTeam co-author pool
   {
     id: 2,
-    name: 'Maria Garcia',
-    role: 'Senior Full Stack Developer',
-    position: 'Senior Full Stack Engineer',
-    department: 'Development Team',
-    email: 'm.garcia@sentinelx-ai.org',
-    avatar: '/team/dev/maria-garcia.jpg',
-    socialLinks: {
-      linkedin: 'https://linkedin.com/in/maria-garcia-fullstack',
-      github: 'https://github.com/mgarcia',
-      twitter: 'https://twitter.com/maria_fullstack',
-      stackoverflow: 'https://stackoverflow.com/users/mgarcia'
-    }
+    name: "Shakil Khan",
+    role: "Senior Full Stack Developer",
+    position: "Senior Full Stack Engineer (AI Web Apps, Dashboards, Model Integration)",
+    department: "Development Team",
+    email: "",
+    avatar: "/team/dev/shakil-khan.jpg",
+    socialLinks: {}
   },
   {
     id: 3,
-    name: 'Daniel Park',
-    role: 'Senior Full Stack Developer',
-    position: 'Senior Full Stack Engineer',
-    department: 'Development Team',
-    email: 'd.park@sentinelx-ai.org',
-    avatar: '/team/dev/daniel-park.jpg',
-    socialLinks: {
-      linkedin: 'https://linkedin.com/in/daniel-park-dev',
-      github: 'https://github.com/dpark',
-      portfolio: 'https://danielpark.io',
-      stackoverflow: 'https://stackoverflow.com/users/dpark'
-    }
+    name: "Sazzadul Islam",
+    role: "Senior Full Stack Developer",
+    position: "Senior Full Stack Engineer (Inference UI, Explainability Views, Reporting)",
+    department: "Development Team",
+    email: "",
+    avatar: "/team/dev/sazzadul-islam.jpg",
+    socialLinks: {}
   },
 
   // Senior Frontend Developer (1)
   {
     id: 4,
-    name: 'Sophie Anderson',
-    role: 'Senior Frontend Developer',
-    position: 'Senior Frontend Engineer',
-    department: 'Development Team',
-    email: 's.anderson@sentinelx-ai.org',
-    avatar: '/team/dev/sophie-anderson.jpg',
-    socialLinks: {
-      linkedin: 'https://linkedin.com/in/sophie-anderson-frontend',
-      github: 'https://github.com/sanderson',
-      twitter: 'https://twitter.com/sophie_frontend',
-      portfolio: 'https://sophieanderson.design'
-    }
+    name: "Katura Gania Khushbu",
+    role: "Senior Frontend Developer",
+    position: "Senior Frontend Engineer (Visualization, Explainability UI, UX)",
+    department: "Development Team",
+    email: "",
+    avatar: "/team/dev/katura-khushbu.jpg",
+    socialLinks: {}
   },
 
   // Senior Backend Developer (1)
   {
     id: 5,
-    name: 'Nathan Wright',
-    role: 'Senior Backend Developer',
-    position: 'Senior Backend Engineer',
-    department: 'Development Team',
-    email: 'n.wright@sentinelx-ai.org',
-    avatar: '/team/dev/nathan-wright.jpg',
-    socialLinks: {
-      linkedin: 'https://linkedin.com/in/nathan-wright-backend',
-      github: 'https://github.com/nwright',
-      stackoverflow: 'https://stackoverflow.com/users/nwright'
-    }
+    name: "Jia Uddin",
+    role: "Senior Backend Developer",
+    position: "Senior Backend Engineer (APIs, Model Serving, Data Pipelines)",
+    department: "Development Team",
+    email: "",
+    avatar: "/team/dev/jia-uddin.jpg",
+    socialLinks: {}
   },
 
   // DevOps Engineer (2)
   {
     id: 6,
-    name: 'Rachel Chen',
-    role: 'DevOps Engineer',
-    position: 'Senior DevOps Engineer',
-    department: 'Development Team',
-    email: 'r.chen@sentinelx-ai.org',
-    avatar: '/team/dev/rachel-chen.jpg',
-    socialLinks: {
-      linkedin: 'https://linkedin.com/in/rachel-chen-devops',
-      github: 'https://github.com/rchen',
-      twitter: 'https://twitter.com/rachel_devops'
-    }
+    name: "Maidul Islam",
+    role: "DevOps Engineer",
+    position: "DevOps / MLOps Engineer (CI/CD, Containers, Deployment Automation)",
+    department: "Development Team",
+    email: "",
+    avatar: "/team/dev/maidul-islam.jpg",
+    socialLinks: {}
   },
   {
     id: 7,
-    name: 'Omar Hassan',
-    role: 'DevOps Engineer',
-    position: 'DevOps Engineer',
-    department: 'Development Team',
-    email: 'o.hassan@sentinelx-ai.org',
-    avatar: '/team/dev/omar-hassan.jpg',
-    socialLinks: {
-      linkedin: 'https://linkedin.com/in/omar-hassan-devops',
-      github: 'https://github.com/ohassan',
-      stackoverflow: 'https://stackoverflow.com/users/ohassan'
-    }
+    name: "Md Manjurul Ahsan",
+    role: "DevOps Engineer",
+    position: "DevOps Engineer (Cloud Ops, Monitoring, Reliability)",
+    department: "Development Team",
+    email: "",
+    avatar: "/team/dev/md-manjurul-ahsan.jpg",
+    socialLinks: {}
   },
 
   // ML Engineer (1)
   {
     id: 8,
-    name: 'Jessica Liu',
-    role: 'ML Engineer',
-    position: 'Senior ML Engineer',
-    department: 'Development Team',
-    email: 'j.liu@sentinelx-ai.org',
-    avatar: '/team/dev/jessica-liu.jpg',
-    socialLinks: {
-      linkedin: 'https://linkedin.com/in/jessica-liu-mle',
-      github: 'https://github.com/jliu',
-      twitter: 'https://twitter.com/jessica_mlops'
-    }
+    name: "Mahbub Alam Khan",
+    role: "ML Engineer",
+    position: "ML Engineer (Model Packaging, Benchmarking, Reproducibility)",
+    department: "Development Team",
+    email: "",
+    avatar: "/team/dev/mahbub-alam-khan.jpg",
+    socialLinks: {}
   },
 
   // Full Stack Developer (1)
   {
     id: 9,
-    name: 'Chris Johnson',
-    role: 'Full Stack Developer',
-    position: 'Full Stack Engineer',
-    department: 'Development Team',
-    email: 'c.johnson@sentinelx-ai.org',
-    avatar: '/team/dev/chris-johnson.jpg',
-    socialLinks: {
-      linkedin: 'https://linkedin.com/in/chris-johnson-fullstack',
-      github: 'https://github.com/cjohnson',
-      portfolio: 'https://chrisjohnson.codes'
-    }
+    name: "A. S. U. K. Pranta",
+    role: "Full Stack Developer",
+    position: "Full Stack Engineer (Demo Apps, Dataset Tools, Experiment Tracking)",
+    department: "Development Team",
+    email: "",
+    avatar: "/team/dev/as-uk-pranta.jpg",
+    socialLinks: {}
   },
 
   // Frontend Developer (1)
   {
     id: 10,
-    name: 'Emily Davis',
-    role: 'Frontend Developer',
-    position: 'Frontend Engineer',
-    department: 'Development Team',
-    email: 'e.davis@sentinelx-ai.org',
-    avatar: '/team/dev/emily-davis.jpg',
-    socialLinks: {
-      linkedin: 'https://linkedin.com/in/emily-davis-frontend',
-      github: 'https://github.com/edavis',
-      twitter: 'https://twitter.com/emily_ui',
-      portfolio: 'https://emilydavis.design'
-    }
+    name: "Amit Kumar Das",
+    role: "Frontend Developer",
+    position: "Frontend Engineer (Component Library, Landing Pages, Docs साइट)",
+    department: "Development Team",
+    email: "",
+    avatar: "/team/dev/amit-kumar-das.jpg",
+    socialLinks: {}
   }
 ];
+
 
 // Helper to get team members by role
 export const getDevelopmentTeamByRole = (role: DevelopmentRole): DevelopmentTeamMember[] => {

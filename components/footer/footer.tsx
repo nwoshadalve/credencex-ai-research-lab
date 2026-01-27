@@ -14,9 +14,17 @@ import {
 } from 'lucide-react';
 import { footerLinks } from '@/config/common/footer-links';
 import { motion } from 'framer-motion';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const socialLinks = [
     { icon: <LinkedinIcon size={20} />, href: 'https://linkedin.com', label: 'LinkedIn' },
@@ -87,13 +95,15 @@ export default function Footer() {
               {/* Brand Section */}
               <motion.div className="lg:col-span-2" variants={itemVariants}>
                 <Link href="/" className="inline-block mb-6 group">
-                  <Image
-                    src="/logo.png"
-                    alt="SentinelX AI Research Lab"
-                    width={160}
-                    height={60}
-                    className="h-12 w-auto transition-transform group-hover:scale-105"
-                  />
+                  {mounted && (
+                    <Image
+                      src={theme === 'dark' ? '/logos/logo-dark.png' : '/logos/logo-light.png'}
+                      alt="CredenceX AI Research Lab"
+                      width={200}
+                      height={75}
+                      className="h-16 w-auto transition-transform group-hover:scale-105"
+                    />
+                  )}
                 </Link>
                 <p className="text-sm text-gray-700 dark:text-gray-300 mb-6 leading-relaxed font-medium">
                   Pioneering research in high-stakes AI applications. Building intelligent systems that make a difference.
@@ -102,13 +112,13 @@ export default function Footer() {
                 {/* Contact Info */}
                 <div className="space-y-3">
                   <a 
-                    href="mailto:info@sentinelx-ai.com" 
+                    href="mailto:info@credencex-ai.com" 
                     className="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 group"
                   >
                     <div className="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-500/10 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-500/20 transition-colors">
                       <Mail size={16} className="text-indigo-600 dark:text-indigo-400" />
                     </div>
-                    <span className="font-medium">info@sentinelx-ai.com</span>
+                    <span className="font-medium">info@credencex-ai.com</span>
                   </a>
                   <a 
                     href="tel:+1234567890" 
@@ -245,7 +255,7 @@ export default function Footer() {
 
             {/* Copyright */}
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-gray-700 dark:text-gray-300 font-medium">
-              <p>© {currentYear} SentinelX AI Research Lab. All rights reserved.</p>
+              <p>© {currentYear} CredenceX AI Research Lab. All rights reserved.</p>
             </div>
           </div>
         </motion.div>
