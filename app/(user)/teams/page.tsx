@@ -1,14 +1,14 @@
-'use client';
-
-import { useSearchParams } from 'next/navigation';
-import { Suspense } from 'react';
 import PageHero from '@/components/common/hero';
 import { pageHeroContent } from '@/config/common/page-hero';
 import TeamsSection from '@/components/teams/teams-section';
 
-function TeamsContent() {
-  const searchParams = useSearchParams();
-  const type = searchParams.get('type') || 'research';
+type TeamsPageProps = {
+  searchParams?: Promise<{ type?: string }> | { type?: string };
+};
+
+export default async function TeamsPage({ searchParams }: TeamsPageProps) {
+  const sp = await Promise.resolve(searchParams);
+  const type = sp?.type || 'research';
 
   // Get hero content based on type
   const getHeroContent = () => {
@@ -25,17 +25,9 @@ function TeamsContent() {
   };
 
   return (
-    <>
+    <main>
       <PageHero content={getHeroContent()} />
       <TeamsSection teamType={type as 'research' | 'development'} />
-    </>
-  );
-}
-
-export default function TeamsPage() {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <TeamsContent />
-    </Suspense>
+    </main>
   );
 }

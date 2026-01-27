@@ -81,7 +81,7 @@ export default function TeamGrid({ members, isResearch }: TeamGridProps) {
 
   return (
     <div className="space-y-12">
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="sync">
         {roleOrder.map((role) => (
           <motion.section
             key={role}

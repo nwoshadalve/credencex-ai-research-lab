@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect, useMemo, useRef } from 'react';
-import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen, FileText, ExternalLink, Users, Calendar, Award, Filter } from 'lucide-react';
 import { publications, statusConfig, typeConfig, Publication } from '@/config/home/publications';
@@ -9,9 +8,11 @@ import Button from '@/components/common/button';
 
 type FilterType = 'all' | 'conference' | 'journal';
 
-export default function PapersSection() {
-  const searchParams = useSearchParams();
-  const typeParam = searchParams.get('type') as FilterType | null;
+interface PapersSectionProps {
+  typeParam?: FilterType | null;
+}
+
+export default function PapersSection({ typeParam }: PapersSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollPositionRef = useRef<number>(0);
   

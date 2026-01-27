@@ -1,13 +1,22 @@
-'use client';
-
-import { useSearchParams } from 'next/navigation';
 import PageHero from "@/components/common/hero";
 import { pageHeroContent } from "@/config/common/page-hero";
 import PapersSection from "@/components/publications/papers-section";
 
-export default function PublicationsPage() {
-  const searchParams = useSearchParams();
-  const typeParam = searchParams.get('type');
+type FilterType = 'all' | 'conference' | 'journal';
+
+type PublicationsPageProps = {
+  searchParams?: Promise<{ type?: string }> | { type?: string };
+};
+
+const allowedFilters = new Set<FilterType>(['all', 'conference', 'journal']);
+
+export default async function PublicationsPage({ searchParams }: PublicationsPageProps) {
+  const sp = await Promise.resolve(searchParams);
+  const rawType = sp?.type;
+  const typeParam =
+    typeof rawType === 'string' && allowedFilters.has(rawType as FilterType)
+      ? (rawType as FilterType)
+      : null;
   
   // Update hero content based on type parameter
   const getHeroContent = () => {
@@ -35,7 +44,7 @@ export default function PublicationsPage() {
   return (
     <main>
       <PageHero content={getHeroContent()} />
-      <PapersSection />
+      <PapersSection typeParam={typeParam} />
     </main>
   );
 }

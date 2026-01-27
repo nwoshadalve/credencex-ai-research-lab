@@ -12,19 +12,18 @@ import {
   Youtube
 } from 'lucide-react';
 import { footerLinks } from '@/config/common/footer-links';
+import { footerBrand, footerContact, socialLinks as socialLinksConfig } from '@/config/common/footer';
 import { motion } from 'framer-motion';
-import { useTheme } from 'next-themes';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-  const { theme, resolvedTheme } = useTheme();
+  const currentYear = new Date().getUTCFullYear();
 
-  const socialLinks = [
-    { icon: <LinkedinIcon size={20} />, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: <Facebook size={20} />, href: 'https://www.facebook.com/profile.php?id=61586371207333', label: 'X' },
-    { icon: <GithubIcon size={20} />, href: 'https://github.com', label: 'GitHub' },
-    { icon: <Youtube size={20} />, href: 'https://youtube.com', label: 'YouTube' },
-  ];
+  const iconMap = {
+    linkedin: LinkedinIcon,
+    facebook: Facebook,
+    github: GithubIcon,
+    youtube: Youtube,
+  };
 
   // Animation variants
   const containerVariants = {
@@ -87,45 +86,56 @@ export default function Footer() {
             >
               {/* Brand Section */}
               <motion.div className="lg:col-span-2" variants={itemVariants}>
-                <Link href="/" className="inline-block mb-6 group">
-                  <Image
-                    src={(theme === 'dark' || resolvedTheme === 'dark') ? '/logos/logo-dark.png' : '/logos/logo-light.png'}
-                    alt="CredenceX AI Research Lab"
-                    width={200}
-                    height={75}
-                    className="h-16 w-auto transition-transform group-hover:scale-105"
-                    priority
-                  />
-                </Link>
+                <div className="mb-6">
+                  <Link href="/" className="inline-block group">
+                    {/* Render both logos so SSR/CSR markup matches; CSS chooses which one is visible */}
+                    <Image
+                      src="/logos/logo-light.png"
+                      alt={footerBrand.logoAlt}
+                      width={200}
+                      height={75}
+                      className="h-16 w-auto transition-transform group-hover:scale-105 dark:hidden"
+                      priority
+                    />
+                    <Image
+                      src="/logos/logo-dark.png"
+                      alt={footerBrand.logoAlt}
+                      width={200}
+                      height={75}
+                      className="hidden h-16 w-auto transition-transform group-hover:scale-105 dark:block"
+                      priority
+                    />
+                  </Link>
+                </div>
                 <p className="text-sm text-gray-700 dark:text-gray-300 mb-6 leading-relaxed font-medium">
-                  Pioneering research in high-stakes AI applications. Building intelligent systems that make a difference.
+                  {footerBrand.description}
                 </p>
                 
                 {/* Contact Info */}
                 <div className="space-y-3">
                   <a 
-                    href="mailto:info@credencex-ai.com" 
+                    href={`mailto:${footerContact.email}`} 
                     className="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 group"
                   >
                     <div className="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-500/10 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-500/20 transition-colors">
                       <Mail size={16} className="text-indigo-600 dark:text-indigo-400" />
                     </div>
-                    <span className="font-medium">info@credencex-ai.com</span>
+                    <span className="font-medium">{footerContact.email}</span>
                   </a>
                   <a 
-                    href="tel:+1234567890" 
+                    href={`tel:${footerContact.phone.replace(/\s/g, '')}`} 
                     className="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 group"
                   >
                     <div className="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-500/10 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-500/20 transition-colors">
                       <Phone size={16} className="text-indigo-600 dark:text-indigo-400" />
                     </div>
-                    <span className="font-medium">+1 (234) 567-890</span>
+                    <span className="font-medium">{footerContact.phone}</span>
                   </a>
                   <div className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
                     <div className="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-500/10 shrink-0">
                       <MapPin size={16} className="text-indigo-600 dark:text-indigo-400" />
                     </div>
-                    <span className="font-medium leading-relaxed">123 AI Research Blvd<br />Innovation District, CA 94000</span>
+                    <span className="font-medium leading-relaxed">{footerContact.address.line1}<br />{footerContact.address.line2}</span>
                   </div>
                 </div>
               </motion.div>
@@ -222,23 +232,26 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             {/* Social Links */}
             <div className="flex items-center gap-3">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 rounded-xl bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-gray-200/50 dark:border-gray-600/50 hover:bg-linear-to-r hover:from-indigo-500/90 hover:to-purple-500/90 hover:border-indigo-500/50 text-gray-700 dark:text-gray-300 hover:text-white transition-all duration-300 group hover:scale-110 hover:shadow-lg hover:shadow-indigo-500/20"
-                  aria-label={social.label}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {social.icon}
-                </motion.a>
-              ))}
+              {socialLinksConfig.map((social, index) => {
+                const IconComponent = iconMap[social.platform];
+                return (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-xl bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-gray-200/50 dark:border-gray-600/50 hover:bg-linear-to-r hover:from-indigo-500/90 hover:to-purple-500/90 hover:border-indigo-500/50 text-gray-700 dark:text-gray-300 hover:text-white transition-all duration-300 group hover:scale-110 hover:shadow-lg hover:shadow-indigo-500/20"
+                    aria-label={social.label}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <IconComponent size={20} />
+                  </motion.a>
+                );
+              })}
             </div>
 
             {/* Copyright */}

@@ -1,16 +1,17 @@
 'use client';
 
 import { useState, useEffect, useMemo, useRef } from 'react';
-import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FolderKanban, Filter, Rocket, Calendar, Layers, ExternalLink } from 'lucide-react';
 import { projects, statusConfig, Project, ProjectStatus } from '@/config/home/projects';
 
 type FilterType = 'all' | 'active' | 'completed' | 'planned';
 
-export default function ProjectsSection() {
-  const searchParams = useSearchParams();
-  const typeParam = searchParams.get('type') as FilterType | null;
+interface ProjectsSectionProps {
+  typeParam?: FilterType | null;
+}
+
+export default function ProjectsSection({ typeParam }: ProjectsSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollPositionRef = useRef<number>(0);
   

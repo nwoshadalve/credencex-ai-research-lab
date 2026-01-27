@@ -60,27 +60,28 @@ export default function JoinResearchCommunity() {
           </motion.div>
           {/* Buttons Only, with Animation */}
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 w-full justify-center mt-8">
-            <Link href={joinCommunityContent.buttons.careers.href} passHref legacyBehavior>
-              <motion.a
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="group relative px-8 py-4 bg-linear-to-r from-blue-500 to-purple-600 dark:from-blue-400 dark:to-purple-500 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/40 dark:shadow-blue-400/30 hover:shadow-xl hover:shadow-blue-500/50 dark:hover:shadow-blue-400/40 transition-all duration-300 text-base whitespace-nowrap cursor-pointer overflow-hidden"
-              >
+            <Link
+              href={joinCommunityContent.buttons.careers.href}
+              className="group relative px-8 py-4 bg-linear-to-r from-blue-500 to-purple-600 dark:from-blue-400 dark:to-purple-500 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/40 dark:shadow-blue-400/30 hover:shadow-xl hover:shadow-blue-500/50 dark:hover:shadow-blue-400/40 transition-all duration-300 text-base whitespace-nowrap cursor-pointer overflow-hidden"
+            >
+              <motion.span whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="block">
                 {/* Shimmer Effect */}
-                <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                 <span className="relative z-10">{joinCommunityContent.buttons.careers.text}</span>
-              </motion.a>
+              </motion.span>
             </Link>
-            <Link href={joinCommunityContent.buttons.contact.href} passHref legacyBehavior>
-              <motion.a
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="group relative px-8 py-4 bg-linear-to-r from-purple-500 to-pink-600 dark:from-purple-400 dark:to-pink-500 text-white font-semibold rounded-xl shadow-lg shadow-purple-500/40 dark:shadow-purple-400/30 hover:shadow-xl hover:shadow-purple-500/50 dark:hover:shadow-purple-400/40 transition-all duration-300 text-base whitespace-nowrap cursor-pointer flex items-center justify-center gap-2 overflow-hidden"
-              >
+
+            <Link
+              href={joinCommunityContent.buttons.contact.href}
+              className="group relative px-8 py-4 bg-linear-to-r from-purple-500 to-pink-600 dark:from-purple-400 dark:to-pink-500 text-white font-semibold rounded-xl shadow-lg shadow-purple-500/40 dark:shadow-purple-400/30 hover:shadow-xl hover:shadow-purple-500/50 dark:hover:shadow-purple-400/40 transition-all duration-300 text-base whitespace-nowrap cursor-pointer flex items-center justify-center gap-2 overflow-hidden"
+            >
+              <motion.span whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="block w-full">
                 {/* Shimmer Effect */}
-                <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                <span className="relative z-10 flex items-center gap-2"><Mail className="w-5 h-5" /> {joinCommunityContent.buttons.contact.text}</span>
-              </motion.a>
+                <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  <Mail className="w-5 h-5" /> {joinCommunityContent.buttons.contact.text}
+                </span>
+              </motion.span>
             </Link>
           </motion.div>
         </motion.div>
