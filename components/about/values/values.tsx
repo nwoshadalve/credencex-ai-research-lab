@@ -18,7 +18,7 @@ export default function CoreValues() {
     };
 
     return (
-        <section className="relative py-20 lg:py-28 overflow-hidden bg-white dark:bg-black">
+        <section id="values" className="relative py-20 lg:py-28 overflow-hidden bg-white dark:bg-black">
             {/* Background Elements */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute -top-40 -left-40 w-96 h-96 bg-linear-to-br from-violet-100/30 via-purple-100/20 to-transparent dark:from-violet-900/20 dark:via-purple-900/10 rounded-full blur-3xl" />

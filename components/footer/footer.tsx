@@ -7,28 +7,21 @@ import {
   MapPin, 
   Phone, 
   Linkedin as LinkedinIcon, 
-  X, 
+  Facebook, 
   Github as GithubIcon, 
-  Youtube,
-  ChevronRight
+  Youtube
 } from 'lucide-react';
 import { footerLinks } from '@/config/common/footer-links';
 import { motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const { theme, resolvedTheme } = useTheme();
 
   const socialLinks = [
     { icon: <LinkedinIcon size={20} />, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: <X size={20} />, href: 'https://x.com', label: 'X' },
+    { icon: <Facebook size={20} />, href: 'https://www.facebook.com/profile.php?id=61586371207333', label: 'X' },
     { icon: <GithubIcon size={20} />, href: 'https://github.com', label: 'GitHub' },
     { icon: <Youtube size={20} />, href: 'https://youtube.com', label: 'YouTube' },
   ];
@@ -95,15 +88,14 @@ export default function Footer() {
               {/* Brand Section */}
               <motion.div className="lg:col-span-2" variants={itemVariants}>
                 <Link href="/" className="inline-block mb-6 group">
-                  {mounted && (
-                    <Image
-                      src={theme === 'dark' ? '/logos/logo-dark.png' : '/logos/logo-light.png'}
-                      alt="CredenceX AI Research Lab"
-                      width={200}
-                      height={75}
-                      className="h-16 w-auto transition-transform group-hover:scale-105"
-                    />
-                  )}
+                  <Image
+                    src={(theme === 'dark' || resolvedTheme === 'dark') ? '/logos/logo-dark.png' : '/logos/logo-light.png'}
+                    alt="CredenceX AI Research Lab"
+                    width={200}
+                    height={75}
+                    className="h-16 w-auto transition-transform group-hover:scale-105"
+                    priority
+                  />
                 </Link>
                 <p className="text-sm text-gray-700 dark:text-gray-300 mb-6 leading-relaxed font-medium">
                   Pioneering research in high-stakes AI applications. Building intelligent systems that make a difference.
@@ -149,10 +141,9 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 flex items-center gap-2 group font-medium"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium"
                   >
-                    <ChevronRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all text-indigo-500" />
-                    <span>{link.label}</span>
+                    {link.label}
                   </Link>
                 </li>
               ))}
@@ -170,10 +161,9 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 flex items-center gap-2 group font-medium"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium"
                   >
-                    <ChevronRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all text-indigo-500" />
-                    <span>{link.label}</span>
+                    {link.label}
                   </Link>
                 </li>
               ))}
@@ -191,10 +181,9 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 flex items-center gap-2 group font-medium"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium"
                   >
-                    <ChevronRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all text-indigo-500" />
-                    <span>{link.label}</span>
+                    {link.label}
                   </Link>
                 </li>
               ))}
@@ -212,10 +201,9 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 flex items-center gap-2 group font-medium"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium"
                   >
-                    <ChevronRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all text-indigo-500" />
-                    <span>{link.label}</span>
+                    {link.label}
                   </Link>
                 </li>
               ))}

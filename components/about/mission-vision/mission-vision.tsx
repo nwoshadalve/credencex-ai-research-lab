@@ -29,7 +29,7 @@ export default function MissionVision() {
     const VisionIcon = missionVisionContent.vision.icon;
 
     return (
-        <section className="relative py-20 lg:py-28 overflow-hidden bg-white dark:bg-black">
+        <section id="mission" className="relative py-20 lg:py-28 overflow-hidden bg-white dark:bg-black">
             {/* Background Elements */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute -top-40 -left-40 w-96 h-96 bg-linear-to-br from-blue-100/40 via-indigo-100/30 to-transparent dark:from-blue-900/20 dark:via-indigo-900/15 rounded-full blur-3xl" />

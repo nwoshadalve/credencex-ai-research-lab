@@ -238,5 +238,31 @@ export const pageHeroContent: Record<string, PageHeroContent> = {
       via: "via-purple-50",
       to: "to-fuchsia-50"
     }
+  },
+  privacy: {
+    badge: {
+      text: "Privacy Policy"
+    },
+    title: "Your Privacy Matters",
+    subtitle: "Transparency in Data Protection",
+    description: "Learn how we collect, use, and protect your personal information. At CredenceX AI Research Lab, we are committed to maintaining the highest standards of data privacy and security.",
+    backgroundGradient: {
+      from: "from-blue-50",
+      via: "via-indigo-50",
+      to: "to-purple-50"
+    }
+  },
+  terms: {
+    badge: {
+      text: "Terms of Service"
+    },
+    title: "Terms and Conditions",
+    subtitle: "Legal Agreement for Using Our Services",
+    description: "Please read these terms carefully before using CredenceX AI Research Lab services. By accessing our website and services, you agree to be bound by these terms and conditions.",
+    backgroundGradient: {
+      from: "from-indigo-50",
+      via: "via-purple-50",
+      to: "to-fuchsia-50"
+    }
   }
 };

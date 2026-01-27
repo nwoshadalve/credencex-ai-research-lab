@@ -12,28 +12,24 @@ export interface FooterLinks {
 
 export const footerLinks: FooterLinks = {
   company: [
-    { label: 'About Us', href: '/about' },
     { label: 'Our Mission', href: '/about#mission' },
+    { label: 'Our Values', href: '/about#values' },
     { label: 'Teams', href: '/teams' },
     { label: 'Careers', href: '/careers' },
+    { label: 'Contact', href: '/contact' },
   ],
   research: [
-    { label: 'Publications', href: '/publications' },
-    { label: 'Projects', href: '/projects' },
-    { label: 'Active Research', href: '/projects#active' },
-    { label: 'Collaborations', href: '/projects#collaborations' },
+    { label: 'Conference Papers', href: '/publications?type=conference' },
+    { label: 'Journal Articles', href: '/publications?type=journal' },
+    { label: 'Active Projects', href: '/projects?type=active' },
+    { label: 'Completed Projects', href: '/projects?type=completed' },
   ],
   resources: [
-    { label: 'Blogs', href: '/blogs' },
-    { label: 'Documentation', href: '/docs' },
     { label: 'News & Updates', href: '/news' },
-    { label: 'Events', href: '/events' },
   ],
   legal: [
     { label: 'Privacy Policy', href: '/privacy' },
-    { label: 'Terms of Service', href: '/terms' },
-    { label: 'Cookie Policy', href: '/cookies' },
-    { label: 'Ethics Guidelines', href: '/ethics' },
+    { label: 'Terms & Conditions', href: '/terms' },
   ],
 };
 
