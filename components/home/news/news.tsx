@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Clock, ChevronDown, ChevronUp, Play } from 'lucide-react';
 import { getLatestNews, formatNewsDate, newsTypeConfig } from '@/config/home/news';
@@ -203,15 +204,16 @@ export default function NewsSection() {
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="flex justify-center mt-12"
                 >
-                    <Button
-                        variant="glass"
-                        size="lg"
-                        icon={Play}
-                        iconPosition="right"
-                        onClick={() => window.open('/news', '_self')}
-                    >
-                        View All News
-                    </Button>
+                    <Link href="/news">
+                        <Button
+                            variant="glass"
+                            size="lg"
+                            icon={Play}
+                            iconPosition="right"
+                        >
+                            View All News
+                        </Button>
+                    </Link>
                 </motion.div>
             </div>
         </section>
