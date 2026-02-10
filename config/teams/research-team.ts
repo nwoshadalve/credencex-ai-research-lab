@@ -26,106 +26,77 @@ export type TeamRole =
   | 'PhD Candidate';
 
 export const researchTeam: TeamMember[] = [
-  // =========================
-  // Founder / Co-Founder
-  // =========================
+
   {
     id: 1,
-    name: "Rezaul Haque",
-    role: "Founder & Co-Founder",
-    position: "Founder & Research Lead (Trustworthy Medical AI, Multimodal Fusion, XAI)",
-    institute: "CredenceX AI Research Lab",
-    email: "redzaulh603@gmail.com",
-    avatar: "/team/rezaul-haque.jpg",
-    socialLinks: {
-      linkedin: "https://www.linkedin.com/in/-rezaulhaque/",
-      googleScholar: "https://scholar.google.com/citations?user=wi2kfzYAAAAJ&hl=en",
-      github: "https://github.com/rezaul-h",
-      researchGate: "https://www.researchgate.net/profile/Rezaul-Haque-7",
-      orcid: "https://orcid.org/0000-0002-9203-1622",
-      website: "https://rezaul-h.github.io/"
-    }
-  },
-  {
-    id: 2,
-    name: "Md. Redwan Ahmed",
-    role: "Founder & Co-Founder",
-    position: "Co-Founder & Research Lead (Multimodal Learning, Clinical AI, Deployment)",
-    institute: "CredenceX AI Research Lab",
-    email: "redrik278@gmail.com",
-    avatar: "/teams/Redwan.jpg",
-    socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
-      googleScholar: "https://scholar.google.com/citations?user=_GI3BXMAAAAJ&hl=en",
-      github: "https://github.com/redrik278",
-      website: "https://redrik278.github.io/Redwan",
-      researchGate: "https://www.researchgate.net/profile/Md-Redwan-Ahmed-2?ev=hdr_xprf",
-      orcid: "https://orcid.org/my-orcid?orcid=0009-0007-4042-2936"
-    }
-  },
-
-  // =========================
-  // Supervisors / Advisors
-  // =========================
-  {
-    id: 3,
     name: "Prof. Dr. Mohammad Ali Moni",
-    role: "Supervisor",
-    position: "Supervisor / Advisor",
+    role: "Research Scientist",
+    position: "The University of Cambridge(UK); Oxford University(UK); University of Queensland(AUS); Charles Sturt University(AUS)",
     institute: "CredenceX AI Research Lab",
-    email: "",
-    avatar: "/team/placeholder.jpg",
+    email: "m.moni@uq.edu.au",
+    avatar: "/teams/moni.jfif",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
+      linkedin: "https://www.linkedin.com/in/prof-mohammad-ali-moni-phd-cambridge-university-35059819/",
       googleScholar: "https://scholar.google.com/citations?user=JnwcUwkAAAAJ&hl=en"
     }
   },
   {
-    id: 4,
-    name: "Prof. Dr. Nazmul Siddique",
+    id: 2,
+    name: "Dr. Nazmul Siddique",
     role: "Research Consultant",
-    position: "Supervisor / Advisor",
+    position: "Ulster University(UK); The University of Sheffield(UK); Technische Universität Dresden(Germany)",
     institute: "CredenceX AI Research Lab",
-    email: "",
+    email: "nh.siddique@ulster.ac.uk",
     avatar: "/teams/siddique.jpeg",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
+      linkedin: "https://www.linkedin.com/in/nazmul-siddique-27315478/",
       googleScholar: "https://scholar.google.com/citations?user=oV13Kl0AAAAJ&hl=en"
+    }
+  },
+    {
+    id: 3,
+    name: "Prof. Dr. Shamim Hasnat Ripon",
+    role: "Research Consultant",
+    position: "National University of Singapore(Singapore); University of York(UK); University of Glasgow(UK); University of Southampton(UK)",
+    institute: "CredenceX AI Research Lab",
+    email: "dshr@ewubd.edu",
+    avatar: "/teams/ripon.jfif",
+    socialLinks: {
+      linkedin: "https://www.linkedin.com/in/shamim-ripon-8b07156/",
+      googleScholar: "https://scholar.google.com/citations?user=TkA8sygAAAAJ&hl=en"
+    }
+  },
+  {
+    id: 4,
+    name: "Prof. Dr. M. Ali Akber Dewan",
+    role: "Research Consultant",
+    position: "Athabasca University(Canada); Concordia University(Canada); Kyung Hee University(South Korea)",
+    institute: "CredenceX AI Research Lab",
+    email: "adewan@athabascau.ca",
+    avatar: "/teams/dewan.jfif",
+    socialLinks: {
+      linkedin: "https://www.linkedin.com/in/alidewan/",
+      googleScholar: "https://scholar.google.com/citations?user=N6rTw2AAAAAJ&hl=en&authuser=1",
     }
   },
   {
     id: 5,
-    name: "Prof. Dr. Young-Im Cho",
+    name: "Prof. Dr. Ahmed Wasif Reza",
     role: "Supervisor",
-    position: "Supervisor / Advisor",
+    position: "East West University(Dean); University of Malaya (Malaysia); Multimedia University (Malaysia)",
     institute: "CredenceX AI Research Lab",
-    email: "",
-    avatar: "/team/placeholder.jpg",
+    email: "wasif@ewubd.edu",
+    avatar: "/teams/wasif.jpg",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
-      googleScholar: "https://scholar.google.com/citations?user=_GI3BXMAAAAJ&hl=en",
-      github: "https://github.com/redrik278"
+      linkedin: "https://www.linkedin.com/in/professor-dr-ahmed-wasif-reza-099920151/",
+      googleScholar: "https://scholar.google.com/citations?user=4dhJMl4AAAAJ&hl=en"
     }
   },
   {
     id: 6,
-    name: "Prof. Dr. M. Ali Akber Dewan",
+    name: "Dr. Fakir Mashuque Alamgir",
     role: "Supervisor",
-    position: "Supervisor / Advisor",
-    institute: "CredenceX AI Research Lab",
-    email: "",
-    avatar: "/team/placeholder.jpg",
-    socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
-      googleScholar: "https://scholar.google.com/citations?user=_GI3BXMAAAAJ&hl=en",
-      github: "https://github.com/redrik278"
-    }
-  },
-  {
-    id: 7,
-    name: "Prof. Dr. Fakir Mashuque Alamgir",
-    role: "Supervisor",
-    position: "Supervisor / Advisor",
+    position: "University of Dhaka; University of Greenwich(UK)",
     institute: "CredenceX AI Research Lab",
     email: "fma@ewubd.edu",
     avatar: "/teams/mashuque.jpeg",
@@ -135,146 +106,148 @@ export const researchTeam: TeamMember[] = [
     }
   },
   {
-    id: 8,
-    name: "Prof. Dr. Ahmed Wasif Reza",
-    role: "Supervisor",
-    position: "Supervisor / Advisor",
-    institute: "CredenceX AI Research Lab",
-    email: "wasif@ewubd.edu",
-    avatar: "/teams/wasif.jpg",
-    socialLinks: {
-      linkedin: "https://www.linkedin.com/in/professor-dr-ahmed-wasif-reza-099920151/",
-      googleScholar: "https://scholar.google.com/citations?user=4dhJMl4AAAAJ&hl=en"
-    }
-  },
-  
-  {
-    id: 9,
+    id: 7,
     name: "Prof. Dr. Abhishek Appaji",
     role: "Supervisor",
-    position: "Supervisor / Advisor",
+    position: "Maastricht University(Netherlands); Massachusetts Institute of Technology(USA)",
     institute: "CredenceX AI Research Lab",
-    email: "",
+    email: "abhishek.ml@bmsce.ac.in",
     avatar: "/teams/appaji.jpeg",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
+      linkedin: "https://www.linkedin.com/in/abhishek-appaji/",
       googleScholar: "https://scholar.google.com/citations?user=Sf-xh70AAAAJ&hl=en"
     }
   },
   {
-    id: 10,
-    name: "Prof. Dr. Md Junayed Hasan",
+    id: 8,
+    name: "Dr. Md Junayed Hasan",
     role: "Supervisor",
-    position: "Supervisor / Advisor",
+    position: "University of Glasgow(UK); University of Ulsan(South Korea); National Subsea Centre(UK); ",
     institute: "CredenceX AI Research Lab",
-    email: "",
+    email: "junhasan@gmail.com",
     avatar: "/teams/junayed.jpeg",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
-      googleScholar: "https://scholar.google.com/citations?user=_GI3BXMAAAAJ&hl=en",
-      github: "https://github.com/redrik278"
+      linkedin: "https://www.linkedin.com/in/mdjunayedhasan/",
+      googleScholar: "https://scholar.google.com/citations?user=6dp1PZAAAAAJ&hl=en",
     }
   },
+
   {
-    id: 11,
-    name: "Prof. Dr. Shamim Hasnat Ripon",
-    role: "Supervisor",
-    position: "Supervisor / Advisor",
+    id: 9,
+    name: "Prof. Dr. Golam Rabiul Alam",
+    role: "Research Consultant",
+    position: "Kyung Hee University (South Korea); University of Dhaka; BRAC University",
     institute: "CredenceX AI Research Lab",
-    email: "",
-    avatar: "/team/placeholder.jpg",
+    email: "rabiul.alam@bracu.ac.bd",
+    avatar: "/teams/golam.jpg",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
-      googleScholar: "https://scholar.google.com/citations?user=_GI3BXMAAAAJ&hl=en",
-      github: "https://github.com/redrik278"
-    }
-  },
-  {
-    id: 12,
-    name: "Prof. Dr. Mohamed S. Abdallah",
-    role: "Supervisor",
-    position: "Supervisor / Advisor",
-    institute: "CredenceX AI Research Lab",
-    email: "",
-    avatar: "/team/placeholder.jpg",
-    socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
-      googleScholar: "https://scholar.google.com/citations?user=_GI3BXMAAAAJ&hl=en",
-      github: "https://github.com/redrik278"
+      linkedin: "https://www.linkedin.com/in/md-golam-rabiul-alam-abb1767/",
+      googleScholar: "https://scholar.google.com/citations?user=t4GrJR4AAAAJ&hl=en"
     }
   },
 
   // =========================
   // Lead Researchers
   // =========================
+  
   {
-    id: 13,
-    name: "S M Masfequier Rahman Swapno",
+    id: 10,
+   name: "Ferdaus Ibne Aziz",
     role: "Lead Researcher",
-    position: "Lead Researcher (Explainable Transformers & Applied Vision)",
+    position: "MS in Artificial Intelligence, Woosong University, South Korea",
     institute: "CredenceX AI Research Lab",
-    email: "",
-    avatar: "/teams/mashfiq.jpeg",
+    email: "shifatshaheen92@gmail.com",
+    avatar: "/teams/ferdaus.jfif",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
-      googleScholar: "https://scholar.google.com/citations?user=_GI3BXMAAAAJ&hl=en",
-      github: "https://github.com/redrik278"
+      googleScholar: "https://scholar.google.com/citations?user=XgED0OoAAAAJ&hl=en",
+      linkedin: "https://www.linkedin.com/in/ferdaus-ibne-aziz/"
+    }
+  },
+
+
+  {
+    id: 11,
+    name: "Anamul Haque Sakib",
+    role: "Lead Researcher",
+    position: "MS, International American University, Los Angeles, USA",
+    institute: "CredenceX AI Research Lab",
+    email: "anamulhaquesakib0@gmail.com",
+    avatar: "/teams/shakil.jfif",
+    socialLinks: {
+      googleScholar: "https://scholar.google.com/citations?user=wJW1DDkAAAAJ&hl=en"
     }
   },
   {
-    id: 14,
-    name: "Ferdaus Ibne Aziz",
+    id: 12,
+    name: "Md Ismail Hossain Siddiqui",
     role: "Lead Researcher",
-    position: "Lead Researcher",
+    position: "MS in Engineering/Industrial Management, Westcliff University, Irvine, USA",
     institute: "CredenceX AI Research Lab",
-    email: "",
-    avatar: "/team/placeholder.jpg",
+    email: "ismailhossainsiddiqui.ce@gmail.com",
+    avatar: "/teams/Siddiqui.jfif",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
-      googleScholar: "https://scholar.google.com/citations?user=_GI3BXMAAAAJ&hl=en",
-      github: "https://github.com/redrik278"
+      googleScholar: "https://scholar.google.com/citations?user=ml6xkJMAAAAJ&hl=en",
+    }
+  },
+  {
+    id: 13,
+    name: "Md Tanvir Rahman Tarafder",
+    role: "Lead Researcher",
+    position: "MS in Information Technology, Westcliff University, Irvine, USA",
+    institute: "CredenceX AI Research Lab",
+    email: "tanviraditto90@gmail.com",
+    avatar: "/teams/tanvir.jfif",
+    socialLinks: {
+      googleScholar: "https://scholar.google.com/citations?user=mK-xZUEAAAAJ&hl=en&oi=ao"
+    }
+  },
+{
+    id: 14,
+    name: "Hamdadur rahman",
+    role: "Lead Researcher",
+    position: "MS, International American University, Los Angeles, USA",
+    institute: "CredenceX AI Research Lab",
+    email: "hamdadurrahman348@gmail.com",
+    avatar: "/teams/Hamdadur.jfif",
+    socialLinks: {
+      googleScholar: "https://scholar.google.com/citations?user=h1YufU0AAAAJ&hl=en"
     }
   },
   {
     id: 15,
-    name: "Shafiur Rahman",
+    name: "Abdullah AL Noman",
     role: "Lead Researcher",
-    position: "Lead Researcher",
+    position: "MS in Information Technology, Westcliff University, Irvine, USA",
     institute: "CredenceX AI Research Lab",
-    email: "",
-    avatar: "/teams/shafiur.jpg",
+    email: "nomanabdullah19974@gmail.com",
+    avatar: "/teams/noman.jfif",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/shafiur-rahman-377874217/",
-      googleScholar: "https://scholar.google.com/citations?user=Aq1Ww_cAAAAJ&hl=en",
-      github: "https://github.com/redrik278"
+      googleScholar: "https://scholar.google.com/citations?user=QHRTCy8AAAAJ&hl=en"
     }
   },
-  {
+{
     id: 16,
-    name: "Md Ismail Hossain Siddiqui",
+    name: "Hasib Mahmud Fardin",
     role: "Lead Researcher",
-    position: "Lead Researcher (Medical Image Intelligence & XAI)",
+    position: "MS in Engineering/Industrial Management, Westcliff University, Irvine, USA",
     institute: "CredenceX AI Research Lab",
-    email: "",
-    avatar: "/team/placeholder.jpg",
+    email: "hasibmahmudfardin@gmail.com",
+    avatar: "/teams/fardin.jfif",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
-      googleScholar: "https://scholar.google.com/citations?user=_GI3BXMAAAAJ&hl=en",
-      github: "https://github.com/redrik278"
+      googleScholar: "https://scholar.google.com/citations?user=1skMsIsAAAAJ&hl=en&oi=ao",
     }
   },
+
   {
     id: 17,
-    name: "Anamul Haque Sakib",
+   name: "Shah Imran",
     role: "Lead Researcher",
-    position: "Lead Researcher (Multimodal Fusion & Efficient Models)",
+    position: "PhD in Information Systems Engineering, Concordia University, Canada",
     institute: "CredenceX AI Research Lab",
-    email: "",
-    avatar: "/team/placeholder.jpg",
+    email: "shah.imran.1599@gmail.com",
+    avatar: "/teams/imran.jfif",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
-      googleScholar: "https://scholar.google.com/citations?user=_GI3BXMAAAAJ&hl=en",
-      github: "https://github.com/redrik278"
+      googleScholar: "https://scholar.google.com/citations?user=pahMUOEAAAAJ&hl=en"
     }
   },
 
@@ -285,56 +258,48 @@ export const researchTeam: TeamMember[] = [
     id: 18,
     name: "Arafath Bin Mohiuddin",
     role: "Researcher",
-    position: "Researcher",
+    position: "MS in Information Technology, Westcliff University, Irvine, USA",
     institute: "CredenceX AI Research Lab",
-    email: "",
-    avatar: "/team/placeholder.jpg",
+    email: "arafath2307@gmail.com",
+    avatar: "/teams/Mohiuddin.jfif",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
-      googleScholar: "https://scholar.google.com/citations?user=_GI3BXMAAAAJ&hl=en",
-      github: "https://github.com/redrik278"
+      googleScholar: "https://scholar.google.com/citations?user=r4rIoawAAAAJ&hl=en&oi=ao",
     }
   },
   {
     id: 19,
-    name: "Hamdadur Rahman",
+    name: "Jesika Debnath",
     role: "Researcher",
-    position: "Researcher (Medical Imaging & Explainable AI)",
+    position: "MS in Computer Science, Westcliff University, Irvine, USA",
     institute: "CredenceX AI Research Lab",
-    email: "",
+    email: "jesika.toma09@gmail.com",
     avatar: "/team/placeholder.jpg",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
-      googleScholar: "https://scholar.google.com/citations?user=_GI3BXMAAAAJ&hl=en",
-      github: "https://github.com/redrik278"
+      googleScholar: "https://scholar.google.com/citations?user=sRCPNqUAAAAJ&hl=en",
     }
   },
   {
     id: 20,
-    name: "Abdullah Al Noman",
+    name: "Zishad Hossain Limon",
     role: "Researcher",
-    position: "Researcher",
+    position: "MS in Computer Science, Westcliff University, Irvine, USA",
     institute: "CredenceX AI Research Lab",
-    email: "",
-    avatar: "/team/placeholder.jpg",
+    email: "zishadlimon@gmail.com",
+    avatar: "/teams/limon.jfif",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
-      googleScholar: "https://scholar.google.com/citations?user=_GI3BXMAAAAJ&hl=en",
-      github: "https://github.com/redrik278"
+      googleScholar: "https://scholar.google.com/citations?user=sONkdskAAAAJ&hl=en&oi=ao",
     }
   },
   {
     id: 21,
-    name: "Hasib Fardin",
+    name: "Md Nuruzzaman Pranto",
     role: "Researcher",
-    position: "Researcher",
+    position: "MS, International American University, Los Angeles, USA",
     institute: "CredenceX AI Research Lab",
-    email: "",
-    avatar: "/team/placeholder.jpg",
+    email: "prantonurz@gmail.com",
+    avatar: "/teams/Pranto.jfif",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
-      googleScholar: "https://scholar.google.com/citations?user=_GI3BXMAAAAJ&hl=en",
-      github: "https://github.com/redrik278"
+      googleScholar: "https://scholar.google.com/citations?hl=en&user=pyZLqF4AAAAJ&view_op=list_works&sortby=pubdate",
     }
   },
 
@@ -345,49 +310,31 @@ export const researchTeam: TeamMember[] = [
     id: 22,
     name: "Amira Hossain",
     role: "Research Assistant",
-    position: "Research Assistant",
+    position: "MS in Computer Science, Westcliff University, Irvine, USA",
     institute: "CredenceX AI Research Lab",
-    email: "",
+    email: " a.hossain.193@westcliff.edu",
     avatar: "/team/placeholder.jpg",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
-      googleScholar: "https://scholar.google.com/citations?user=_GI3BXMAAAAJ&hl=en",
-      github: "https://github.com/redrik278"
+      googleScholar: "https://www.researchgate.net/scientific-contributions/Amira-Hossain-2312180288",
     }
   },
   {
     id: 23,
-    name: "Jesika Debnath",
+    name: "Al Shahriar Uddin Khondakar Pranta",
     role: "Research Assistant",
-    position: "Research Assistant",
+    position: "MS in Computer Science at Wright State University, Ohio, USA",
     institute: "CredenceX AI Research Lab",
-    email: "",
+    email: "skpranta3699@gmail.com",
     avatar: "/team/placeholder.jpg",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
-      googleScholar: "https://scholar.google.com/citations?user=_GI3BXMAAAAJ&hl=en",
-      github: "https://github.com/redrik278"
+      googleScholar: "https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=rXICsQoAAAAJ",
     }
   },
   {
     id: 24,
-    name: "Zishad Hossain Limon",
-    role: "Research Assistant",
-    position: "Research Assistant",
-    institute: "CredenceX AI Research Lab",
-    email: "",
-    avatar: "/team/placeholder.jpg",
-    socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
-      googleScholar: "https://scholar.google.com/citations?user=_GI3BXMAAAAJ&hl=en",
-      github: "https://github.com/redrik278"
-    }
-  },
-  {
-    id: 25,
     name: "S M Arafat Rahman",
     role: "Research Assistant",
-    position: "Research Assistant",
+    position: "BS in CSE at East West University, Bangladesh",
     institute: "CredenceX AI Research Lab",
     email: "smarafat233@gmail.com",
     avatar: "/teams/arafat.jpg",
@@ -398,10 +345,10 @@ export const researchTeam: TeamMember[] = [
     }
   },
   {
-    id: 26,
+    id: 25,
     name: "Sheikh Shemanto Afridi",
     role: "Research Assistant",
-    position: "Research Assistant",
+    position: "BS in CSE at East West University, Bangladesh",
     institute: "CredenceX AI Research Lab",
     email: "sheikhshemantoafridi@gmail.com",
     avatar: "/teams/afridi.jpg",

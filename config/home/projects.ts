@@ -1,4 +1,4 @@
-import { LucideIcon, Bot, Shield, Brain, Database, Sparkles, Network, Eye, Server, CheckCircle, Clock, Calendar, Target } from 'lucide-react';
+import { LucideIcon, Shield, Brain, Sparkles, Network, Eye, Server, CheckCircle, Clock, Calendar, Target } from 'lucide-react';
 
 export type ProjectStatus = 'completed' | 'in-progress' | 'planned';
 
@@ -70,7 +70,7 @@ export const projects: Project[] = [
     description:
       "A reproducible, explainable transformer pipeline for depression emotion/severity experiments, including ablations, XAI faithfulness checks, and a minimal Flask demo (research use only).",
     area: "Trustworthy & Calibrated AI",
-    status: "in-progress",
+    status: "completed",
     icon: Brain,
     gradient: "from-purple-500/20 to-pink-500/20",
     featured: true,
@@ -80,7 +80,7 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    title: "LMVT (Lung MobileViT) Explainable Lung Cancer Diagnosis",
+    title: "Explainable Lung Cancer Diagnosis",
     description:
       "Lightweight hybrid CNN–Transformer (MobileViT + attention + texture cues) for efficient and explainable lung cancer diagnosis on CT/histopathology with Grad-CAM and robust evaluation support.",
     area: "Explainable Medical Image Intelligence",
@@ -94,7 +94,7 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    title: "Multimodal Information Fusion (Audio–Visual Recognition)",
+    title: "Multimodal Information Fusion",
     description:
       "A modular pipeline for audio-visual object recognition using hybrid, tensor, and FiLM-style fusion with flexible feature extraction and noise-robust training options.",
     area: "Multimodal Vision–Language Foundation Models",
@@ -108,7 +108,7 @@ export const projects: Project[] = [
   },
   {
     id: 4,
-    title: "CottonVerse, Multi-Model XAI Web App",
+    title: "CottonVerse",
     description:
       "Flask-based web application for cotton leaf disease, fabric stain defect detection, and fabric composition classification with probability charts and Grad-CAM explanations.",
     area: "Efficient Hybrid Transformers for Edge Deployment",
@@ -122,10 +122,10 @@ export const projects: Project[] = [
   },
   {
     id: 5,
-    title: "SoyScan, Interpretable Soybean Disease Classification",
+    title: "SoyScan",
     description:
       "MaxViT-based soybean leaf/seed disease classification web app with Grad-CAM heatmaps, probability visualization, and a clean UI for practical screening workflows.",
-    area: "Clinical Decision Support & Human-in-the-Loop AI",
+    area: "Decision Support & Human-in-the-Loop AI",
     status: "completed",
     icon: Target,
     gradient: "from-indigo-500/20 to-blue-500/20",
@@ -134,216 +134,175 @@ export const projects: Project[] = [
     year: "2025",
     projectLink: "https://github.com/rezaul-h/SoybeanApp"
   },
-  {
+    {
     id: 6,
-    title: "Leather Defect Detection (YOLO + Flask)",
+    title: "Calibrated Multimodal Radiology Copilot",
     description:
-      "A deployment-oriented defect detection demo using Ultralytics YOLO weights with a Flask UI—built for fast visual inspection and practical usage.",
-    area: "Efficient Hybrid Transformers for Edge Deployment",
-    status: "completed",
-    icon: Eye,
-    gradient: "from-teal-500/20 to-cyan-500/20",
+      "A risk-aware clinical decision support pipeline that fuses medical images with radiology notes and structured signals to produce calibrated predictions, uncertainty flags, and evidence-grounded outputs for safer triage and reporting assistance.",
+    area: "Clinical Decision Support & Human-in-the-Loop AI",
+    status: "in-progress",
+    icon: Brain,
+    gradient: "from-blue-500/20 to-cyan-500/20",
     featured: true,
-    technologies: ["Ultralytics", "YOLO", "Flask", "OpenCV"],
-    year: "2024",
-    projectLink: "https://github.com/rezaul-h/Leather-Defect-Detection"
+    technologies: ["PyTorch", "Transformers", "LLM Workflows", "Uncertainty Calibration"],
+    year: "2026",
+    projectLink: ""
   },
   {
     id: 7,
-    title: "Colonoscopy Polyps Detection (Notebook Pipeline)",
+    title: "Cross-Hospital Generalization",
     description:
-      "Notebook-based experimentation workflow for colonoscopy polyp detection with preprocessing and baseline modeling experiments.",
-    area: "Explainable Medical Image Intelligence",
-    status: "completed",
-    icon: Eye,
-    gradient: "from-green-500/20 to-emerald-500/20",
-    featured: false,
-    technologies: ["Python", "Jupyter", "OpenCV", "VGG16"],
-    year: "2022",
-    projectLink: "https://github.com/rezaul-h/Colonoscopy-Polyps-Detection"
+      "A standardized evaluation suite to measure and improve model performance across hospitals, scanners, and patient subgroups—supporting domain-shift testing, fairness slices, and reproducible reporting for deployment-ready medical AI.",
+    area: "Robust Learning Under Domain Shift",
+    status: "in-progress",
+    icon: Network,
+    gradient: "from-teal-500/20 to-cyan-500/20",
+    featured: true,
+    technologies: ["Python", "PyTorch", "Benchmarking", "Fairness & Robustness"],
+    year: "2026",
+    projectLink: ""
   },
   {
     id: 8,
-    title: "Oral Cancer Detection (Notebook Study)",
+    title: "Safe-to-Use Gatekeeper",
     description:
-      "A compact notebook-based workflow for oral cancer detection experiments—useful for quick prototyping and baseline comparisons.",
-    area: "Explainable Medical Image Intelligence",
-    status: "completed",
-    icon: Eye,
+      "A safety layer that detects uncertain, out-of-distribution, or artifact-corrupted cases and defers them for human review. Includes coverage–risk analysis, abstention policies, and audit-friendly logs for high-stakes clinical deployment.",
+    area: "Trustworthy & Calibrated AI",
+    status: "in-progress",
+    icon: Shield,
     gradient: "from-purple-500/20 to-pink-500/20",
-    featured: false,
-    technologies: ["Python", "Jupyter", "OpenCV"],
-    year: "2024",
-    projectLink: "https://github.com/redrik278/Oral-Cancer-detection"
+    featured: true,
+    technologies: ["PyTorch", "OOD Detection", "Selective Prediction", "Calibration"],
+    year: "2026",
+    projectLink: ""
   },
   {
     id: 9,
-    title: "Tomato Leaf Disease Detection",
+    title: "Clinically Meaningful Explainability Suite",
     description:
-      "Plant disease classification experiments for tomato leaves—supporting agricultural screening and field-ready model exploration.",
-    area: "Robust Learning Under Domain Shift",
-    status: "completed",
+      "A clinician-oriented explainability toolkit that goes beyond heatmaps—providing concept-based explanations, counterfactual evidence, faithfulness checks, and concise explanation report cards to support transparent and auditable medical AI.",
+    area: "Explainable Medical Image Intelligence",
+    status: "in-progress",
     icon: Eye,
-    gradient: "from-lime-500/20 to-green-500/20",
-    featured: false,
-    technologies: ["Python", "Jupyter", "Computer Vision"],
-    year: "2023",
-    projectLink: "https://github.com/redrik278/Tomato-Leaf-Disease-Detection"
+    gradient: "from-green-500/20 to-emerald-500/20",
+    featured: true,
+    technologies: ["Grad-CAM", "Attention Analysis", "Concept Explanations", "Faithfulness Metrics"],
+    year: "2026",
+    projectLink: ""
   },
   {
     id: 10,
-    title: "Alzheimer’s Disease Detection",
+    title: "Evidence-Grounded LLM Assistant",
     description:
-      "A notebook-based Alzheimer’s disease detection project for rapid experimentation and model benchmarking on medical imaging data.",
-    area: "Explainable Medical Image Intelligence",
-    status: "completed",
-    icon: Brain,
-    gradient: "from-violet-500/20 to-purple-500/20",
-    featured: false,
-    technologies: ["Python", "Jupyter", "Deep Learning"],
-    year: "2023",
-    projectLink: "https://github.com/redrik278/Alzheimer-s-Disease-Detection"
+      "A safety-first LLM workflow that drafts structured clinical summaries using only verified evidence (model outputs, metadata, and approved templates). Includes confidence-aware refusal, traceable citations, and guardrails for responsible use.",
+    area: "Vision + Language for Healthcare",
+    status: "in-progress",
+    icon: Sparkles,
+    gradient: "from-indigo-500/20 to-blue-500/20",
+    featured: true,
+    technologies: ["LLM Workflows", "RAG", "Structured Reporting", "Safety Guardrails"],
+    year: "2026",
+    projectLink: ""
   },
-  {
+    {
     id: 11,
-    title: "Breast Cancer Detection",
+    title: "Federated Medical Foundation Model",
     description:
-      "Breast cancer detection experiments in a lightweight notebook workflow, designed for fast prototyping and baseline evaluation.",
-    area: "Explainable Medical Image Intelligence",
-    status: "completed",
-    icon: Eye,
-    gradient: "from-pink-500/20 to-rose-500/20",
-    featured: false,
-    technologies: ["Python", "Jupyter", "Deep Learning"],
-    year: "2023",
-    projectLink: "https://github.com/redrik278/Breast-Cancer-detection"
+      "A privacy-preserving foundation model trained across institutions without centralizing patient data. Focuses on federated optimization, calibration under client shift, and robust performance across sites and scanners.",
+    area: "Trustworthy & Calibrated AI",
+    status: "planned",
+    icon: Target,
+    gradient: "from-teal-500/20 to-cyan-500/20",
+    featured: true,
+    technologies: ["PyTorch", "Federated Learning", "Differential Privacy", "Secure Aggregation"],
+    year: "2026",
+    projectLink: ""
   },
   {
     id: 12,
-    title: "Brain Tumor Classification",
+    title: "Longitudinal Disease Progression Forecasting",
     description:
-      "Brain tumor classification baseline experiments, emphasizing preprocessing and model comparison in a reproducible notebook setup.",
-    area: "Explainable Medical Image Intelligence",
-    status: "completed",
-    icon: Eye,
-    gradient: "from-blue-500/20 to-cyan-500/20",
-    featured: false,
-    technologies: ["Python", "Jupyter", "Computer Vision"],
-    year: "2023",
-    projectLink: "https://github.com/rezaul-h/brain-tumor-classification"
+      "Risk forecasting from serial scans to predict progression and time-to-event outcomes (e.g., glaucoma progression). Produces calibrated risk curves, uncertainty, and clinician-friendly timelines for follow-up planning.",
+    area: "Clinical Decision Support & Human-in-the-Loop AI",
+    status: "planned",
+    icon: Target,
+    gradient: "from-indigo-500/20 to-blue-500/20",
+    featured: true,
+    technologies: ["Transformers", "Time-Series Modeling", "Survival Analysis", "Uncertainty Estimation"],
+    year: "2026",
+    projectLink: ""
   },
   {
     id: 13,
-    title: "Suicide Ideation Detection with NLP",
+    title: "Artifact & Quality-Aware Imaging AI",
     description:
-      "NLP pipeline for suicide ideation detection including preprocessing, classical ML baselines, and deep learning notebooks with analysis/visualization support.",
-    area: "Trustworthy & Calibrated AI",
-    status: "completed",
+      "A quality-control layer that detects motion blur, low contrast, compression, and device artifacts before inference. Routes low-quality cases for re-capture or robust enhancement to reduce silent failures in practice.",
+    area: "Robust Learning Under Domain Shift",
+    status: "planned",
     icon: Shield,
-    gradient: "from-green-500/20 to-emerald-500/20",
+    gradient: "from-orange-500/20 to-red-500/20",
     featured: false,
-    technologies: ["Python", "Jupyter", "NLP", "Deep Learning"],
-    year: "2023",
-    projectLink: "https://github.com/rezaul-h/Suicide-Ideation-Detection-with-NLP"
+    technologies: ["Python", "Quality Assessment", "Robust Training", "Image Restoration"],
+    year: "2026",
+    projectLink: ""
   },
   {
     id: 14,
-    title: "Bangla Multi-Class Sentiment Analysis",
+    title: "Fairness Dashboard for Subgroup Reliability",
     description:
-      "Bangla sentiment classification notebooks with preprocessing, visualization, and multi-class modeling experiments.",
+      "A monitoring and evaluation dashboard that reports performance, calibration, and failure modes across age/sex/site/device subgroups. Includes bias discovery, shift alerts, and standardized reporting for responsible deployment.",
     area: "Trustworthy & Calibrated AI",
-    status: "completed",
-    icon: Bot,
-    gradient: "from-sky-500/20 to-blue-500/20",
+    status: "planned",
+    icon: Network,
+    gradient: "from-purple-500/20 to-pink-500/20",
     featured: false,
-    technologies: ["Python", "Jupyter", "NLP", "Scikit-learn"],
-    year: "2023",
-    projectLink: "https://github.com/rezaul-h/Multi-class-sentiment-analysis-on-bangali-language-"
+    technologies: ["Python", "Model Monitoring", "Calibration", "Fairness Metrics"],
+    year: "2026",
+    projectLink: ""
   },
   {
     id: 15,
-    title: "Fake News Classification",
+    title: "Self-Supervised Low-Label Medical Imaging",
     description:
-      "A notebook-driven fake news classification project for experimenting with text features and learning-based classifiers.",
-    area: "Trustworthy & Calibrated AI",
-    status: "completed",
-    icon: Shield,
-    gradient: "from-amber-500/20 to-orange-500/20",
+      "A self-supervised learning pipeline (contrastive/masked modeling) for data-efficient medical imaging. Targets strong transfer across modalities with minimal labels and robust generalization under dataset shift.",
+    area: "Vision + Language for Healthcare",
+    status: "planned",
+    icon: Brain,
+    gradient: "from-blue-500/20 to-cyan-500/20",
     featured: false,
-    technologies: ["Python", "Jupyter", "NLP"],
-    year: "2023",
-    projectLink: "https://github.com/redrik278/Fake-News-Classify"
+    technologies: ["Self-Supervised Learning", "ViT/MAE", "PyTorch", "Transfer Learning"],
+    year: "2026",
+    projectLink: ""
   },
   {
     id: 16,
-    title: "Image Captioning on COCO",
+    title: "Causal Counterfactual Explanations",
     description:
-      "Vision–language captioning notebooks exploring CNN backbones (e.g., Inception/ResNet/VGG) with LSTM/BiLSTM decoders on COCO-style workflows.",
-    area: "Multimodal Vision–Language Foundation Models",
-    status: "completed",
+      "Counterfactual and concept-based explanations designed for clinical reasoning—testing what minimal, plausible image changes would alter predictions while tracking faithfulness and safety constraints.",
+    area: "Explainable Medical Image Intelligence",
+    status: "planned",
     icon: Sparkles,
-    gradient: "from-cyan-500/20 to-teal-500/20",
+    gradient: "from-green-500/20 to-emerald-500/20",
     featured: false,
-    technologies: ["Python", "Jupyter", "InceptionV3", "LSTM"],
-    year: "2023",
-    projectLink: "https://github.com/rezaul-h/Image-captioning-on-COCO-dataset"
+    technologies: ["Concept Bottlenecks", "Counterfactuals", "Faithfulness Metrics", "XAI Evaluation"],
+    year: "2026",
+    projectLink: ""
   },
   {
     id: 17,
-    title: "Hybrid Recommender System",
+    title: "Edge-Optimized Ultrasound Screening",
     description:
-      "Hybrid recommendation experiments (including ALS + content/collaborative signals) with notebooks for preprocessing and multiple dataset scales.",
-    area: "Clinical Decision Support & Human-in-the-Loop AI",
-    status: "completed",
-    icon: Target,
-    gradient: "from-indigo-500/20 to-blue-500/20",
-    featured: false,
-    technologies: ["Python", "Jupyter", "Recommender Systems", "ALS"],
-    year: "2022",
-    projectLink: "https://github.com/rezaul-h/Hybrid-Reccomender-System"
-  },
-  {
-    id: 18,
-    title: "Skillomy E-learning Web App",
-    description:
-      "A Python-based e-learning web application project (full-stack structure) designed to support content delivery and interactive learning workflows.",
-    area: "Clinical Decision Support & Human-in-the-Loop AI",
-    status: "completed",
-    icon: Database,
-    gradient: "from-violet-500/20 to-indigo-500/20",
-    featured: false,
-    technologies: ["Python", "Web App", "HTML/CSS", "JavaScript"],
-    year: "2022",
-    projectLink: "https://github.com/rezaul-h/Skillomy_Elearning_Webapp"
-  },
-  {
-    id: 19,
-    title: "OpenCV Lab Notebook Series",
-    description:
-      "Hands-on OpenCV notebooks covering geometric transforms, histograms/intensity transforms, and spatial filtering—useful for imaging pipeline foundations.",
-    area: "Efficient Hybrid Transformers for Edge Deployment",
-    status: "completed",
-    icon: Eye,
+      "A lightweight, real-time ultrasound screening pipeline optimized for low-resource clinics. Focuses on efficient architectures, quantization, and a simple operator-facing interface with uncertainty-aware alerts.",
+    area: "Efficient AI at the Edge",
+    status: "planned",
+    icon: Shield,
     gradient: "from-orange-500/20 to-red-500/20",
     featured: false,
-    technologies: ["Python", "OpenCV", "Jupyter", "Image Processing"],
-    year: "2023",
-    projectLink: "https://github.com/redrik278/OpenCV"
-  },
-  {
-    id: 20,
-    title: "Transformers Playground (Hugging Face)",
-    description:
-      "A lightweight repo for experimenting with transformer-based NLP workflows (e.g., sentiment tasks) using Hugging Face-style setups.",
-    area: "Multimodal Vision–Language Foundation Models",
-    status: "in-progress",
-    icon: Bot,
-    gradient: "from-blue-500/20 to-cyan-500/20",
-    featured: false,
-    technologies: ["Transformers", "Hugging Face", "Python", "NLP"],
-    year: "2024",
-    projectLink: "https://github.com/redrik278/Transformers"
+    technologies: ["Quantization", "ONNX", "Mobile Deployment", "Efficient Transformers"],
+    year: "2026",
+    projectLink: ""
   }
+
 ];
 
 

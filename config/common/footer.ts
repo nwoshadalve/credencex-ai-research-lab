@@ -19,10 +19,10 @@ export const footerBrand: FooterBrand = {
 
 export const footerContact: FooterContact = {
   email: 'info@credencex-ai.com',
-  phone: '+1 (234) 567-890',
+  phone: '+1 (213) 507-6622',
   address: {
-    line1: '123 AI Research Blvd',
-    line2: 'Innovation District, CA 94000',
+    line1: '691 Irolo St, Apt 711',
+    line2: 'Los Angeles, CA 90005, United States',
   },
 };
 
@@ -33,8 +33,8 @@ export interface SocialLink {
 }
 
 export const socialLinks: SocialLink[] = [
-  { label: 'LinkedIn', href: 'https://linkedin.com', platform: 'linkedin' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/credence-xai/', platform: 'linkedin' },
   { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61586371207333', platform: 'facebook' },
-  { label: 'GitHub', href: 'https://github.com', platform: 'github' },
-  { label: 'YouTube', href: 'https://youtube.com', platform: 'youtube' },
+  { label: 'GitHub', href: 'https://github.com/credencexai-debug', platform: 'github' },
+  { label: 'YouTube', href: 'https://www.youtube.com/@CredenceXAI', platform: 'youtube' },
 ];

@@ -65,22 +65,22 @@ export const contactConfig: ContactConfig = {
   socialLinks: [
     {
       name: 'LinkedIn',
-      href: 'https://linkedin.com/company/credencex-ai',
+      href: 'https://www.linkedin.com/company/credence-xai/',
       icon: 'linkedin'
     },
     {
       name: 'Twitter',
-      href: 'https://twitter.com/credencex_ai',
+      href: 'https://x.com/CredenceXAI',
       icon: 'twitter'
     },
     {
       name: 'GitHub',
-      href: 'https://github.com/credencex-ai',
+      href: 'https://github.com/credencexai-debug',
       icon: 'github'
     },
     {
       name: 'YouTube',
-      href: 'https://youtube.com/@credencex-ai',
+      href: 'https://www.youtube.com/@CredenceXAI',
       icon: 'youtube'
     }
   ],
