@@ -92,7 +92,7 @@ export default function TeamMemberCard({ member, isResearch }: TeamMemberCardPro
                 <Github className="w-4 h-4 text-gray-600 dark:text-gray-400" />
               </a>
             )}
-            {isResearch && 'googleScholar' in member.socialLinks && member.socialLinks.googleScholar && (
+            {'googleScholar' in member.socialLinks && member.socialLinks.googleScholar && (
               <a
                 href={member.socialLinks.googleScholar}
                 target="_blank"
@@ -103,7 +103,7 @@ export default function TeamMemberCard({ member, isResearch }: TeamMemberCardPro
                 <GraduationCap className="w-4 h-4 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400" />
               </a>
             )}
-            {isResearch && 'researchGate' in member.socialLinks && member.socialLinks.researchGate && (
+            {'researchGate' in member.socialLinks && member.socialLinks.researchGate && (
               <a
                 href={member.socialLinks.researchGate}
                 target="_blank"
@@ -114,7 +114,7 @@ export default function TeamMemberCard({ member, isResearch }: TeamMemberCardPro
                 <BookOpen className="w-4 h-4 text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400" />
               </a>
             )}
-            {isResearch && 'orcid' in member.socialLinks && member.socialLinks.orcid && (
+            {'orcid' in member.socialLinks && member.socialLinks.orcid && (
               <a
                 href={member.socialLinks.orcid}
                 target="_blank"

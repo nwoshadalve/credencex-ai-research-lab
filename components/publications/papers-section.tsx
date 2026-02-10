@@ -340,9 +340,9 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ publication }) => {
   const TypeIcon = typeConfig[publication.type].icon;
 
   return (
-    <div className="relative h-full bg-white/70 dark:bg-gray-900/70 backdrop-blur-2xl rounded-3xl border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl hover:shadow-2xl active:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col group cursor-pointer">
+    <div className="relative h-full bg-white/70 dark:bg-gray-900/70 backdrop-blur-2xl rounded-3xl border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col">
       {/* Decorative Corner */}
-      <div className="absolute -top-6 -right-6 w-32 h-32 bg-indigo-500/10 dark:bg-indigo-500/20 rounded-full blur-2xl group-hover:bg-indigo-500/20 dark:group-hover:bg-indigo-500/30 group-active:bg-indigo-500/20 dark:group-active:bg-indigo-500/30 transition-colors duration-300" />
+      <div className="absolute -top-6 -right-6 w-32 h-32 bg-indigo-500/10 dark:bg-indigo-500/20 rounded-full blur-2xl transition-colors duration-300" />
       
       <div className="relative z-10 flex flex-col flex-1">
         {/* Type and Status Badges */}
@@ -403,8 +403,8 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ publication }) => {
           {publication.description}
         </p>
 
-        {/* Action Button */}
-        {publication.paperLink && (
+        {/* Action Button (hidden for accepted/submitted/in-review) */}
+        {publication.paperLink && !['accepted', 'in-review', 'submitted'].includes(publication.status) && (
           <div className="mt-auto">
             <Button
               variant="glass"

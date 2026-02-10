@@ -21,8 +21,6 @@ const ITEMS_PER_PAGE = 6;
 export default function NewsSection({ newsType }: NewsSectionProps) {
   const [selectedType, setSelectedType] = useState<NewsType | 'all'>(newsType);
   const [selectedYear, setSelectedYear] = useState<string>('all');
-  const [selectedMonth, setSelectedMonth] = useState<string>('all');
-  const [selectedDay, setSelectedDay] = useState<string>('all');
   const [expandedId, setExpandedId] = useState<number | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
@@ -30,59 +28,31 @@ export default function NewsSection({ newsType }: NewsSectionProps) {
   
   const allTypes = getAllNewsTypes();
 
-  // Get unique years, months, and days from news data
+  // Get unique years from news data
   const availableDates = useMemo(() => {
     const years = new Set<number>();
-    const months = new Set<string>();
-    const days = new Set<string>();
 
     newsData.forEach(news => {
       const date = new Date(news.date);
       years.add(date.getFullYear());
-      
-      if (selectedYear !== 'all') {
-        const newsYear = date.getFullYear();
-        if (newsYear === parseInt(selectedYear)) {
-          const monthKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
-          months.add(monthKey);
-          
-          if (selectedMonth !== 'all') {
-            const [year, month] = selectedMonth.split('-');
-            if (newsYear === parseInt(year) && date.getMonth() + 1 === parseInt(month)) {
-              days.add(news.date);
-            }
-          }
-        }
-      }
     });
 
     return {
       years: Array.from(years).sort((a, b) => b - a),
-      months: Array.from(months).sort().reverse(),
-      days: Array.from(days).sort().reverse()
     };
-  }, [selectedYear, selectedMonth]);
+  }, []);
 
   const filteredNews = useMemo(() => {
     let filtered = getNewsByType(selectedType);
-    
-    if (selectedDay !== 'all') {
-      filtered = filtered.filter(news => news.date === selectedDay);
-    } else if (selectedMonth !== 'all') {
-      filtered = filtered.filter(news => {
-        const [year, month] = selectedMonth.split('-');
-        const newsDate = new Date(news.date);
-        return newsDate.getFullYear() === parseInt(year) && 
-               newsDate.getMonth() + 1 === parseInt(month);
-      });
-    } else if (selectedYear !== 'all') {
+
+    if (selectedYear !== 'all') {
       filtered = filtered.filter(news => 
         new Date(news.date).getFullYear() === parseInt(selectedYear)
       );
     }
-    
+
     return filtered;
-  }, [selectedType, selectedYear, selectedMonth, selectedDay]);
+  }, [selectedType, selectedYear]);
 
   // Pagination calculations
   const totalPages = Math.ceil(filteredNews.length / ITEMS_PER_PAGE);
@@ -93,7 +63,7 @@ export default function NewsSection({ newsType }: NewsSectionProps) {
   // Reset to page 1 when filters change
   useEffect(() => {
     setCurrentPage(1);
-  }, [selectedType, selectedYear, selectedMonth, selectedDay]);
+  }, [selectedType, selectedYear]);
 
   // Reset expanded card when filters or page changes
   useEffect(() => {
@@ -101,7 +71,7 @@ export default function NewsSection({ newsType }: NewsSectionProps) {
       setExpandedId(null);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedType, selectedYear, selectedMonth, selectedDay, currentPage]);
+  }, [selectedType, selectedYear, currentPage]);
 
   const toggleExpand = (id: number) => {
     setExpandedId(expandedId === id ? null : id);
@@ -127,16 +97,9 @@ export default function NewsSection({ newsType }: NewsSectionProps) {
     }, 400);
   };
 
-  const formatMonth = (monthKey: string) => {
-    const [year, month] = monthKey.split('-');
-    const date = new Date(parseInt(year), parseInt(month) - 1);
-    return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-  };
+  
 
-  const formatDay = (dateStr: string) => {
-    const date = new Date(dateStr);
-    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-  };
+  
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -245,8 +208,6 @@ export default function NewsSection({ newsType }: NewsSectionProps) {
                     <button
                       onClick={() => {
                         setSelectedYear('all');
-                        setSelectedMonth('all');
-                        setSelectedDay('all');
                       }}
                       className={`px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 cursor-pointer ${
                         selectedYear === 'all'
@@ -261,8 +222,6 @@ export default function NewsSection({ newsType }: NewsSectionProps) {
                         key={year}
                         onClick={() => {
                           setSelectedYear(String(year));
-                          setSelectedMonth('all');
-                          setSelectedDay('all');
                         }}
                         className={`px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 cursor-pointer ${
                           selectedYear === String(year)
@@ -276,89 +235,7 @@ export default function NewsSection({ newsType }: NewsSectionProps) {
                   </div>
                 </div>
 
-                {/* Month Filter - Only show if year selected */}
-                {selectedYear !== 'all' && availableDates.months.length > 0 && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3 px-1">
-                      Select Month
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      <button
-                        onClick={() => {
-                          setSelectedMonth('all');
-                          setSelectedDay('all');
-                        }}
-                        className={`px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 cursor-pointer ${
-                          selectedMonth === 'all'
-                            ? 'bg-linear-to-r from-cyan-500/90 to-blue-500/90 dark:from-cyan-500/80 dark:to-blue-500/80 text-white shadow-lg shadow-cyan-500/30 scale-105'
-                            : 'bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-gray-200/50 dark:border-gray-600/50 text-gray-700 dark:text-gray-300 hover:bg-white/80 dark:hover:bg-gray-800/80 hover:scale-105 hover:shadow-md'
-                        }`}
-                      >
-                        All Months
-                      </button>
-                      {availableDates.months.map((month) => (
-                        <button
-                          key={month}
-                          onClick={() => {
-                            setSelectedMonth(month);
-                            setSelectedDay('all');
-                          }}
-                          className={`px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 cursor-pointer ${
-                            selectedMonth === month
-                              ? 'bg-linear-to-r from-cyan-500/90 to-blue-500/90 dark:from-cyan-500/80 dark:to-blue-500/80 text-white shadow-lg shadow-cyan-500/30 scale-105'
-                              : 'bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-gray-200/50 dark:border-gray-600/50 text-gray-700 dark:text-gray-300 hover:bg-white/80 dark:hover:bg-gray-800/80 hover:scale-105 hover:shadow-md'
-                          }`}
-                        >
-                          {formatMonth(month)}
-                        </button>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-
-                {/* Day Filter - Only show if month selected */}
-                {selectedMonth !== 'all' && availableDates.days.length > 0 && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3 px-1">
-                      Select Day
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      <button
-                        onClick={() => setSelectedDay('all')}
-                        className={`px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 cursor-pointer ${
-                          selectedDay === 'all'
-                            ? 'bg-linear-to-r from-teal-500/90 to-cyan-500/90 dark:from-teal-500/80 dark:to-cyan-500/80 text-white shadow-lg shadow-teal-500/30 scale-105'
-                            : 'bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-gray-200/50 dark:border-gray-600/50 text-gray-700 dark:text-gray-300 hover:bg-white/80 dark:hover:bg-gray-800/80 hover:scale-105 hover:shadow-md'
-                        }`}
-                      >
-                        All Days
-                      </button>
-                      {availableDates.days.map((day) => (
-                        <button
-                          key={day}
-                          onClick={() => setSelectedDay(day)}
-                          className={`px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 cursor-pointer ${
-                            selectedDay === day
-                              ? 'bg-linear-to-r from-teal-500/90 to-cyan-500/90 dark:from-teal-500/80 dark:to-cyan-500/80 text-white shadow-lg shadow-teal-500/30 scale-105'
-                              : 'bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-gray-200/50 dark:border-gray-600/50 text-gray-700 dark:text-gray-300 hover:bg-white/80 dark:hover:bg-gray-800/80 hover:scale-105 hover:shadow-md'
-                          }`}
-                        >
-                          {formatDay(day)}
-                        </button>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
+                {/* Day filter removed: only year filter retained */}
               </div>
             </div>
 
@@ -403,7 +280,7 @@ export default function NewsSection({ newsType }: NewsSectionProps) {
             </motion.div>
           ) : (
             <motion.div
-              key={`news-list-${selectedType}-${selectedYear}-${selectedMonth}-${selectedDay}-${currentPage}`}
+              key={`news-list-${selectedType}-${selectedYear}-${currentPage}`}
               variants={containerVariants}
               initial="hidden"
               animate="visible"
