@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FolderKanban, Filter, Rocket, Calendar, ExternalLink } from 'lucide-react';
+import { FolderKanban, Filter, Rocket, Calendar, Layers, ExternalLink } from 'lucide-react';
 import { projects, statusConfig, Project, ProjectStatus } from '@/config/home/projects';
 
 type FilterType = 'all' | 'active' | 'completed' | 'planned';
@@ -28,7 +28,7 @@ export default function ProjectsSection({ typeParam }: ProjectsSectionProps) {
   
   const activeFilter: FilterType = isAllTypePage ? localFilter : typeParam;
   const [selectedYear, setSelectedYear] = useState<string>('all');
-  
+  const [selectedArea, setSelectedArea] = useState<string>('all');
 
   const handleFilterChange = (callback: () => void) => {
     scrollPositionRef.current = window.scrollY;
@@ -43,34 +43,45 @@ export default function ProjectsSection({ typeParam }: ProjectsSectionProps) {
     
     return ['all', ...Array.from(new Set(years)).sort((a, b) => b.localeCompare(a))];
   }, []);
+
+  // Extract unique areas from projects
+  const availableAreas = useMemo(() => {
+    const areas = projects.map(proj => proj.area);
+    return ['all', ...Array.from(new Set(areas))];
+  }, []);
   
-  // Filter projects by status and year
+  // Filter projects by status, year, and area
   const filteredProjects = projects.filter(proj => {
     const currentStatus = getStatusFromFilter(activeFilter);
     const statusMatch = currentStatus === 'all' || proj.status === currentStatus;
     const yearMatch = selectedYear === 'all' || proj.year === selectedYear;
-    return statusMatch && yearMatch;
+    const areaMatch = selectedArea === 'all' || proj.area === selectedArea;
+    return statusMatch && yearMatch && areaMatch;
   });
 
   // Calculate counts based on current year and area filter
   const activeCount = projects.filter(p => {
     const yearMatch = selectedYear === 'all' || p.year === selectedYear;
-    return p.status === 'in-progress' && yearMatch;
+    const areaMatch = selectedArea === 'all' || p.area === selectedArea;
+    return p.status === 'in-progress' && yearMatch && areaMatch;
   }).length;
   
   const completedCount = projects.filter(p => {
     const yearMatch = selectedYear === 'all' || p.year === selectedYear;
-    return p.status === 'completed' && yearMatch;
+    const areaMatch = selectedArea === 'all' || p.area === selectedArea;
+    return p.status === 'completed' && yearMatch && areaMatch;
   }).length;
 
   const plannedCount = projects.filter(p => {
     const yearMatch = selectedYear === 'all' || p.year === selectedYear;
-    return p.status === 'planned' && yearMatch;
+    const areaMatch = selectedArea === 'all' || p.area === selectedArea;
+    return p.status === 'planned' && yearMatch && areaMatch;
   }).length;
 
   const totalCount = projects.filter(p => {
     const yearMatch = selectedYear === 'all' || p.year === selectedYear;
-    return yearMatch;
+    const areaMatch = selectedArea === 'all' || p.area === selectedArea;
+    return yearMatch && areaMatch;
   }).length;
 
   // Determine which filters to show based on URL parameter
@@ -272,12 +283,36 @@ export default function ProjectsSection({ typeParam }: ProjectsSectionProps) {
         </motion.div>
 
         {/* Area Filter */}
-        {/* Area filter removed - year-only filter retained */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="flex flex-wrap justify-center items-center gap-3 mb-12"
+        >
+          <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Filter by Area:</span>
+          {availableAreas.map((area) => (
+            <button
+              key={area}
+              onClick={() => handleFilterChange(() => setSelectedArea(area))}
+              className={`cursor-pointer px-4 py-2 rounded-lg font-medium text-sm transition-all duration-300 ${
+                selectedArea === area
+                  ? 'bg-pink-600 dark:bg-pink-500 text-white shadow-lg shadow-pink-500/40'
+                  : 'bg-white/60 dark:bg-gray-900/60 backdrop-blur-xl border border-gray-200/60 dark:border-gray-700/60 text-gray-700 dark:text-gray-300 hover:border-pink-300 dark:hover:border-pink-600'
+              }`}
+            >
+              <span className="flex items-center gap-1.5">
+                <Layers className="w-3.5 h-3.5" />
+                {area === 'all' ? 'All Areas' : area}
+              </span>
+            </button>
+          ))}
+        </motion.div>
 
         {/* Projects Grid */}
         <motion.div
           ref={containerRef}
-          key={`${activeFilter}-${selectedYear}`}
+          key={`${activeFilter}-${selectedYear}-${selectedArea}`}
           variants={containerVariants}
           initial="hidden"
           animate="visible"
