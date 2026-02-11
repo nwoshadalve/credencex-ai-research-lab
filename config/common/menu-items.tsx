@@ -7,7 +7,12 @@ import {
   UserCircle,
   FolderOpen,
   Calendar,
-  Code2
+  Code2,
+  Home,
+  Info,
+  Newspaper,
+  Briefcase,
+  Mail
 } from "lucide-react";
 import { publications } from "@/config/home/publications";
 import { projects } from "@/config/home/projects";
@@ -41,14 +46,17 @@ export const menuItems: MenuItem[] = [
   {
     label: 'Home',
     href: '/',
+    icon: <Home size={18} />,
   },
   {
     label: 'About',
     href: '/about',
+    icon: <Info size={18} />,
   },
   {
     label: 'Publications',
     href: '/publications',
+    icon: <FileText size={18} />,
     submenu: [
       { label: `Research Papers (${totalCount})`, href: '/publications?type=all', icon: <FileText size={16} /> },
       { label: `Conference Papers (${conferenceCount})`, href: '/publications?type=conference', icon: <BookOpen size={16} /> },
@@ -58,6 +66,7 @@ export const menuItems: MenuItem[] = [
   {
     label: 'Projects',
     href: '/projects',
+    icon: <Rocket size={18} />,
     submenu: [
       { label: `All Projects (${totalProjects})`, href: '/projects?type=all', icon: <FolderOpen size={16} /> },
       { label: `Active Projects (${activeProjects})`, href: '/projects?type=active', icon: <Rocket size={16} /> },
@@ -68,6 +77,7 @@ export const menuItems: MenuItem[] = [
   {
     label: 'Teams',
     href: '/teams',
+    icon: <UserCircle size={18} />,
     submenu: [
       { label: `Research Team (${researchTeamCount})`, href: '/teams?type=research', icon: <UserCircle size={16} /> },
       { label: `Development Team (${developmentTeamCount})`, href: '/teams?type=development', icon: <Code2 size={16} /> },
@@ -76,14 +86,17 @@ export const menuItems: MenuItem[] = [
   {
     label: 'News',
     href: '/news',
+    icon: <Newspaper size={18} />,
   },
   {
     label: 'Careers',
     href: '/careers',
     highlighted: true,
+    icon: <Briefcase size={18} />,
   },
   {
     label: 'Contact',
     href: '/contact',
+    icon: <Mail size={18} />,
   },
 ];

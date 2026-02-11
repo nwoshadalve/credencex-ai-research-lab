@@ -28,6 +28,7 @@ export default function TeamMemberCard({ member, isResearch }: TeamMemberCardPro
                 height={96}
                 className="w-full h-full object-cover object-top scale-110"
                 onError={() => setImageError(true)}
+                unoptimized={member.avatar.toLowerCase().endsWith('.jfif') || member.avatar.toLowerCase().endsWith('.webp')}
               />
             ) : (
               <UserCircle className="w-16 h-16 text-blue-500 dark:text-blue-400" />

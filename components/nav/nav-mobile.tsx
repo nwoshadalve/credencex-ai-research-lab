@@ -160,14 +160,16 @@ export default function NavMobile({ menuItems }: NavMobileProps) {
                             {/* Header */}
                             <div className="flex items-center justify-between p-4 border-b border-gray-200/50 dark:border-white/10">
                                 <Link href="/" onClick={closeMenu} className="flex items-center">
-                                    <Image
-                                        src="/logo.png"
-                                        alt="CredenceX AI Research Lab"
-                                        width={140}
-                                        height={50}
-                                        priority
-                                        className="h-11 w-auto"
-                                    />
+                                    {mounted && (
+                                        <Image
+                                            src={theme === 'dark' ? '/logos/logo-dark.png' : '/logos/logo-light.png'}
+                                            alt="CredenceX AI Research Lab"
+                                            width={140}
+                                            height={50}
+                                            priority
+                                            className="h-11 w-auto"
+                                        />
+                                    )}
                                 </Link>
                                 <div className="flex items-center gap-2">
                                     <button
@@ -204,7 +206,7 @@ export default function NavMobile({ menuItems }: NavMobileProps) {
                                             <>
                                                 <button
                                                     onClick={() => toggleDropdown(item.label)}
-                                                    className={`w-full flex items-center justify-between px-4 py-3 text-base font-medium rounded-xl transition-all duration-200 cursor-pointer ${
+                                                    className={`w-full flex items-center justify-between gap-3 px-4 py-3 text-base font-medium rounded-xl transition-all duration-200 cursor-pointer ${
                                                         item.highlighted
                                                             ? isActive(item.href)
                                                                 ? 'bg-linear-to-r from-emerald-500 via-teal-500 to-cyan-600 dark:from-emerald-400 dark:to-teal-500 text-white shadow-lg shadow-emerald-500/50 dark:shadow-emerald-400/40 border border-white/30 backdrop-blur-xl'
@@ -216,7 +218,14 @@ export default function NavMobile({ menuItems }: NavMobileProps) {
                                                             : 'text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-blue-50/80 dark:hover:bg-blue-500/10'
                                                     }`}
                                                 >
-                                                    <span>{item.label}</span>
+                                                    <div className="flex items-center gap-3">
+                                                        {item.icon && (
+                                                            <span className="flex items-center justify-center w-5 h-5">
+                                                                {item.icon}
+                                                            </span>
+                                                        )}
+                                                        <span>{item.label}</span>
+                                                    </div>
                                                     <ChevronDown
                                                         size={18}
                                                         className={`transition-transform duration-200 ease-in-out[cubic-bezier(0.4,0,0.2,1)] ${
@@ -281,7 +290,7 @@ export default function NavMobile({ menuItems }: NavMobileProps) {
                                             <Link
                                                 href={item.href}
                                                 onClick={closeMenu}
-                                                className={`block px-4 py-3 text-base font-medium rounded-xl transition-all duration-200 cursor-pointer ${
+                                                className={`flex items-center gap-3 px-4 py-3 text-base font-medium rounded-xl transition-all duration-200 cursor-pointer ${
                                                     item.highlighted
                                                         ? isActive(item.href)
                                                             ? 'bg-linear-to-r from-emerald-500 via-teal-500 to-cyan-600 dark:from-emerald-400 dark:to-teal-500 text-white shadow-lg shadow-emerald-500/50 dark:shadow-emerald-400/40 border border-white/30 backdrop-blur-xl'
@@ -291,7 +300,12 @@ export default function NavMobile({ menuItems }: NavMobileProps) {
                                                         : 'text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-blue-50/80 dark:hover:bg-blue-500/10'
                                                 }`}
                                             >
-                                                {item.label}
+                                                {item.icon && (
+                                                    <span className="flex items-center justify-center w-5 h-5">
+                                                        {item.icon}
+                                                    </span>
+                                                )}
+                                                <span>{item.label}</span>
                                             </Link>
                                         )}
                                     </div>
