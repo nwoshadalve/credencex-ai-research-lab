@@ -51,11 +51,7 @@ export default function TeamsSection({ teamType }: TeamsSectionProps) {
         />
 
         {/* Team Grid */}
-        <TeamGrid 
-          members={filteredMembers} 
-          isResearch={isResearch} 
-          selectedRole={selectedRole}
-        />
+        <TeamGrid members={filteredMembers} />
       </div>
     </section>
   );
