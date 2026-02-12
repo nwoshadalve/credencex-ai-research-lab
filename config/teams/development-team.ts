@@ -37,7 +37,7 @@ export const developmentTeam: DevelopmentTeamMember[] = [
     role: "Founding Members",
     position: "Founder & Research Director",
     department: "CredenceX AI Research Lab",
-    email: "redzaulh603@gmail.com",
+    email: "rezaulh603@gmail.com",
     avatar: "/teams/reza.JPG",
     socialLinks: {
       linkedin: "https://www.linkedin.com/in/-rezaulhaque/",
@@ -51,7 +51,7 @@ export const developmentTeam: DevelopmentTeamMember[] = [
     role: "Founding Members",
     position: "Founder & CEO",
     department: "CredenceX AI Research Lab",
-    email: "redzaulh603@gmail.com",
+    email: "sakibabdulla685@gmail.com",
     avatar: "/teams/sakibA.jfif",
     socialLinks: {
       linkedin: "https://www.linkedin.com/in/abdullah-al-sakib-2b78b6209/",
