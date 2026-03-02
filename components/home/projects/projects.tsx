@@ -8,7 +8,7 @@ import { CheckCircle2, Clock, Calendar, Play, ExternalLink } from 'lucide-react'
 import Button from '@/components/common/button';
 
 export default function ProjectsSection() {
-    const featuredProjects = getFeaturedProjects();
+    const featuredProjects = getFeaturedProjects().slice(0, 4);
 
     const getStatusIcon = (status: ProjectStatus) => {
         switch (status) {

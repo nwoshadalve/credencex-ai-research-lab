@@ -9,7 +9,7 @@ import Button from '@/components/common/button';
 import styles from './news.module.css';
 
 export default function NewsSection() {
-    const latestNews = getLatestNews(5);
+    const latestNews = getLatestNews(4);
     const [expandedId, setExpandedId] = useState<number | null>(null);
 
     const toggleExpand = (id: number) => {

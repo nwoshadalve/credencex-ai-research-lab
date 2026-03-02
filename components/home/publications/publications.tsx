@@ -9,7 +9,7 @@ import Button from '@/components/common/button';
 import styles from './publications.module.css';
 
 export default function Publications() {
-  const featuredPublications = getFeaturedPublications();
+  const featuredPublications = getFeaturedPublications().slice(0, 6);
 
   const containerVariants = {
     hidden: { opacity: 0 },
