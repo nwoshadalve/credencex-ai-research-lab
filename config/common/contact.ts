@@ -47,13 +47,13 @@ export const contactConfig: ContactConfig = {
     {
       icon: Phone,
       title: 'Call Us',
-      details: ['+1 (555) 123-4567', 'Mon-Fri, 9AM-6PM EST'],
-      href: 'tel:+15551234567'
+      details: ['+1 (213) 507-6622', 'Mon-Fri, 9AM-6PM'],
+      href: 'tel:+12135076622'
     },
     {
       icon: MapPin,
       title: 'Visit Us',
-      details: ['123 Innovation Drive', 'San Francisco, CA 94102', 'United States'],
+      details: ['691 Irolo St, Apt 711', 'Los Angeles, CA 90005', 'United States'],
     },
     {
       icon: Clock,
