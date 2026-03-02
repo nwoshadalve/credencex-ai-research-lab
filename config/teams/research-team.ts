@@ -29,15 +29,15 @@ export const researchTeam: TeamMember[] = [
 
   {
     id: 1,
-    name: "Prof. Dr. Mohammad Ali Moni",
+    name: "Prof. Dr. Ahmed Wasif Reza",
     role: "Research Scientist",
-    position: "The University of Cambridge(UK); Oxford University(UK); University of Queensland(AUS); Charles Sturt University(AUS)",
+    position: "East West University (Dean); University of Malaya (Malaysia); Multimedia University (Malaysia)",
     institute: "CredenceX AI Research Lab",
-    email: "m.moni@uq.edu.au",
-    avatar: "/teams/moni.jfif",
+    email: "wasif@ewubd.edu",
+    avatar: "/teams/wasif.jpg",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/prof-mohammad-ali-moni-phd-cambridge-university-35059819/",
-      googleScholar: "https://scholar.google.com/citations?user=JnwcUwkAAAAJ&hl=en"
+      linkedin: "https://www.linkedin.com/in/professor-dr-ahmed-wasif-reza-099920151/",
+      googleScholar: "https://scholar.google.com/citations?user=4dhJMl4AAAAJ&hl=en"
     }
   },
   {
@@ -81,15 +81,15 @@ export const researchTeam: TeamMember[] = [
   },
   {
     id: 5,
-    name: "Prof. Dr. Ahmed Wasif Reza",
+    name: "Dr. Mohammad Rifat Ahmmad Rashid",
     role: "Supervisor",
-    position: "East West University(Dean); University of Malaya (Malaysia); Multimedia University (Malaysia)",
+    position: "University of Pavia (Italy); University of Turin (Italy)",
     institute: "CredenceX AI Research Lab",
-    email: "wasif@ewubd.edu",
-    avatar: "/teams/wasif.jpg",
+    email: "rifat.rashid@ewubd.edu",
+    avatar: "/teams/refat.jpg",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/professor-dr-ahmed-wasif-reza-099920151/",
-      googleScholar: "https://scholar.google.com/citations?user=4dhJMl4AAAAJ&hl=en"
+      linkedin: "https://www.linkedin.com/in/mohammad-rifat-ahmmad-rashid-73982a5b/",
+      googleScholar: "https://scholar.google.com/citations?user=fXu1UdgAAAAJ&hl=en"
     }
   },
   {
@@ -134,15 +134,15 @@ export const researchTeam: TeamMember[] = [
 
   {
     id: 9,
-    name: "Prof. Dr. Golam Rabiul Alam",
+    name: "Dr. Raihan Ul Islam",
     role: "Research Consultant",
-    position: "Kyung Hee University (South Korea); University of Dhaka; BRAC University",
+    position: "Lulea University of Technology (Sweden)",
     institute: "CredenceX AI Research Lab",
-    email: "rabiul.alam@bracu.ac.bd",
-    avatar: "/teams/golam.jpg",
+    email: "raihan.islam@ewubd.edu",
+    avatar: "/teams/raihan.jpg",
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/md-golam-rabiul-alam-abb1767/",
-      googleScholar: "https://scholar.google.com/citations?user=t4GrJR4AAAAJ&hl=en"
+      linkedin: "https://www.linkedin.com/in/raihan-ul-islam/",
+      googleScholar: "https://scholar.google.com/citations?user=mjWULyIAAAAJ&hl=en"
     }
   },
 

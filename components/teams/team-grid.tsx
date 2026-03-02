@@ -7,8 +7,6 @@ import { DevelopmentTeamMember } from '@/config/teams/development-team';
 
 interface TeamGridProps {
   members: (TeamMember | DevelopmentTeamMember)[];
-  isResearch: boolean;
-  selectedRole: string;
 }
 
 const cardVariants = {
@@ -51,7 +49,7 @@ const sectionVariants = {
   },
 };
 
-export default function TeamGrid({ members, isResearch }: TeamGridProps) {
+export default function TeamGrid({ members }: TeamGridProps) {
   if (members.length === 0) {
     return (
       <motion.div
@@ -124,7 +122,7 @@ export default function TeamGrid({ members, isResearch }: TeamGridProps) {
                     }}
                     className="relative h-full"
                   >
-                    <TeamMemberCard member={member} isResearch={isResearch} />
+                    <TeamMemberCard member={member} />
                   </motion.div>
                 ))}
               </AnimatePresence>
