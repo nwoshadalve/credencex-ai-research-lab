@@ -65,7 +65,7 @@ export const developmentTeam: DevelopmentTeamMember[] = [
     position: "Co-Founder & Research Lead",
     department: "CredenceX AI Research Lab",
     email: "redrik278@gmail.com",
-    avatar: "/teams/Redwan.jpg",
+    avatar: "/teams/Redwan.jpeg",
     socialLinks: {
       linkedin: "https://www.linkedin.com/in/redrik278/",
       googleScholar: "https://scholar.google.com/citations?user=_GI3BXMAAAAJ&hl=en",
@@ -92,7 +92,7 @@ export const developmentTeam: DevelopmentTeamMember[] = [
     position: "Engineering Lead (Web Platform & Product Delivery)",
     department: "Department of CSE, Daffodil International University, Dhaka, Bangladesh",
     email: "nwoshadalve@gmail.com",
-    avatar: "/teams/nowshad.jpg",
+    avatar: "/teams/nowshad.png",
     socialLinks: {
       linkedin: "https://www.linkedin.com/in/nwoshadalve/",
       googleScholar: "https://scholar.google.com/citations?user=K457W08AAAAJ&hl=en",

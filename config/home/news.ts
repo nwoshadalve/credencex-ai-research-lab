@@ -89,7 +89,7 @@ export const newsData: News[] = [
     content:
       "CredenceX AI Research Lab is supporting the research community through an organizer role at IIMCSE 2026 (International Innovations on Computer Science and Engineering). This service reflects our commitment to rigorous scientific exchange and strong academic–industry collaboration.",
     type: "announcement",
-    date: "2026-06-01",
+    date: "2026-03-01",
     author: "CredenceX Research Team",
     readTime: "2 min read",
     tags: ["Conference", "Community", "Organizing"],
