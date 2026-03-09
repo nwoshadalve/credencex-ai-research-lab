@@ -7,6 +7,12 @@ import NavMobile from "@/components/nav/nav-mobile";
 import Footer from "@/components/footer/footer";
 import { menuItems } from "@/config/common/menu-items";
 import ThemeFavicon from "@/components/common/theme-favicon";
+import {
+  DEFAULT_DESCRIPTION,
+  organizationStructuredData,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/seo";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-heading",
@@ -21,8 +27,37 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "CredenceX AI Research Lab",
-  description: "Explore cutting-edge AI research and innovations at CredenceX AI Research Lab.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: DEFAULT_DESCRIPTION,
+  applicationName: SITE_NAME,
+  openGraph: {
+    title: SITE_NAME,
+    description: DEFAULT_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_NAME,
+    description: DEFAULT_DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon/favicon_light/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -46,6 +81,13 @@ export default function RootLayout({
         className={`${spaceGrotesk.variable} ${inter.variable} font-body antialiased`}
       >
         <ThemeProvider enableSystem={true} defaultTheme="system">
+          <script
+            type="application/ld+json"
+            suppressHydrationWarning
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(organizationStructuredData),
+            }}
+          />
           <ThemeFavicon />
           <NavDesktop menuItems={menuItems} />
           <NavMobile menuItems={menuItems} />

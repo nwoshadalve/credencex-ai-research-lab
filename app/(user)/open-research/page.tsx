@@ -3,11 +3,14 @@ import { pageHeroContent } from '@/config/common/page-hero';
 import GovernanceContent from '@/components/legal/governance-content';
 import { openResearchConfig } from '@/config/legal/open-research';
 import { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Open Research & Publication Policy | CredenceX AI Research Lab',
-  description: 'Our approach to publishing findings, sharing research artifacts, and communicating the scope, limitations, and uncertainty of our work.',
-};
+export const metadata: Metadata = createPageMetadata({
+  title: 'Open Research & Publication Policy',
+  description:
+    'Learn how CredenceX shares publications, methods, code, and supporting research materials while balancing openness with privacy, safety, and responsible communication.',
+  path: '/open-research',
+});
 
 export default function OpenResearchPage() {
   return (

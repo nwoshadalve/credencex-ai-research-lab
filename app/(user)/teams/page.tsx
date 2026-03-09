@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import PageHero from '@/components/common/hero';
 import { pageHeroContent } from '@/config/common/page-hero';
 import TeamsSection from '@/components/teams/teams-section';
+import { createPageMetadata } from '@/lib/seo';
 
 type TeamsPageProps = {
   searchParams?: Promise<{ type?: string }> | { type?: string };
@@ -12,22 +13,21 @@ export async function generateMetadata({ searchParams }: TeamsPageProps): Promis
   const type = sp?.type || 'research';
 
   const isDevTeam = type === 'development';
+  const path = isDevTeam ? '/teams?type=development' : '/teams';
+  const title = isDevTeam ? 'Development Team' : 'Research Team';
+  const description = isDevTeam
+    ? 'Meet the CredenceX development team building reliable AI applications, tooling, and deployment-ready systems.'
+    : 'Meet the CredenceX research team advancing trustworthy AI, medical imaging, and high-stakes decision support.';
   
   return {
-    title: isDevTeam ? 'Development Team - CredenceX AI Research Lab' : 'Research Team - CredenceX AI Research Lab',
-    description: isDevTeam 
-      ? 'Meet our talented development team at CredenceX AI Research Lab. Expert developers and engineers building cutting-edge AI solutions.'
-      : 'Meet our distinguished research team at CredenceX AI Research Lab. Leading experts in artificial intelligence and machine learning research.',
-    keywords: isDevTeam
-      ? ['development team', 'software engineers', 'AI developers', 'CredenceX team', 'tech team']
-      : ['research team', 'AI researchers', 'machine learning experts', 'CredenceX researchers', 'AI scientists'],
-    openGraph: {
-      title: isDevTeam ? 'Development Team - CredenceX AI Research Lab' : 'Research Team - CredenceX AI Research Lab',
-      description: isDevTeam 
-        ? 'Meet our talented development team at CredenceX AI Research Lab.'
-        : 'Meet our distinguished research team at CredenceX AI Research Lab.',
-      type: 'website',
-    },
+    ...createPageMetadata({
+      title,
+      description,
+      path,
+      keywords: isDevTeam
+        ? ['development team', 'software engineers', 'AI developers', 'CredenceX team', 'tech team']
+        : ['research team', 'AI researchers', 'machine learning experts', 'CredenceX researchers', 'AI scientists'],
+    }),
     robots: {
       index: true,
       follow: true,

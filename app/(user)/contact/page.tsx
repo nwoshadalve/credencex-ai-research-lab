@@ -2,11 +2,14 @@ import { Metadata } from 'next';
 import Hero from '@/components/common/hero';
 import { pageHeroContent } from '@/config/common/page-hero';
 import ContactSection from '@/components/contact/contact-section';
+import { createPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Contact - CredenceX AI Research Lab',
-  description: 'Get in touch with CredenceX AI Research Lab. Contact us for research collaborations, partnerships, or career opportunities.',
-};
+export const metadata: Metadata = createPageMetadata({
+  title: 'Contact',
+  description:
+    'Get in touch with CredenceX AI Research Lab for research collaborations, advisory inquiries, partnerships, or career opportunities.',
+  path: '/contact',
+});
 
 export default function ContactPage() {
   return (

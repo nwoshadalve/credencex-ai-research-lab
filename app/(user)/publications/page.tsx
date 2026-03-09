@@ -1,6 +1,8 @@
+import type { Metadata } from "next";
 import PageHero from "@/components/common/hero";
 import { pageHeroContent } from "@/config/common/page-hero";
 import PapersSection from "@/components/publications/papers-section";
+import { createPageMetadata } from "@/lib/seo";
 
 type FilterType = 'all' | 'conference' | 'journal';
 
@@ -9,6 +11,13 @@ type PublicationsPageProps = {
 };
 
 const allowedFilters = new Set<FilterType>(['all', 'conference', 'journal']);
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Publications",
+  description:
+    "Browse CredenceX research publications, including journal articles and conference papers across trustworthy AI, medical imaging, and decision support.",
+  path: "/publications",
+});
 
 export default async function PublicationsPage({ searchParams }: PublicationsPageProps) {
   const sp = await Promise.resolve(searchParams);

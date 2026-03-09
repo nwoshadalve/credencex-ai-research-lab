@@ -1,6 +1,8 @@
+import type { Metadata } from "next";
 import PageHero from "@/components/common/hero";
 import { pageHeroContent } from "@/config/common/page-hero";
 import ProjectsSection from "@/components/projects/projects-section";
+import { createPageMetadata } from "@/lib/seo";
 
 type FilterType = 'all' | 'active' | 'completed' | 'planned';
 
@@ -9,6 +11,13 @@ type ProjectsPageProps = {
 };
 
 const allowedFilters = new Set<FilterType>(['all', 'active', 'completed', 'planned']);
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Projects",
+  description:
+    "Explore active, completed, and planned CredenceX AI research projects focused on trustworthy, explainable, and deployment-aware systems.",
+  path: "/projects",
+});
 
 export default async function ProjectsPage({ searchParams }: ProjectsPageProps) {
   const sp = await Promise.resolve(searchParams);
