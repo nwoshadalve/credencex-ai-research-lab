@@ -1,7 +1,7 @@
 import PageHero from '@/components/common/hero';
 import { pageHeroContent } from '@/config/common/page-hero';
 import GovernanceContent from '@/components/legal/governance-content';
-import { dataGovernanceConfig } from '@/config/legal/governance-pages';
+import { dataGovernanceConfig } from '@/config/legal/data-governance';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

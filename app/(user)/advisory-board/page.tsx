@@ -1,7 +1,6 @@
 import PageHero from '@/components/common/hero';
 import { pageHeroContent } from '@/config/common/page-hero';
-import GovernanceContent from '@/components/legal/governance-content';
-import { advisoryBoardConfig } from '@/config/legal/governance-pages';
+import AdvisoryBoardContent from '@/components/legal/advisory-board-content';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -13,7 +12,7 @@ export default function AdvisoryBoardPage() {
   return (
     <main>
       <PageHero content={pageHeroContent.advisoryBoard} />
-      <GovernanceContent config={advisoryBoardConfig} />
+      <AdvisoryBoardContent />
     </main>
   );
 }

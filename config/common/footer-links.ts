@@ -31,6 +31,7 @@ export const footerLinks: FooterLinks = {
   legal: [
     { label: 'Privacy Policy', href: '/privacy' },
     { label: 'Terms & Conditions', href: '/terms' },
+    { label: 'Institutional Status & Legal Notice', href: '/legal-notice' },
   ],
   governance: [
     { label: 'Governance & Leadership',            href: '/governance' },
@@ -38,7 +39,6 @@ export const footerLinks: FooterLinks = {
     { label: 'Ethics Standards',                   href: '/ethics' },
     { label: 'Data Governance',                    href: '/data-governance' },
     { label: 'Open Research & Publication Policy', href: '/open-research' },
-    { label: 'Institutional Status & Legal Notice', href: '/legal-notice' },
   ],
 };
 
