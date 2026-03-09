@@ -16,29 +16,26 @@ export interface MissionVisionContent {
 export const missionVisionContent: MissionVisionContent = {
   mission: {
     badge: "Our Mission",
-    title: "Advancing AI for a Better Tomorrow",
-    description: "At CredenceX AI Research Lab, we are dedicated to pushing the boundaries of artificial intelligence while maintaining the highest standards of ethics, transparency, and social responsibility. Our mission is to create AI systems that are not only powerful and innovative but also safe, fair, and aligned with human values.",
+    title: "Advancing trustworthy AI for real-world impact",
+    description: "Our mission is to advance artificial intelligence that is technically rigorous and socially responsible, especially in settings where errors can meaningfully affect human well-being. We aim to build AI systems that are reliable in diverse real-world conditions, transparent in their reasoning signals, and designed to support accountable decision-making.",
     highlights: [
-      "Pioneer groundbreaking AI technologies that solve complex real-world problems",
-      "Develop robust, reliable, and secure AI systems with safety at the core",
-      "Build a diverse, inclusive research community and foster global collaboration",
-      "Make AI technologies accessible and beneficial to everyone",
-      "Maintain the highest standards of scientific rigor and academic excellence",
-      "Transform research into real-world solutions for critical challenges"
+      "Develop models and evaluation frameworks that prioritize robustness, calibration, and reliability in real-world environments",
+      "Design interpretable and auditable pipelines that support clinical and high-stakes workflows",
+      "Build tools that integrate uncertainty and risk-aware outputs, helping users know when to trust results and when to be cautious",
+      "Strengthen the quality of AI research through clear reporting, reproducible artifacts, and responsible dissemination",
+      "Support a collaborative research culture that values mentorship, inclusion, and interdisciplinary work"
     ],
     icon: Target
   },
   vision: {
     badge: "Our Vision",
-    title: "Shaping the Future of Intelligent Systems",
-    description: "We envision a future where artificial intelligence seamlessly integrates with human society, augmenting our capabilities while respecting our values. Our vision is to be the global leader in trustworthy AI research, setting new standards for innovation, safety, and ethical development in the field of artificial intelligence.",
+    title: "Human-centered AI that earns trust",
+    description: "We envision AI systems that assist, not replace, human expertise, particularly in high-stakes domains such as healthcare. Our long-term goal is to contribute methods, standards, and practical systems that improve trustworthiness, reduce real-world failure, and support equitable outcomes across populations and clinical contexts.",
     highlights: [
-      "Establish AI as a trusted partner in solving humanity's greatest challenges",
-      "Create transparent and interpretable AI systems that people can understand",
-      "Lead the global conversation on responsible AI development and deployment",
-      "Bridge the gap between cutting-edge research and practical applications",
-      "Cultivate the next generation of AI researchers and innovators",
-      "Build AI systems that enhance human potential and well-being"
+      "Human oversight: AI should support accountable human decision-making, not displace it",
+      "Transparency: outputs should be explainable, auditable, and appropriately documented",
+      "Safety and reliability: models must be evaluated beyond single test sets, including stress tests and distribution shifts",
+      "Public benefit: research should advance scientific understanding and practical value with responsible communication"
     ],
     icon: Eye
   }

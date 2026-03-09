@@ -17,7 +17,7 @@ export interface JoinCommunityContent {
 export const joinCommunityContent: JoinCommunityContent = {
   badge: "Join Us",
   title: "Join Our Research Community",
-  description: "Collaborate with leading minds, contribute to groundbreaking AI research, and help shape the future. Whether you're looking to join our team or connect with us, we welcome passionate innovators from all backgrounds.",
+  description: "Collaborate with dedicated researchers and developers working on trustworthy AI for real-world conditions. We welcome contributors who value rigor, transparency, and responsible innovation.",
   buttons: {
     careers: {
       text: "View Open Positions",

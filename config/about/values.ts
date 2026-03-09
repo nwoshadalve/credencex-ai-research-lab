@@ -18,34 +18,34 @@ export interface CoreValuesContent {
 export const coreValuesContent: CoreValuesContent = {
   badge: "Core Values",
   title: "The Values That Define Us",
-  description: "Our core values are the foundation of everything we do at CredenceX AI Research Lab. They guide our decisions, shape our culture, and define how we approach every challenge and opportunity.",
+  description: "The principles that shape our decisions and outputs.",
   values: [
     {
       id: "integrity",
       icon: Shield,
       title: "Integrity & Transparency",
-      description: "We operate with unwavering honesty and openness in all our research, communications, and collaborations. Transparency is not just a principle—it's our commitment to building trust with the communities we serve.",
+      description: "We prioritize accurate reporting, clear documentation, and honest communication of limitations. We report assumptions, uncertainty, and failure modes—not only headline metrics. We disclose relevant competing interests and funding relationships when applicable.",
       gradient: "from-blue-500/20 to-cyan-500/20"
     },
     {
-      id: "innovation",
+      id: "rigor",
       icon: Lightbulb,
-      title: "Innovation & Excellence",
-      description: "We relentlessly pursue breakthrough innovations while maintaining the highest standards of quality and rigor. Excellence is our benchmark, and innovation is the path we take to achieve it.",
+      title: "Scientific Rigor & Excellence",
+      description: "We aim for strong methodology, careful evaluation, and reproducible pipelines where feasible. We emphasize robust validation, ablations, and stress testing where appropriate. We treat deployment readiness as an evidence-based claim, not a marketing statement.",
       gradient: "from-purple-500/20 to-pink-500/20"
     },
     {
       id: "responsibility",
       icon: Heart,
       title: "Social Responsibility",
-      description: "We recognize our responsibility to society and ensure that our AI technologies are developed and deployed ethically, with careful consideration of their impact on individuals and communities worldwide.",
+      description: "We design with safety, fairness, and misuse risk in mind—particularly in high-stakes domains. We evaluate model behavior across subgroups when feasible and relevant. We avoid overstated claims about clinical readiness without sufficient evidence.",
       gradient: "from-rose-500/20 to-orange-500/20"
     },
     {
       id: "collaboration",
       icon: Users,
       title: "Collaboration & Inclusivity",
-      description: "We believe diverse perspectives drive better solutions. We foster an inclusive environment where every voice matters and collaboration across disciplines, backgrounds, and borders is celebrated.",
+      description: "We believe better science emerges from diverse perspectives and open, respectful collaboration. We support mentorship and capacity building for emerging researchers. We welcome interdisciplinary partnerships that improve real-world relevance and impact.",
       gradient: "from-emerald-500/20 to-teal-500/20"
     }
   ]

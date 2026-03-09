@@ -78,7 +78,7 @@ export default function Footer() {
           <div className="relative max-w-7xl mx-auto px-6 py-16 lg:py-20">
             {/* Top Section */}
             <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12 mb-10"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-8 lg:gap-12 mb-10"
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
@@ -208,6 +208,26 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Governance Links */}
+          <motion.div variants={itemVariants}>
+            <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-5 uppercase tracking-wider flex items-center gap-2">
+              <div className="w-1 h-4 bg-linear-to-b from-indigo-500 to-purple-500 rounded-full"></div>
+              Governance
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks.governance.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}

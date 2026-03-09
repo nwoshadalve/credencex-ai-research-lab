@@ -8,6 +8,7 @@ export interface FooterLinks {
   research: FooterLink[];
   resources: FooterLink[];
   legal: FooterLink[];
+  governance: FooterLink[];
 }
 
 export const footerLinks: FooterLinks = {
@@ -30,6 +31,14 @@ export const footerLinks: FooterLinks = {
   legal: [
     { label: 'Privacy Policy', href: '/privacy' },
     { label: 'Terms & Conditions', href: '/terms' },
+  ],
+  governance: [
+    { label: 'Governance & Leadership',            href: '/governance' },
+    { label: 'Advisory Board',                     href: '/advisory-board' },
+    { label: 'Ethics Standards',                   href: '/ethics' },
+    { label: 'Data Governance',                    href: '/data-governance' },
+    { label: 'Open Research & Publication Policy', href: '/open-research' },
+    { label: 'Institutional Status & Legal Notice', href: '/legal-notice' },
   ],
 };
 

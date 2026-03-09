@@ -27,9 +27,9 @@ export const pageHeroContent: Record<string, PageHeroContent> = {
     badge: {
       text: "About Us"
     },
-    title: "Pioneering the Future of Artificial Intelligence",
-    subtitle: "Where Innovation Meets Responsibility",
-    description: "CredenceX AI Research Lab is a leading research institution dedicated to advancing the frontiers of artificial intelligence. We focus on developing transparent, reliable, and ethical AI systems that address real-world challenges in security, healthcare, and decision support. Our multidisciplinary team combines cutting-edge research with practical applications to create AI technologies that benefit humanity.",
+    title: "Trustworthy AI for High-Stakes Decision Support",
+    subtitle: "Explainable, deployment-aware systems focused on medical imaging",
+    description: "CredenceX AI Research Lab is an independent, mission-driven initiative developing reliable AI for medical imaging and clinical decision support. We emphasize robust, auditable, uncertainty-aware, and interpretable systems that generalize across sites, devices, and patient populations. Our work includes peer-reviewed publications, reproducible pipelines, and research prototypes, and is not presented as clinical advice or as a clinically validated medical device unless explicitly stated.",
     backgroundGradient: {
       from: "from-blue-50",
       via: "via-indigo-50",
@@ -264,5 +264,47 @@ export const pageHeroContent: Record<string, PageHeroContent> = {
       via: "via-purple-50",
       to: "to-fuchsia-50"
     }
+  },
+  governance: {
+    badge: { text: "Governance" },
+    title: "Governance & Leadership",
+    subtitle: "How CredenceX is structured and guided",
+    description: "An overview of the governance structure, decision-making principles, and leadership framework that guide CredenceX as an independent research initiative.",
+    backgroundGradient: { from: "from-indigo-50", via: "via-blue-50", to: "to-slate-50" }
+  },
+  advisoryBoard: {
+    badge: { text: "Advisory Board" },
+    title: "Advisory Board",
+    subtitle: "Expertise that shapes our direction",
+    description: "Our advisory board brings together expertise across AI research, clinical practice, and responsible technology development to inform the strategic and ethical direction of CredenceX.",
+    backgroundGradient: { from: "from-blue-50", via: "via-indigo-50", to: "to-purple-50" }
+  },
+  ethics: {
+    badge: { text: "Ethics" },
+    title: "Ethics Standards",
+    subtitle: "Research conducted with rigor and integrity",
+    description: "CredenceX is committed to ethical research practice. This page outlines the standards and principles that govern how we conduct, evaluate, and communicate our research.",
+    backgroundGradient: { from: "from-violet-50", via: "via-indigo-50", to: "to-blue-50" }
+  },
+  dataGovernance: {
+    badge: { text: "Data Governance" },
+    title: "Data Governance",
+    subtitle: "Responsible data practices across all research",
+    description: "Our data governance policy defines how we handle, store, and use data in research — including our commitments to data minimization, security, and responsible use in AI development.",
+    backgroundGradient: { from: "from-slate-50", via: "via-blue-50", to: "to-indigo-50" }
+  },
+  openResearch: {
+    badge: { text: "Open Research" },
+    title: "Open Research & Publication Policy",
+    subtitle: "Committed to transparent and reproducible science",
+    description: "CredenceX supports open and reproducible research. This policy describes our approach to publishing findings, sharing artifacts, and communicating limitations and uncertainty.",
+    backgroundGradient: { from: "from-cyan-50", via: "via-blue-50", to: "to-indigo-50" }
+  },
+  legalNotice: {
+    badge: { text: "Legal Notice" },
+    title: "Institutional Status & Legal Notice",
+    subtitle: "Understanding the nature of CredenceX",
+    description: "CredenceX is an independent research initiative. This page clarifies our institutional status, the nature of our research outputs, and important disclaimers for visitors and users of our work.",
+    backgroundGradient: { from: "from-gray-50", via: "via-slate-50", to: "to-indigo-50" }
   }
 };
