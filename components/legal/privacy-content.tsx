@@ -1,15 +1,63 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
 import { privacyPolicyConfig } from '@/config/legal/privacy-policy';
+import { DocBlock } from '@/config/legal/types';
 import { Calendar, Shield, Check } from 'lucide-react';
 import Link from 'next/link';
+import { useRenderText } from '@/lib/render-text';
+
+type RenderFn = (text: string) => React.ReactNode;
+
+function RenderBlocks({ blocks, renderText }: { blocks: DocBlock[]; renderText: RenderFn }) {
+  return (
+    <>
+      {blocks.map((block, i) => {
+        if (block.type === 'paragraph') {
+          return (
+            <p key={i} className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+              {renderText(block.text)}
+            </p>
+          );
+        }
+
+        if (block.type === 'bullets') {
+          return (
+            <ul key={i} className="space-y-2.5 mb-4">
+              {block.items.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
+                  <div className="shrink-0 w-5 h-5 rounded-full bg-blue-500/10 dark:bg-blue-400/20 border border-blue-300/50 dark:border-blue-500/30 flex items-center justify-center mt-0.5">
+                    <Check className="w-3 h-3 text-blue-600 dark:text-blue-400" strokeWidth={3} />
+                  </div>
+                  <span>{renderText(item)}</span>
+                </li>
+              ))}
+            </ul>
+          );
+        }
+
+        if (block.type === 'closing') {
+          return (
+            <p key={i} className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm italic mt-2 mb-4">
+              {renderText(block.text)}
+            </p>
+          );
+        }
+
+        return null;
+      })}
+    </>
+  );
+}
 
 export default function PrivacyContent() {
+  const renderText = useRenderText();
+
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.4 }
+    transition: { duration: 0.4 },
   };
 
   return (
@@ -25,11 +73,8 @@ export default function PrivacyContent() {
         <motion.div
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={{
-            initial: {},
-            animate: { transition: { staggerChildren: 0.1 } }
-          }}
+          viewport={{ once: true, margin: '-50px' }}
+          variants={{ initial: {}, animate: { transition: { staggerChildren: 0.1 } } }}
           className="mb-12"
         >
           <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-6">
@@ -46,7 +91,7 @@ export default function PrivacyContent() {
           </motion.div>
 
           <motion.p variants={fadeInUp} className="text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-            {privacyPolicyConfig.introduction.description}
+            {renderText(privacyPolicyConfig.introduction.description)}
           </motion.p>
         </motion.div>
 
@@ -57,7 +102,7 @@ export default function PrivacyContent() {
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
               className="p-6 md:p-8 rounded-2xl backdrop-blur-2xl bg-white/70 dark:bg-white/3 border-2 border-gray-300/70 dark:border-white/10 shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
@@ -65,14 +110,8 @@ export default function PrivacyContent() {
                 {section.title}
               </h2>
 
-              {/* Main Content */}
-              {section.content.map((paragraph, pIndex) => (
-                <p key={pIndex} className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                  {paragraph}
-                </p>
-              ))}
+              <RenderBlocks blocks={section.blocks} renderText={renderText} />
 
-              {/* Subsections */}
               {section.subsections && (
                 <div className="mt-6 space-y-6">
                   {section.subsections.map((subsection, subIndex) => (
@@ -80,16 +119,7 @@ export default function PrivacyContent() {
                       <h3 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-3">
                         {subsection.title}
                       </h3>
-                      <ul className="space-y-2.5">
-                        {subsection.content.map((item, itemIndex) => (
-                          <li key={itemIndex} className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
-                            <div className="shrink-0 w-5 h-5 rounded-full bg-blue-500/10 dark:bg-blue-400/20 border border-blue-300/50 dark:border-blue-500/30 flex items-center justify-center mt-0.5">
-                              <Check className="w-3 h-3 text-blue-600 dark:text-blue-400" strokeWidth={3} />
-                            </div>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      <RenderBlocks blocks={subsection.blocks} renderText={renderText} />
                     </div>
                   ))}
                 </div>
@@ -126,7 +156,7 @@ export default function PrivacyContent() {
             href="/contact"
             className="relative inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-linear-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 overflow-hidden group"
           >
-            <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+            <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
             <span className="relative z-10">Contact Our Privacy Team</span>
           </Link>
         </motion.div>

@@ -1,273 +1,204 @@
-export interface PolicySection {
-  title: string;
-  content: string[];
-  subsections?: {
-    title: string;
-    content: string[];
-  }[];
-}
+import { DocSection } from './types';
 
 export const privacyPolicyConfig = {
-  lastUpdated: "January 27, 2026",
-  effectiveDate: "January 1, 2026",
-  
+  lastUpdated: "March 7, 2026",
+  effectiveDate: "March 7, 2026",
+
   introduction: {
-    title: "Privacy Policy",
-    description: "At CredenceX AI Research Lab, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or engage with our services."
+    description:
+      "CredenceX AI Research Lab respects your privacy. This Privacy Policy explains how we collect, use, share, and protect personal information when you visit our website and when you contact or subscribe to updates from us. This Privacy Policy covers website interactions (e.g., browsing, newsletter subscription, contact inquiries). Research collaborations involving datasets, sensitive information, or project-specific governance are typically handled through separate agreements and controls. Please do not submit sensitive personal data (e.g., medical records, national IDs) through the website contact form."
   },
 
   sections: [
     {
-      title: "Information We Collect",
-      content: [
-        "We collect information that you provide directly to us, information we obtain automatically when you use our services, and information from third-party sources."
+      title: "Information we collect",
+      blocks: [
+        { type: 'paragraph', text: "We collect information in the following ways:" },
       ],
       subsections: [
         {
-          title: "Personal Information",
-          content: [
-            "Name, email address, phone number, and other contact details",
-            "Professional information such as job title, organization, and research interests",
-            "Academic credentials and publications",
-            "Correspondence and communications with us"
-          ]
+          title: "Information you provide to us",
+          blocks: [
+            { type: 'paragraph', text: "We collect information you choose to provide, such as:" },
+            { type: 'bullets', items: [
+              "Contact inquiries: name, email address, phone number (if provided), subject, and message content (and any information you include voluntarily).",
+              "Newsletter / updates subscription: email address.",
+            ]},
+          ],
         },
         {
-          title: "Automatically Collected Information",
-          content: [
-            "IP address, browser type, and device information",
-            "Usage data, including pages visited and time spent on our website",
-            "Cookies and similar tracking technologies",
-            "Referral sources and navigation patterns"
-          ]
+          title: "Information collected automatically (website usage and analytics)",
+          blocks: [
+            { type: 'paragraph', text: "When you access the website, our hosting and analytics infrastructure may process service-generated and log data, which can include IP address, device and browser information, request/response details, timestamps, referrer URLs, and diagnostic or performance-related data." },
+            { type: 'paragraph', text: "We also use Vercel Web Analytics to understand aggregate site usage and improve our website. Vercel Web Analytics is designed to work without third-party cookies and identifies end users using a hash created from the incoming request. The visitor session identifier is automatically discarded after 24 hours." },
+          ],
         },
         {
-          title: "Research and Collaboration Data",
-          content: [
-            "Research proposals and project submissions",
-            "Collaboration agreements and partnership information",
-            "Publications and research outputs",
-            "Conference and event participation data"
-          ]
-        }
-      ]
+          title: "Information we do not intentionally request via the website",
+          blocks: [
+            { type: 'paragraph', text: "We do not request sensitive categories of personal data via the website. If you voluntarily include sensitive information in a message, we will treat it with appropriate care, but you should avoid sending such information through the site." },
+          ],
+        },
+      ],
     },
     {
-      title: "How We Use Your Information",
-      content: [
-        "We use the collected information for various purposes to provide, maintain, and improve our services."
+      title: "How we use your information",
+      blocks: [
+        { type: 'paragraph', text: "We use personal information for the following purposes:" },
+        { type: 'bullets', items: [
+          "Responding to inquiries and communicating with you.",
+          "Providing updates if you subscribe (newsletters, announcements, opportunities).",
+          "Operating, securing, and maintaining the website (e.g., preventing abuse, diagnosing outages, improving performance).",
+          "Understanding website usage and improving website quality through privacy-oriented analytics (Vercel Web Analytics).",
+          "Complying with legal obligations and protecting our rights and safety.",
+        ]},
       ],
+    },
+    {
+      title: "Legal bases (where applicable)",
+      blocks: [
+        { type: 'paragraph', text: "Depending on your jurisdiction, we may rely on one or more of the following bases:" },
+        { type: 'bullets', items: [
+          "Consent (e.g., subscribing to updates; you may unsubscribe at any time).",
+          "Legitimate interests (e.g., website security, preventing abuse, performance monitoring, and aggregate analytics to improve the site).",
+          "Contract / pre-contract steps (e.g., responding to collaboration inquiries you initiate).",
+          "Legal obligations (e.g., responding to lawful requests).",
+        ]},
+      ],
+    },
+    {
+      title: "Sharing and disclosures",
+      blocks: [
+        { type: 'paragraph', text: "We do not sell your personal information." },
+        { type: 'paragraph', text: "We may share information in limited circumstances:" },
+        { type: 'bullets', items: [
+          "Service providers who help us operate the website and communications (see Section 5).",
+          "Legal and safety reasons (e.g., to comply with law, enforce agreements, protect rights, investigate misuse).",
+          "With your direction or consent (e.g., if you ask us to connect you with a collaborator).",
+        ]},
+        { type: 'closing', text: "We may also publish or share aggregated information that does not identify individuals." },
+      ],
+    },
+    {
+      title: "Service providers",
+      blocks: [],
       subsections: [
         {
-          title: "Primary Uses",
-          content: [
-            "To process and respond to your inquiries and requests",
-            "To facilitate research collaborations and partnerships",
-            "To send newsletters, updates, and information about our research activities",
-            "To improve our website, services, and user experience",
-            "To conduct research and analysis to advance AI development",
-            "To comply with legal obligations and protect our rights"
-          ]
+          title: "Website hosting and analytics: Vercel",
+          blocks: [
+            { type: 'paragraph', text: "Our website is hosted on Vercel, and we use Vercel Web Analytics for privacy-oriented traffic measurement and website improvement. Vercel describes its privacy practices in its published policies and analytics documentation." },
+          ],
         },
         {
-          title: "Communications",
-          content: [
-            "We may send you emails about our research updates, publications, events, and opportunities",
-            "You can opt out of marketing communications at any time",
-            "We will continue to send essential service-related communications"
-          ]
-        }
-      ]
+          title: "Email services: Namecheap",
+          blocks: [
+            { type: 'paragraph', text: "We use Namecheap for email services to send and receive communications (e.g., responding to inquiries and delivering updates). Namecheap describes its privacy practices in its published policies." },
+          ],
+        },
+      ],
     },
     {
-      title: "Information Sharing and Disclosure",
-      content: [
-        "We do not sell, trade, or rent your personal information to third parties. We may share your information in the following circumstances:"
-      ],
+      title: "Cookies and similar technologies",
+      blocks: [],
       subsections: [
         {
-          title: "Authorized Disclosures",
-          content: [
-            "With research partners and collaborators, with your consent",
-            "With service providers who assist in operating our website and services",
-            "With academic institutions and research organizations for collaborative projects",
-            "To comply with legal obligations, court orders, or government requests",
-            "To protect our rights, privacy, safety, or property, and that of our users"
-          ]
+          title: "Essential cookies",
+          blocks: [
+            { type: 'paragraph', text: "We may use essential cookies (and similar local storage mechanisms) necessary for core site functionality and security." },
+          ],
         },
         {
-          title: "Aggregate Information",
-          content: [
-            "We may share anonymized, aggregated data for research and analysis purposes",
-            "This data cannot be used to identify individual users"
-          ]
-        }
-      ]
-    },
-    {
-      title: "Data Security",
-      content: [
-        "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction."
-      ],
-      subsections: [
-        {
-          title: "Security Measures",
-          content: [
-            "Encryption of data in transit and at rest",
-            "Regular security assessments and audits",
-            "Access controls and authentication mechanisms",
-            "Employee training on data protection and privacy",
-            "Incident response and breach notification procedures"
-          ]
+          title: "Analytics (Vercel Web Analytics)",
+          blocks: [
+            { type: 'paragraph', text: "We use Vercel Web Analytics, which is designed to measure traffic without third-party cookies. Instead, visitors are identified by a hash created from the incoming request, and the visitor session identifier is automatically discarded after 24 hours." },
+          ],
         },
         {
-          title: "Limitations",
-          content: [
-            "No method of transmission over the internet is 100% secure",
-            "We cannot guarantee absolute security of your information",
-            "You are responsible for maintaining the confidentiality of your account credentials"
-          ]
-        }
-      ]
-    },
-    {
-      title: "Your Privacy Rights",
-      content: [
-        "You have certain rights regarding your personal information, subject to applicable laws."
-      ],
-      subsections: [
-        {
-          title: "Access and Control",
-          content: [
-            "Right to access your personal information we hold",
-            "Right to request correction of inaccurate or incomplete data",
-            "Right to request deletion of your personal information",
-            "Right to object to or restrict certain processing activities",
-            "Right to data portability",
-            "Right to withdraw consent at any time"
-          ]
+          title: "No behavioral advertising",
+          blocks: [
+            { type: 'paragraph', text: "We do not use the website to conduct behavioral advertising based on third-party cookie tracking." },
+          ],
         },
         {
-          title: "Exercising Your Rights",
-          content: [
-            "Contact us at privacy@credencex-ai.com to exercise your rights",
-            "We will respond to your request within 30 days",
-            "Identity verification may be required for security purposes"
-          ]
-        }
-      ]
-    },
-    {
-      title: "Cookies and Tracking Technologies",
-      content: [
-        "We use cookies and similar technologies to enhance your experience on our website."
-      ],
-      subsections: [
-        {
-          title: "Types of Cookies",
-          content: [
-            "Essential cookies: Required for website functionality",
-            "Analytics cookies: Help us understand how you use our site",
-            "Preference cookies: Remember your settings and choices",
-            "Marketing cookies: Used for targeted communications (with consent)"
-          ]
+          title: "Your controls",
+          blocks: [
+            { type: 'paragraph', text: "You can control cookies through your browser settings. Disabling certain cookies may affect site functionality." },
+          ],
         },
-        {
-          title: "Cookie Management",
-          content: [
-            "You can control cookies through your browser settings",
-            "Disabling certain cookies may affect website functionality",
-            "Third-party cookies may be subject to their own privacy policies"
-          ]
-        }
-      ]
+      ],
     },
     {
-      title: "International Data Transfers",
-      content: [
-        "Your information may be transferred to and processed in countries other than your country of residence. We ensure appropriate safeguards are in place for such transfers."
+      title: "Data retention",
+      blocks: [
+        { type: 'paragraph', text: "We retain personal information only as long as reasonably necessary for the purposes described above:" },
+        { type: 'bullets', items: [
+          "Contact inquiries: retained for as long as needed to respond and maintain an appropriate record of communication, then deleted or minimized.",
+          "Newsletter subscriptions: retained until you unsubscribe (or we discontinue the list).",
+          "Vercel Web Analytics session identifier: automatically discarded after 24 hours (per Vercel's analytics documentation).",
+          "Hosting/security logs: retained as needed for operational security and troubleshooting, consistent with platform and operational practices.",
+        ]},
+      ],
+    },
+    {
+      title: "Security",
+      blocks: [
+        { type: 'paragraph', text: "We use reasonable administrative and technical safeguards appropriate to the nature of the information we handle. No method of transmission or storage is fully secure; we cannot guarantee absolute security." },
+      ],
+    },
+    {
+      title: "International data transfers",
+      blocks: [
+        { type: 'paragraph', text: "Because we use service providers, your information may be processed in countries other than your country of residence. Vercel describes cross-border processing and safeguards in its published legal terms and privacy documentation." },
+      ],
+    },
+    {
+      title: "Your privacy rights",
+      blocks: [
+        { type: 'paragraph', text: "Depending on your location and applicable law, you may have rights such as:" },
+        { type: 'bullets', items: [
+          "Accessing, correcting, or deleting your personal information.",
+          "Objecting to or restricting certain processing.",
+          "Data portability (where applicable).",
+          "Withdrawing consent (e.g., newsletter unsubscribe).",
+        ]},
+        { type: 'closing', text: "To exercise your rights, contact us using the details in Section 13. We may need to verify your identity before completing certain requests." },
+      ],
+    },
+    {
+      title: "Children's privacy",
+      blocks: [
+        { type: 'paragraph', text: "Our website is not directed to children under 16, and we do not knowingly collect personal information from children. If you believe a child has provided personal information through the website, please contact us so we can address it." },
+      ],
+    },
+    {
+      title: "Third-party links",
+      blocks: [
+        { type: 'paragraph', text: "Our website may include links to third-party sites. We are not responsible for their privacy practices. Please review their policies before providing personal information." },
+      ],
+    },
+    {
+      title: "Contact",
+      blocks: [
+        { type: 'paragraph', text: "For privacy questions or requests, contact:" },
       ],
       subsections: [
         {
-          title: "Transfer Mechanisms",
-          content: [
-            "Standard contractual clauses approved by regulatory authorities",
-            "Adequacy decisions by relevant data protection authorities",
-            "Consent where required by applicable law",
-            "Other lawful transfer mechanisms as appropriate"
-          ]
-        }
-      ]
-    },
-    {
-      title: "Children's Privacy",
-      content: [
-        "Our services are not directed to individuals under the age of 16. We do not knowingly collect personal information from children. If you believe we have collected information from a child, please contact us immediately, and we will take steps to delete such information."
-      ]
-    },
-    {
-      title: "Third-Party Links",
-      content: [
-        "Our website may contain links to third-party websites and services. We are not responsible for the privacy practices of these third parties. We encourage you to review their privacy policies before providing any personal information."
-      ]
-    },
-    {
-      title: "Data Retention",
-      content: [
-        "We retain your personal information for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law."
-      ],
-      subsections: [
-        {
-          title: "Retention Criteria",
-          content: [
-            "Active user accounts: Duration of account plus statutory retention periods",
-            "Research collaboration data: Duration of project plus archival requirements",
-            "Marketing communications: Until you opt out or request deletion",
-            "Legal compliance: As required by applicable laws and regulations"
-          ]
-        }
-      ]
-    },
-    {
-      title: "Changes to This Privacy Policy",
-      content: [
-        "We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We will notify you of any material changes by posting the new policy on our website and updating the 'Last Updated' date."
-      ],
-      subsections: [
-        {
-          title: "Your Acceptance",
-          content: [
-            "Continued use of our services after changes constitutes acceptance",
-            "We encourage you to review this policy periodically",
-            "Material changes may require additional consent where required by law"
-          ]
-        }
-      ]
-    },
-    {
-      title: "Contact Information",
-      content: [
-        "If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:"
-      ],
-      subsections: [
-        {
-          title: "Privacy Office",
-          content: [
-            "Email: privacy@credencex-ai.com",
-            "Phone: +1 (234) 567-890",
-            "Address: 123 AI Research Blvd, Innovation District, CA 94000",
-            "Data Protection Officer: dpo@credencex-ai.com"
-          ]
+          title: "Privacy Contact (CredenceX AI Research Lab)",
+          blocks: [
+            { type: 'bullets', items: [
+              "Email: support@credencex.ai",
+              "Phone: +1 (213) 507-6622",
+              "Address: 691 Irolo St, Apt 711, Los Angeles, CA 90005, United States",
+            ]},
+          ],
         },
-        {
-          title: "Response Time",
-          content: [
-            "We strive to respond to all inquiries within 5 business days",
-            "Complex requests may require additional time",
-            "We will keep you informed of the status of your request"
-          ]
-        }
-      ]
-    }
-  ] as PolicySection[]
+      ],
+    },
+    {
+      title: "Changes to this policy",
+      blocks: [
+        { type: 'paragraph', text: "We may update this Privacy Policy from time to time. We will post the updated version on this page and revise the \"Last updated\" date above." },
+      ],
+    },
+  ] as DocSection[],
 };
