@@ -58,6 +58,9 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  verification: {
+    google: "gZ7b5jzgA3J07SQhRb6Q4HrgfzJHYN--pv-FklfQB_E",
+  },
   icons: {
     icon: [
       { url: "/favicon/favicon_light/favicon-16x16.png", sizes: "16x16", type: "image/png" },
