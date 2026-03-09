@@ -1,12 +1,4 @@
-import { DocBlock } from './types';
-
-export interface GovernancePageConfig {
-  lastUpdated: string;
-  effectiveDate: string;
-  introduction: { description: string };
-  sections: { title: string; blocks: DocBlock[]; subsections?: { title: string; blocks: DocBlock[] }[] }[];
-  cta: { question: string; buttonLabel: string; href: string };
-}
+import { DocBlock, GovernancePageConfig } from './types';
 
 export const openResearchConfig: GovernancePageConfig = {
   lastUpdated: 'March 2026',

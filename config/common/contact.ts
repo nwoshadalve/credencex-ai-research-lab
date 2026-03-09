@@ -41,8 +41,8 @@ export const contactConfig: ContactConfig = {
     {
       icon: Mail,
       title: 'Email Us',
-      details: ['info@credencex-ai.com', 'research@credencex-ai.com'],
-      href: 'mailto:info@credencex-ai.com'
+      details: ['info@credencex.ai', 'research@credencex.ai'],
+      href: 'mailto:info@credencex.ai'
     },
     {
       icon: Phone,

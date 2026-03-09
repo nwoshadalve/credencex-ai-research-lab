@@ -3,8 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { DocBlock } from '@/config/legal/types';
-import { GovernancePageConfig } from '@/config/legal/governance-pages';
-import { Calendar, Building2, Check } from 'lucide-react';
+import { GovernancePageConfig } from '@/config/legal/types';
+import { Calendar, Building2, Check, Scale } from 'lucide-react';
 import Link from 'next/link';
 import { useRenderText } from '@/lib/render-text';
 
@@ -50,9 +50,10 @@ function RenderBlocks({ blocks, renderText }: { blocks: DocBlock[]; renderText: 
 
 interface GovernanceContentProps {
   config: GovernancePageConfig;
+  category?: 'governance' | 'legal';
 }
 
-export default function GovernanceContent({ config }: GovernanceContentProps) {
+export default function GovernanceContent({ config, category = 'governance' }: GovernanceContentProps) {
   const renderText = useRenderText();
 
   const fadeInUp = {
@@ -80,9 +81,13 @@ export default function GovernanceContent({ config }: GovernanceContentProps) {
         >
           <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-6">
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 dark:bg-gray-900/60 backdrop-blur-2xl border border-gray-200/60 dark:border-white/20 shadow-lg">
-              <Building2 className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+              {category === 'legal' ? (
+                <Scale className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+              ) : (
+                <Building2 className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+              )}
               <span className="text-sm font-medium text-gray-800 dark:text-gray-200">
-                Governance
+                {category === 'legal' ? 'Legal' : 'Governance'}
               </span>
             </div>
             <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">

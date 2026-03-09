@@ -18,7 +18,7 @@ export const footerBrand: FooterBrand = {
 };
 
 export const footerContact: FooterContact = {
-  email: 'info@credencex-ai.com',
+  email: 'info@credencex.ai',
   phone: '+1 (213) 507-6622',
   address: {
     line1: '691 Irolo St, Apt 711',

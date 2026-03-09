@@ -13,7 +13,7 @@ export default function LegalNoticePage() {
   return (
     <main>
       <PageHero content={pageHeroContent.legalNotice} />
-      <GovernanceContent config={legalNoticeConfig} />
+      <GovernanceContent config={legalNoticeConfig} category="legal" />
     </main>
   );
 }

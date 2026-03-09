@@ -1,4 +1,4 @@
-import { DocBlock } from './types';
+import { DocBlock, GovernancePageConfig } from './types';
 
 export interface AdvisoryMember {
   id: number;
@@ -67,13 +67,6 @@ export const advisoryBoardMembers: AdvisoryMember[] = [
   },
 ];
 
-export interface GovernancePageConfig {
-  lastUpdated: string;
-  effectiveDate: string;
-  introduction: { description: string };
-  sections: { title: string; blocks: DocBlock[]; subsections?: { title: string; blocks: DocBlock[] }[] }[];
-  cta: { question: string; buttonLabel: string; href: string };
-}
 
 export const advisoryBoardConfig: GovernancePageConfig = {
   lastUpdated: 'March 2026',

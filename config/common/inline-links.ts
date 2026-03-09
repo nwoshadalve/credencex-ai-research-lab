@@ -15,7 +15,20 @@ export interface InlineLinkPattern {
 }
 
 export const inlineLinkPatterns: InlineLinkPattern[] = [
-  { match: 'Privacy Policy',              href: '/privacy' },
-  { match: 'Terms & Conditions',          href: '/terms' },
-  { match: 'Institutional Status & Legal Notice', href: '/legal-notice' },
+  // Legal
+  { match: 'Privacy Policy',                        href: '/privacy' },
+  { match: 'Terms & Conditions',                    href: '/terms' },
+  { match: 'Institutional Status & Legal Notice',   href: '/legal-notice' },
+
+  // Governance pages
+  { match: 'Advisory Board page',                   href: '/advisory-board' },
+  { match: 'Advisory Board',                        href: '/advisory-board' },
+  { match: 'Data Governance page',                  href: '/data-governance' },
+  { match: 'Ethics Standards',                      href: '/ethics' },
+  { match: 'Open Research & Publication Policy',    href: '/open-research' },
+  { match: 'Governance & Leadership',               href: '/governance' },
+
+  // Contact
+  { match: 'Contact page',                          href: '/contact' },
+  { match: 'Contact Page',                          href: '/contact' },
 ];

@@ -19,3 +19,11 @@ export interface DocSection {
   blocks: DocBlock[];
   subsections?: DocSubsection[];
 }
+
+export interface GovernancePageConfig {
+  lastUpdated: string;
+  effectiveDate: string;
+  introduction: { description: string };
+  sections: { title: string; blocks: DocBlock[]; subsections?: { title: string; blocks: DocBlock[] }[] }[];
+  cta: { question: string; buttonLabel: string; href: string };
+}
