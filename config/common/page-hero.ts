@@ -279,6 +279,13 @@ export const pageHeroContent: Record<string, PageHeroContent> = {
     description: "Our advisory board brings together expertise across AI research, clinical practice, and responsible technology development to inform the strategic and ethical direction of CredenceX.",
     backgroundGradient: { from: "from-blue-50", via: "via-indigo-50", to: "to-purple-50" }
   },
+  boardOfMembers: {
+    badge: { text: "Board of Members" },
+    title: "Board of Members",
+    subtitle: "Meet the experts guiding CredenceX",
+    description: "Our advisory board members bring diverse expertise across AI research, clinical medicine, ethics, governance, law, and responsible technology deployment. Profiles are updated as appointments are confirmed.",
+    backgroundGradient: { from: "from-indigo-50", via: "via-violet-50", to: "to-purple-50" }
+  },
   ethics: {
     badge: { text: "Ethics" },
     title: "Ethics Standards",

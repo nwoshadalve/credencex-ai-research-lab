@@ -36,6 +36,7 @@ export const footerLinks: FooterLinks = {
   governance: [
     { label: 'Governance & Leadership',            href: '/governance' },
     { label: 'Advisory Board',                     href: '/advisory-board' },
+    { label: 'Board of Members',                   href: '/board-of-members' },
     { label: 'Ethics Standards',                   href: '/ethics' },
     { label: 'Data Governance',                    href: '/data-governance' },
     { label: 'Open Research & Publication Policy', href: '/open-research' },

@@ -14,6 +14,7 @@ const publicRoutes = [
   '/terms',
   '/governance',
   '/advisory-board',
+  '/board-of-members',
   '/ethics',
   '/data-governance',
   '/open-research',
