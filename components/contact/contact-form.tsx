@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { contactConfig } from '@/config/common/contact';
+import { labEmails } from '@/config/common/emails';
 import { useState } from 'react';
 import { Send, CheckCircle2, AlertCircle } from 'lucide-react';
 
@@ -349,7 +350,7 @@ export default function ContactForm() {
               <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
               <div>
                 <p className="font-semibold">Oops! Something went wrong</p>
-                <p className="text-sm mt-1">We couldn&apos;t send your message. Please try again or contact us directly at info@credencex.ai</p>
+                <p className="text-sm mt-1">We couldn&apos;t send your message. Please try again or contact us directly at {labEmails.info}</p>
               </div>
             </div>
           </motion.div>

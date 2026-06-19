@@ -46,8 +46,7 @@ export const ethicsCultureContent: EthicsCultureContent = {
       { label: 'Open Research & Publication Policy', href: '/open-research' },
       { label: 'Institutional Status & Legal Notice', href: '/legal-notice' },
     ],
-    institutionalNote:
-      'CredenceX is an independent research initiative and is not currently registered as a nonprofit or tax-exempt organization.',
+    institutionalNote: 'CredenceX is an independent research initiative.',
     institutionalLinkLabel: 'Institutional Status & Legal Notice',
     institutionalLinkHref: '/legal-notice',
   },

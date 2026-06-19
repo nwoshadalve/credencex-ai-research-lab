@@ -1,6 +1,8 @@
 // Re-export shared types so existing imports of TermsBlock etc. keep working.
 export type { DocBlock as TermsBlock, DocSubsection as TermsSubsection, DocSection as TermsSection } from './types';
 
+import { labEmails } from '@/config/common/emails';
+
 export const termsConditionsConfig = {
   lastUpdated: "March 8, 2026",
   effectiveDate: "March 8, 2026",
@@ -14,8 +16,7 @@ export const termsConditionsConfig = {
     {
       title: "About CredenceX and the Site",
       blocks: [
-        { type: 'paragraph', text: "CredenceX AI Research Lab is an independent, mission-driven research initiative focused on trustworthy, explainable, and deployment-aware artificial intelligence. The Site provides information about our research areas, publications, projects, news, career opportunities, and ways to contact us." },
-        { type: 'paragraph', text: "CredenceX is not currently registered as a nonprofit or tax-exempt organization. For more information, see our Institutional Status & Legal Notice page." },
+        { type: 'paragraph', text: "CredenceX AI Research Lab is an independent, mission-driven research initiative focused on trustworthy, explainable, and deployment-aware artificial intelligence. The Site provides information about our research areas, publications, projects, news, career opportunities, and ways to contact us. For institutional status and legal information, see our Institutional Status & Legal Notice page." },
       ],
     },
     {
@@ -163,7 +164,7 @@ export const termsConditionsConfig = {
           title: "CredenceX AI Research Lab",
           blocks: [
             { type: 'bullets', items: [
-              "Email: support@credencex.ai",
+              `Email: ${labEmails.legal}`,
               "Phone: +1 (213) 507-6622",
               "Address: 691 Irolo St, Apt 711, Los Angeles, CA 90005, United States",
             ]},

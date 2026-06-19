@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { labEmails } from '@/config/common/emails';
 
 export const SITE_NAME = 'CredenceX AI Research Lab';
 export const SITE_URL = 'https://www.credencex.ai';
@@ -49,7 +50,7 @@ export const organizationStructuredData = {
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer support',
-    email: 'info@credencex.ai',
+    email: labEmails.info,
     telephone: '+1-213-507-6622',
     areaServed: 'US',
     availableLanguage: 'en',

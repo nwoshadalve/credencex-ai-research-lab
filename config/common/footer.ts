@@ -1,3 +1,5 @@
+import { labEmails } from './emails';
+
 export interface FooterContact {
   email: string;
   phone: string;
@@ -10,15 +12,18 @@ export interface FooterContact {
 export interface FooterBrand {
   description: string;
   logoAlt: string;
+  operatingIdentity: string;
 }
 
 export const footerBrand: FooterBrand = {
   description: 'Pioneering research in high-stakes AI applications. Building intelligent systems that make a difference.',
   logoAlt: 'CredenceX AI Research Lab',
+  operatingIdentity:
+    'CredenceX AI Research Lab (operated as CredenceX AI Research Lab LLC, California)',
 };
 
 export const footerContact: FooterContact = {
-  email: 'info@credencex.ai',
+  email: labEmails.info,
   phone: '+1 (213) 507-6622',
   address: {
     line1: '691 Irolo St, Apt 711',

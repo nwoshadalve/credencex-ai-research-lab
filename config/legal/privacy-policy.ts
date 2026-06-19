@@ -1,4 +1,5 @@
 import { DocSection } from './types';
+import { labEmails } from '@/config/common/emails';
 
 export const privacyPolicyConfig = {
   lastUpdated: "March 7, 2026",
@@ -186,7 +187,7 @@ export const privacyPolicyConfig = {
           title: "Privacy Contact (CredenceX AI Research Lab)",
           blocks: [
             { type: 'bullets', items: [
-              "Email: support@credencex.ai",
+              `Email: ${labEmails.privacy}`,
               "Phone: +1 (213) 507-6622",
               "Address: 691 Irolo St, Apt 711, Los Angeles, CA 90005, United States",
             ]},

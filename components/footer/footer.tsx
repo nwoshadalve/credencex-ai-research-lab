@@ -6,6 +6,7 @@ import {
   Mail, 
   MapPin, 
   Phone, 
+  Info,
   Linkedin as LinkedinIcon, 
   Facebook, 
   Github as GithubIcon, 
@@ -13,6 +14,7 @@ import {
 } from 'lucide-react';
 import { footerLinks } from '@/config/common/footer-links';
 import { footerBrand, footerContact, socialLinks as socialLinksConfig } from '@/config/common/footer';
+import { researchUseSafetyCue } from '@/config/common/disclaimers';
 import { motion } from 'framer-motion';
 
 export default function Footer() {
@@ -241,6 +243,17 @@ export default function Footer() {
           </motion.div>
         </motion.div>
 
+        <motion.p
+          className="flex items-start gap-2 mb-8 text-xs leading-relaxed text-gray-600 dark:text-gray-400 max-w-4xl mx-auto"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          <Info size={14} className="shrink-0 mt-0.5 text-indigo-500 dark:text-indigo-400" aria-hidden="true" />
+          <span>{researchUseSafetyCue}</span>
+        </motion.p>
+
         {/* Divider with Gradient */}
         <motion.div 
           className="border-t border-gray-200/50 dark:border-gray-700/50 pt-8"
@@ -275,8 +288,11 @@ export default function Footer() {
             </div>
 
             {/* Copyright */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-gray-700 dark:text-gray-300 font-medium">
+            <div className="flex flex-col gap-1 text-sm text-gray-700 dark:text-gray-300 font-medium md:text-right">
               <p>© {currentYear} CredenceX AI Research Lab. All rights reserved.</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400 font-normal">
+                {footerBrand.operatingIdentity}
+              </p>
             </div>
           </div>
         </motion.div>

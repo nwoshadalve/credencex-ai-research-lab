@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin, Clock, LucideIcon } from 'lucide-react';
+import { labEmails } from './emails';
 
 export interface ContactInfo {
   icon: LucideIcon
@@ -41,8 +42,8 @@ export const contactConfig: ContactConfig = {
     {
       icon: Mail,
       title: 'Email Us',
-      details: ['info@credencex.ai', 'research@credencex.ai'],
-      href: 'mailto:info@credencex.ai'
+      details: [labEmails.info, labEmails.research],
+      href: `mailto:${labEmails.info}`
     },
     {
       icon: Phone,
