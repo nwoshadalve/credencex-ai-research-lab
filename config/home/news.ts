@@ -412,21 +412,46 @@ export const newsData: News[] = [
 
 
 
+// Parse YYYY-MM-DD in local time (avoids UTC timezone shifts).
+export function parseNewsDate(dateString: string): Date {
+  const [year, month, day] = dateString.split('-').map(Number);
+  return new Date(year, month - 1, day);
+}
+
+export function isUpcomingNews(dateString: string, now: Date = new Date()): boolean {
+  const newsDate = parseNewsDate(dateString);
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  return newsDate.getTime() > today.getTime();
+}
+
+function sortNewsByDateDesc(items: News[]): News[] {
+  return [...items].sort(
+    (a, b) => parseNewsDate(b.date).getTime() - parseNewsDate(a.date).getTime()
+  );
+}
+
+function sortNewsByDateAsc(items: News[]): News[] {
+  return [...items].sort(
+    (a, b) => parseNewsDate(a.date).getTime() - parseNewsDate(b.date).getTime()
+  );
+}
+
 // Get latest news sorted by date
 export function getLatestNews(limit: number = 5): News[] {
-  return [...newsData]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, limit);
+  return sortNewsByDateDesc(newsData).slice(0, limit);
+}
+
+// Get upcoming news (future-dated), sorted soonest first
+export function getUpcomingNews(limit?: number): News[] {
+  const upcoming = sortNewsByDateAsc(newsData.filter((news) => isUpcomingNews(news.date)));
+  return limit ? upcoming.slice(0, limit) : upcoming;
 }
 
 // Get news by type
 export function getNewsByType(type: NewsType | 'all'): News[] {
-  if (type === 'all') {
-    return [...newsData].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-  }
-  return newsData
-    .filter(news => news.type === type)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const filtered =
+    type === 'all' ? [...newsData] : newsData.filter((news) => news.type === type);
+  return sortNewsByDateDesc(filtered);
 }
 
 // Get all unique news types
@@ -436,7 +461,7 @@ export function getAllNewsTypes(): NewsType[] {
 
 // Format date for display
 export function formatNewsDate(dateString: string): string {
-  const date = new Date(dateString);
+  const date = parseNewsDate(dateString);
   const options: Intl.DateTimeFormatOptions = { 
     year: 'numeric', 
     month: 'long', 

@@ -7,6 +7,7 @@ import {
   getNewsByType, 
   getAllNewsTypes, 
   newsTypeConfig,
+  parseNewsDate,
   NewsType
 } from '@/config/home/news';
 import NewsCard from './news-card';
@@ -37,7 +38,7 @@ export default function NewsSection({ newsType }: NewsSectionProps) {
     const days = new Set<string>();
 
     newsData.forEach(news => {
-      const date = new Date(news.date);
+      const date = parseNewsDate(news.date);
       years.add(date.getFullYear());
       
       if (selectedYear !== 'all') {
@@ -71,13 +72,13 @@ export default function NewsSection({ newsType }: NewsSectionProps) {
     } else if (selectedMonth !== 'all') {
       filtered = filtered.filter(news => {
         const [year, month] = selectedMonth.split('-');
-        const newsDate = new Date(news.date);
+        const newsDate = parseNewsDate(news.date);
         return newsDate.getFullYear() === parseInt(year) && 
                newsDate.getMonth() + 1 === parseInt(month);
       });
     } else if (selectedYear !== 'all') {
       filtered = filtered.filter(news => 
-        new Date(news.date).getFullYear() === parseInt(selectedYear)
+        parseNewsDate(news.date).getFullYear() === parseInt(selectedYear)
       );
     }
     
@@ -134,7 +135,7 @@ export default function NewsSection({ newsType }: NewsSectionProps) {
   };
 
   const formatDay = (dateStr: string) => {
-    const date = new Date(dateStr);
+    const date = parseNewsDate(dateStr);
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
   };
 

@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { Clock, ChevronDown, ChevronUp } from 'lucide-react';
-import { News, newsTypeConfig, formatNewsDate } from '@/config/home/news';
+import { News, newsTypeConfig, formatNewsDate, isUpcomingNews } from '@/config/home/news';
 
 interface NewsCardProps {
   news: News;
@@ -22,12 +22,22 @@ export default function NewsCard({ news, isExpanded, onToggle }: NewsCardProps) 
       <div className="relative p-6">
         {/* Header Row */}
         <div className="flex items-start justify-between gap-4 mb-3">
-          {/* Type Badge */}
-          <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-100/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full border border-gray-300/50 dark:border-gray-600/50">
-            <TypeIcon className={`w-3.5 h-3.5 ${config.color}`} />
-            <span className={`text-xs font-medium ${config.color}`}>
-              {config.label}
-            </span>
+          <div className="flex flex-wrap items-center gap-2">
+            {/* Type Badge */}
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-100/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full border border-gray-300/50 dark:border-gray-600/50">
+              <TypeIcon className={`w-3.5 h-3.5 ${config.color}`} />
+              <span className={`text-xs font-medium ${config.color}`}>
+                {config.label}
+              </span>
+            </div>
+
+            {isUpcomingNews(news.date) && (
+              <div className="px-3 py-1.5 bg-violet-100/80 dark:bg-violet-900/30 backdrop-blur-sm rounded-full border border-violet-300/50 dark:border-violet-700/50">
+                <span className="text-xs font-medium text-violet-700 dark:text-violet-300">
+                  Upcoming
+                </span>
+              </div>
+            )}
           </div>
 
           {/* Date and Read Time */}

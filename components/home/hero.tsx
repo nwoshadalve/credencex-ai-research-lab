@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Play } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { heroContent } from '@/config/home/hero-content';
+import { researchUseSafetyCueShort } from '@/config/common/disclaimers';
 
 export default function HeroSection() {
     const fadeInUp = {
@@ -196,13 +197,23 @@ export default function HeroSection() {
                     
                     {/* Description */}
                     <motion.p 
-                        className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-4xl mx-auto mb-12 px-4 font-body"
+                        className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-4xl mx-auto mb-4 px-4 font-body"
                         variants={fadeInUp}
                         initial="initial"
                         animate="animate"
                         transition={{ duration: 0.6, delay: 0.3 }}
                     >
                         {heroContent.description}
+                    </motion.p>
+
+                    <motion.p
+                        className="text-sm text-center text-gray-600 dark:text-gray-400 max-w-4xl mx-auto mb-12 px-4 font-body"
+                        variants={fadeInUp}
+                        initial="initial"
+                        animate="animate"
+                        transition={{ duration: 0.6, delay: 0.35 }}
+                    >
+                        {researchUseSafetyCueShort}
                     </motion.p>
                 </motion.div>
 
