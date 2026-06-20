@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Sun, Moon, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import ThemeLogo from '@/components/common/theme-logo';
+import ThemeToggleIcon from '@/components/common/theme-toggle-icon';
 
 interface MenuItem {
     label: string;
@@ -24,11 +25,11 @@ export default function NavMobile({ menuItems }: NavMobileProps) {
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
     const [isAnimating, setIsAnimating] = useState(false);
     const [mounted, setMounted] = useState(false);
-    const { theme, setTheme } = useTheme();
+    const { resolvedTheme, setTheme } = useTheme();
     const pathname = usePathname();
 
     const toggleTheme = () => {
-        setTheme(theme === 'dark' ? 'light' : 'dark');
+        setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
     };
 
     const isActive = (href: string) => {
@@ -94,16 +95,7 @@ export default function NavMobile({ menuItems }: NavMobileProps) {
                     <div className="flex items-center justify-between gap-4 px-4 py-3">
                         {/* Logo */}
                         <Link href="/" className="flex items-center hover:opacity-80 transition-opacity cursor-pointer">
-                            {mounted && (
-                                <Image
-                                    src={theme === 'dark' ? '/logos/logo-dark.png' : '/logos/logo-light.png'}
-                                    alt="CredenceX AI Research Lab"
-                                    width={180}
-                                    height={65}
-                                    priority
-                                    className="h-12 w-auto"
-                                />
-                            )}
+                            <ThemeLogo priority />
                         </Link>
 
                         <div className="flex items-center gap-3">
@@ -113,13 +105,7 @@ export default function NavMobile({ menuItems }: NavMobileProps) {
                                 className="p-2 rounded-xl border border-gray-200/70 dark:border-white/10 bg-linear-to-br from-white to-gray-50 dark:from-slate-800/60 dark:to-slate-800/30 hover:from-blue-50 hover:to-indigo-50 dark:hover:from-slate-700/60 dark:hover:to-slate-700/40 transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer"
                                 aria-label="Toggle theme"
                             >
-                                {!mounted ? (
-                                    <Sun size={18} className="text-amber-500" />
-                                ) : theme === 'dark' ? (
-                                    <Sun size={18} className="text-amber-500" />
-                                ) : (
-                                    <Moon size={18} className="text-indigo-600" />
-                                )}
+                                <ThemeToggleIcon />
                             </button>
 
                             {/* Hamburger Menu Button */}
@@ -160,16 +146,7 @@ export default function NavMobile({ menuItems }: NavMobileProps) {
                             {/* Header */}
                             <div className="flex items-center justify-between p-4 border-b border-gray-200/50 dark:border-white/10">
                                 <Link href="/" onClick={closeMenu} className="flex items-center">
-                                    {mounted && (
-                                        <Image
-                                            src={theme === 'dark' ? '/logos/logo-dark.png' : '/logos/logo-light.png'}
-                                            alt="CredenceX AI Research Lab"
-                                            width={140}
-                                            height={50}
-                                            priority
-                                            className="h-11 w-auto"
-                                        />
-                                    )}
+                                    <ThemeLogo width={140} height={50} className="h-11 w-auto" priority />
                                 </Link>
                                 <div className="flex items-center gap-2">
                                     <button
@@ -177,13 +154,7 @@ export default function NavMobile({ menuItems }: NavMobileProps) {
                                         className="p-2 rounded-xl border border-gray-200/70 dark:border-white/10 bg-linear-to-br from-white to-gray-50 dark:from-slate-800/60 dark:to-slate-800/30 hover:from-blue-50 hover:to-indigo-50 dark:hover:from-slate-700/60 dark:hover:to-slate-700/40 transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer"
                                         aria-label="Toggle theme"
                                     >
-                                        {!mounted ? (
-                                            <Sun size={18} className="text-amber-500" />
-                                        ) : theme === 'dark' ? (
-                                            <Sun size={18} className="text-amber-500" />
-                                        ) : (
-                                            <Moon size={18} className="text-indigo-600" />
-                                        )}
+                                        <ThemeToggleIcon />
                                     </button>
                                     <button
                                         onClick={closeMenu}

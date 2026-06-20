@@ -91,7 +91,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${spaceGrotesk.variable} ${inter.variable} font-body antialiased`}
       >
-        <ThemeProvider enableSystem={true} defaultTheme="system">
+        <ThemeProvider attribute="data-theme" enableSystem defaultTheme="system">
           <script
             type="application/ld+json"
             suppressHydrationWarning
