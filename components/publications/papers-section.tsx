@@ -2,10 +2,9 @@
 
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, FileText, ExternalLink, Users, Calendar, Award, Filter } from 'lucide-react';
+import { BookOpen, FileText, Users, Calendar, Award, Filter } from 'lucide-react';
 import { publications, statusConfig, typeConfig, Publication } from '@/config/home/publications';
-import Button from '@/components/common/button';
-
+import PublicationPaperAction from '@/components/publications/publication-paper-action';
 type FilterType = 'all' | 'conference' | 'journal';
 
 interface PapersSectionProps {
@@ -403,21 +402,8 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ publication }) => {
           {publication.description}
         </p>
 
-        {/* Action Button */}
-        {publication.paperLink && (
-          <div className="mt-auto">
-            <Button
-              variant="glass"
-              size="sm"
-              icon={ExternalLink}
-              iconPosition="right"
-              onClick={() => window.open(publication.paperLink, '_blank')}
-              className="w-full"
-            >
-              Read Paper
-            </Button>
-          </div>
-        )}
+        {/* Paper Action */}
+        <PublicationPaperAction publication={publication} />
       </div>
     </div>
   );

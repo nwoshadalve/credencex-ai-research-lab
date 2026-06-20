@@ -889,7 +889,31 @@ export const publications: Publication[] = [
 ];
 
 
-// Helper function to get featured publications
+export type PaperLinkLabel = 'Read on Publisher' | 'Read on IEEE Xplore' | 'Preprint / Under review';
+
+export function isExternalPaperLink(link?: string): boolean {
+  return !!link && link !== '#' && !link.startsWith('#');
+}
+
+export function isIeeePaperLink(link?: string): boolean {
+  if (!link) return false;
+
+  const normalized = link.toLowerCase();
+  return normalized.includes('ieee.org') || normalized.includes('10.1109/');
+}
+
+export function getPaperLinkLabel(publication: Publication): PaperLinkLabel {
+  if (!isExternalPaperLink(publication.paperLink)) {
+    return 'Preprint / Under review';
+  }
+
+  if (isIeeePaperLink(publication.paperLink)) {
+    return 'Read on IEEE Xplore';
+  }
+
+  return 'Read on Publisher';
+}
+
 export function getFeaturedPublications(): Publication[] {
   return publications.filter(pub => pub.featured);
 }

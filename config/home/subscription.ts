@@ -8,6 +8,12 @@ export interface SubscriptionConfig {
   buttonText: string;
   successMessage: string;
   errorMessage: string;
+  privacyCompliance: {
+    prefix: string;
+    linkText: string;
+    href: string;
+    suffix: string;
+  };
   privacyText: string;
 }
 
@@ -26,6 +32,12 @@ export const subscriptionContent: SubscriptionConfig = {
   buttonText: "Subscribe Now",
   successMessage: "Thank you for subscribing! Check your email to confirm.",
   errorMessage: "Please enter a valid email address.",
+  privacyCompliance: {
+    prefix: "By subscribing you agree to the ",
+    linkText: "Privacy Policy",
+    href: "/privacy",
+    suffix: "."
+  },
   privacyText: "We respect your privacy. Unsubscribe at any time."
 };
 

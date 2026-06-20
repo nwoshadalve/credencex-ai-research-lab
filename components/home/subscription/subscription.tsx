@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Mail, Send, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
 import { subscriptionContent } from '@/config/home/subscription';
@@ -179,9 +180,19 @@ const Subscription = () => {
                   )}
 
                   {/* Privacy Text */}
-                  <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
-                    {subscriptionContent.privacyText}
-                  </p>
+                  <div className="space-y-1 text-xs text-gray-500 dark:text-gray-400 text-center">
+                    <p>
+                      {subscriptionContent.privacyCompliance.prefix}
+                      <Link
+                        href={subscriptionContent.privacyCompliance.href}
+                        className="font-medium text-blue-600 hover:underline dark:text-blue-400"
+                      >
+                        {subscriptionContent.privacyCompliance.linkText}
+                      </Link>
+                      {subscriptionContent.privacyCompliance.suffix}
+                    </p>
+                    <p>{subscriptionContent.privacyText}</p>
+                  </div>
                 </form>
               </div>
 
