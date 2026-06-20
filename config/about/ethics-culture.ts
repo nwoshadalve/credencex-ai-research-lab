@@ -10,6 +10,7 @@ export interface EthicsCultureContent {
     description: string;
     learnMoreLabel: string;
     links: EthicsLink[];
+    commitmentsNote: string;
     institutionalNote: string;
     institutionalLinkLabel: string;
     institutionalLinkHref: string;
@@ -46,6 +47,8 @@ export const ethicsCultureContent: EthicsCultureContent = {
       { label: 'Open Research & Publication Policy', href: '/open-research' },
       { label: 'Institutional Status & Legal Notice', href: '/legal-notice' },
     ],
+    commitmentsNote:
+      'These pages describe commitments and procedures; where research involves sensitive data, formal agreements apply.',
     institutionalNote: 'CredenceX is an independent research initiative.',
     institutionalLinkLabel: 'Institutional Status & Legal Notice',
     institutionalLinkHref: '/legal-notice',

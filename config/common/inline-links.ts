@@ -19,6 +19,7 @@ export const inlineLinkPatterns: InlineLinkPattern[] = [
   { match: 'Privacy Policy',                        href: '/privacy' },
   { match: 'Terms & Conditions',                    href: '/terms' },
   { match: 'Institutional Status & Legal Notice',   href: '/legal-notice' },
+  { match: 'Legal Notice',                            href: '/legal-notice' },
 
   // Governance pages
   { match: 'Advisory Board page',                   href: '/advisory-board' },

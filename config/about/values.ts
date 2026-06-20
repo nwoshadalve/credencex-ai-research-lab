@@ -30,7 +30,7 @@ export const coreValuesContent: CoreValuesContent = {
     {
       id: "rigor",
       icon: Lightbulb,
-      title: "Scientific Rigor & Excellence",
+      title: "Scientific Rigor",
       description: "We aim for strong methodology, careful evaluation, and reproducible pipelines where feasible. We emphasize robust validation, ablations, and stress testing where appropriate. We treat deployment readiness as an evidence-based claim, not a marketing statement.",
       gradient: "from-purple-500/20 to-pink-500/20"
     },

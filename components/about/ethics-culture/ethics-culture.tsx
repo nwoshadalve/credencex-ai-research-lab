@@ -106,6 +106,10 @@ export default function EthicsCulture() {
                                 </ul>
                             </div>
 
+                            <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+                                {governance.commitmentsNote}
+                            </p>
+
                             {/* Institutional note */}
                             <div className="p-5 rounded-xl bg-indigo-50/80 dark:bg-indigo-950/30 border border-indigo-200/60 dark:border-indigo-800/40">
                                 <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">

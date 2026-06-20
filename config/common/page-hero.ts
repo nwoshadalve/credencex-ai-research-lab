@@ -29,7 +29,7 @@ export const pageHeroContent: Record<string, PageHeroContent> = {
     },
     title: "Trustworthy AI for High-Stakes Decision Support",
     subtitle: "Explainable, deployment-aware systems focused on medical imaging",
-    description: "CredenceX AI Research Lab is an independent, mission-driven initiative developing reliable AI for medical imaging and clinical decision support. We emphasize robust, auditable, uncertainty-aware, and interpretable systems that generalize across sites, devices, and patient populations. Our work includes peer-reviewed publications, reproducible pipelines, and research prototypes, and is not presented as clinical advice or as a clinically validated medical device unless explicitly stated.",
+    description: "CredenceX AI Research Lab is an independent, mission-driven initiative developing reliable AI for medical imaging and clinical decision support. We emphasize robust, auditable, uncertainty-aware, and interpretable systems that generalize across sites, devices, and patient populations. Our work includes peer-reviewed publications, reproducible pipelines, and research prototypes, and is not presented as clinical advice or as a clinically validated medical device unless explicitly stated. Operated as CredenceX AI Research Lab LLC (California). Not nonprofit/tax-exempt. See Legal Notice for institutional status.",
     backgroundGradient: {
       from: "from-blue-50",
       via: "via-indigo-50",

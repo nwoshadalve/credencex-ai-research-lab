@@ -3,12 +3,15 @@
 import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import { PageHeroContent } from '@/config/common/page-hero';
+import { useRenderText } from '@/lib/render-text';
 
 interface PageHeroProps {
   content: PageHeroContent;
 }
 
 export default function PageHero({ content }: PageHeroProps) {
+    const renderText = useRenderText();
+
     const fadeInUp = {
         initial: { opacity: 0, y: 30 },
         animate: { opacity: 1, y: 0 }
@@ -169,7 +172,7 @@ export default function PageHero({ content }: PageHeroProps) {
                         variants={fadeInUp}
                         transition={{ duration: 0.6, delay: 0.3 }}
                     >
-                        {content.description}
+                        {content.description ? renderText(content.description) : null}
                     </motion.p>
                 </div>
             </motion.div>
