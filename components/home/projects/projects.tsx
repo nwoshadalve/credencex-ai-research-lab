@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { getFeaturedProjects, ProjectStatus } from '@/config/home/projects';
+import ProjectCardDetails from '@/components/projects/project-card-details';
 import styles from './projects.module.css';
 import { CheckCircle2, Clock, Calendar, Play, ExternalLink } from 'lucide-react';
 import Button from '@/components/common/button';
@@ -160,10 +161,8 @@ export default function ProjectsSection() {
                                             </div>
                                         </div>
 
-                                        {/* Description */}
-                                        <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm mb-4 md:mb-6">
-                                            {project.description}
-                                        </p>
+                                        {/* Structured Details */}
+                                        <ProjectCardDetails project={project} className="mb-4 md:mb-6" />
 
                                         {/* Technologies and View Project */}
                                         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 md:gap-4">

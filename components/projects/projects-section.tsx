@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FolderKanban, Filter, Rocket, Calendar, Layers, ExternalLink } from 'lucide-react';
 import { projects, statusConfig, Project, ProjectStatus } from '@/config/home/projects';
+import ProjectCardDetails from '@/components/projects/project-card-details';
 
 type FilterType = 'all' | 'active' | 'completed' | 'planned';
 
@@ -410,10 +411,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           </div>
         </div>
 
-        {/* Description */}
-        <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm mb-4 flex-1">
-          {project.description}
-        </p>
+        {/* Structured Details */}
+        <ProjectCardDetails project={project} className="mb-4" />
 
         {/* Technologies */}
         {project.technologies && project.technologies.length > 0 && (

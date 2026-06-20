@@ -5,7 +5,9 @@ export type ProjectStatus = 'completed' | 'in-progress' | 'planned';
 export interface Project {
   id: number;
   title: string;
-  description: string;
+  problemModality: string;
+  coreMethod: string;
+  evaluationEmphasis: string;
   area: string;
   status: ProjectStatus;
   icon: LucideIcon;
@@ -67,8 +69,9 @@ export const projects: Project[] = [
   {
     id: 1,
     title: "DepTformer-XAI-SV",
-    description:
-      "A reproducible, explainable transformer pipeline for depression emotion/severity experiments, including ablations, XAI faithfulness checks, and a minimal Flask demo (research use only).",
+    problemModality: "Depression emotion and severity classification from multimodal patient signals.",
+    coreMethod: "Reproducible explainable transformer pipeline with systematic ablations and a minimal Flask demo.",
+    evaluationEmphasis: "XAI faithfulness checks and reproducibility benchmarks (research use only).",
     area: "Trustworthy & Calibrated AI",
     status: "completed",
     icon: Brain,
@@ -81,8 +84,9 @@ export const projects: Project[] = [
   {
     id: 2,
     title: "Explainable Lung Cancer Diagnosis",
-    description:
-      "Lightweight hybrid CNN–Transformer (MobileViT + attention + texture cues) for efficient and explainable lung cancer diagnosis on CT/histopathology with Grad-CAM and robust evaluation support.",
+    problemModality: "Lung cancer diagnosis from CT scans and histopathology images.",
+    coreMethod: "Lightweight hybrid CNN–Transformer (MobileViT + CBAM attention + texture cues).",
+    evaluationEmphasis: "Grad-CAM explainability and robust cross-modality evaluation.",
     area: "Explainable Medical Image Intelligence",
     status: "completed",
     icon: Eye,
@@ -95,8 +99,9 @@ export const projects: Project[] = [
   {
     id: 3,
     title: "Multimodal Information Fusion",
-    description:
-      "A modular pipeline for audio-visual object recognition using hybrid, tensor, and FiLM-style fusion with flexible feature extraction and noise-robust training options.",
+    problemModality: "Audio-visual object recognition from paired sound and image inputs.",
+    coreMethod: "Modular pipeline with hybrid, tensor, and FiLM-style fusion and flexible feature extraction.",
+    evaluationEmphasis: "Noise-robust training and fusion-strategy ablations.",
     area: "Multimodal Vision–Language Foundation Models",
     status: "completed",
     icon: Network,
@@ -109,8 +114,9 @@ export const projects: Project[] = [
   {
     id: 4,
     title: "CottonVerse",
-    description:
-      "Flask-based web application for cotton leaf disease, fabric stain defect detection, and fabric composition classification with probability charts and Grad-CAM explanations.",
+    problemModality: "Cotton leaf disease, fabric stain defects, and fabric composition from field and lab images.",
+    coreMethod: "Flask web application with efficient hybrid transformers and Grad-CAM overlays.",
+    evaluationEmphasis: "Probability calibration charts and visual explanation quality.",
     area: "Efficient Hybrid Transformers for Edge Deployment",
     status: "completed",
     icon: Server,
@@ -123,8 +129,9 @@ export const projects: Project[] = [
   {
     id: 5,
     title: "SoyScan",
-    description:
-      "MaxViT-based soybean leaf/seed disease classification web app with Grad-CAM heatmaps, probability visualization, and a clean UI for practical screening workflows.",
+    problemModality: "Soybean leaf and seed disease classification from field-captured images.",
+    coreMethod: "MaxViT-based classifier with Grad-CAM heatmaps in a screening-oriented web app.",
+    evaluationEmphasis: "Probability visualization and practical workflow validation.",
     area: "Decision Support & Human-in-the-Loop AI",
     status: "completed",
     icon: Target,
@@ -134,11 +141,12 @@ export const projects: Project[] = [
     year: "2025",
     projectLink: "https://github.com/rezaul-h/SoybeanApp"
   },
-    {
+  {
     id: 6,
     title: "Calibrated Multimodal Radiology Copilot",
-    description:
-      "A risk-aware clinical decision support pipeline that fuses medical images with radiology notes and structured signals to produce calibrated predictions, uncertainty flags, and evidence-grounded outputs for safer triage and reporting assistance.",
+    problemModality: "Clinical triage and reporting from medical images, radiology notes, and structured signals.",
+    coreMethod: "Risk-aware multimodal fusion pipeline with LLM-assisted structured outputs.",
+    evaluationEmphasis: "Uncertainty calibration and evidence-grounded output validation.",
     area: "Clinical Decision Support & Human-in-the-Loop AI",
     status: "in-progress",
     icon: Brain,
@@ -151,8 +159,9 @@ export const projects: Project[] = [
   {
     id: 7,
     title: "Cross-Hospital Generalization",
-    description:
-      "A standardized evaluation suite to measure and improve model performance across hospitals, scanners, and patient subgroups—supporting domain-shift testing, fairness slices, and reproducible reporting for deployment-ready medical AI.",
+    problemModality: "Medical AI reliability across hospitals, scanners, and patient subgroups.",
+    coreMethod: "Standardized cross-site evaluation suite with domain-shift testing protocols.",
+    evaluationEmphasis: "Fairness slices and reproducible robustness reporting.",
     area: "Robust Learning Under Domain Shift",
     status: "in-progress",
     icon: Network,
@@ -165,8 +174,9 @@ export const projects: Project[] = [
   {
     id: 8,
     title: "Safe-to-Use Gatekeeper",
-    description:
-      "A safety layer that detects uncertain, out-of-distribution, or artifact-corrupted cases and defers them for human review. Includes coverage–risk analysis, abstention policies, and audit-friendly logs for high-stakes clinical deployment.",
+    problemModality: "High-stakes clinical cases with uncertainty, out-of-distribution inputs, or artifact corruption.",
+    coreMethod: "Safety layer with abstention policies, selective prediction, and human-review deferral.",
+    evaluationEmphasis: "Coverage–risk analysis and calibration under abstention.",
     area: "Trustworthy & Calibrated AI",
     status: "in-progress",
     icon: Shield,
@@ -179,8 +189,9 @@ export const projects: Project[] = [
   {
     id: 9,
     title: "Clinically Meaningful Explainability Suite",
-    description:
-      "A clinician-oriented explainability toolkit that goes beyond heatmaps—providing concept-based explanations, counterfactual evidence, faithfulness checks, and concise explanation report cards to support transparent and auditable medical AI.",
+    problemModality: "Clinician-facing explanation needs for medical image predictions.",
+    coreMethod: "Concept-based explanations, counterfactual evidence, and faithfulness checks.",
+    evaluationEmphasis: "Explanation report cards and faithfulness metrics beyond heatmaps.",
     area: "Explainable Medical Image Intelligence",
     status: "in-progress",
     icon: Eye,
@@ -193,8 +204,9 @@ export const projects: Project[] = [
   {
     id: 10,
     title: "Evidence-Grounded LLM Assistant",
-    description:
-      "A safety-first LLM workflow that drafts structured clinical summaries using only verified evidence (model outputs, metadata, and approved templates). Includes confidence-aware refusal, traceable citations, and guardrails for responsible use.",
+    problemModality: "Structured clinical summary drafting from verified model outputs, metadata, and templates.",
+    coreMethod: "Safety-first LLM workflow with RAG and approved reporting templates.",
+    evaluationEmphasis: "Confidence-aware refusal and traceable citation audits.",
     area: "Vision + Language for Healthcare",
     status: "in-progress",
     icon: Sparkles,
@@ -204,11 +216,12 @@ export const projects: Project[] = [
     year: "2026",
     projectLink: ""
   },
-    {
+  {
     id: 11,
     title: "Federated Medical Foundation Model",
-    description:
-      "A privacy-preserving foundation model trained across institutions without centralizing patient data. Focuses on federated optimization, calibration under client shift, and robust performance across sites and scanners.",
+    problemModality: "Cross-institution medical imaging without centralizing patient data.",
+    coreMethod: "Federated optimization with secure aggregation and differential privacy.",
+    evaluationEmphasis: "Calibration under client shift and cross-site robustness.",
     area: "Trustworthy & Calibrated AI",
     status: "planned",
     icon: Target,
@@ -221,8 +234,9 @@ export const projects: Project[] = [
   {
     id: 12,
     title: "Longitudinal Disease Progression Forecasting",
-    description:
-      "Risk forecasting from serial scans to predict progression and time-to-event outcomes (e.g., glaucoma progression). Produces calibrated risk curves, uncertainty, and clinician-friendly timelines for follow-up planning.",
+    problemModality: "Disease progression and time-to-event outcomes from serial medical scans.",
+    coreMethod: "Transformer-based temporal risk modeling with survival analysis.",
+    evaluationEmphasis: "Calibrated risk curves and uncertainty-aware follow-up timelines.",
     area: "Clinical Decision Support & Human-in-the-Loop AI",
     status: "planned",
     icon: Target,
@@ -235,8 +249,9 @@ export const projects: Project[] = [
   {
     id: 13,
     title: "Artifact & Quality-Aware Imaging AI",
-    description:
-      "A quality-control layer that detects motion blur, low contrast, compression, and device artifacts before inference. Routes low-quality cases for re-capture or robust enhancement to reduce silent failures in practice.",
+    problemModality: "Degraded medical images with motion blur, low contrast, compression, or device artifacts.",
+    coreMethod: "Pre-inference quality-control layer with routing and robust enhancement.",
+    evaluationEmphasis: "Silent-failure reduction and robustness under degraded inputs.",
     area: "Robust Learning Under Domain Shift",
     status: "planned",
     icon: Shield,
@@ -249,8 +264,9 @@ export const projects: Project[] = [
   {
     id: 14,
     title: "Fairness Dashboard for Subgroup Reliability",
-    description:
-      "A monitoring and evaluation dashboard that reports performance, calibration, and failure modes across age/sex/site/device subgroups. Includes bias discovery, shift alerts, and standardized reporting for responsible deployment.",
+    problemModality: "Model reliability across age, sex, site, and device subgroups.",
+    coreMethod: "Monitoring dashboard with standardized subgroup performance reporting.",
+    evaluationEmphasis: "Calibration, bias discovery, and shift alerts.",
     area: "Trustworthy & Calibrated AI",
     status: "planned",
     icon: Network,
@@ -263,8 +279,9 @@ export const projects: Project[] = [
   {
     id: 15,
     title: "Self-Supervised Low-Label Medical Imaging",
-    description:
-      "A self-supervised learning pipeline (contrastive/masked modeling) for data-efficient medical imaging. Targets strong transfer across modalities with minimal labels and robust generalization under dataset shift.",
+    problemModality: "Data-efficient learning across medical imaging modalities with minimal labels.",
+    coreMethod: "Contrastive and masked self-supervised pretraining (ViT/MAE).",
+    evaluationEmphasis: "Transfer robustness and generalization under dataset shift.",
     area: "Vision + Language for Healthcare",
     status: "planned",
     icon: Brain,
@@ -277,8 +294,9 @@ export const projects: Project[] = [
   {
     id: 16,
     title: "Causal Counterfactual Explanations",
-    description:
-      "Counterfactual and concept-based explanations designed for clinical reasoning—testing what minimal, plausible image changes would alter predictions while tracking faithfulness and safety constraints.",
+    problemModality: "Clinical reasoning support for medical image predictions.",
+    coreMethod: "Counterfactual and concept-based explanations with safety constraints.",
+    evaluationEmphasis: "Faithfulness metrics and clinical plausibility checks.",
     area: "Explainable Medical Image Intelligence",
     status: "planned",
     icon: Sparkles,
@@ -291,8 +309,9 @@ export const projects: Project[] = [
   {
     id: 17,
     title: "Edge-Optimized Ultrasound Screening",
-    description:
-      "A lightweight, real-time ultrasound screening pipeline optimized for low-resource clinics. Focuses on efficient architectures, quantization, and a simple operator-facing interface with uncertainty-aware alerts.",
+    problemModality: "Real-time ultrasound screening in low-resource clinic settings.",
+    coreMethod: "Quantized efficient transformers with an operator-facing interface.",
+    evaluationEmphasis: "Uncertainty-aware alerts and edge deployment validation.",
     area: "Efficient AI at the Edge",
     status: "planned",
     icon: Shield,
