@@ -52,6 +52,10 @@ export const ethicsConfig: GovernancePageConfig = {
             'Documentation of intended use and limitations.',
           ],
         },
+        {
+          type: 'closing',
+          text: 'Human subjects: Where required, we seek ethics/IRB approvals via partner institutions.',
+        },
       ] as DocBlock[],
     },
     {
@@ -68,6 +72,15 @@ export const ethicsConfig: GovernancePageConfig = {
             'Appropriate cautions when evidence is preliminary.',
             'Conditions under which a tool is not suitable for real-world use.',
           ],
+        },
+      ] as DocBlock[],
+    },
+    {
+      title: 'Reporting Channel',
+      blocks: [
+        {
+          type: 'paragraph',
+          text: 'To report ethics concerns, research integrity issues, or related questions, email support@credencex.ai or use the Contact page and select Ethics & integrity as the inquiry topic.',
         },
       ] as DocBlock[],
     },

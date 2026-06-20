@@ -7,7 +7,8 @@ export type ContactInquiryTypeId =
   | 'media'
   | 'careers'
   | 'privacy'
-  | 'legal';
+  | 'legal'
+  | 'ethics';
 
 export interface ContactInquiryType {
   id: ContactInquiryTypeId;
@@ -103,6 +104,12 @@ export const contactConfig: ContactConfig = {
       email: labEmails.legal,
       description: 'Legal notices, compliance, and contractual matters',
     },
+    {
+      id: 'ethics',
+      label: 'Ethics & integrity',
+      email: labEmails.support,
+      description: 'Research ethics, integrity concerns, and conduct questions',
+    },
   ],
 
   contactInfo: [
@@ -116,6 +123,7 @@ export const contactConfig: ContactConfig = {
         `Careers: ${labEmails.careers}`,
         `Privacy: ${labEmails.privacy}`,
         `Legal: ${labEmails.legal}`,
+        `Ethics & integrity: ${labEmails.support}`,
       ],
       href: `mailto:${labEmails.info}`
     },

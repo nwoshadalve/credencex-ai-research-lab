@@ -9,6 +9,81 @@ export const openResearchConfig: GovernancePageConfig = {
   },
   sections: [
     {
+      title: 'What Open Means in Practice',
+      blocks: [
+        {
+          type: 'paragraph',
+          text: 'At CredenceX, “open” does not mean unconditional public release of every artifact. It means making research as transparent, reproducible, and accessible as constraints allow. The following tiers and practices define how we apply openness in day-to-day work.',
+        },
+      ] as DocBlock[],
+      subsections: [
+        {
+          title: 'Code Availability Tiers',
+          blocks: [
+            {
+              type: 'paragraph',
+              text: 'CredenceX classifies code release using the following tiers:',
+            },
+            {
+              type: 'table',
+              headers: ['Tier', 'Description'],
+              rows: [
+                [
+                  'Open',
+                  'Full source code, configuration files, and documentation are published under a permissive license with public repository access.',
+                ],
+                [
+                  'Partial',
+                  'Core methods, evaluation scripts, or reference implementations are shared; some components may be withheld due to partner, security, or contractual constraints.',
+                ],
+                [
+                  'Documentation-only',
+                  'Model cards, method descriptions, or pseudocode are published without full source when code release is not feasible.',
+                ],
+                [
+                  'Restricted',
+                  'Code is not publicly released; access may be available under controlled terms or not at all, with the restriction and rationale documented.',
+                ],
+              ],
+            },
+          ] as DocBlock[],
+        },
+        {
+          title: 'Reproducibility Checklist',
+          blocks: [
+            {
+              type: 'paragraph',
+              text: 'When sharing research outputs, CredenceX aims to include the following where applicable:',
+            },
+            {
+              type: 'bullets',
+              items: [
+                'Documented software environment, dependencies, and configuration used for reported results.',
+                'Fixed random seeds or explicit seed-handling procedures for stochastic experiments.',
+                'Clear data access instructions, public dataset references, or documented substitutes when raw data cannot be shared.',
+                'Evaluation scripts and metrics definitions aligned with reported claims.',
+                'Stated limitations on full reproduction (e.g., proprietary data, compute constraints, or withheld components).',
+              ],
+            },
+          ] as DocBlock[],
+        },
+        {
+          title: 'Preprint Policy',
+          blocks: [
+            {
+              type: 'bullets',
+              items: [
+                'CredenceX may post preprints (e.g., on arXiv or equivalent servers) to share findings promptly while peer review is in progress.',
+                'Preprints are clearly labeled as non–peer-reviewed and updated when a peer-reviewed version is published or material corrections are made.',
+                'Embargoes, publisher policies, and partner agreements are respected before public preprint release.',
+                'Claims in preprints follow the same standards of transparency and caution as peer-reviewed communications, especially regarding clinical readiness.',
+              ],
+            },
+          ] as DocBlock[],
+        },
+      ],
+    },
+    {
       title: 'What We Aim to Share',
       blocks: [
         {

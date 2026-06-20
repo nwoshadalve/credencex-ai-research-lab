@@ -33,6 +33,9 @@ export const inlineLinkPatterns: InlineLinkPattern[] = [
   { match: 'Contact page',                          href: '/contact' },
   { match: 'Contact Page',                          href: '/contact' },
 
+  // Email
+  { match: 'support@credencex.ai',                  href: 'mailto:support@credencex.ai' },
+
   // Documents
   { match: 'COI disclosure form (PDF)',             href: '/documents/coi-disclosure-form.pdf' },
 ];

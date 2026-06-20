@@ -4,9 +4,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { DocBlock } from '@/config/legal/types';
 import { advisoryBoardConfig } from '@/config/legal/advisory-board';
-import { Calendar, Building2, Check, Users } from 'lucide-react';
+import { Calendar, Building2, Check } from 'lucide-react';
 import Link from 'next/link';
 import { useRenderText } from '@/lib/render-text';
+import AdvisoryBoardMembers from '@/components/legal/advisory-board-members';
 type RenderFn = (text: string) => React.ReactNode;
 
 function RenderBlocks({ blocks, renderText }: { blocks: DocBlock[]; renderText: RenderFn }) {
@@ -67,14 +68,14 @@ export default function AdvisoryBoardContent() {
         <div className="absolute bottom-0 -right-40 w-96 h-96 bg-linear-to-bl from-violet-100/30 via-purple-100/20 to-transparent dark:from-violet-900/20 dark:via-purple-900/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6">
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Header */}
         <motion.div
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: '-50px' }}
           variants={{ initial: {}, animate: { transition: { staggerChildren: 0.1 } } }}
-          className="mb-12"
+          className="mb-12 max-w-4xl mx-auto"
         >
           <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-6">
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 dark:bg-gray-900/60 backdrop-blur-2xl border border-gray-200/60 dark:border-white/20 shadow-lg">
@@ -92,7 +93,7 @@ export default function AdvisoryBoardContent() {
         </motion.div>
 
         {/* Policy Sections (all except last "Advisory Board Members") */}
-        <div className="space-y-8 mb-16">
+        <div className="space-y-8 mb-16 max-w-4xl mx-auto">
           {config.sections.slice(0, -1).map((section, index) => (
             <motion.div
               key={index}
@@ -122,27 +123,23 @@ export default function AdvisoryBoardContent() {
 
         {/* Advisory Board Members section */}
         <motion.div
+          id="advisory-board-members"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.4 }}
-          className="mb-16 p-6 md:p-8 rounded-2xl backdrop-blur-2xl bg-white/70 dark:bg-white/3 border-2 border-gray-300/70 dark:border-white/10 shadow-lg"
+          className="mb-16 scroll-mt-28"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3">
-            {config.sections[config.sections.length - 1].title}
-          </h2>
-          <RenderBlocks
-            blocks={config.sections[config.sections.length - 1].blocks}
-            renderText={renderText}
-          />
-          <Link
-            href="/board-of-members"
-            className="inline-flex items-center gap-2 mt-2 px-5 py-2.5 rounded-xl font-semibold text-sm text-white bg-linear-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 transition-all duration-300 shadow-lg shadow-indigo-500/20 hover:shadow-xl hover:shadow-indigo-500/30 overflow-hidden group relative"
-          >
-            <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-            <Users className="relative z-10 w-4 h-4" />
-            <span className="relative z-10">View Board of Members</span>
-          </Link>
+          <div className="p-6 md:p-8 rounded-2xl backdrop-blur-2xl bg-white/70 dark:bg-white/3 border-2 border-gray-300/70 dark:border-white/10 shadow-lg mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3">
+              {config.sections[config.sections.length - 1].title}
+            </h2>
+            <RenderBlocks
+              blocks={config.sections[config.sections.length - 1].blocks}
+              renderText={renderText}
+            />
+          </div>
+          <AdvisoryBoardMembers />
         </motion.div>
 
         {/* Effective Date */}
@@ -151,7 +148,7 @@ export default function AdvisoryBoardContent() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="mt-4 p-6 rounded-xl backdrop-blur-2xl bg-indigo-50/70 dark:bg-indigo-900/20 border-2 border-indigo-200/70 dark:border-indigo-800/30 shadow-lg"
+          className="mt-4 p-6 rounded-xl backdrop-blur-2xl bg-indigo-50/70 dark:bg-indigo-900/20 border-2 border-indigo-200/70 dark:border-indigo-800/30 shadow-lg max-w-4xl mx-auto"
         >
           <p className="text-sm text-gray-800 dark:text-gray-200 text-center font-medium">
             <span className="font-semibold">Effective Date:</span> {config.effectiveDate}
@@ -164,7 +161,7 @@ export default function AdvisoryBoardContent() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="mt-12 text-center"
+          className="mt-12 text-center max-w-4xl mx-auto"
         >
           <p className="text-gray-700 dark:text-gray-300 mb-6 font-medium">
             {config.cta.question}

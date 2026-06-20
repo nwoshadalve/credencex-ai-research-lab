@@ -47,6 +47,66 @@ export const dataGovernanceConfig: GovernancePageConfig = {
       ] as DocBlock[],
     },
     {
+      title: 'Data Classification',
+      blocks: [
+        {
+          type: 'paragraph',
+          text: 'CredenceX assigns data to one of the following classification levels to guide handling, access, and sharing decisions:',
+        },
+        {
+          type: 'table',
+          headers: ['Classification', 'Description'],
+          rows: [
+            [
+              'Public',
+              'Materials intended for open dissemination, such as published papers, public documentation, and non-sensitive project summaries.',
+            ],
+            [
+              'Internal',
+              'Operational or research data for authorized CredenceX personnel with a legitimate need, not intended for public release.',
+            ],
+            [
+              'Restricted',
+              'Datasets or outputs subject to contractual, ethical, legal, or partner-imposed limits on access and reuse.',
+            ],
+            [
+              'Sensitive',
+              'Health-related, identifiable, or high-risk data requiring enhanced security, logging, and approval controls.',
+            ],
+          ],
+        },
+      ] as DocBlock[],
+    },
+    {
+      title: 'Retention and Access Approval',
+      blocks: [
+        {
+          type: 'paragraph',
+          text: 'CredenceX applies the following workflows for data lifecycle management:',
+        },
+      ] as DocBlock[],
+      subsections: [
+        {
+          title: 'Retention',
+          blocks: [
+            {
+              type: 'paragraph',
+              text: 'Data is retained only for as long as needed to support stated research, legal, contractual, or operational purposes. When retention periods expire or data is no longer required, secure disposal or de-identification is performed in line with classification requirements and documented procedures.',
+            },
+          ] as DocBlock[],
+        },
+        {
+          title: 'Access Approval',
+          blocks: [
+            {
+              type: 'paragraph',
+              text: 'Access to internal, restricted, or sensitive data requires documented approval from data owners or designated governance leads. Approved access is logged, limited to the minimum necessary scope, and reviewed periodically or when roles or project needs change.',
+            },
+          ] as DocBlock[],
+        },
+      ],
+    },
+    {
       title: 'Sensitive and Health-Related Data',
       blocks: [
         {

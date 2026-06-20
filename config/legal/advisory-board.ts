@@ -198,7 +198,7 @@ export const advisoryBoardConfig: GovernancePageConfig = {
       blocks: [
         {
           type: 'paragraph',
-          text: 'Current advisory board members are listed below. Profiles are updated as appointments are confirmed.',
+          text: 'Current advisory board members are listed below.',
         },
       ] as DocBlock[],
     },

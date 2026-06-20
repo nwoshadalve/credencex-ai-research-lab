@@ -42,6 +42,46 @@ function RenderBlocks({ blocks, renderText }: { blocks: DocBlock[]; renderText: 
             </p>
           );
         }
+        if (block.type === 'table') {
+          return (
+            <div key={i} className="mb-4 overflow-x-auto rounded-xl border border-gray-200/70 dark:border-white/10">
+              <table className="w-full text-sm text-left">
+                <thead>
+                  <tr className="bg-indigo-50/80 dark:bg-indigo-900/30 border-b border-gray-200/70 dark:border-white/10">
+                    {block.headers.map((header, idx) => (
+                      <th
+                        key={idx}
+                        scope="col"
+                        className="px-4 py-3 font-semibold text-gray-900 dark:text-white whitespace-nowrap"
+                      >
+                        {renderText(header)}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {block.rows.map((row, rowIdx) => (
+                    <tr
+                      key={rowIdx}
+                      className="border-b border-gray-200/50 dark:border-white/5 last:border-b-0 even:bg-gray-50/50 dark:even:bg-white/2"
+                    >
+                      {row.map((cell, cellIdx) => (
+                        <td
+                          key={cellIdx}
+                          className={`px-4 py-3 text-gray-700 dark:text-gray-300 align-top ${
+                            cellIdx === 0 ? 'font-medium text-gray-900 dark:text-white whitespace-nowrap' : ''
+                          }`}
+                        >
+                          {renderText(cell)}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          );
+        }
         return null;
       })}
     </>

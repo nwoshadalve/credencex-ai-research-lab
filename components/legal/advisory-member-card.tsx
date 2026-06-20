@@ -1,18 +1,16 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { advisoryBoardMembers, AdvisoryMember } from '@/config/legal/advisory-board';
+import { AdvisoryMember } from '@/config/legal/advisory-board';
 import { UserCircle, Mail, Linkedin, GraduationCap, Globe, Github } from 'lucide-react';
 import Image from 'next/image';
 
-function AdvisoryMemberCard({ member }: { member: AdvisoryMember }) {
+export default function AdvisoryMemberCard({ member }: { member: AdvisoryMember }) {
   const [imageError, setImageError] = useState(false);
 
   return (
     <div className="group relative h-full bg-white/70 dark:bg-gray-900/70 backdrop-blur-2xl rounded-3xl border border-gray-200/60 dark:border-gray-700/60 overflow-hidden transition-all duration-300 hover:bg-white/85 dark:hover:bg-gray-900/85 hover:border-blue-400/70 dark:hover:border-blue-500/70 hover:shadow-2xl hover:shadow-blue-500/25 dark:hover:shadow-blue-400/15">
       <div className="relative z-10 p-6 flex flex-col h-full">
-        {/* Avatar */}
         <div className="mb-4 flex justify-center">
           <div className="relative w-24 h-24 rounded-2xl overflow-hidden bg-linear-to-br from-blue-500/20 to-purple-500/20 group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
             {member.avatar && !imageError ? (
@@ -30,40 +28,33 @@ function AdvisoryMemberCard({ member }: { member: AdvisoryMember }) {
           </div>
         </div>
 
-        {/* Name */}
         <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 text-center mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
           {member.name}
         </h3>
 
-        {/* Position */}
         <p className="text-sm text-gray-700 dark:text-gray-300 text-center mb-1 font-medium">
           {member.position}
         </p>
 
-        {/* Institute */}
         <p className="text-xs text-gray-500 dark:text-gray-400 text-center mb-2">
           {member.institute}
         </p>
 
-        {/* Expertise badge */}
         <div className="flex justify-center mb-3">
           <span className="inline-flex items-center text-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 border border-indigo-200/60 dark:border-indigo-700/40">
             {member.expertise}
           </span>
         </div>
 
-        {/* Bio */}
         <p className="text-xs text-gray-600 dark:text-gray-400 text-center leading-relaxed mb-4 flex-1">
           {member.bio}
         </p>
 
-        {/* Email */}
         <div className="flex items-center justify-center gap-2 mb-4 text-xs text-gray-500 dark:text-gray-400">
           <Mail className="w-3.5 h-3.5 shrink-0" />
           <span className="truncate">{member.email}</span>
         </div>
 
-        {/* Social links */}
         <div className="pt-4 border-t border-gray-200/50 dark:border-gray-700/50">
           <div className="flex items-center justify-center gap-2 flex-wrap">
             {member.socialLinks.linkedin && (
@@ -100,36 +91,7 @@ function AdvisoryMemberCard({ member }: { member: AdvisoryMember }) {
         </div>
       </div>
 
-      {/* Hover gradient overlay */}
       <div className="absolute inset-0 bg-linear-to-br from-blue-500/10 via-purple-500/5 to-cyan-500/10 opacity-0 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none" />
     </div>
-  );
-}
-
-export default function BoardOfMembersContent() {
-  return (
-    <section className="relative py-20 lg:py-28 overflow-hidden bg-white dark:bg-black">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -left-40 w-96 h-96 bg-linear-to-br from-indigo-100/30 via-blue-100/20 to-transparent dark:from-indigo-900/20 dark:via-blue-900/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 -right-40 w-96 h-96 bg-linear-to-bl from-violet-100/30 via-purple-100/20 to-transparent dark:from-violet-900/20 dark:via-purple-900/10 rounded-full blur-3xl" />
-      </div>
-
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {advisoryBoardMembers.map((member, index) => (
-            <motion.div
-              key={member.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.4, delay: index * 0.07 }}
-            >
-              <AdvisoryMemberCard member={member} />
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
   );
 }

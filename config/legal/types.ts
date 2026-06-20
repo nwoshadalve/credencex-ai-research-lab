@@ -7,7 +7,8 @@
 export type DocBlock =
   | { type: 'paragraph'; text: string }
   | { type: 'bullets';   items: string[] }
-  | { type: 'closing';   text: string };
+  | { type: 'closing';   text: string }
+  | { type: 'table'; headers: string[]; rows: string[][] };
 
 export interface DocSubsection {
   title: string;
