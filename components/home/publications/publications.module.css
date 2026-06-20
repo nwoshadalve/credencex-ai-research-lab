@@ -25,3 +25,10 @@
 .floatEffect {
   animation: float 6s ease-in-out infinite;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .glowEffect,
+  .floatEffect {
+    animation: none;
+  }
+}

@@ -5,8 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FolderKanban, Filter, Rocket, Calendar, Layers, ExternalLink } from 'lucide-react';
 import { projects, statusConfig, Project, ProjectStatus } from '@/config/home/projects';
 import ProjectCardDetails from '@/components/projects/project-card-details';
+import InfiniteScrollSentinel from '@/components/common/infinite-scroll-sentinel';
+import { useIncrementalLoad } from '@/lib/use-incremental-load';
 
 type FilterType = 'all' | 'active' | 'completed' | 'planned';
+const ITEMS_PER_PAGE = 12;
 
 interface ProjectsSectionProps {
   typeParam?: FilterType | null;
@@ -60,6 +63,14 @@ export default function ProjectsSection({ typeParam }: ProjectsSectionProps) {
     return statusMatch && yearMatch && areaMatch;
   });
 
+  const { visibleCount, sentinelRef, hasMore } = useIncrementalLoad({
+    totalItems: filteredProjects.length,
+    pageSize: ITEMS_PER_PAGE,
+    resetKey: `${activeFilter}-${selectedYear}-${selectedArea}`,
+  });
+
+  const visibleProjects = filteredProjects.slice(0, visibleCount);
+
   // Calculate counts based on current year and area filter
   const activeCount = projects.filter(p => {
     const yearMatch = selectedYear === 'all' || p.year === selectedYear;
@@ -111,38 +122,27 @@ export default function ProjectsSection({ typeParam }: ProjectsSectionProps) {
   };
 
   const cardVariants = {
-    hidden: { 
+    hidden: {
       opacity: 0,
-      scale: 0.8,
-      y: 60,
-      rotateX: 15,
+      y: 24,
     },
     visible: {
       opacity: 1,
-      scale: 1,
       y: 0,
-      rotateX: 0,
       transition: {
-        type: 'spring' as const,
-        stiffness: 120,
-        damping: 18,
-        mass: 0.8,
+        duration: 0.35,
+        ease: 'easeOut' as const,
       },
     },
     exit: {
       opacity: 0,
-      scale: 0.85,
-      y: -40,
-      rotateX: -10,
-      transition: {
-        duration: 0.3,
-        ease: 'easeInOut' as const,
-      },
+      y: -12,
+      transition: { duration: 0.2 },
     },
   };
 
   return (
-    <section className="relative pb-20 lg:pb-28 overflow-hidden bg-linear-to-br from-white via-gray-50 to-slate-100 dark:from-black dark:via-gray-950 dark:to-slate-900">
+    <section className="relative pb-20 lg:pb-28 overflow-hidden bg-linear-to-br from-white via-gray-50 to-slate-100 dark:from-black dark:via-gray-950 dark:to-slate-900 section-defer">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-40 right-20 w-96 h-96 bg-purple-500/10 dark:bg-purple-500/10 rounded-full blur-3xl" />
@@ -313,29 +313,33 @@ export default function ProjectsSection({ typeParam }: ProjectsSectionProps) {
         {/* Projects Grid */}
         <motion.div
           ref={containerRef}
-          key={`${activeFilter}-${selectedYear}-${selectedArea}`}
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         >
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, index) => (
+          <AnimatePresence mode="wait">
+            {visibleProjects.map((project, index) => (
               <motion.div
                 key={project.id}
                 variants={cardVariants}
-                layout
-                layoutId={String(project.id)}
                 exit="exit"
                 custom={index}
                 className="relative h-full"
-                style={{ perspective: 1000 }}
               >
                 <ProjectCard project={project} />
               </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
+
+        <InfiniteScrollSentinel
+          sentinelRef={sentinelRef}
+          hasMore={hasMore}
+          visibleCount={visibleCount}
+          totalCount={filteredProjects.length}
+          itemLabel="projects"
+        />
 
         {/* Empty State */}
         {filteredProjects.length === 0 && (

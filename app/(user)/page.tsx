@@ -1,15 +1,29 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import dynamic from "next/dynamic";
 import HeroSection from "@/components/home/hero";
-import NewsSection from "@/components/home/news/news";
-import ProjectsSection from "@/components/home/projects/projects";
-import Publications from "@/components/home/publications/publications";
 import ResearchAreaSection from "@/components/home/research-area/research-area";
-import Subscription from "@/components/home/subscription/subscription";
+import SectionLoader from "@/components/common/section-loader";
 import {
   createPageMetadata,
   createWebsiteStructuredData,
 } from "@/lib/seo";
+
+const NewsSection = dynamic(() => import("@/components/home/news/news"), {
+  loading: () => <SectionLoader cards={4} maxWidth="5xl" />,
+});
+
+const ProjectsSection = dynamic(() => import("@/components/home/projects/projects"), {
+  loading: () => <SectionLoader cards={4} maxWidth="5xl" minHeight="min-h-[600px]" />,
+});
+
+const Publications = dynamic(() => import("@/components/home/publications/publications"), {
+  loading: () => <SectionLoader cards={6} maxWidth="7xl" minHeight="min-h-[720px]" />,
+});
+
+const Subscription = dynamic(() => import("@/components/home/subscription/subscription"), {
+  loading: () => <SectionLoader cards={1} maxWidth="5xl" minHeight="min-h-[400px]" />,
+});
 
 export const metadata: Metadata = createPageMetadata({
   title: "Trustworthy AI Research for Medical Imaging",

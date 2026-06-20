@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
-import NavDesktop from "@/components/nav/nav-desktop";
-import NavMobile from "@/components/nav/nav-mobile";
+import MotionProvider from "@/lib/motion";
+import ResponsiveNav from "@/components/nav/responsive-nav";
 import Footer from "@/components/footer/footer";
 import { menuItems } from "@/config/common/menu-items";
 import ThemeFavicon from "@/components/common/theme-favicon";
@@ -92,6 +92,7 @@ export default function RootLayout({
         className={`${spaceGrotesk.variable} ${inter.variable} font-body antialiased`}
       >
         <ThemeProvider attribute="data-theme" enableSystem defaultTheme="system">
+          <MotionProvider>
           <script
             type="application/ld+json"
             suppressHydrationWarning
@@ -100,10 +101,10 @@ export default function RootLayout({
             }}
           />
           <ThemeFavicon />
-          <NavDesktop menuItems={menuItems} />
-          <NavMobile menuItems={menuItems} />
+          <ResponsiveNav menuItems={menuItems} />
           {children}
           <Footer />
+          </MotionProvider>
         </ThemeProvider>
       </body>
     </html>

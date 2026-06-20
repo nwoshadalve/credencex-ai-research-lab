@@ -5,8 +5,8 @@ import { motion } from 'framer-motion';
 import { Play } from 'lucide-react';
 import { getFeaturedNews } from '@/config/home/news';
 import NewsCard from '@/components/news/news-card';
-import NewsModal from '@/components/news/news-modal';
 import { useNewsModal } from '@/components/news/use-news-modal';
+import NewsModal from '@/components/news/news-modal';
 import Button from '@/components/common/button';
 
 export default function NewsSection() {
@@ -44,7 +44,7 @@ export default function NewsSection() {
     };
 
     return (
-        <section id="home-news" className="relative py-32 px-6 overflow-hidden bg-linear-to-br from-gray-50 via-white to-slate-50 dark:from-gray-950 dark:via-black dark:to-slate-950">
+        <section id="home-news" className="relative py-32 px-6 overflow-hidden bg-linear-to-br from-gray-50 via-white to-slate-50 dark:from-gray-950 dark:via-black dark:to-slate-950 section-defer">
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-20 right-10 w-72 h-72 bg-indigo-500/10 dark:bg-indigo-500/5 rounded-full blur-3xl"></div>
                 <div className="absolute bottom-20 left-10 w-96 h-96 bg-pink-500/10 dark:bg-pink-500/5 rounded-full blur-3xl"></div>

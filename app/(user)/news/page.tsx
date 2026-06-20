@@ -2,9 +2,10 @@ import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import PageHero from '@/components/common/hero';
 import { pageHeroContent } from '@/config/common/page-hero';
-import NewsSection from '@/components/news/news-section';
+import NewsPageContent from '@/components/news/news-page-content';
 import { NewsType } from '@/config/home/news';
 import { createPageMetadata } from '@/lib/seo';
+import Loader from '@/components/common/loader';
 
 type NewsPageProps = {
   searchParams?: { type?: string };
@@ -23,8 +24,14 @@ export default function NewsPage({ searchParams }: NewsPageProps) {
   return (
     <main>
       <PageHero content={pageHeroContent.news} />
-      <Suspense fallback={null}>
-        <NewsSection newsType={type} />
+      <Suspense
+        fallback={
+          <div className="py-20">
+            <Loader variant="section" label="Loading news..." />
+          </div>
+        }
+      >
+        <NewsPageContent newsType={type} />
       </Suspense>
     </main>
   );

@@ -10,3 +10,9 @@
 .shineEffect {
     animation: shine 1.5s ease-in-out;
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .shineEffect {
+        animation: none;
+    }
+}

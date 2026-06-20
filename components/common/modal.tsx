@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
@@ -47,6 +48,12 @@ export default function Modal({
   panelClassName = '',
   bodyClassName = '',
 }: ModalProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   useEffect(() => {
     if (!isOpen) return;
 
@@ -67,7 +74,9 @@ export default function Modal({
 
   const showTopBar = showHeader && (title || showCloseButton);
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
         <>
@@ -78,10 +87,10 @@ export default function Modal({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={closeOnBackdrop ? onClose : undefined}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 cursor-pointer"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] cursor-pointer"
           />
 
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 pointer-events-none">
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 pointer-events-none">
             <motion.div
               role="dialog"
               aria-modal="true"
@@ -122,6 +131,7 @@ export default function Modal({
           </div>
         </>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }

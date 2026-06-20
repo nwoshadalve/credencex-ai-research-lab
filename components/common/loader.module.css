@@ -1,0 +1,34 @@
+@keyframes loaderSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loaderShimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.spinnerRing {
+  animation: loaderSpin 0.9s linear infinite;
+}
+
+.shimmer {
+  animation: loaderShimmer 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinnerRing {
+    animation: none;
+    opacity: 0.85;
+  }
+
+  .shimmer {
+    animation: none;
+    opacity: 0.5;
+  }
+}

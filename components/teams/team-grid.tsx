@@ -10,53 +10,22 @@ interface TeamGridProps {
 }
 
 const cardVariants = {
-  hidden: { 
-    opacity: 0,
-    scale: 0.8,
-    y: 60,
-  },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
-    scale: 1,
     y: 0,
-    transition: {
-      type: 'spring' as const,
-      stiffness: 120,
-      damping: 18,
-      mass: 0.8,
-    },
+    transition: { duration: 0.3, ease: 'easeOut' as const },
   },
   exit: {
     opacity: 0,
-    scale: 0.85,
-    y: -40,
-    transition: {
-      duration: 0.3,
-      ease: 'easeInOut' as const,
-    },
-  },
-};
-
-const sectionVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: 'easeOut' as const,
-    },
+    transition: { duration: 0.2 },
   },
 };
 
 export default function TeamGrid({ members }: TeamGridProps) {
   if (members.length === 0) {
     return (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="text-center py-20"
-      >
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-20">
         <p className="text-lg text-gray-600 dark:text-gray-400">
           No team members found in this category
         </p>
@@ -64,32 +33,27 @@ export default function TeamGrid({ members }: TeamGridProps) {
     );
   }
 
-  // Group members by role
   const groupedMembers = members.reduce((acc, member) => {
     const role = member.role;
-    if (!acc[role]) {
-      acc[role] = [];
-    }
+    if (!acc[role]) acc[role] = [];
     acc[role].push(member);
     return acc;
   }, {} as Record<string, (TeamMember | DevelopmentTeamMember)[]>);
 
-  // Get role order (maintain order as they appear in the full team list)
   const roleOrder = Object.keys(groupedMembers);
 
   return (
     <div className="space-y-12">
-      <AnimatePresence mode="sync">
+      <AnimatePresence mode="wait">
         {roleOrder.map((role) => (
           <motion.section
             key={role}
-            variants={sectionVariants}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
             className="space-y-6"
           >
-            {/* Role Section Header */}
             <div className="relative">
               <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100">
                 {role}
@@ -102,30 +66,21 @@ export default function TeamGrid({ members }: TeamGridProps) {
               </div>
             </div>
 
-            {/* Team Members Grid */}
             <motion.div
               initial="hidden"
               animate="visible"
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
             >
-              <AnimatePresence mode="popLayout">
-                {groupedMembers[role].map((member, index) => (
-                  <motion.div
-                    key={member.id}
-                    variants={cardVariants}
-                    custom={index}
-                    layout
-                    layoutId={String(member.id)}
-                    exit="exit"
-                    transition={{
-                      delay: index * 0.05,
-                    }}
-                    className="relative h-full"
-                  >
-                    <TeamMemberCard member={member} />
-                  </motion.div>
-                ))}
-              </AnimatePresence>
+              {groupedMembers[role].map((member) => (
+                <motion.div
+                  key={member.id}
+                  variants={cardVariants}
+                  exit="exit"
+                  className="relative h-full"
+                >
+                  <TeamMemberCard member={member} />
+                </motion.div>
+              ))}
             </motion.div>
           </motion.section>
         ))}

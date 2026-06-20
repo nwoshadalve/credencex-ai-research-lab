@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { Clock, ExternalLink, FileText, FolderKanban } from 'lucide-react';
+import { Clock } from 'lucide-react';
 import {
   News,
   newsTypeConfig,
@@ -7,9 +6,8 @@ import {
   isMedicalNews,
   isUpcomingNews,
 } from '@/config/home/news';
-import { publications } from '@/config/home/publications';
-import { projects } from '@/config/home/projects';
 import { researchUseSafetyCueShort } from '@/config/common/disclaimers';
+import NewsArticleRelatedLinks from '@/components/news/news-article-related-links';
 
 interface NewsArticleContentProps {
   news: News;
@@ -22,19 +20,10 @@ export default function NewsArticleContent({ news, headingLevel = 'h1' }: NewsAr
   const showMedicalDisclaimer = isMedicalNews(news);
   const Heading = headingLevel;
 
-  const relatedPublications =
-    news.relatedLinks?.publicationIds
-      ?.map((id) => publications.find((p) => p.id === id))
-      .filter((p): p is NonNullable<typeof p> => Boolean(p)) ?? [];
-
-  const relatedProjects =
-    news.relatedLinks?.projectIds
-      ?.map((id) => projects.find((p) => p.id === id))
-      .filter((p): p is NonNullable<typeof p> => Boolean(p)) ?? [];
-
-  const externalLinks = news.relatedLinks?.external ?? [];
   const hasRelatedLinks =
-    relatedPublications.length > 0 || relatedProjects.length > 0 || externalLinks.length > 0;
+    (news.relatedLinks?.publicationIds?.length ?? 0) > 0 ||
+    (news.relatedLinks?.projectIds?.length ?? 0) > 0 ||
+    (news.relatedLinks?.external?.length ?? 0) > 0;
 
   return (
     <>
@@ -116,66 +105,7 @@ export default function NewsArticleContent({ news, headingLevel = 'h1' }: NewsAr
         </div>
       )}
 
-      {hasRelatedLinks && (
-        <section className="mt-10 pt-8 border-t border-gray-200/50 dark:border-gray-700/50">
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-4">
-            Related work
-          </h2>
-          <ul className="space-y-3">
-            {relatedPublications.map((publication) => (
-              <li key={`pub-${publication.id}`}>
-                <Link
-                  href="/publications"
-                  className="group flex items-start gap-3 p-3 rounded-xl bg-gray-50/80 dark:bg-gray-800/40 border border-gray-200/50 dark:border-gray-700/50 hover:border-indigo-400/50 dark:hover:border-indigo-500/50 transition-colors"
-                >
-                  <FileText className="w-4 h-4 mt-0.5 text-indigo-500 shrink-0" />
-                  <span>
-                    <span className="block text-sm font-medium text-gray-900 dark:text-gray-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                      {publication.title}
-                    </span>
-                    <span className="block text-xs text-gray-500 dark:text-gray-400 mt-0.5">
-                      {publication.venue}
-                    </span>
-                  </span>
-                </Link>
-              </li>
-            ))}
-            {relatedProjects.map((project) => (
-              <li key={`proj-${project.id}`}>
-                <Link
-                  href="/projects"
-                  className="group flex items-start gap-3 p-3 rounded-xl bg-gray-50/80 dark:bg-gray-800/40 border border-gray-200/50 dark:border-gray-700/50 hover:border-indigo-400/50 dark:hover:border-indigo-500/50 transition-colors"
-                >
-                  <FolderKanban className="w-4 h-4 mt-0.5 text-indigo-500 shrink-0" />
-                  <span>
-                    <span className="block text-sm font-medium text-gray-900 dark:text-gray-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                      {project.title}
-                    </span>
-                    <span className="block text-xs text-gray-500 dark:text-gray-400 mt-0.5">
-                      {project.area}
-                    </span>
-                  </span>
-                </Link>
-              </li>
-            ))}
-            {externalLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-start gap-3 p-3 rounded-xl bg-gray-50/80 dark:bg-gray-800/40 border border-gray-200/50 dark:border-gray-700/50 hover:border-indigo-400/50 dark:hover:border-indigo-500/50 transition-colors"
-                >
-                  <ExternalLink className="w-4 h-4 mt-0.5 text-indigo-500 shrink-0" />
-                  <span className="text-sm font-medium text-gray-900 dark:text-gray-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                    {link.label}
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
+      {hasRelatedLinks && <NewsArticleRelatedLinks relatedLinks={news.relatedLinks} />}
 
       {showMedicalDisclaimer && (
         <footer className="mt-10 pt-6 border-t border-gray-200/50 dark:border-gray-700/50">

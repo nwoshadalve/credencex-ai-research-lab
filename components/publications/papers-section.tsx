@@ -6,7 +6,11 @@ import { BookOpen, FileText, Users, Calendar, Award, Filter } from 'lucide-react
 import { publications, statusConfig, typeConfig, Publication } from '@/config/home/publications';
 import PublicationPaperAction from '@/components/publications/publication-paper-action';
 import PublicationStatusLegend from '@/components/publications/status-legend';
+import InfiniteScrollSentinel from '@/components/common/infinite-scroll-sentinel';
+import { useIncrementalLoad } from '@/lib/use-incremental-load';
+
 type FilterType = 'all' | 'conference' | 'journal';
+const ITEMS_PER_PAGE = 12;
 
 interface PapersSectionProps {
   typeParam?: FilterType | null;
@@ -52,6 +56,14 @@ export default function PapersSection({ typeParam }: PapersSectionProps) {
     return typeMatch && yearMatch && statusMatch;
   });
 
+  const { visibleCount, sentinelRef, hasMore } = useIncrementalLoad({
+    totalItems: filteredPublications.length,
+    pageSize: ITEMS_PER_PAGE,
+    resetKey: `${activeFilter}-${selectedYear}-${selectedStatus}`,
+  });
+
+  const visiblePublications = filteredPublications.slice(0, visibleCount);
+
   // Calculate counts based on current year and status filter
   const conferenceCount = publications.filter(p => {
     const yearMatch = selectedYear === 'all' || p.date.includes(selectedYear);
@@ -96,38 +108,27 @@ export default function PapersSection({ typeParam }: PapersSectionProps) {
   };
 
   const cardVariants = {
-    hidden: { 
+    hidden: {
       opacity: 0,
-      scale: 0.8,
-      y: 60,
-      rotateX: 15,
+      y: 24,
     },
     visible: {
       opacity: 1,
-      scale: 1,
       y: 0,
-      rotateX: 0,
       transition: {
-        type: 'spring' as const,
-        stiffness: 120,
-        damping: 18,
-        mass: 0.8,
+        duration: 0.35,
+        ease: 'easeOut' as const,
       },
     },
     exit: {
       opacity: 0,
-      scale: 0.85,
-      y: -40,
-      rotateX: -10,
-      transition: {
-        duration: 0.3,
-        ease: 'easeInOut' as const,
-      },
+      y: -12,
+      transition: { duration: 0.2 },
     },
   };
 
   return (
-    <section className="relative pt-12 lg:pt-16 pb-20 lg:pb-28 overflow-hidden bg-white dark:bg-black">
+    <section className="relative pt-12 lg:pt-16 pb-20 lg:pb-28 overflow-hidden bg-white dark:bg-black section-defer">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-indigo-500/10 dark:bg-indigo-500/10 rounded-full blur-3xl" />
@@ -291,29 +292,33 @@ export default function PapersSection({ typeParam }: PapersSectionProps) {
         {/* Publications Grid */}
         <motion.div
           ref={containerRef}
-          key={`${activeFilter}-${selectedYear}-${selectedStatus}`}
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
-          <AnimatePresence mode="popLayout">
-            {filteredPublications.map((publication, index) => (
+          <AnimatePresence mode="wait">
+            {visiblePublications.map((publication, index) => (
               <motion.div
                 key={publication.id}
                 variants={cardVariants}
-                layout
-                layoutId={String(publication.id)}
                 exit="exit"
                 custom={index}
                 className="relative h-full"
-                style={{ perspective: 1000 }}
               >
                 <PublicationCard publication={publication} />
               </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
+
+        <InfiniteScrollSentinel
+          sentinelRef={sentinelRef}
+          hasMore={hasMore}
+          visibleCount={visibleCount}
+          totalCount={filteredPublications.length}
+          itemLabel="publications"
+        />
 
         {/* Empty State */}
         {filteredPublications.length === 0 && (
