@@ -12,6 +12,10 @@ export const governanceConfig: GovernancePageConfig = {
       title: 'Leadership Structure',
       blocks: [
         {
+          type: 'closing',
+          text: 'Legal structure note: Operated as an LLC; governance committee is internal oversight; advisory board is non-executive.',
+        },
+        {
           type: 'paragraph',
           text: 'CredenceX operates through the following roles and bodies:',
         },
@@ -44,7 +48,7 @@ export const governanceConfig: GovernancePageConfig = {
             },
             {
               type: 'closing',
-              text: 'If a formal Board of Directors is established in the future as part of legal registration or organizational restructuring, the governance model and terminology will be updated accordingly.',
+              text: 'CredenceX does not currently have a formal Board of Directors. If one is established in the future as part of legal registration or organizational restructuring, the governance model and terminology will be updated accordingly.',
             },
           ] as DocBlock[],
         },
@@ -87,6 +91,22 @@ export const governanceConfig: GovernancePageConfig = {
                 'When a conflict is identified, CredenceX may require recusal, independent review, documented mitigation steps, or other safeguards appropriate to the situation.',
                 'Publication-related conflicts (e.g., funding, affiliations, consulting) should be disclosed in manuscripts and public communications where relevant.',
               ],
+            },
+          ] as DocBlock[],
+        },
+        {
+          title: 'COI Disclosure Workflow',
+          blocks: [
+            {
+              type: 'bullets',
+              items: [
+                'Individuals in covered roles complete and submit a COI disclosure form upon appointment and renew disclosures annually or when circumstances change.',
+                'The Governance Committee reviews submissions, documents mitigation or recusal where needed, and maintains records in accordance with institutional policy.',
+              ],
+            },
+            {
+              type: 'paragraph',
+              text: 'Download our COI disclosure form (PDF) to submit a new or updated disclosure. You may also raise COI questions via the Contact page.',
             },
           ] as DocBlock[],
         },

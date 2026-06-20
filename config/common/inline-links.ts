@@ -32,4 +32,7 @@ export const inlineLinkPatterns: InlineLinkPattern[] = [
   // Contact
   { match: 'Contact page',                          href: '/contact' },
   { match: 'Contact Page',                          href: '/contact' },
+
+  // Documents
+  { match: 'COI disclosure form (PDF)',             href: '/documents/coi-disclosure-form.pdf' },
 ];
