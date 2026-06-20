@@ -7,8 +7,14 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata: Metadata = createPageMetadata({
   title: 'Terms of Use',
   description:
-    'Read the terms of use for the CredenceX AI Research Lab website, including permitted use, disclaimers, and limitations of liability.',
+    'Read the Terms of Use for the CredenceX AI Research Lab website, including permitted use, intellectual property, disclaimers, and limitations of liability.',
   path: '/terms',
+  keywords: [
+    'terms of use',
+    'website terms',
+    'research lab terms',
+    'legal terms',
+  ],
 });
 
 export default function TermsPage() {

@@ -12,12 +12,40 @@ type PublicationsPageProps = {
 
 const allowedFilters = new Set<FilterType>(['all', 'conference', 'journal']);
 
-export const metadata: Metadata = createPageMetadata({
-  title: "Publications",
-  description:
-    "Browse CredenceX research publications, including journal articles and conference papers across trustworthy AI, medical imaging, and decision support.",
-  path: "/publications",
-});
+export async function generateMetadata({
+  searchParams,
+}: PublicationsPageProps): Promise<Metadata> {
+  const sp = await Promise.resolve(searchParams);
+  const type = sp?.type;
+
+  if (type === 'conference') {
+    return createPageMetadata({
+      title: 'Conference Publications',
+      description:
+        'Browse CredenceX conference papers on trustworthy AI, medical imaging, clinical decision support, and related high-stakes research.',
+      path: '/publications?type=conference',
+      keywords: ['conference papers', 'AI conference publications', 'medical imaging research papers'],
+    });
+  }
+
+  if (type === 'journal') {
+    return createPageMetadata({
+      title: 'Journal Publications',
+      description:
+        'Browse CredenceX journal articles on trustworthy AI, medical imaging, clinical decision support, and deployment-aware healthcare research.',
+      path: '/publications?type=journal',
+      keywords: ['journal articles', 'AI journal publications', 'healthcare AI research'],
+    });
+  }
+
+  return createPageMetadata({
+    title: 'Publications',
+    description:
+      'Browse CredenceX research publications, including journal articles and conference papers across trustworthy AI, medical imaging, and decision support.',
+    path: '/publications',
+    keywords: ['research publications', 'AI papers', 'medical imaging publications'],
+  });
+}
 
 export default async function PublicationsPage({ searchParams }: PublicationsPageProps) {
   const sp = await Promise.resolve(searchParams);

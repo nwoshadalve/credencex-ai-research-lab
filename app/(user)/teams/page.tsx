@@ -19,24 +19,14 @@ export async function generateMetadata({ searchParams }: TeamsPageProps): Promis
     ? 'Meet the CredenceX development team building reliable AI applications, tooling, and deployment-ready systems.'
     : 'Meet the CredenceX research team advancing trustworthy AI, medical imaging, and high-stakes decision support.';
   
-  return {
-    ...createPageMetadata({
+  return createPageMetadata({
       title,
       description,
       path,
       keywords: isDevTeam
         ? ['development team', 'software engineers', 'AI developers', 'CredenceX team', 'tech team']
         : ['research team', 'AI researchers', 'machine learning experts', 'CredenceX researchers', 'AI scientists'],
-    }),
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-      },
-    },
-  };
+    });
 }
 
 export default async function TeamsPage({ searchParams }: TeamsPageProps) {

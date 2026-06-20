@@ -8,8 +8,14 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata: Metadata = createPageMetadata({
   title: 'Ethics Standards',
   description:
-    'Review the ethics standards that guide how CredenceX conducts, evaluates, and communicates research in high-stakes AI domains.',
+    'Review CredenceX ethics standards for research integrity, human subjects protections, responsible communication, and reporting channels for ethics concerns.',
   path: '/ethics',
+  keywords: [
+    'research ethics',
+    'AI ethics standards',
+    'research integrity',
+    'IRB partner institutions',
+  ],
 });
 
 export default function EthicsPage() {

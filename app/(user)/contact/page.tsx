@@ -7,8 +7,13 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata: Metadata = createPageMetadata({
   title: 'Contact',
   description:
-    'Get in touch with CredenceX AI Research Lab for research collaborations, advisory inquiries, partnerships, or career opportunities.',
+    'Contact CredenceX AI Research Lab for research collaborations, ethics inquiries, media requests, careers, privacy requests, and legal matters.',
   path: '/contact',
+  keywords: [
+    'contact CredenceX',
+    'research collaboration inquiry',
+    'AI research partnership',
+  ],
 });
 
 export default function ContactPage() {

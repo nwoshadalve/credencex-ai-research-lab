@@ -8,8 +8,14 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata: Metadata = createPageMetadata({
   title: 'Institutional Status & Legal Notice',
   description:
-    'Review CredenceX institutional status, legal disclaimers, permitted use guidance, and related notices for visitors, collaborators, and users of our research outputs.',
+    'Review CredenceX institutional status as CredenceX Ai Research Lab LLC, legal disclaimers, AI/Ai naming guidance, and important notices for visitors and collaborators.',
   path: '/legal-notice',
+  keywords: [
+    'legal notice',
+    'institutional status',
+    'CredenceX LLC',
+    'research lab legal identity',
+  ],
 });
 
 export default function LegalNoticePage() {

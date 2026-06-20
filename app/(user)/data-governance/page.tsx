@@ -8,8 +8,14 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata: Metadata = createPageMetadata({
   title: 'Data Governance',
   description:
-    'Understand how CredenceX manages research and operational data, including privacy protection, secure handling, responsible reuse, and access controls.',
+    'Understand CredenceX data governance, including data classification tiers, retention workflows, access approval, privacy safeguards, and incident response.',
   path: '/data-governance',
+  keywords: [
+    'data governance',
+    'research data policy',
+    'health data governance',
+    'data classification',
+  ],
 });
 
 export default function DataGovernancePage() {

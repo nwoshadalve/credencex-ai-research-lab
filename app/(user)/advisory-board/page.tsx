@@ -7,8 +7,14 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata: Metadata = createPageMetadata({
   title: 'Advisory Board',
   description:
-    'Meet the CredenceX Advisory Board and learn how independent guidance strengthens scientific quality, ethical rigor, and strategic relevance.',
+    'Meet the CredenceX Advisory Board members and learn how independent scientific, ethical, and strategic guidance strengthens research quality and accountability.',
   path: '/advisory-board',
+  keywords: [
+    'advisory board',
+    'research advisors',
+    'AI ethics advisors',
+    'CredenceX governance',
+  ],
 });
 
 export default function AdvisoryBoardPage() {

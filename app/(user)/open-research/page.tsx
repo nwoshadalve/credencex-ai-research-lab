@@ -8,8 +8,14 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata: Metadata = createPageMetadata({
   title: 'Open Research & Publication Policy',
   description:
-    'Learn how CredenceX shares publications, methods, code, and supporting research materials while balancing openness with privacy, safety, and responsible communication.',
+    'Learn how CredenceX defines open research in practice, including code availability tiers, reproducibility expectations, and preprint policy.',
   path: '/open-research',
+  keywords: [
+    'open research policy',
+    'reproducible AI research',
+    'preprint policy',
+    'research code sharing',
+  ],
 });
 
 export default function OpenResearchPage() {

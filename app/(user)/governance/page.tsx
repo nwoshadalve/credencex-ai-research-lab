@@ -8,8 +8,14 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata: Metadata = createPageMetadata({
   title: 'Governance & Leadership',
   description:
-    'Explore the governance structure, decision-making principles, leadership roles, and accountability framework that guide CredenceX AI Research Lab.',
+    'Explore CredenceX governance as a California LLC, including leadership structure, COI disclosure workflow, decision-making principles, and accountability practices.',
   path: '/governance',
+  keywords: [
+    'research governance',
+    'conflict of interest policy',
+    'AI lab leadership',
+    'research accountability',
+  ],
 });
 
 export default function GovernancePage() {

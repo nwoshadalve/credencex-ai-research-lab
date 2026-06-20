@@ -7,8 +7,14 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata: Metadata = createPageMetadata({
   title: 'Privacy Policy',
   description:
-    'Learn how CredenceX AI Research Lab collects, uses, stores, and protects personal information across its website and communications.',
+    'Learn how CredenceX AI Research Lab collects, uses, stores, and protects personal information, including newsletter subscriptions and unsubscribe options.',
   path: '/privacy',
+  keywords: [
+    'privacy policy',
+    'newsletter unsubscribe',
+    'website privacy',
+    'data protection',
+  ],
 });
 
 export default function PrivacyPage() {
