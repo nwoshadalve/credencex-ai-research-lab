@@ -39,7 +39,7 @@ export default function ContactSection() {
 
           {/* Right Column - Contact Form */}
           <div className="lg:col-span-2">
-            <div className="p-8 md:p-10 rounded-3xl backdrop-blur-xl bg-white/40 dark:bg-white/5 border-2 border-gray-300/70 dark:border-white/10 shadow-xl shadow-blue-500/5">
+            <div className="p-8 md:p-10 rounded-3xl backdrop-blur-xl bg-white/40 dark:bg-white/5 border-2 border-gray-300/70 dark:border-white/10 shadow-xl shadow-blue-500/5 overflow-visible">
               <div className="mb-8">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 dark:bg-gray-900/60 backdrop-blur-2xl border border-gray-200/60 dark:border-white/20 shadow-lg mb-6">
                   <div className="w-1.5 h-1.5 rounded-full bg-linear-to-r from-blue-500 to-indigo-500 shadow-sm shadow-blue-500/50" />

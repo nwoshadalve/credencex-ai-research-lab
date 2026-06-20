@@ -1,13 +1,58 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { contactConfig } from '@/config/common/contact';
+import {
+  contactConfig,
+  ContactInquiryTypeId,
+  getInquiryEmail,
+  getInquiryTypeById,
+} from '@/config/common/contact';
 import { labEmails } from '@/config/common/emails';
+import { useRenderText } from '@/lib/render-text';
 import { useState } from 'react';
-import { Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, AlertTriangle } from 'lucide-react';
+import InquiryTypeSelect from './inquiry-type-select';
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+type ContactFormData = {
+  inquiryType: ContactInquiryTypeId | '';
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+};
+
+function isContactFieldValid(field: keyof ContactFormData, data: ContactFormData): boolean {
+  switch (field) {
+    case 'inquiryType':
+      return !!data.inquiryType;
+    case 'firstName':
+      return !!data.firstName.trim();
+    case 'lastName':
+      return !!data.lastName.trim();
+    case 'email':
+      return !!data.email.trim() && EMAIL_REGEX.test(data.email);
+    case 'subject':
+      return !!data.subject.trim();
+    case 'message':
+      return !!data.message.trim() && data.message.trim().length >= 10;
+    default:
+      return true;
+  }
+}
+
+function RequiredMark({ show }: { show: boolean }) {
+  if (!show) return null;
+  return <span className="text-red-500 ml-1">*</span>;
+}
 
 export default function ContactForm() {
+  const renderText = useRenderText();
   const [formData, setFormData] = useState({
+    inquiryType: '' as ContactInquiryTypeId | '',
     firstName: '',
     lastName: '',
     email: '',
@@ -18,25 +63,30 @@ export default function ContactForm() {
 
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submittedInquiry, setSubmittedInquiry] = useState<ContactInquiryTypeId | ''>('');
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
 
-    if (!formData.firstName.trim()) {
+    if (!isContactFieldValid('inquiryType', formData)) {
+      newErrors.inquiryType = 'Please select a topic for your inquiry';
+    }
+
+    if (!isContactFieldValid('firstName', formData)) {
       newErrors.firstName = 'First name is required';
     }
 
-    if (!formData.lastName.trim()) {
+    if (!isContactFieldValid('lastName', formData)) {
       newErrors.lastName = 'Last name is required';
     }
 
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    } else if (!EMAIL_REGEX.test(formData.email)) {
       newErrors.email = 'Please enter a valid email address';
     }
 
-    if (!formData.subject.trim()) {
+    if (!isContactFieldValid('subject', formData)) {
       newErrors.subject = 'Subject is required';
     }
 
@@ -61,9 +111,16 @@ export default function ContactForm() {
     setErrors({});
 
     try {
+      const recipientEmail = formData.inquiryType
+        ? getInquiryEmail(formData.inquiryType)
+        : labEmails.info;
+
+      const payload = { ...formData, recipientEmail };
+
       // Simulate API call - replace with your actual endpoint
       await new Promise((resolve, reject) => {
         setTimeout(() => {
+          void payload;
           // 90% success rate for demo
           if (Math.random() > 0.1) {
             resolve(true);
@@ -74,9 +131,11 @@ export default function ContactForm() {
       });
 
       setStatus('success');
+      setSubmittedInquiry(formData.inquiryType);
       
       // Reset form
       setFormData({
+        inquiryType: '',
         firstName: '',
         lastName: '',
         email: '',
@@ -112,6 +171,24 @@ export default function ContactForm() {
     }
   };
 
+  const handleInquiryTypeChange = (inquiryType: ContactInquiryTypeId) => {
+    setFormData((prev) => ({ ...prev, inquiryType }));
+
+    if (errors.inquiryType) {
+      setErrors((prev) => {
+        const newErrors = { ...prev };
+        delete newErrors.inquiryType;
+        return newErrors;
+      });
+    }
+  };
+
+  const selectedInquiry = formData.inquiryType
+    ? getInquiryTypeById(formData.inquiryType)
+    : undefined;
+  const successInquiry = submittedInquiry ? getInquiryTypeById(submittedInquiry) : undefined;
+  const fallbackEmail = selectedInquiry?.email ?? labEmails.info;
+
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -129,12 +206,28 @@ export default function ContactForm() {
       }}
     >
       <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Sensitive Data Warning */}
+        <motion.div
+          variants={fadeInUp}
+          className="flex items-start gap-3 p-4 rounded-xl bg-amber-50/80 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-800/40"
+        >
+          <AlertTriangle className="w-5 h-5 shrink-0 mt-0.5 text-amber-600 dark:text-amber-400" />
+          <p className="text-sm text-amber-900 dark:text-amber-100 leading-relaxed">
+            {renderText(contactConfig.sensitiveDataWarning)}
+          </p>
+        </motion.div>
+
         {/* Name Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <motion.div variants={fadeInUp}>
             <label htmlFor="firstName" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
               {contactConfig.formFields.firstName.label}
-              {contactConfig.formFields.firstName.required && <span className="text-red-500 ml-1">*</span>}
+              <RequiredMark
+                show={
+                  contactConfig.formFields.firstName.required &&
+                  !isContactFieldValid('firstName', formData)
+                }
+              />
             </label>
             <input
               type="text"
@@ -160,7 +253,12 @@ export default function ContactForm() {
           <motion.div variants={fadeInUp}>
             <label htmlFor="lastName" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
               {contactConfig.formFields.lastName.label}
-              {contactConfig.formFields.lastName.required && <span className="text-red-500 ml-1">*</span>}
+              <RequiredMark
+                show={
+                  contactConfig.formFields.lastName.required &&
+                  !isContactFieldValid('lastName', formData)
+                }
+              />
             </label>
             <input
               type="text"
@@ -189,7 +287,12 @@ export default function ContactForm() {
           <motion.div variants={fadeInUp}>
             <label htmlFor="email" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
               {contactConfig.formFields.email.label}
-              {contactConfig.formFields.email.required && <span className="text-red-500 ml-1">*</span>}
+              <RequiredMark
+                show={
+                  contactConfig.formFields.email.required &&
+                  !isContactFieldValid('email', formData)
+                }
+              />
             </label>
             <input
               type="email"
@@ -228,11 +331,45 @@ export default function ContactForm() {
           </motion.div>
         </div>
 
+        {/* Inquiry Type */}
+        <motion.div variants={fadeInUp}>
+          <label htmlFor="inquiryType" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+            {contactConfig.formFields.inquiryType.label}
+            <RequiredMark
+              show={
+                contactConfig.formFields.inquiryType.required &&
+                !isContactFieldValid('inquiryType', formData)
+              }
+            />
+          </label>
+          <InquiryTypeSelect
+            value={formData.inquiryType}
+            onChange={handleInquiryTypeChange}
+            error={errors.inquiryType}
+          />
+          {selectedInquiry?.description && (
+            <p className="mt-1.5 text-xs text-gray-600 dark:text-gray-400">
+              {selectedInquiry.description}
+            </p>
+          )}
+          {errors.inquiryType && (
+            <p className="mt-1.5 text-xs text-red-600 dark:text-red-400 flex items-center gap-1">
+              <AlertCircle className="w-3 h-3" />
+              {errors.inquiryType}
+            </p>
+          )}
+        </motion.div>
+
         {/* Subject */}
         <motion.div variants={fadeInUp}>
           <label htmlFor="subject" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
             {contactConfig.formFields.subject.label}
-            {contactConfig.formFields.subject.required && <span className="text-red-500 ml-1">*</span>}
+            <RequiredMark
+              show={
+                contactConfig.formFields.subject.required &&
+                !isContactFieldValid('subject', formData)
+              }
+            />
           </label>
           <input
             type="text"
@@ -259,7 +396,12 @@ export default function ContactForm() {
         <motion.div variants={fadeInUp}>
           <label htmlFor="message" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
             {contactConfig.formFields.message.label}
-            {contactConfig.formFields.message.required && <span className="text-red-500 ml-1">*</span>}
+            <RequiredMark
+              show={
+                contactConfig.formFields.message.required &&
+                !isContactFieldValid('message', formData)
+              }
+            />
           </label>
           <textarea
             id="message"
@@ -333,7 +475,11 @@ export default function ContactForm() {
               <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" />
               <div>
                 <p className="font-semibold">Thank you for reaching out!</p>
-                <p className="text-sm mt-1">Your message has been sent successfully. We&apos;ll get back to you within 24-48 hours.</p>
+                <p className="text-sm mt-1">
+                  {successInquiry && successInquiry.id !== 'general'
+                    ? `Your message has been sent successfully to our ${successInquiry.label.toLowerCase()} team. We'll get back to you within 24-48 hours.`
+                    : "Your message has been sent successfully. We'll get back to you within 24-48 hours."}
+                </p>
               </div>
             </div>
           </motion.div>
@@ -350,7 +496,7 @@ export default function ContactForm() {
               <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
               <div>
                 <p className="font-semibold">Oops! Something went wrong</p>
-                <p className="text-sm mt-1">We couldn&apos;t send your message. Please try again or contact us directly at {labEmails.info}</p>
+                <p className="text-sm mt-1">We couldn&apos;t send your message. Please try again or contact us directly at {fallbackEmail}</p>
               </div>
             </div>
           </motion.div>
