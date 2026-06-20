@@ -13,6 +13,14 @@ export const legalNoticeConfig: GovernancePageConfig = {
       blocks: [
         {
           type: 'paragraph',
+          text: 'CredenceX AI Research Lab is operated as CredenceX Ai Research Lab LLC, a limited liability company registered in California, United States. We do not publish employer identification numbers (EINs) or other tax identifiers on this website.',
+        },
+        {
+          type: 'closing',
+          text: 'Naming note: “CredenceX AI Research Lab” (with “AI”) is the public brand name used on this website and in communications. Official legal documents may use “CredenceX Ai Research Lab LLC” (with “Ai”). Unless stated otherwise, both refer to the same entity.',
+        },
+        {
+          type: 'paragraph',
           text: 'CredenceX is not currently registered as a nonprofit or tax-exempt organization. References on this website to our public mission, ethical commitments, governance practices, and open research values describe our institutional goals and operating philosophy and should not be interpreted as a legal claim of nonprofit, charitable, or tax-exempt status.',
         },
       ] as DocBlock[],

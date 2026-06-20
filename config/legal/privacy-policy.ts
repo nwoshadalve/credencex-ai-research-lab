@@ -53,6 +53,10 @@ export const privacyPolicyConfig = {
           "Understanding website usage and improving website quality through privacy-oriented analytics (Vercel Web Analytics).",
           "Complying with legal obligations and protecting our rights and safety.",
         ]},
+        {
+          type: 'closing',
+          text: `How to unsubscribe: You may unsubscribe from newsletter emails at any time by using the unsubscribe link in any update message or by emailing ${labEmails.privacy}.`,
+        },
       ],
     },
     {

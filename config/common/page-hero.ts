@@ -254,11 +254,11 @@ export const pageHeroContent: Record<string, PageHeroContent> = {
   },
   terms: {
     badge: {
-      text: "Terms of Service"
+      text: "Terms of Use"
     },
-    title: "Terms and Conditions",
-    subtitle: "Legal Agreement for Using Our Services",
-    description: "Please read these terms carefully before using CredenceX AI Research Lab services. By accessing our website and services, you agree to be bound by these terms and conditions.",
+    title: "Terms of Use",
+    subtitle: "Website terms",
+    description: "Please read these terms carefully before using the CredenceX AI Research Lab website. By accessing the Site, you agree to be bound by these Terms of Use.",
     backgroundGradient: {
       from: "from-indigo-50",
       via: "via-purple-50",

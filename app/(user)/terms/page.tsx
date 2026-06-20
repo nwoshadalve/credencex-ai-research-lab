@@ -5,9 +5,9 @@ import { Metadata } from 'next';
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Terms & Conditions',
+  title: 'Terms of Use',
   description:
-    'Read the terms and conditions for using the CredenceX AI Research Lab website, including permitted use, disclaimers, and limitations of liability.',
+    'Read the terms of use for the CredenceX AI Research Lab website, including permitted use, disclaimers, and limitations of liability.',
   path: '/terms',
 });
 

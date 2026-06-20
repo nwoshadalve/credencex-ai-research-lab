@@ -18,6 +18,7 @@ export const inlineLinkPatterns: InlineLinkPattern[] = [
   // Legal
   { match: 'Privacy Policy',                        href: '/privacy' },
   { match: 'Terms & Conditions',                    href: '/terms' },
+  { match: 'Terms of Use',                          href: '/terms' },
   { match: 'Institutional Status & Legal Notice',   href: '/legal-notice' },
   { match: 'Legal Notice',                            href: '/legal-notice' },
 
@@ -35,6 +36,8 @@ export const inlineLinkPatterns: InlineLinkPattern[] = [
 
   // Email
   { match: 'support@credencex.ai',                  href: 'mailto:support@credencex.ai' },
+  { match: 'privacy@credencex.ai',                  href: 'mailto:privacy@credencex.ai' },
+  { match: 'legal@credencex.ai',                    href: 'mailto:legal@credencex.ai' },
 
   // Documents
   { match: 'COI disclosure form (PDF)',             href: '/documents/coi-disclosure-form.pdf' },
