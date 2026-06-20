@@ -2,9 +2,11 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Mail, X, Globe, GraduationCap, BookOpen, Award, UserCircle, Linkedin, Github, Code } from 'lucide-react';
 import { TeamMember } from '@/config/teams/research-team';
 import { DevelopmentTeamMember } from '@/config/teams/development-team';
+import { labEmails } from '@/config/common/emails';
 
 interface TeamMemberCardProps {
   member: TeamMember | DevelopmentTeamMember;
@@ -50,10 +52,29 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
           {'institute' in member ? member.institute : member.department}
         </p>
 
-        {/* Email */}
-        <div className="flex items-center justify-center gap-2 mb-4 text-xs text-gray-600 dark:text-gray-400">
-          <Mail className="w-3.5 h-3.5" />
-          <span className="truncate">{member.email}</span>
+        {/* Lab contact (personal emails kept in config, not shown publicly) */}
+        <div className="mb-4 text-center text-xs text-gray-600 dark:text-gray-400 space-y-1">
+          <div className="flex items-center justify-center gap-2">
+            <Mail className="w-3.5 h-3.5 shrink-0" />
+            <a
+              href={`mailto:${labEmails.research}`}
+              className="truncate hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {labEmails.research}
+            </a>
+          </div>
+          <p>
+            <Link
+              href="/contact"
+              className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors underline-offset-2 hover:underline"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Contact via form
+            </Link>
+            {' '}
+            for collaboration
+          </p>
         </div>
 
         {/* Social Links */}

@@ -89,7 +89,7 @@ export const menuItems: MenuItem[] = [
     icon: <Newspaper size={18} />,
   },
   {
-    label: 'Careers',
+    label: 'Join Us',
     href: '/careers',
     highlighted: true,
     icon: <Briefcase size={18} />,

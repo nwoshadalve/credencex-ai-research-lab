@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import HeroSection from "@/components/home/hero";
 import NewsSection from "@/components/home/news/news";
 import ProjectsSection from "@/components/home/projects/projects";
@@ -40,7 +41,9 @@ export default function Home() {
       <main>
         <HeroSection />
         <ResearchAreaSection />
-        <NewsSection />
+        <Suspense fallback={null}>
+          <NewsSection />
+        </Suspense>
         <ProjectsSection />
         <Publications />
         <Subscription />

@@ -1,4 +1,4 @@
-import { ChevronRight, CheckCircle2, Star, Gift } from 'lucide-react';
+import { ChevronRight, CheckCircle2, Star, CircleDollarSign } from 'lucide-react';
 import { JobPosition } from '@/config/careers/jobs';
 
 interface JobCardDescriptionProps {
@@ -20,6 +20,23 @@ export default function JobCardDescription({ job, isExpanded, onToggle }: JobCar
         <div className="space-y-2">
           <p className="text-sm leading-relaxed">{job.description}</p>
         </div>
+
+        {/* Responsibilities */}
+        {job.responsibilities && job.responsibilities.length > 0 && (
+          <div className="space-y-2">
+            <h4 className="text-sm font-bold text-gray-900 dark:text-gray-100 tracking-wide">
+              Responsibilities
+            </h4>
+            <ul className="space-y-1.5 ml-1">
+              {job.responsibilities.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2">
+                  <span className="text-emerald-500 dark:text-emerald-400 mt-1 shrink-0">•</span>
+                  <span className="leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         {/* Requirements */}
         {job.requirements && job.requirements.length > 0 && (
@@ -57,23 +74,14 @@ export default function JobCardDescription({ job, isExpanded, onToggle }: JobCar
           </div>
         )}
 
-        {/* Benefits */}
-        {job.benefits && job.benefits.length > 0 && (
-          <div className="space-y-2">
-            <h4 className="text-sm font-bold text-gray-900 dark:text-gray-100 tracking-wide flex items-center gap-2">
-              <Gift className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-              Benefits
-            </h4>
-            <ul className="space-y-1.5 ml-1">
-              {job.benefits.map((benefit, idx) => (
-                <li key={idx} className="flex items-start gap-2">
-                  <span className="text-purple-500 dark:text-purple-400 mt-1 shrink-0">•</span>
-                  <span className="leading-relaxed">{benefit}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        {/* Compensation */}
+        <div className="space-y-2">
+          <h4 className="text-sm font-bold text-gray-900 dark:text-gray-100 tracking-wide flex items-center gap-2">
+            <CircleDollarSign className="w-4 h-4 text-gray-600 dark:text-gray-400" />
+            Compensation
+          </h4>
+          <p className="leading-relaxed">{job.compensation}</p>
+        </div>
       </div>
       
       {!isExpanded && (

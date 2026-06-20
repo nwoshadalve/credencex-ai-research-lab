@@ -1,52 +1,50 @@
 'use client';
 
 interface JobFiltersProps {
-  selectedDepartment: string;
+  selectedCategory: string;
   selectedType: string;
-  departments: string[];
+  categories: string[];
   jobTypes: string[];
-  onDepartmentChange: (dept: string) => void;
+  onCategoryChange: (category: string) => void;
   onTypeChange: (type: string) => void;
 }
 
 export default function JobFilters({
-  selectedDepartment,
+  selectedCategory,
   selectedType,
-  departments,
+  categories,
   jobTypes,
-  onDepartmentChange,
+  onCategoryChange,
   onTypeChange,
 }: JobFiltersProps) {
   return (
     <div className="flex flex-wrap gap-4 mb-12 justify-center">
-      {/* Department Filter */}
       <div className="flex flex-wrap gap-2">
         <button
-          onClick={() => onDepartmentChange('all')}
+          onClick={() => onCategoryChange('all')}
           className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer ${
-            selectedDepartment === 'all'
+            selectedCategory === 'all'
               ? 'bg-emerald-600 dark:bg-emerald-500 text-white shadow-lg'
               : 'bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl border border-gray-200/60 dark:border-gray-700/60 text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-900 hover:border-gray-300 dark:hover:border-gray-600'
           }`}
         >
-          All Departments
+          All Areas
         </button>
-        {departments.map(dept => (
+        {categories.map((category) => (
           <button
-            key={dept}
-            onClick={() => onDepartmentChange(dept)}
+            key={category}
+            onClick={() => onCategoryChange(category)}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer ${
-              selectedDepartment === dept
+              selectedCategory === category
                 ? 'bg-emerald-600 dark:bg-emerald-500 text-white shadow-lg'
                 : 'bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl border border-gray-200/60 dark:border-gray-700/60 text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-900 hover:border-gray-300 dark:hover:border-gray-600'
             }`}
           >
-            {dept}
+            {category}
           </button>
         ))}
       </div>
 
-      {/* Type Filter */}
       <div className="flex flex-wrap gap-2">
         <button
           onClick={() => onTypeChange('all')}
@@ -58,7 +56,7 @@ export default function JobFilters({
         >
           All Types
         </button>
-        {jobTypes.map(type => (
+        {jobTypes.map((type) => (
           <button
             key={type}
             onClick={() => onTypeChange(type)}

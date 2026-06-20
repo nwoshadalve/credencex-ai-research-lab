@@ -8,50 +8,26 @@ export interface CareerBenefit {
 export const careerBenefits: CareerBenefit[] = [
   {
     id: 1,
-    icon: 'Zap',
-    title: 'Cutting-Edge Research',
-    description: 'Work on groundbreaking AI projects that push the boundaries of what\'s possible in technology.'
+    icon: 'FileText',
+    title: 'Clear Research Scope',
+    description: 'We try to define a small, concrete research question before work begins.'
   },
   {
     id: 2,
     icon: 'Users',
-    title: 'World-Class Team',
-    description: 'Collaborate with leading researchers and engineers from top institutions worldwide.'
+    title: 'Mentor Check-ins',
+    description: 'Interns and collaborators get regular feedback from a project lead or advisor.'
   },
   {
     id: 3,
-    icon: 'TrendingUp',
-    title: 'Career Growth',
-    description: 'Access continuous learning opportunities, mentorship, and clear career progression paths.'
+    icon: 'BookOpen',
+    title: 'Publication Pathways',
+    description: 'When the contribution is substantial, we discuss authorship and reporting expectations early.'
   },
   {
     id: 4,
     icon: 'Home',
-    title: 'Flexible Work',
-    description: 'Enjoy remote-first culture with flexible hours and work-life balance.'
-  },
-  {
-    id: 5,
-    icon: 'Heart',
-    title: 'Health & Wellness',
-    description: 'Comprehensive health insurance, mental health support, and wellness programs.'
-  },
-  {
-    id: 6,
-    icon: 'DollarSign',
-    title: 'Competitive Compensation',
-    description: 'Industry-leading salaries, equity packages, and performance bonuses.'
-  },
-  {
-    id: 7,
-    icon: 'Globe',
-    title: 'Conference & Learning',
-    description: 'Annual budget for conferences, courses, and professional development.'
-  },
-  {
-    id: 8,
-    icon: 'Laptop',
-    title: 'Latest Equipment',
-    description: 'Top-tier hardware, software licenses, and access to powerful computing resources.'
+    title: 'Remote-Friendly Work',
+    description: 'Most collaborations can happen remotely with clear notes, shared code, and scheduled reviews.'
   }
 ];

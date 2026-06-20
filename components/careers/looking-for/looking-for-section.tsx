@@ -26,7 +26,7 @@ export default function LookingForSection() {
             What We&apos;re Looking For
           </h2>
           <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            We seek talented individuals who share our passion for advancing AI technology and making a positive impact
+            We value rigor, transparency, and responsible innovation in trustworthy AI research
           </p>
         </motion.div>
 

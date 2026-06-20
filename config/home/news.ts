@@ -1,20 +1,77 @@
 import { LucideIcon, Newspaper, Megaphone, Rocket, Calendar, Users, Lightbulb, Trophy } from 'lucide-react';
 
 export type NewsType = 'announcement' | 'press-release' | 'award' | 'product-launch' | 'event' | 'partnership' | 'research-highlight';
+export type NewsDateKind = 'published' | 'event';
+export type EventTimingFilter = 'all' | 'upcoming' | 'past';
+
+export interface NewsRelatedLinks {
+  publicationIds?: number[];
+  projectIds?: number[];
+  external?: { label: string; href: string }[];
+}
 
 export interface News {
   id: number;
+  slug?: string;
   title: string;
   summary: string;
   content: string;
   type: NewsType;
-  date: string; // ISO format: YYYY-MM-DD
-  author?: string;
-  readTime?: string; // e.g., "5 min read"
+  /** Primary date for sorting and display (ISO YYYY-MM-DD). */
+  date: string;
+  /** Whether `date` is a publication/announcement date or an event date. */
+  dateKind: NewsDateKind;
+  author: string;
+  readTime?: string;
   image?: string;
   link?: string;
   tags?: string[];
+  featured?: boolean;
+  medicalTopic?: boolean;
+  relatedLinks?: NewsRelatedLinks;
 }
+
+type NewsInput = Omit<News, 'dateKind' | 'author'> & {
+  dateKind?: NewsDateKind;
+  author?: string;
+};
+
+const newsMeta: Record<number, Partial<Pick<News, 'featured' | 'medicalTopic' | 'dateKind' | 'relatedLinks'>>> = {
+  1: { featured: true },
+  2: { featured: true, medicalTopic: true },
+  3: { featured: true },
+  4: { featured: true, medicalTopic: true },
+  5: { featured: true, relatedLinks: { publicationIds: [18] } },
+  6: { featured: true, medicalTopic: true, relatedLinks: { publicationIds: [2], projectIds: [1] } },
+  7: { medicalTopic: true },
+  8: { relatedLinks: { publicationIds: [3], projectIds: [4] } },
+  10: { medicalTopic: true },
+  11: { relatedLinks: { projectIds: [4], publicationIds: [3] } },
+  12: { medicalTopic: true },
+  16: { medicalTopic: true, relatedLinks: { publicationIds: [27] } },
+  20: { medicalTopic: true },
+  21: { featured: true, medicalTopic: true, relatedLinks: { publicationIds: [27] } },
+  22: { medicalTopic: true },
+  23: { featured: true, medicalTopic: true, relatedLinks: { publicationIds: [25] } },
+};
+
+const MEDICAL_TOPIC_KEYWORDS = [
+  'clinical',
+  'medical',
+  'glaucoma',
+  'healthcare',
+  'mental health',
+  'depression',
+  'anxiety',
+  'eeg',
+  'bci',
+  'prostate',
+  'skin cancer',
+  'esophageal',
+  'biomedical',
+  'cancer',
+  'rehabilitation',
+];
 
 export const newsTypeConfig: Record<NewsType, { label: string; icon: LucideIcon; color: string }> = {
   'announcement': {
@@ -54,7 +111,7 @@ export const newsTypeConfig: Record<NewsType, { label: string; icon: LucideIcon;
   },
 };
 
-export const newsData: News[] = [
+const newsDataRaw: NewsInput[] = [
   {
     id: 1,
     title: "Invited Talk: ROBOTICS-2026 (Rome) — Multimodal AI and Real-World Deployment",
@@ -410,7 +467,19 @@ export const newsData: News[] = [
   },
 ];
 
+function normalizeNewsItem(item: NewsInput): News {
+  const meta = newsMeta[item.id] ?? {};
+  return {
+    ...item,
+    author: item.author ?? 'CredenceX Research Team',
+    dateKind: meta.dateKind ?? item.dateKind ?? (item.type === 'event' ? 'event' : 'published'),
+    featured: meta.featured ?? item.featured ?? false,
+    medicalTopic: meta.medicalTopic ?? item.medicalTopic,
+    relatedLinks: meta.relatedLinks ?? item.relatedLinks,
+  };
+}
 
+export const newsData: News[] = newsDataRaw.map(normalizeNewsItem);
 
 // Parse YYYY-MM-DD in local time (avoids UTC timezone shifts).
 export function parseNewsDate(dateString: string): Date {
@@ -436,9 +505,57 @@ function sortNewsByDateAsc(items: News[]): News[] {
   );
 }
 
+export function getNewsSlug(news: Pick<News, 'id' | 'title' | 'slug'>): string {
+  if (news.slug) return news.slug;
+  const slugified = news.title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 80);
+  return `${news.id}-${slugified}`;
+}
+
+export function getNewsBySlug(slug: string): News | undefined {
+  return newsData.find((item) => getNewsSlug(item) === slug);
+}
+
+export function isMedicalNews(news: News): boolean {
+  if (news.medicalTopic !== undefined) return news.medicalTopic;
+  const text = [...(news.tags ?? []), news.title, news.summary].join(' ').toLowerCase();
+  return MEDICAL_TOPIC_KEYWORDS.some((keyword) => text.includes(keyword));
+}
+
+export function getNewsDateLabel(dateKind: NewsDateKind): string {
+  return dateKind === 'event' ? 'Event date' : 'Published';
+}
+
+export function formatNewsDateWithKind(news: Pick<News, 'date' | 'dateKind'>): string {
+  return `${getNewsDateLabel(news.dateKind)}: ${formatNewsDate(news.date)}`;
+}
+
+export function filterNewsByEventTiming(
+  items: News[],
+  timing: EventTimingFilter,
+  now: Date = new Date()
+): News[] {
+  if (timing === 'all') return items;
+  const isUpcoming = timing === 'upcoming';
+  return items.filter((item) => isUpcomingNews(item.date, now) === isUpcoming);
+}
+
 // Get latest news sorted by date
 export function getLatestNews(limit: number = 5): News[] {
   return sortNewsByDateDesc(newsData).slice(0, limit);
+}
+
+/** Featured items for homepage; falls back to latest when fewer than `limit` are flagged. */
+export function getFeaturedNews(limit: number = 4): News[] {
+  const featured = sortNewsByDateDesc(newsData.filter((item) => item.featured));
+  if (featured.length >= limit) return featured.slice(0, limit);
+
+  const seen = new Set(featured.map((item) => item.id));
+  const filler = sortNewsByDateDesc(newsData).filter((item) => !seen.has(item.id));
+  return [...featured, ...filler].slice(0, limit);
 }
 
 // Get upcoming news (future-dated), sorted soonest first

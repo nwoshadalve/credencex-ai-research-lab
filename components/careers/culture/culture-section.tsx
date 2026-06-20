@@ -31,7 +31,7 @@ export default function CultureSection() {
             Our Culture & Values
           </h2>
           <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Experience a workplace where innovation thrives and every voice matters
+            How we work together as a small, distributed research initiative
           </p>
         </motion.div>
 

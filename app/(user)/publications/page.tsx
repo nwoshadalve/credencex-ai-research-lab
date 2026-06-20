@@ -36,14 +36,14 @@ export default async function PublicationsPage({ searchParams }: PublicationsPag
         ...baseContent,
         badge: { text: "Conference Papers" },
         title: "Conference Publications",
-        subtitle: "Cutting-Edge Research Presented at Leading AI Conferences"
+        subtitle: "Conference research across the full publication pipeline"
       };
     } else if (typeParam === 'journal') {
       return {
         ...baseContent,
         badge: { text: "Journal Articles" },
         title: "Journal Publications",
-        subtitle: "Peer-Reviewed Research in Prestigious Academic Journals"
+        subtitle: "Journal research across the full publication pipeline"
       };
     }
     

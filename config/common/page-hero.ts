@@ -135,7 +135,7 @@ export const pageHeroContent: Record<string, PageHeroContent> = {
       text: "Research Papers"
     },
     title: "Advancing AI Through Rigorous Research",
-    subtitle: "Published Work in Leading Journals & Conferences",
+    subtitle: "Journal and conference research across the full publication pipeline",
     backgroundGradient: {
       from: "from-indigo-50",
       via: "via-blue-50",
@@ -168,9 +168,9 @@ export const pageHeroContent: Record<string, PageHeroContent> = {
     badge: {
       text: "Research Team"
     },
-    title: "Meet Our World-Class Research Team",
-    subtitle: "Leading Experts Advancing AI Research",
-    description: "Our research team consists of distinguished scientists and researchers pushing the boundaries of artificial intelligence across multiple domains.",
+    title: "Multidisciplinary Research Team",
+    subtitle: "Across AI, Health, and Security",
+    description: "Researchers working across machine learning, medical imaging, trustworthy AI, and security-related systems. Profiles reflect published outputs, active research areas, and technical focus.",
     backgroundGradient: {
       from: "from-blue-50",
       via: "via-cyan-50",
@@ -181,9 +181,9 @@ export const pageHeroContent: Record<string, PageHeroContent> = {
     badge: {
       text: "Development Team"
     },
-    title: "Our Expert Development Team",
-    subtitle: "Building the Future of AI Applications",
-    description: "Our development team transforms cutting-edge research into production-ready AI systems that make a real-world impact.",
+    title: "Engineering & Development Team",
+    subtitle: "Research Prototypes and Deployment-Ready Systems",
+    description: "Engineers building the applications, pipelines, and tooling that support CredenceX research across AI, health, and security domains.",
     backgroundGradient: {
       from: "from-cyan-50",
       via: "via-teal-50",
@@ -205,11 +205,11 @@ export const pageHeroContent: Record<string, PageHeroContent> = {
   },
   careers: {
     badge: {
-      text: "Join Our Team"
+      text: "Join Us"
     },
-    title: "Shape the Future of AI with Us",
-    subtitle: "Careers at CredenceX AI Research Lab",
-    description: "Join a world-class team of researchers, engineers, and innovators working on cutting-edge AI technology. We offer challenging opportunities, competitive compensation, and a culture that values creativity, collaboration, and impact.",
+    title: "Collaborate with CredenceX",
+    subtitle: "Internships, student projects, advisors, and research partners",
+    description: "CredenceX is a small independent research lab, not a large hiring organization. We list only a few ways to work with us: student research, internships, advisory input, and focused partnerships when the scope and funding make sense.",
     backgroundGradient: {
       from: "from-emerald-50",
       via: "via-teal-50",
@@ -217,7 +217,7 @@ export const pageHeroContent: Record<string, PageHeroContent> = {
     },
     cta: {
       primary: {
-        text: "View Open Positions",
+        text: "View Opportunities",
         href: "#positions"
       },
       secondary: {

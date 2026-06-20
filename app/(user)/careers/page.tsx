@@ -8,9 +8,9 @@ import ApplicationProcess from '@/components/careers/application/application-pro
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Careers',
+  title: 'Join Us',
   description:
-    'Explore career opportunities at CredenceX AI Research Lab and join researchers and engineers working on trustworthy AI for high-stakes applications.',
+    'Explore research internships, student collaborations, visiting advisor roles, and industry partnerships at CredenceX AI Research Lab.',
   path: '/careers',
 });
 

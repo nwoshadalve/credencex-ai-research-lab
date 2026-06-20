@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen, FileText, Users, Calendar, Award, Filter } from 'lucide-react';
 import { publications, statusConfig, typeConfig, Publication } from '@/config/home/publications';
 import PublicationPaperAction from '@/components/publications/publication-paper-action';
+import PublicationStatusLegend from '@/components/publications/status-legend';
 type FilterType = 'all' | 'conference' | 'journal';
 
 interface PapersSectionProps {
@@ -126,7 +127,7 @@ export default function PapersSection({ typeParam }: PapersSectionProps) {
   };
 
   return (
-    <section className="relative pb-20 lg:pb-28 overflow-hidden bg-white dark:bg-black">
+    <section className="relative pt-12 lg:pt-16 pb-20 lg:pb-28 overflow-hidden bg-white dark:bg-black">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-indigo-500/10 dark:bg-indigo-500/10 rounded-full blur-3xl" />
@@ -259,7 +260,7 @@ export default function PapersSection({ typeParam }: PapersSectionProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="flex flex-wrap justify-center items-center gap-3 mb-12"
+          className="flex flex-wrap justify-center items-center gap-3 mb-4"
         >
           <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Filter by Status:</span>
           {availableStatuses.map((status) => {
@@ -284,6 +285,8 @@ export default function PapersSection({ typeParam }: PapersSectionProps) {
             );
           })}
         </motion.div>
+
+        <PublicationStatusLegend />
 
         {/* Publications Grid */}
         <motion.div

@@ -1,8 +1,16 @@
+export type OpportunityCategory =
+  | 'Research Internships'
+  | 'Student Collaborations'
+  | 'Visiting Advisor'
+  | 'Industry Partnerships';
+
+export type OpportunityType = 'Internship' | 'Collaboration' | 'Contract' | 'Volunteer';
+
 export interface JobPosition {
   id: number;
   title: string;
-  department: 'Research' | 'Development' | 'Operations' | 'Design';
-  type: 'Full-time' | 'Part-time' | 'Contract' | 'Internship';
+  category: OpportunityCategory;
+  type: OpportunityType;
   location: string;
   remote: boolean;
   experience: string;
@@ -10,414 +18,163 @@ export interface JobPosition {
   responsibilities: string[];
   requirements: string[];
   niceToHave: string[];
-  benefits: string[];
-  salary?: string;
+  compensation: string;
   postedDate: string;
-  applicationDeadline?: string;
 }
+
+export const OPPORTUNITIES_BANNER =
+  'These are not always paid jobs. Depending on funding and fit, an opportunity may be an internship, student collaboration, contract, or volunteer role. Each posting explains the likely format.';
+
+export const DEFAULT_COMPENSATION =
+  'Depends on funding, role, location, and agreed scope.';
 
 export const jobPositions: JobPosition[] = [
   {
     id: 1,
-    title: 'Senior AI Research Scientist',
-    department: 'Research',
-    type: 'Full-time',
+    title: 'Research Internship: Medical Imaging AI',
+    category: 'Research Internships',
+    type: 'Internship',
     location: 'Remote / Hybrid',
     remote: true,
-    experience: '5+ years',
-    description: 'Lead cutting-edge AI/ML research, publish in top-tier conferences, and mentor junior researchers. Requires PhD with 5+ years of experience and strong publication record.',
+    experience: 'Graduate student or advanced undergraduate',
+    description:
+      'This is for students who want hands-on research experience with medical imaging AI. Work is usually narrow in scope: run experiments, clean up code, check results, and write down what worked and what did not.',
     responsibilities: [
-      'Lead research initiatives in deep learning and neural architecture design',
-      'Publish research findings in top-tier conferences (NeurIPS, ICML, CVPR)',
-      'Collaborate with cross-functional teams to translate research into products',
-      'Mentor junior researchers and PhD candidates',
-      'Design and conduct experiments to validate novel AI approaches'
+      'Help prepare datasets, run model experiments, and review outputs',
+      'Keep clear notes so results can be repeated by another person',
+      'Join regular research check-ins with a mentor',
+      'Contribute to reports or papers when the work is substantial enough',
     ],
     requirements: [
-      'PhD in Computer Science, AI, Machine Learning, or related field',
-      '5+ years of experience in AI/ML research',
-      'Strong publication record in top-tier conferences',
-      'Expertise in deep learning frameworks (PyTorch, TensorFlow)',
-      'Strong mathematical foundation in statistics and optimization',
-      'Excellent written and verbal communication skills'
+      'Currently studying computer science, engineering, biomedical engineering, or a related field',
+      'Comfortable writing Python and using at least one ML framework',
+      'Interest in medical imaging, evaluation, or explainable AI',
+      'Able to commit to a clear work period, usually 3 to 6 months',
     ],
     niceToHave: [
-      'Experience with large language models (LLMs)',
-      'Background in computer vision or NLP',
-      'Open-source contributions to ML libraries',
-      'Industry experience in deploying ML models at scale'
+      'A course project or small research project in computer vision',
+      'Experience using Git and keeping experiment notes',
+      'Careful attitude toward health-related data and claims',
     ],
-    benefits: [
-      'Competitive salary and equity package',
-      'Flexible work arrangements',
-      'Annual conference budget',
-      'State-of-the-art computing resources'
-    ],
-    salary: '$150,000 - $200,000',
+    compensation: DEFAULT_COMPENSATION,
     postedDate: '2026-01-15',
-    applicationDeadline: '2026-04-30'
   },
   {
     id: 2,
-    title: 'Machine Learning Engineer',
-    department: 'Development',
-    type: 'Full-time',
+    title: 'Student Collaboration: Multimodal and Clinical AI',
+    category: 'Student Collaborations',
+    type: 'Collaboration',
     location: 'Remote',
     remote: true,
-    experience: '3+ years',
-    description: 'Build and optimize ML pipelines for production, implement MLOps infrastructure, and collaborate with researchers. Requires 3+ years of experience with Python, ML frameworks, and cloud platforms.',
+    experience: 'MS/PhD student',
+    description:
+      'This is for graduate students whose thesis, capstone, or independent research overlaps with our work. We can help shape a focused question and review progress, but the project should also make sense for your university requirements.',
     responsibilities: [
-      'Design and implement ML pipelines for production systems',
-      'Optimize model performance and reduce inference latency',
-      'Collaborate with researchers to productionize cutting-edge models',
-      'Build robust MLOps infrastructure and monitoring systems',
-      'Ensure model quality through rigorous testing and validation'
+      'Agree on a focused research question before starting',
+      'Run experiments and maintain code and notes others can follow',
+      'Share progress in periodic reviews',
+      'Contribute to a paper or report if the work reaches that stage',
     ],
     requirements: [
-      'Bachelor\'s or Master\'s degree in Computer Science or related field',
-      '3+ years of experience in ML engineering',
-      'Proficiency in Python and ML frameworks (PyTorch, TensorFlow)',
-      'Experience with cloud platforms (AWS, GCP, Azure)',
-      'Strong understanding of software engineering best practices',
-      'Experience with containerization (Docker, Kubernetes)'
+      'Enrolled in an MS or PhD program',
+      'Advisor approval if your program requires it',
+      'Basic research experience in machine learning, medical imaging, or related topics',
+      'Willingness to report negative results and limitations clearly',
     ],
     niceToHave: [
-      'Experience with model serving frameworks (TensorFlow Serving, TorchServe)',
-      'Knowledge of distributed training',
-      'Familiarity with MLflow, Weights & Biases, or similar tools',
-      'Experience with real-time ML systems'
+      'A preprint, publication, or serious course project in a related area',
+      'Experience with multimodal learning, calibration, or explainability',
+      'Familiarity with ethics review when working near health topics',
     ],
-    benefits: [
-      'Competitive compensation',
-      'Remote-first culture',
-      'Learning and development budget',
-      'Health and wellness programs'
-    ],
-    salary: '$120,000 - $160,000',
-    postedDate: '2026-01-20',
-    applicationDeadline: '2026-03-20'
+    compensation: DEFAULT_COMPENSATION,
+    postedDate: '2026-02-01',
   },
   {
     id: 3,
-    title: 'Full Stack Developer',
-    department: 'Development',
-    type: 'Full-time',
-    location: 'Hybrid',
+    title: 'Visiting Research Advisor',
+    category: 'Visiting Advisor',
+    type: 'Contract',
+    location: 'Remote / Occasional on-site',
     remote: true,
-    experience: '2+ years',
-    description: 'Develop responsive web applications and RESTful APIs using React, Next.js, and Node.js. Requires 2+ years of full-stack experience with modern frameworks and databases.',
+    experience: 'Senior researcher or faculty',
+    description:
+      'This is for senior researchers, clinicians, and domain experts who can give occasional guidance on research direction, evaluation, or responsible use. It is not a standing staff role.',
     responsibilities: [
-      'Build responsive and intuitive web applications using modern frameworks',
-      'Develop RESTful APIs and backend services',
-      'Implement real-time features using WebSockets',
-      'Optimize application performance and user experience',
-      'Collaborate with designers and ML engineers'
+      'Review research plans, evaluation choices, or draft manuscripts',
+      'Point out gaps, risks, and overclaims before work is shared publicly',
+      'Join occasional discussions on ethics, governance, or clinical relevance',
+      'Make introductions only where there is a clear and appropriate fit',
     ],
     requirements: [
-      'Bachelor\'s degree in Computer Science or related field',
-      '2+ years of full-stack development experience',
-      'Proficiency in React, Next.js, and TypeScript',
-      'Experience with Node.js and backend frameworks',
-      'Strong understanding of database systems (SQL, NoSQL)',
-      'Knowledge of web security best practices'
+      'Established expertise in AI, medical imaging, health informatics, or related fields',
+      'Track record of peer-reviewed research or responsible technology guidance',
+      'Availability for occasional advisory calls or written feedback',
+      'Comfort with a small-lab advisory format',
     ],
     niceToHave: [
-      'Experience with AI/ML model integration',
-      'Familiarity with GraphQL',
-      'Knowledge of CI/CD pipelines',
-      'Experience with serverless architectures'
+      'Experience with regulatory, clinical workflow, or hospital IT constraints',
+      'Prior industry and academia collaboration or startup advisory background',
+      'Interest in open, reproducible research communication',
     ],
-    benefits: [
-      'Stock options',
-      'Flexible hours',
-      'Professional development opportunities',
-      'Modern tech stack'
-    ],
-    salary: '$100,000 - $140,000',
-    postedDate: '2026-01-18',
-    applicationDeadline: '2026-03-18'
+    compensation: DEFAULT_COMPENSATION,
+    postedDate: '2026-01-20',
   },
   {
     id: 4,
-    title: 'AI Research Intern',
-    department: 'Research',
-    type: 'Internship',
-    location: 'Remote',
-    remote: true,
-    experience: 'Graduate Student',
-    description: 'Support AI/ML research projects, implement algorithms, and contribute to publications. For PhD/Master\'s students with strong ML foundations and Python proficiency.',
-    responsibilities: [
-      'Assist in research projects focused on AI and machine learning',
-      'Implement and experiment with novel algorithms',
-      'Analyze experimental results and prepare reports',
-      'Contribute to research publications',
-      'Present findings to the research team'
-    ],
-    requirements: [
-      'Currently pursuing PhD or Master\'s in Computer Science, AI, or related field',
-      'Strong foundation in machine learning and deep learning',
-      'Proficiency in Python and ML frameworks',
-      'Excellent problem-solving and analytical skills',
-      'Strong communication skills'
-    ],
-    niceToHave: [
-      'Previous research experience or publications',
-      'Experience with computer vision or NLP',
-      'Contributions to open-source projects',
-      'Coursework in advanced ML topics'
-    ],
-    benefits: [
-      'Competitive internship stipend',
-      'Mentorship from senior researchers',
-      'Access to cutting-edge resources',
-      'Potential for full-time offer'
-    ],
-    salary: '$6,000 - $8,000 per month',
-    postedDate: '2026-01-10',
-    applicationDeadline: '2026-02-28'
-  },
-  {
-    id: 5,
-    title: 'DevOps Engineer',
-    department: 'Operations',
-    type: 'Full-time',
-    location: 'Remote',
-    remote: true,
-    experience: '3+ years',
-    description: 'Design scalable cloud infrastructure, automate CI/CD pipelines, and ensure high availability. Requires 3+ years with AWS/GCP/Azure, Terraform, and Kubernetes.',
-    responsibilities: [
-      'Design and implement scalable cloud infrastructure',
-      'Automate deployment pipelines and CI/CD processes',
-      'Monitor system performance and ensure high availability',
-      'Implement security best practices and compliance measures',
-      'Optimize costs and resource utilization'
-    ],
-    requirements: [
-      'Bachelor\'s degree in Computer Science or related field',
-      '3+ years of DevOps experience',
-      'Expertise in cloud platforms (AWS, GCP, or Azure)',
-      'Proficiency in infrastructure as code (Terraform, CloudFormation)',
-      'Strong scripting skills (Python, Bash)',
-      'Experience with Kubernetes and Docker'
-    ],
-    niceToHave: [
-      'Experience with GPU infrastructure management',
-      'Knowledge of ML/AI workload optimization',
-      'Certifications in cloud platforms',
-      'Experience with monitoring tools (Prometheus, Grafana)'
-    ],
-    benefits: [
-      'Competitive salary',
-      'Remote work flexibility',
-      'Certification sponsorship',
-      'Cutting-edge technology stack'
-    ],
-    salary: '$110,000 - $150,000',
-    postedDate: '2026-01-22',
-    applicationDeadline: '2026-03-22'
-  },
-  {
-    id: 6,
-    title: 'UX/UI Designer',
-    department: 'Design',
-    type: 'Full-time',
+    title: 'Industry Partnership: Applied AI Pilot',
+    category: 'Industry Partnerships',
+    type: 'Contract',
     location: 'Remote / Hybrid',
     remote: true,
-    experience: '3+ years',
-    description: 'Design user-centered web and mobile experiences, create prototypes, and conduct usability testing. Requires 3+ years with Figma/Sketch and a strong portfolio.',
+    experience: 'Organization or team lead',
+    description:
+      'This is for organizations that want a small research pilot with clear boundaries. Good fits include evaluation studies, prototype review, model assessment, or a limited proof of concept.',
     responsibilities: [
-      'Create user-centered designs for web and mobile applications',
-      'Develop wireframes, prototypes, and high-fidelity mockups',
-      'Conduct user research and usability testing',
-      'Collaborate with developers to ensure design implementation',
-      'Maintain and evolve our design system'
+      'Agree on the problem, success criteria, and data limits before work starts',
+      'Provide domain context and safe evaluation examples where possible',
+      'Join milestone reviews and help review limitations before results are shared',
+      'Align on IP, publication, and data handling terms before work begins',
     ],
     requirements: [
-      'Bachelor\'s degree in Design, HCI, or related field',
-      '3+ years of UX/UI design experience',
-      'Proficiency in Figma, Sketch, or Adobe XD',
-      'Strong portfolio demonstrating design process',
-      'Understanding of responsive and accessible design',
-      'Excellent communication and collaboration skills'
+      'Clear institutional or company contact with authority to explore collaboration',
+      'Defined use case in AI, health, security, or another high-stakes area',
+      'Willingness to document assumptions, limitations, and non-clinical status where applicable',
+      'Mutual agreement on scope before technical work starts',
     ],
     niceToHave: [
-      'Experience designing for AI/ML products',
-      'Knowledge of front-end development (HTML, CSS, React)',
-      'Experience with design systems',
-      'Motion design skills'
+      'Prior experience with research collaborations or SBIR-style pilots',
+      'Internal data governance or legal contact for agreement review',
+      'Interest in reproducible evaluation rather than unsupported deployment claims',
     ],
-    benefits: [
-      'Competitive compensation',
-      'Creative freedom',
-      'Design tools and resources',
-      'Collaborative environment'
-    ],
-    salary: '$95,000 - $130,000',
-    postedDate: '2026-01-12',
-    applicationDeadline: '2026-03-12'
+    compensation: DEFAULT_COMPENSATION,
+    postedDate: '2026-02-10',
   },
-  {
-    id: 7,
-    title: 'Computer Vision Engineer',
-    department: 'Research',
-    type: 'Full-time',
-    location: 'Hybrid',
-    remote: true,
-    experience: '4+ years',
-    description: 'Build advanced computer vision models for image recognition and object detection. Requires 4+ years with OpenCV, PyTorch/TensorFlow, and CNNs/transformers.',
-    responsibilities: [
-      'Develop state-of-the-art computer vision models',
-      'Work on image recognition and object detection',
-      'Optimize models for real-time performance',
-      'Collaborate with research and product teams',
-      'Publish research findings'
-    ],
-    requirements: [
-      'Master\'s or PhD in Computer Science, or related field',
-      '4+ years of experience in computer vision',
-      'Strong expertise in OpenCV, PyTorch, or TensorFlow',
-      'Experience with CNNs and transformer architectures',
-      'Proficiency in Python and C++'
-    ],
-    niceToHave: [
-      'Experience with 3D vision or SLAM',
-      'Knowledge of edge deployment',
-      'Publications in CVPR, ICCV, or ECCV',
-      'Experience with video understanding'
-    ],
-    benefits: [
-      'Competitive salary and equity',
-      'Flexible work arrangements',
-      'GPU compute resources',
-      'Conference attendance support'
-    ],
-    salary: '$130,000 - $180,000',
-    postedDate: '2025-12-15',
-    applicationDeadline: '2026-02-15'
-  },
-  {
-    id: 8,
-    title: 'Data Scientist',
-    department: 'Research',
-    type: 'Full-time',
-    location: 'Remote',
-    remote: true,
-    experience: '3+ years',
-    description: 'Analyze large datasets, build predictive models, and derive actionable insights. Requires 3+ years with Python, SQL, and statistical modeling.',
-    responsibilities: [
-      'Analyze complex datasets to identify trends and patterns',
-      'Build and deploy predictive models',
-      'Collaborate with engineering teams on data pipelines',
-      'Present findings to stakeholders',
-      'Develop data visualization dashboards'
-    ],
-    requirements: [
-      'Master\'s degree in Data Science, Statistics, or related field',
-      '3+ years of data science experience',
-      'Strong proficiency in Python and SQL',
-      'Experience with scikit-learn, pandas, numpy',
-      'Knowledge of statistical modeling and hypothesis testing'
-    ],
-    niceToHave: [
-      'Experience with big data tools (Spark, Hadoop)',
-      'Knowledge of A/B testing frameworks',
-      'Familiarity with cloud data warehouses',
-      'Experience with Tableau or Power BI'
-    ],
-    benefits: [
-      'Competitive salary and stock options',
-      'Remote work flexibility',
-      'Professional development budget',
-      'Health and wellness benefits'
-    ],
-    salary: '$115,000 - $155,000',
-    postedDate: '2025-12-01',
-    applicationDeadline: '2026-01-15'
-  },
-  {
-    id: 9,
-    title: 'Backend Engineer',
-    department: 'Development',
-    type: 'Full-time',
-    location: 'Hybrid',
-    remote: true,
-    experience: '4+ years',
-    description: 'Design and build scalable backend systems and APIs. Requires 4+ years with Node.js/Python, databases, and microservices architecture.',
-    responsibilities: [
-      'Design and implement RESTful APIs',
-      'Build scalable microservices architecture',
-      'Optimize database queries and performance',
-      'Implement caching and queuing systems',
-      'Ensure system security and reliability'
-    ],
-    requirements: [
-      'Bachelor\'s degree in Computer Science or related field',
-      '4+ years of backend development experience',
-      'Expertise in Node.js, Python, or Go',
-      'Strong knowledge of PostgreSQL, MongoDB, Redis',
-      'Experience with microservices and message queues'
-    ],
-    niceToHave: [
-      'Experience with GraphQL',
-      'Knowledge of Elasticsearch',
-      'Familiarity with event-driven architectures',
-      'Experience with high-traffic systems'
-    ],
-    benefits: [
-      'Competitive compensation package',
-      'Flexible work hours',
-      'Stock options',
-      'Learning and growth opportunities'
-    ],
-    salary: '$125,000 - $170,000',
-    postedDate: '2025-11-20',
-    applicationDeadline: '2026-01-20'
-  }
 ];
 
-// Helper Functions
-export const getJobsByDepartment = (department: JobPosition['department']): JobPosition[] => {
-  return jobPositions.filter(job => job.department === department);
+export const getJobsByCategory = (category: OpportunityCategory): JobPosition[] => {
+  return jobPositions.filter((job) => job.category === category);
 };
 
-export const getJobsByType = (type: JobPosition['type']): JobPosition[] => {
-  return jobPositions.filter(job => job.type === type);
+export const getJobsByType = (type: OpportunityType): JobPosition[] => {
+  return jobPositions.filter((job) => job.type === type);
 };
 
 export const getRemoteJobs = (): JobPosition[] => {
-  return jobPositions.filter(job => job.remote);
+  return jobPositions.filter((job) => job.remote);
 };
 
 export const getJobById = (id: number): JobPosition | undefined => {
-  return jobPositions.find(job => job.id === id);
+  return jobPositions.find((job) => job.id === id);
 };
 
-export const getAllDepartments = (): JobPosition['department'][] => {
-  return Array.from(new Set(jobPositions.map(job => job.department)));
+export const getAllCategories = (): OpportunityCategory[] => {
+  return Array.from(new Set(jobPositions.map((job) => job.category)));
 };
 
-export const getAllJobTypes = (): JobPosition['type'][] => {
-  return Array.from(new Set(jobPositions.map(job => job.type)));
+export const getAllJobTypes = (): OpportunityType[] => {
+  return Array.from(new Set(jobPositions.map((job) => job.type)));
 };
 
-export const getActiveJobs = (): JobPosition[] => {
-  const now = new Date();
-  return jobPositions.filter(job => {
-    if (!job.applicationDeadline) return true;
-    return new Date(job.applicationDeadline) > now;
-  });
-};
-
-export const isJobActive = (job: JobPosition): boolean => {
-  if (!job.applicationDeadline) return true;
-  return new Date(job.applicationDeadline) > new Date();
-};
-
-export const getJobsCount = (): { total: number; active: number; expired: number } => {
-  const active = getActiveJobs();
-  return {
-    total: jobPositions.length,
-    active: active.length,
-    expired: jobPositions.length - active.length
-  };
-};
+export const getJobsCount = (): { total: number } => ({
+  total: jobPositions.length,
+});

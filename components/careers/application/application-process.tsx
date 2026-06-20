@@ -18,10 +18,10 @@ export default function ApplicationProcess() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-            Application Process
+            How Collaborations Work
           </h2>
           <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Our hiring process is designed to be transparent and find the best fit for both you and our team
+            A simple way to see whether there is a real fit before anyone commits time
           </p>
         </motion.div>
 
@@ -45,19 +45,17 @@ export default function ApplicationProcess() {
         >
           <div className="inline-block bg-linear-to-r from-emerald-50 to-teal-50 dark:from-emerald-950/50 dark:to-teal-950/50 rounded-2xl p-8 border border-emerald-200/60 dark:border-emerald-800/60">
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
-              Ready to Join Our Team?
+              Interested in collaborating?
             </h3>
             <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl">
-              We&apos;re always looking for talented individuals who are passionate about AI and want to make a difference.
+              Review the opportunities below or contact us if your background does not match a listed role.
             </p>
             <a
               href="#positions"
               className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 dark:bg-emerald-500 text-white font-semibold rounded-xl hover:bg-emerald-700 dark:hover:bg-emerald-600 transition-colors shadow-lg shadow-emerald-500/30 relative overflow-hidden group"
             >
-              {/* Glass shimmer effect */}
               <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-              
-              <span className="relative">View Open Positions</span>
+              <span className="relative">View Opportunities</span>
               <Send className="relative w-5 h-5" />
             </a>
           </div>

@@ -20,7 +20,7 @@ export const joinCommunityContent: JoinCommunityContent = {
   description: "Collaborate with dedicated researchers and developers working on trustworthy AI for real-world conditions. We welcome contributors who value rigor, transparency, and responsible innovation.",
   buttons: {
     careers: {
-      text: "View Open Positions",
+      text: "Join Us",
       href: "/careers"
     },
     contact: {

@@ -104,10 +104,10 @@ export default function ApplicationModal({ isOpen, onClose, job }: ApplicationMo
                     <CheckCircle2 className="w-10 h-10 text-emerald-600 dark:text-emerald-400" />
                   </motion.div>
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                    Application Submitted!
+                    Interest Received
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400">
-                    Thank you for applying. We&apos;ll review your application and get back to you soon.
+                    Thank you for reaching out. We&apos;ll review your note and respond if there is a potential fit.
                   </p>
                 </div>
               ) : (
@@ -115,10 +115,10 @@ export default function ApplicationModal({ isOpen, onClose, job }: ApplicationMo
                   {/* Header */}
                   <div className="relative p-6 border-b border-gray-200 dark:border-gray-700">
                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white pr-8">
-                      Apply for {job.title}
+                      Express Interest: {job.title}
                     </h2>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                      {job.department} • {job.type}
+                      {job.category} • {job.type}
                     </p>
                     <button
                       onClick={handleClose}
@@ -213,7 +213,7 @@ export default function ApplicationModal({ isOpen, onClose, job }: ApplicationMo
                         <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                         
                         <span className="relative">
-                          {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                          {isSubmitting ? 'Sending...' : 'Send Interest'}
                         </span>
                       </button>
                     </div>

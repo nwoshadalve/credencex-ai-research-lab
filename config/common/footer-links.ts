@@ -16,7 +16,7 @@ export const footerLinks: FooterLinks = {
     { label: 'Our Mission', href: '/about#mission' },
     { label: 'Our Values', href: '/about#values' },
     { label: 'Teams', href: '/teams' },
-    { label: 'Careers', href: '/careers' },
+    { label: 'Join Us', href: '/careers' },
     { label: 'Contact', href: '/contact' },
   ],
   research: [

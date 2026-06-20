@@ -11,25 +11,25 @@ export const applicationProcessSteps: ApplicationProcessStep[] = [
   {
     id: 1,
     icon: FileText,
-    title: 'Submit Application',
-    description: 'Apply online with your resume, cover letter, and relevant work samples or research papers.'
+    title: 'Express Interest',
+    description: 'Send a short note with your CV, portfolio, or research links. Tell us which listing you are responding to and why it fits.',
   },
   {
     id: 2,
     icon: Users,
-    title: 'Initial Screening',
-    description: 'Our team reviews applications and conducts initial phone/video screenings with qualified candidates.'
+    title: 'Fit Check',
+    description: 'We check whether your background, timing, and the current project list line up. If there is no fit, we will not force one.',
   },
   {
     id: 3,
     icon: Send,
-    title: 'Technical Interview',
-    description: 'Participate in technical interviews to demonstrate your skills and problem-solving abilities.'
+    title: 'Scope the Work',
+    description: 'If it looks promising, we discuss time commitment, expected output, compensation if available, and any university requirements.',
   },
   {
     id: 4,
     icon: CheckCircle,
-    title: 'Final Interview & Offer',
-    description: 'Meet with team leaders for a final discussion. Successful candidates receive an offer to join our team.'
-  }
+    title: 'Start Clearly',
+    description: 'Before work begins, we write down the scope, expectations, and any limits around health-related research claims.',
+  },
 ];

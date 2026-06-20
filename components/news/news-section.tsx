@@ -8,9 +8,13 @@ import {
   getAllNewsTypes, 
   newsTypeConfig,
   parseNewsDate,
-  NewsType
+  filterNewsByEventTiming,
+  NewsType,
+  EventTimingFilter,
 } from '@/config/home/news';
 import NewsCard from './news-card';
+import NewsModal from './news-modal';
+import { useNewsModal } from './use-news-modal';
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, Loader2 } from 'lucide-react';
 
 interface NewsSectionProps {
@@ -21,13 +25,14 @@ const ITEMS_PER_PAGE = 6;
 
 export default function NewsSection({ newsType }: NewsSectionProps) {
   const [selectedType, setSelectedType] = useState<NewsType | 'all'>(newsType);
+  const [eventTiming, setEventTiming] = useState<EventTimingFilter>('all');
   const [selectedYear, setSelectedYear] = useState<string>('all');
   const [selectedMonth, setSelectedMonth] = useState<string>('all');
   const [selectedDay, setSelectedDay] = useState<string>('all');
-  const [expandedId, setExpandedId] = useState<number | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const filterSectionRef = useRef<HTMLDivElement>(null);
+  const { selectedNews, openNews, closeNews } = useNewsModal('/news');
   
   const allTypes = getAllNewsTypes();
 
@@ -82,8 +87,10 @@ export default function NewsSection({ newsType }: NewsSectionProps) {
       );
     }
     
+    filtered = filterNewsByEventTiming(filtered, eventTiming);
+    
     return filtered;
-  }, [selectedType, selectedYear, selectedMonth, selectedDay]);
+  }, [selectedType, eventTiming, selectedYear, selectedMonth, selectedDay]);
 
   // Pagination calculations
   const totalPages = Math.ceil(filteredNews.length / ITEMS_PER_PAGE);
@@ -94,19 +101,7 @@ export default function NewsSection({ newsType }: NewsSectionProps) {
   // Reset to page 1 when filters change
   useEffect(() => {
     setCurrentPage(1);
-  }, [selectedType, selectedYear, selectedMonth, selectedDay]);
-
-  // Reset expanded card when filters or page changes
-  useEffect(() => {
-    if (expandedId !== null) {
-      setExpandedId(null);
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedType, selectedYear, selectedMonth, selectedDay, currentPage]);
-
-  const toggleExpand = (id: number) => {
-    setExpandedId(expandedId === id ? null : id);
-  };
+  }, [selectedType, eventTiming, selectedYear, selectedMonth, selectedDay]);
 
   const handlePageChange = (newPage: number) => {
     if (newPage < 1 || newPage > totalPages || newPage === currentPage) return;
@@ -232,6 +227,32 @@ export default function NewsSection({ newsType }: NewsSectionProps) {
                       </button>
                     );
                   })}
+                </div>
+              </div>
+
+              {/* Upcoming vs Past (events/talks and all dated items) */}
+              <div>
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3 px-1">
+                  Upcoming vs Past
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {([
+                    { value: 'all', label: 'All' },
+                    { value: 'upcoming', label: 'Upcoming' },
+                    { value: 'past', label: 'Past' },
+                  ] as const).map(({ value, label }) => (
+                    <button
+                      key={value}
+                      onClick={() => setEventTiming(value)}
+                      className={`px-4 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 cursor-pointer ${
+                        eventTiming === value
+                          ? 'bg-violet-500/90 dark:bg-violet-500/80 text-white shadow-lg shadow-violet-500/30 scale-105'
+                          : 'bg-white/60 dark:bg-gray-800/60 backdrop-blur-xl border border-gray-200/50 dark:border-gray-600/50 text-gray-700 dark:text-gray-300 hover:bg-white/80 dark:hover:bg-gray-800/80 hover:scale-105 hover:shadow-md'
+                      }`}
+                    >
+                      {label}
+                    </button>
+                  ))}
                 </div>
               </div>
 
@@ -404,7 +425,7 @@ export default function NewsSection({ newsType }: NewsSectionProps) {
             </motion.div>
           ) : (
             <motion.div
-              key={`news-list-${selectedType}-${selectedYear}-${selectedMonth}-${selectedDay}-${currentPage}`}
+              key={`news-list-${selectedType}-${eventTiming}-${selectedYear}-${selectedMonth}-${selectedDay}-${currentPage}`}
               variants={containerVariants}
               initial="hidden"
               animate="visible"
@@ -418,11 +439,7 @@ export default function NewsSection({ newsType }: NewsSectionProps) {
                   layout
                   className="relative"
                 >
-                  <NewsCard 
-                    news={news} 
-                    isExpanded={expandedId === news.id}
-                    onToggle={() => toggleExpand(news.id)}
-                  />
+                  <NewsCard news={news} onOpen={openNews} />
                 </motion.article>
               ))}
             </motion.div>
@@ -552,6 +569,8 @@ export default function NewsSection({ newsType }: NewsSectionProps) {
           </motion.div>
         )}
       </div>
+
+      <NewsModal news={selectedNews} onClose={closeNews} />
     </section>
   );
 }
