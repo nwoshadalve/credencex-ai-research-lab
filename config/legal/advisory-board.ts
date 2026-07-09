@@ -23,21 +23,6 @@ export interface AdvisoryMember {
 export const advisoryBoardMembers: AdvisoryMember[] = [
   {
     id: 1,
-    name: 'Prof. Dr. Ahmed Wasif Reza',
-    position: 'Dean of Faculty of Sciences and Engineering',
-    institute: 'East West University',
-    expertise: 'Clinical AI Safety & Deployment',
-    bio: 'Dr. Reza specializes in the safe deployment of AI systems in clinical settings, with a focus on uncertainty quantification and human-AI collaboration in diagnostic workflows.',
-    email: 'wasif@ewubd.edu',
-    avatar: '/teams/wasif.jpg',
-    socialLinks: {
-      linkedin: 'https://www.linkedin.com/in/professor-dr-ahmed-wasif-reza-099920151/',
-      googleScholar: 'https://scholar.google.com/citations?user=4dhJMl4AAAAJ&hl=en',
-      orcid: 'https://orcid.org/0000-0003-4321-5880',
-    },
-  },
-  {
-    id: 2,
     name: 'Prof. Dr. Nazmul Siddique',
     position: 'Professor of School of Computing & Intelligent System',
     institute: 'Ulster University',
@@ -51,7 +36,7 @@ export const advisoryBoardMembers: AdvisoryMember[] = [
     },
   },
   {
-    id: 3,
+    id: 2,
     name: 'Dr. Abhishek Appaji',
     position: 'Senior Research Scientist of Medical Electronics',
     institute: 'Maastricht University',
@@ -65,7 +50,7 @@ export const advisoryBoardMembers: AdvisoryMember[] = [
     },
   },
   {
-    id: 4,
+    id: 3,
     name: 'Prof. Dr. Elena Marchetti',
     position: 'Professor of Biomedical Informatics',
     institute: 'University of Bologna',
@@ -80,7 +65,7 @@ export const advisoryBoardMembers: AdvisoryMember[] = [
     },
   },
   {
-    id: 5,
+    id: 4,
     name: 'Dr. James K. Owusu',
     position: 'Associate Professor of Computer Science',
     institute: 'University of Ghana',
@@ -94,7 +79,7 @@ export const advisoryBoardMembers: AdvisoryMember[] = [
     },
   },
   {
-    id: 6,
+    id: 5,
     name: 'Dr. Yuki Tanaka',
     position: 'Senior Researcher, AI Safety',
     institute: 'RIKEN Center for Advanced Intelligence Project',
@@ -109,7 +94,7 @@ export const advisoryBoardMembers: AdvisoryMember[] = [
     },
   },
   {
-    id: 7,
+    id: 6,
     name: 'Prof. Sarah M. Connolly',
     position: 'Professor of Health Law & Bioethics',
     institute: 'Trinity College Dublin',

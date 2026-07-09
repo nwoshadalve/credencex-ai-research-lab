@@ -29,19 +29,6 @@ export const researchTeam: TeamMember[] = [
 
   {
     id: 1,
-    name: "Prof. Dr. Ahmed Wasif Reza",
-    role: "Research Scientist",
-    position: "East West University (Dean); University of Malaya (Malaysia); Multimedia University (Malaysia)",
-    institute: "CredenceX AI Research Lab",
-    email: "wasif@ewubd.edu",
-    avatar: "/teams/wasif.jpg",
-    socialLinks: {
-      linkedin: "https://www.linkedin.com/in/professor-dr-ahmed-wasif-reza-099920151/",
-      googleScholar: "https://scholar.google.com/citations?user=4dhJMl4AAAAJ&hl=en"
-    }
-  },
-  {
-    id: 2,
     name: "Dr. Nazmul Siddique",
     role: "Research Consultant",
     position: "Ulster University(UK); The University of Sheffield(UK); Technische Universität Dresden(Germany)",
@@ -53,21 +40,8 @@ export const researchTeam: TeamMember[] = [
       googleScholar: "https://scholar.google.com/citations?user=oV13Kl0AAAAJ&hl=en"
     }
   },
-    {
-    id: 3,
-    name: "Dr. Fakir Mashuque Alamgir",
-    role: "Supervisor",
-    position: "University of Dhaka; University of Greenwich(UK)",
-    institute: "CredenceX AI Research Lab",
-    email: "fma@ewubd.edu",
-    avatar: "/teams/mashuque.jpeg",
-    socialLinks: {
-      linkedin: "https://www.linkedin.com/in/dr-fakir-mashuque-alamgir-066114338/",
-      googleScholar: "https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=sD1W1egAAAAJ"
-    }
-  },
   {
-    id: 4,
+    id: 2,
     name: "Prof. Dr. Abhishek Appaji",
     role: "Supervisor",
     position: "Maastricht University(Netherlands); Massachusetts Institute of Technology(USA)",
@@ -80,7 +54,7 @@ export const researchTeam: TeamMember[] = [
     }
   },
   {
-    id: 5,
+    id: 3,
     name: "Dr. Md Junayed Hasan",
     role: "Supervisor",
     position: "University of Glasgow(UK); University of Ulsan(South Korea); National Subsea Centre(UK); ",
@@ -98,7 +72,7 @@ export const researchTeam: TeamMember[] = [
   // =========================
   
   {
-    id: 6,
+    id: 4,
    name: "Ferdaus Ibne Aziz",
     role: "Lead Researcher",
     position: "MS in Artificial Intelligence, Woosong University, South Korea",
@@ -113,7 +87,7 @@ export const researchTeam: TeamMember[] = [
 
 
   {
-    id: 7,
+    id: 5,
     name: "Anamul Haque Sakib",
     role: "Lead Researcher",
     position: "MS, International American University, Los Angeles, USA",
@@ -125,7 +99,7 @@ export const researchTeam: TeamMember[] = [
     }
   },
   {
-    id: 8,
+    id: 6,
     name: "Md Ismail Hossain Siddiqui",
     role: "Lead Researcher",
     position: "MS in Engineering/Industrial Management, Westcliff University, Irvine, USA",
@@ -137,7 +111,7 @@ export const researchTeam: TeamMember[] = [
     }
   },
   {
-    id: 9,
+    id: 7,
     name: "Md Tanvir Rahman Tarafder",
     role: "Lead Researcher",
     position: "MS in Information Technology, Westcliff University, Irvine, USA",
@@ -149,7 +123,7 @@ export const researchTeam: TeamMember[] = [
     }
   },
 {
-    id: 10,
+    id: 8,
     name: "Hamdadur rahman",
     role: "Lead Researcher",
     position: "MS, International American University, Los Angeles, USA",
@@ -161,7 +135,7 @@ export const researchTeam: TeamMember[] = [
     }
   },
   {
-    id: 11,
+    id: 9,
     name: "Abdullah AL Noman",
     role: "Lead Researcher",
     position: "MS in Information Technology, Westcliff University, Irvine, USA",
@@ -173,7 +147,7 @@ export const researchTeam: TeamMember[] = [
     }
   },
 {
-    id: 12,
+    id: 10,
     name: "Hasib Mahmud Fardin",
     role: "Lead Researcher",
     position: "MS in Engineering/Industrial Management, Westcliff University, Irvine, USA",
@@ -186,7 +160,7 @@ export const researchTeam: TeamMember[] = [
   },
 
   {
-    id: 13,
+    id: 11,
    name: "Shah Imran",
     role: "Lead Researcher",
     position: "PhD in Information Systems Engineering, Concordia University, Canada",
@@ -202,7 +176,7 @@ export const researchTeam: TeamMember[] = [
   // Researchers
   // =========================
   {
-    id: 14,
+    id: 12,
     name: "Arafath Bin Mohiuddin",
     role: "Researcher",
     position: "MS in Information Technology, Westcliff University, Irvine, USA",
@@ -214,7 +188,7 @@ export const researchTeam: TeamMember[] = [
     }
   },
   {
-    id: 15,
+    id: 13,
     name: "Jesika Debnath",
     role: "Researcher",
     position: "MS in Computer Science, Westcliff University, Irvine, USA",
@@ -226,7 +200,7 @@ export const researchTeam: TeamMember[] = [
     }
   },
   {
-    id: 16,
+    id: 14,
     name: "Zishad Hossain Limon",
     role: "Researcher",
     position: "MS in Computer Science, Westcliff University, Irvine, USA",
@@ -238,7 +212,7 @@ export const researchTeam: TeamMember[] = [
     }
   },
   {
-    id: 17,
+    id: 15,
     name: "Md Nuruzzaman Pranto",
     role: "Researcher",
     position: "MS, International American University, Los Angeles, USA",
@@ -254,7 +228,7 @@ export const researchTeam: TeamMember[] = [
   // Research Assistants
   // =========================
   {
-    id: 18,
+    id: 16,
     name: "Amira Hossain",
     role: "Research Assistant",
     position: "MS in Computer Science, Westcliff University, Irvine, USA",
@@ -266,7 +240,7 @@ export const researchTeam: TeamMember[] = [
     }
   },
   {
-    id: 19,
+    id: 17,
     name: "Al Shahriar Uddin Khondakar Pranta",
     role: "Research Assistant",
     position: "MS in Computer Science at Wright State University, Ohio, USA",
@@ -275,34 +249,6 @@ export const researchTeam: TeamMember[] = [
     avatar: "/team/placeholder.jpg",
     socialLinks: {
       googleScholar: "https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=rXICsQoAAAAJ",
-    }
-  },
-  {
-    id: 20,
-    name: "S M Arafat Rahman",
-    role: "Research Assistant",
-    position: "BS in CSE at East West University, Bangladesh",
-    institute: "CredenceX AI Research Lab",
-    email: "smarafat233@gmail.com",
-    avatar: "/teams/arafat.jpg",
-    socialLinks: {
-      linkedin: "https://www.linkedin.com/in/s-m-arafat-rahman-4b2aa8228/",
-      googleScholar: "https://scholar.google.com/citations?user=Y4MLN8gAAAAJ&hl=en",
-      github: "https://github.com/SmArafatRahman"
-    }
-  },
-  {
-    id: 21,
-    name: "Sheikh Shemanto Afridi",
-    role: "Research Assistant",
-    position: "BS in CSE at East West University, Bangladesh",
-    institute: "CredenceX AI Research Lab",
-    email: "sheikhshemantoafridi@gmail.com",
-    avatar: "/teams/afridi.jpg",
-    socialLinks: {
-      linkedin: "https://www.linkedin.com/in/ssafridi7676/",
-      googleScholar: "https://scholar.google.com/citations?user=QB4ZmDIAAAAJ&hl=en",
-      github: "https://github.com/redrik278"
     }
   }
 ];

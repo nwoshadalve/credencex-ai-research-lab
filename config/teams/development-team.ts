@@ -33,20 +33,6 @@ export type DevelopmentRole =
 export const developmentTeam: DevelopmentTeamMember[] = [
   {
     id: 1,
-    name: "Rezaul Haque",
-    role: "Founding Members",
-    position: "Founder & Research Director",
-    department: "CredenceX AI Research Lab",
-    email: "r.haque@credencex.ai",
-    avatar: "/teams/reza.JPG",
-    socialLinks: {
-      linkedin: "https://www.linkedin.com/in/-rezaulhaque/",
-      googleScholar: "https://scholar.google.com/citations?user=wi2kfzYAAAAJ&hl=en",
-      website: "https://redrik278.github.io/reza/"
-    }
-  },
-  {
-    id: 2,
     name: "Abdullah Al Sakib",
     role: "Founding Members",
     position: "Founder & CEO",
@@ -59,21 +45,7 @@ export const developmentTeam: DevelopmentTeamMember[] = [
     }
   },
   {
-    id: 3,
-    name: "Md. Redwan Ahmed",
-    role: "Founding Members",
-    position: "Co-Founder & Research Lead",
-    department: "CredenceX AI Research Lab",
-    email: "r.ahmed@credencex.ai",
-    avatar: "/teams/Redwan.jpeg",
-    socialLinks: {
-      linkedin: "https://www.linkedin.com/in/redrik278/",
-      googleScholar: "https://scholar.google.com/citations?user=_GI3BXMAAAAJ&hl=en",
-      website: "https://redrik278.github.io/Redwan"
-    }
-  },
-  {
-    id: 4,
+    id: 2,
     name: "S M Masfequier Rahman Swapno",
     role: "R&D Lead",
     position: "AI and Digital Health Technology, The University of Queensland, St Lucia, QLD 4072, Australia",
@@ -86,7 +58,7 @@ export const developmentTeam: DevelopmentTeamMember[] = [
       }
   },
   {
-    id: 5,
+    id: 3,
     name: "MD Nwoshad Alam Chowdhury",
     role: "R&D Lead",
     position: "Engineering Lead (Web Platform & Product Delivery)",
@@ -100,7 +72,7 @@ export const developmentTeam: DevelopmentTeamMember[] = [
     }
   },
   {
-    id: 6,
+    id: 4,
     name: "Shakil Khan",
     role: "Senior Full Stack Developer",
     position: "Senior Full Stack Engineer (AI Web Apps, Dashboards, Model Integration)",
@@ -112,32 +84,7 @@ export const developmentTeam: DevelopmentTeamMember[] = [
     }
   },
   {
-    id: 7,
-    name: "Naimul Islam",
-    role: "Senior Full Stack Developer",
-    position: "Senior Full Stack Engineer (Inference UI, Explainability Views, Reporting)",
-    department: "Department of CSE, East West University, Dhaka 1212, Bangladesh",
-    email: "naimul.islam.pulak@gmail.com",
-    avatar: "/teams/naimul.webp",
-    socialLinks: {
-      linkedin: "https://www.linkedin.com/in/naimul-islam-pulak/",
-      googleScholar: "https://scholar.google.com/citations?user=Z5wu9jsAAAAJ&hl=en"
-    }
-  },
-  {
-    id: 8,
-    name: "Katura Gania Khushbu",
-    role: "Senior Frontend Developer",
-    position: "Senior Frontend Engineer (Visualization, Explainability UI, UX)",
-    department: "Department of CSE, East West University, Dhaka 1212, Bangladesh",
-    email: "katurakhushbu@gmail.com",
-    avatar: "/teams/khushbu.jpg",
-    socialLinks: {
-      googleScholar: "https://scholar.google.com/citations?user=fASYqA4AAAAJ&hl=en"
-    }
-  },
-  {
-    id: 9,
+    id: 5,
     name: "Md Ariful Islam",
     role: "Senior Backend Developer",
     position: "Senior Backend Engineer (APIs, Model Serving, Data Pipelines)",
@@ -149,7 +96,7 @@ export const developmentTeam: DevelopmentTeamMember[] = [
     }
   },
   {
-    id: 10,
+    id: 6,
     name: "Md Mahfuzur Rahman",
     role: "DevOps Engineer",
     position: "DevOps / MLOps Engineer (CI/CD, Containers, Deployment Automation)",
@@ -161,7 +108,7 @@ export const developmentTeam: DevelopmentTeamMember[] = [
     }
   },
   {
-    id: 11,
+    id: 7,
     name: "Shafiur Rahman",
     role: "DevOps Engineer",
     position: "DevOps Engineer (Cloud Ops, Monitoring, Reliability)",
@@ -173,7 +120,7 @@ export const developmentTeam: DevelopmentTeamMember[] = [
     }
   },
   {
-    id: 12,
+    id: 8,
     name: "Ferdaus Ibne Aziz",
     role: "ML Engineer",
     position: "ML Engineer (Model Packaging, Benchmarking, Reproducibility)",
@@ -186,7 +133,7 @@ export const developmentTeam: DevelopmentTeamMember[] = [
     }
   },
   {
-    id: 13,
+    id: 9,
     name: "Asif Ahamed",
     role: "Full Stack Developer",
     position: "Full Stack Engineer (Demo Apps, Dataset Tools, Experiment Tracking)",
@@ -195,18 +142,6 @@ export const developmentTeam: DevelopmentTeamMember[] = [
     avatar: "/teams/asif.jfif",
     socialLinks: {
       googleScholar: "https://scholar.google.com/citations?user=5nktbr8AAAAJ&hl=en"
-    }
-  },
-  {
-    id: 14,
-    name: "Mahedi Hassan Ratul",
-    role: "Frontend Developer",
-    position: "Frontend Engineer (Component Library, Landing Pages, Docs)",
-    department: "Department of CSE, East West University, Dhaka 1212, Bangladesh",
-    email: "mahammad.ratul1004@gmail.com",
-    avatar: "",
-    socialLinks: {
-      googleScholar: "https://www.researchgate.net/profile/Mahedi-Ratul"
     }
   }
 ];
